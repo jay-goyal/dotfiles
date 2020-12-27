@@ -1,7 +1,7 @@
 #!/bin/bash
 
-declare options=("shutdown
-shutdown_later
+declare options=("shutdown_later
+shutdown
 reboot")
 
 choice=$(echo -e "${options[@]}" | dmenu -p 'What Should The Computer Do: ')

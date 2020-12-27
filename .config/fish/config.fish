@@ -4,60 +4,52 @@ set TERM "xterm-256color"              # Sets the terminal type
 set EDITOR "vim"      # $EDITOR use Emacs in terminal
 set VISUAL "vim"   # $VISUAL use Emacs in GUI mode
 
-## SPARK ##
-set -g spark_version 1.0.0
+### PROMPT ###
 
-complete -xc spark -n __fish_use_subcommand -a --help -d "Show usage help"
-complete -xc spark -n __fish_use_subcommand -a --version -d "$spark_version"
-complete -xc spark -n __fish_use_subcommand -a --min -d "Minimum range value"
-complete -xc spark -n __fish_use_subcommand -a --max -d "Maximum range value"
 
-function spark -d "sparkline generator"
-    if isatty
-        switch "$argv"
-            case {,-}-v{ersion,}
-                echo "spark version $spark_version"
-            case {,-}-h{elp,}
-                echo "usage: spark [--min=<n> --max=<n>] <numbers...>  Draw sparklines"
-                echo "examples:"
-                echo "       spark 1 2 3 4"
-                echo "       seq 100 | sort -R | spark"
-                echo "       awk \\\$0=length spark.fish | spark"
-            case \*
-                echo $argv | spark $argv
-        end
-        return
-    end
-
-    command awk -v FS="[[:space:],]*" -v argv="$argv" '
-        BEGIN {
-            min = match(argv, /--min=[0-9]+/) ? substr(argv, RSTART + 6, RLENGTH - 6) + 0 : ""
-            max = match(argv, /--max=[0-9]+/) ? substr(argv, RSTART + 6, RLENGTH - 6) + 0 : ""
-        }
-        {
-            for (i = j = 1; i <= NF; i++) {
-                if ($i ~ /^--/) continue
-                if ($i !~ /^-?[0-9]/) data[count + j++] = ""
-                else {
-                    v = data[count + j++] = int($i)
-                    if (max == "" && min == "") max = min = v
-                    if (max < v) max = v
-                    if (min > v ) min = v
-                }
-            }
-            count += j - 1
-        }
-        END {
-            n = split(min == max && max ? "▅ ▅" : "▁ ▂ ▃ ▄ ▅ ▆ ▇ █", blocks, " ")
-            scale = (scale = int(256 * (max - min) / (n - 1))) ? scale : 1
-            for (i = 1; i <= count; i++)
-                out = out (data[i] == "" ? " " : blocks[idx = int(256 * (data[i] - min) / scale) + 1])
-            print out
-        }
-    '
+# name: mars (based on eclm)
+function _git_branch_name
+  echo (command git symbolic-ref HEAD 2> /dev/null | sed -e 's|^refs/heads/||')
 end
-### END OF SPARK ###
 
+function _is_git_dirty
+  echo (command git status -s --ignore-submodules=dirty 2> /dev/null)
+end
+
+function fish_prompt
+  set -l last_status $status
+  set -l cyan (set_color -o cyan)
+  set -l yellow (set_color -o yellow)
+  set -l red (set_color -o red)
+  set -l blue (set_color -o blue)
+  set -l green (set_color -o green)
+  set -l normal (set_color normal)
+
+  if test $last_status = 0
+      set arrow " $green▶︎︎"
+  else
+      set arrow " $red▶︎︎"
+  end
+  set -l cwd $cyan(prompt_pwd)
+
+  if [ (_git_branch_name) ]
+    set git_branch (_git_branch_name)
+
+    if [ (_is_git_dirty) ]
+      set git_info "$blue ($yellow$git_branch±$blue)"
+    else
+      if test (_git_branch_name) = 'main'
+        set git_info "$blue ($red$git_branch$blue)"
+      else
+        set git_info "$blue ($normal$git_branch$blue)"
+      end
+    end
+  end
+
+  echo -n -s $cwd $git_info $normal $arrow $normal ' '
+end
+
+### END OF PROMPT ###
 
 # Functions needed for !! and !$
 # Will only work in default (emacs) mode.
@@ -101,8 +93,6 @@ end
 
 
 ## ALIASES ##
-alias clear='clear; echo; echo; seq 1 (tput cols) | sort -R | spark | lolcat; echo; echo'
-
 abbr yays "yay -S"
 abbr yayss "yay -Ss"
 abbr yaysyyu "yay -Syyu"
@@ -118,8 +108,8 @@ alias vim="nvim"
 
 abbr grep "rg"
 abbr du "dust"
+abbr compile "g++ -Wall -std=c++14"
 
 export PATH="$HOME/.emacs.d/bin:$PATH"
 
 colorscript random
-starship init fish | source

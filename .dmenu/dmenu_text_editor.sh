@@ -1,8 +1,9 @@
 #!/bin/bash
 
-declare options=("Sublime
+declare options=("VSCode
+Atom
 Emacs
-VSCode")
+Sublime")
 
 choice=$(echo -e "${options[@]}" | dmenu -p 'Which Text Editor Would You Like To Use?: ')
 
@@ -15,6 +16,9 @@ case "$choice" in
   ;;
   VSCode)
     code
+  ;;
+  Atom)
+    atom
   ;;
   *)
     exit 1
