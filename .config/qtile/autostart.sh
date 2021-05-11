@@ -1,8 +1,6 @@
 #! /bin/bash 
-variety &
+nitrogen --restore &
 picom &
-urxvtd -q -o -f &
 xfce4-power-manager &
-dbus-launch thunar --daemon &
 xfce4-power-manager &
 lxappearance &
