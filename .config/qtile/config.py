@@ -49,18 +49,6 @@ keys = [
 		lazy.spawn("code ~/projects/python"),
 		desc="Work on my Python Projects"),
 
-	# Dmenu Scripts
-
-	Key([mod], "s",
-		lazy.spawn("/home/jay/.dmenu/dmenu_shutdown_script.sh"),
-		desc="Dmenu Shutdown Scripts"),
-	Key([mod], "t",
-		lazy.spawn("/home/jay/.dmenu/dmenu_text_editor.sh"),
-		desc="Launch A Text Editor"),
-	Key([mod], "c",
-		lazy.spawn("/home/jay/.dmenu/dmenu_edit_conf.sh"),
-		desc="Edit my Configs"),
-
 	# Volume Controls
 	Key([], "XF86AudioRaiseVolume",
 		lazy.spawn("amixer -c 0 -q set Master 1dB+")),
@@ -186,8 +174,8 @@ colors = [["#292d3e", "#292d3e"],  # panel background
 		  ["#8be8fd", "#8be9fd"]]   # cyan
 
 widget_defaults = dict(
-	font="Hack",
-	fontsize=14,
+	font="MesoLGS NF",
+	fontsize=12,
 	padding=2,
 	background=colors[2]
 )
