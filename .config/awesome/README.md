@@ -1,0 +1,1 @@
+My config of awesome derived from CTT's config.
