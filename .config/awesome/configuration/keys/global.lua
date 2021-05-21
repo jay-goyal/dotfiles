@@ -159,7 +159,7 @@ local globalKeys =
     {description = 'Increase master height factor', group = 'layout'}
   ),
   awful.key(
-    {akltkey, 'Shift'},
+    {altkey, 'Shift'},
     'Left',
     function()
       awful.tag.incnmaster(1, nil, true)
@@ -175,7 +175,7 @@ local globalKeys =
     {description = 'Decrease the number of master clients', group = 'layout'}
   ),
   awful.key(
-    {alktkey, 'Control'},
+    {altkey, 'Control'},
     'Left',
     function()
       awful.tag.incncol(1, nil, true)
