@@ -1,3 +1,3 @@
 # Dotfiles
 My Personal Dotfiles...
-Alacritty, Doom Emacs, Qtile, Fish, NeoVim
+Alacritty, Awesome, Zsh
