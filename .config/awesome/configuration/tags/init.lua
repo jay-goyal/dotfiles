@@ -43,7 +43,7 @@ local tags = {
   {
     icon = icons.lab,
     type = 'any',
-    defaultApp = apps.default.vid_edit,
+    defaultApp = apps.default.rofi,
     screen = 1
   }
 }
