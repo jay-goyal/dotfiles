@@ -3,13 +3,15 @@ local filesystem = require('gears.filesystem')
 -- Thanks to jo148 on github for making rofi dpi aware!
 local with_dpi = require('beautiful').xresources.apply_dpi
 local get_dpi = require('beautiful').xresources.get_dpi
-local rofi_command = 'env /usr/bin/rofi -dpi ' .. get_dpi() .. ' -width ' .. with_dpi(400) .. ' -show drun -theme ' .. filesystem.get_configuration_dir() .. '/configuration/rofi.rasi -run-command "/bin/bash -c -i \'shopt -s expand_aliases; {cmd}\'"'
+local rofi_command = 'env /usr/bin/rofi -dpi ' .. get_dpi() .. ' -width ' .. with_dpi(400) .. ' -show drun'
+local rofi_window = 'env /usr/bin/rofi -dpi ' .. get_dpi() .. ' -width ' .. with_dpi(400) .. ' -show window'
 
 return {
   -- List of apps to start by default on some actions
   default = {
     terminal = 'alacritty',
     rofi = rofi_command,
+    rofi_win = rofi_window,
     lock = 'i3lock-fancy',
     quake = 'alacritty',
     screenshot = 'flameshot screen -p ~/Pictures',
@@ -20,6 +22,7 @@ return {
     social = 'discord',
     game = 'heroic',
     files = 'nautilus',
+    vid_edit = '/opt/resolve/bin/resolve',
     music = 'spotify' 
   },
   -- List of apps to start once on start-up

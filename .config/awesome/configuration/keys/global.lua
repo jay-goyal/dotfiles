@@ -38,7 +38,7 @@ local globalKeys =
     {modkey},
     'r',
     function()
-      awful.spawn('rofi -combi-modi window,drun -show combi -modi combi')
+      awful.spawn(apps.default.rofi)
     end,
     {description = 'Main menu', group = 'awesome'}
   ),
@@ -197,6 +197,14 @@ local globalKeys =
       awful.layout.inc(1)
     end,
     {description = 'Select next', group = 'layout'}
+  ),
+  awful.key(
+    {altkey},
+    'Tab',
+    function()
+      awful.spawn(apps.default.rofi_win)
+    end,
+    {description = 'Active applications', group = 'awesome'}
   ),
   awful.key(
     {modkey, 'Control'},
