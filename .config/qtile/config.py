@@ -20,7 +20,7 @@ from typing import List  # noqa: F401
 mod = "mod4"
 terminal = "alacritty"
 browser = "brave"
-file_manager = "nautilus"
+file_manager = "pcmanfm"
 
 keys = [
 	# Window Controls
@@ -37,8 +37,8 @@ keys = [
 		lazy.spawn(file_manager),
 		desc="Launch my File Manager"),
 	Key([mod], "r",
-		lazy.spawn("dmenu_run -c -g 1 -l 25 -bw 3 -p 'Run: '"),
-		desc="Dmenu Run Menu"),
+		lazy.spawn("rofi -show run"),
+		desc="Rofi Run Menu"),
 	Key([mod], "d",
 		lazy.spawn("discord"),
 		desc="Launch Discord"),
@@ -51,11 +51,11 @@ keys = [
 
 	# Volume Controls
 	Key([], "XF86AudioRaiseVolume",
-		lazy.spawn("amixer -c 0 -q set Master 1dB+")),
+		lazy.spawn("mixer -D pulse sset Master 5%+")),
 	Key([], "XF86AudioLowerVolume",
-		lazy.spawn("amixer -c 0 -q set Master 1dB-")),
+		lazy.spawn("amixer -D pulse sset Master 5%-")),
 	Key([], "XF86AudioMute",
-		lazy.spawn("amixer -c 0 -q set Master toggle")),
+		lazy.spawn("amixer -D pulse set Master 1+ toggle")),
 
 	# Switch between windows in current stack pane
 	Key([mod], "k",
