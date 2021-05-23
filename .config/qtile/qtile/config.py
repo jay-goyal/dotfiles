@@ -174,7 +174,7 @@ colors = [["#292d3e", "#292d3e"],  # panel background
 		  ["#8be8fd", "#8be9fd"]]   # cyan
 
 widget_defaults = dict(
-	font="MesoLGS NF",
+	font="Hack Bold",
 	fontsize=12,
 	padding=2,
 	background=colors[2]
@@ -204,7 +204,7 @@ def init_widgets_list():
 				"dmenu_run -c -g 4 -l 25 -bw 3 -p 'Run: '")}
 		),
 		widget.GroupBox(
-			font="Source Code Pro Bold",
+			font="Hack Bold",
 			fontsize=11,
 			margin_y=3,
 			margin_x=0,
@@ -248,7 +248,7 @@ def init_widgets_list():
 			fontsize=20
 		),
 		widget.TextBox(
-			text=" ⟳",
+			text="⟳",
 			padding=2,
 			foreground=colors[6],
 			background=colors[0],
@@ -279,7 +279,7 @@ def init_widgets_list():
 			fontsize=20
 		),
 		widget.TextBox(
-			text=" 🖬",
+			text="💾",
 			foreground=colors[7],
 			background=colors[0],
 			padding=0,
@@ -300,7 +300,7 @@ def init_widgets_list():
 			fontsize=20
 		),
 		widget.TextBox(
-			text=" 🌡",
+			text="🌡",
 			padding=2,
 			foreground=colors[8],
 			background=colors[0],
