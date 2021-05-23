@@ -51,11 +51,11 @@ keys = [
 
 	# Volume Controls
 	Key([], "XF86AudioRaiseVolume",
-		lazy.spawn("mixer -D pulse sset Master 5%+")),
+		lazy.spawn("amixer -c 0 -q set Master 1dB+")),
 	Key([], "XF86AudioLowerVolume",
-		lazy.spawn("amixer -D pulse sset Master 5%-")),
+		lazy.spawn("amixer -c 0 -q set Master 1dB-")),
 	Key([], "XF86AudioMute",
-		lazy.spawn("amixer -D pulse set Master 1+ toggle")),
+		lazy.spawn("amixer -c 0 -q set Master toggle")),
 
 	# Switch between windows in current stack pane
 	Key([mod], "k",
