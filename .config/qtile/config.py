@@ -21,6 +21,7 @@ mod = "mod4"
 terminal = "alacritty"
 browser = "brave"
 file_manager = "pcmanfm"
+my_edit = "code"
 
 keys = [
 	# Window Controls
@@ -42,12 +43,9 @@ keys = [
 	Key([mod], "d",
 		lazy.spawn("discord"),
 		desc="Launch Discord"),
-	Key([mod], "a",
-		lazy.spawn("anaconda-navigator"),
-		desc="Launch Anaconda Navigator"),
-	Key([mod], "p",
-		lazy.spawn("code ~/projects/python"),
-		desc="Work on my Python Projects"),
+	Key([mod], "c",
+	    	lazy.spawn("code")
+	    	desc="Launch code editor"),
 
 	# Volume Controls
 	Key([], "XF86AudioRaiseVolume",
@@ -122,12 +120,11 @@ keys = [
 
 # Changing a group names
 group_names = [("WEB", {'layout': 'monadtall'}),
-			   ("DEV", {'layout': 'monadtall'}),
-			   ("VIRMAN", {'layout': 'floating'}),
-			   ("CLASS", {'layout': 'max'}),
-			   ("CHAT", {'layout': 'monadtall'}),
-			   ("MUS", {'layout': 'monadtall'}),
-			   ("SYS", {'layout': 'max'})]
+	       ("DEV", {'layout': 'monadtall'}),
+	       ("VIRMAN", {'layout': 'floating'}),
+	       ("CHAT", {'layout': 'monadtall'}),
+	       ("MUS", {'layout': 'monadtall'}),
+	       ("SYS", {'layout': 'max'})]
 
 groups = [Group(name, **kwargs) for name, kwargs in group_names]
 
@@ -138,10 +135,9 @@ for i, (name, kwargs) in enumerate(group_names, 1):
 	keys.append(Key([mod, "shift"], str(i), lazy.window.togroup(name)))
 
 layout_theme = {"border_width": 0,
-				"margin": 4,
-				"border_focus": "e1acff",
-				"border_normal": "1D2330"
-				}
+		"margin": 4,
+		"border_focus": "e1acff",
+		"border_normal": "1D2330"}
 
 layouts = [
 	layout.MonadTall(**layout_theme),
@@ -161,17 +157,17 @@ layouts = [
 ]
 
 colors = [["#292d3e", "#292d3e"],  # panel background
-		  ["#434758", "#434758"],  # background for current screen tab
-		  ["#ffffff", "#ffffff"],  # font color for group names
-		  ["#ff5555", "#ff5555"],  # border line color for current tab
-		  ["#e1acff", "#e1acff"],  # window name
-		  ["#bfbfbf", "#bfbfbf"],   # white
-		  ["#ff5555", "#ff5555"],   # red
-		  ["#50fa7b", "#50fa7b"],   # green
-		  ["#f1fa8c", "#f1fa8c"],    # yellow
-		  ["#6790eb", "#6790eb"],   # blue
-		  ["#ff79c6", "#ff79c6"],   # magenta
-		  ["#8be8fd", "#8be9fd"]]   # cyan
+	  ["#434758", "#434758"],  # background for current screen tab
+	  ["#ffffff", "#ffffff"],  # font color for group names
+	  ["#ff5555", "#ff5555"],  # border line color for current tab
+	  ["#e1acff", "#e1acff"],  # window name
+	  ["#bfbfbf", "#bfbfbf"],   # white
+	  ["#ff5555", "#ff5555"],   # red
+	  ["#50fa7b", "#50fa7b"],   # green
+	  ["#f1fa8c", "#f1fa8c"],    # yellow
+	  ["#6790eb", "#6790eb"],   # blue
+	  ["#ff79c6", "#ff79c6"],   # magenta
+	  ["#8be8fd", "#8be9fd"]]   # cyan
 
 widget_defaults = dict(
 	font="MesoLGS NF",
