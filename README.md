@@ -1,3 +1,3 @@
 # Dotfiles
 My Personal Dotfiles...
-Alacritty, Awesome, Zsh
+Alacritty, Xmonad, Xmobar, Zsh
