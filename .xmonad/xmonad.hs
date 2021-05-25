@@ -62,7 +62,7 @@ myBrowser :: String
 myBrowser = "brave"  -- Sets qutebrowser as browser
 
 myEditor :: String
-myEditor = "emacsclient -c -a 'emacs'"  -- Sets emacs as editor
+myEditor = "code"  -- Sets emacs as editor
 -- myEditor = myTerminal ++ " -e vim "    -- Sets vim as editor
 
 myBorderWidth :: Dimension
