@@ -181,7 +181,7 @@ myKeys =
 
    -- System
         , ("M-C-s", spawn (myTerminal ++ " -e shutdown now"))
-        , ("M-C-r", spawn (myTerminal ++ " -e restart"))
+        , ("M-C-r", spawn (myTerminal ++ " -e reboot"))
 
     -- Run Prompt
         , ("M-r", spawn "rofi -show drun") -- Dmenu
