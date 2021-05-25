@@ -1,14 +1,14 @@
 font:
   size: 14
   normal:
-    family: MesloLGS NF 
+    family: Sauce Code Pro Nerd Font Mono 
     style: Regular
   bold:
-    family: MesloLGS NF 
+    family: Sauce Code Pro Nerd Font Mono 
   itaic:
-    family: MesloLGS NF 
+    family: Sauce Code Pro Nerd Font Mono 
   bold_italic:
-    family: MesloLGS NF 
+    family: Sauce Code Pro Nerd Font Mono 
 
 colors:
   # Default colors
