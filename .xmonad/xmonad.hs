@@ -16,14 +16,12 @@ import qualified Data.Map as M
 import XMonad.Hooks.DynamicLog (dynamicLogWithPP, wrap, xmobarPP, xmobarColor, shorten, PP(..))
 import XMonad.Hooks.EwmhDesktops  -- for some fullscreen events, also for xcomposite in obs.
 import XMonad.Hooks.ManageDocks (avoidStruts, docksEventHook, manageDocks, ToggleStruts(..))
-import XMonad.Hooks.ManageHelpers (isFullscreen, doFullFloat)
+import XMonad.Hooks.ManageHelpers (isFullscreen, doFullFloat, doCenterFloat)
 import XMonad.Hooks.SetWMName
 
     -- Layouts
-import XMonad.Layout.GridVariants (Grid(Grid))
 import XMonad.Layout.SimplestFloat
 import XMonad.Layout.ResizableTile
-import XMonad.Layout.ThreeColumns
 
     -- Layouts modifiers
 import XMonad.Layout.LayoutModifier
@@ -59,11 +57,10 @@ myFile :: String
 myFile = "pcmanfm"          -- Sets default file browser
 
 myBrowser :: String
-myBrowser = "brave"  -- Sets qutebrowser as browser
+myBrowser = "brave"  -- Sets brave as browser
 
 myEditor :: String
-myEditor = "code"  -- Sets emacs as editor
--- myEditor = myTerminal ++ " -e vim "    -- Sets vim as editor
+myEditor = "neovide --multiGrid"  -- Sets Neovide editor
 
 myBorderWidth :: Dimension
 myBorderWidth = 2           -- Sets border width for windows
@@ -83,11 +80,7 @@ myStartupHook = do
     spawnOnce "picom --experimental-backends &"
     spawnOnce "nm-applet &"
     spawnOnce "volumeicon &"
-    spawnOnce "xfce4-power-manager &"
-    -- spawnOnce "conky -c $HOME/.config/conky/xmonad.conkyrc"
     spawnOnce "trayer --edge top --align right --widthtype request --padding 6 --SetDockType true --SetPartialStrut true --expand true --monitor 1 --transparent true --alpha 0 --tint 0x282c34  --height 22 &"
-    spawnOnce "/usr/bin/emacs --daemon &" -- emacs daemon for the emacsclient
-
     spawnOnce "feh --randomize --bg-fill ~/wallpapers/*"  -- feh set random wallpaper
     setWMName "xmonad"
 
@@ -109,13 +102,6 @@ tall     = renamed [Replace "tall"]
            $ limitWindows 12
            $ mySpacing 4
            $ ResizableTall 1 (3/100) (1/2) []
-magnify  = renamed [Replace "magnify"]
-           $ smartBorders
-           $ subLayout [] (smartBorders Simplest)
-           $ magnifier
-           $ limitWindows 12
-           $ mySpacing 4
-           $ ResizableTall 1 (3/100) (1/2) []
 monocle  = renamed [Replace "monocle"]
            $ smartBorders
            $ subLayout [] (smartBorders Simplest)
@@ -123,29 +109,14 @@ monocle  = renamed [Replace "monocle"]
 floats   = renamed [Replace "floats"]
            $ smartBorders
            $ limitWindows 20 simplestFloat
-grid     = renamed [Replace "grid"]
-           $ smartBorders
-           $ subLayout [] (smartBorders Simplest)
-           $ limitWindows 12
-           $ mySpacing 4
-           $ mkToggle (single MIRROR)
-           $ Grid (16/10)
-threeCol = renamed [Replace "threeCol"]
-           $ smartBorders
-           $ subLayout [] (smartBorders Simplest)
-           $ limitWindows 7
-           $ ThreeCol 1 (3/100) (1/2)
 
 -- The layout hook
 myLayoutHook = avoidStruts $ mouseResize $ windowArrange $ T.toggleLayouts floats
                $ mkToggle (NBFULL ?? NOBORDERS ?? EOT) myDefaultLayout
              where
                myDefaultLayout =     withBorder myBorderWidth tall
-                                 ||| magnify
                                  ||| noBorders monocle
                                  ||| floats
-                                 ||| grid
-                                 ||| threeCol
 
 -- myWorkspaces = [" 1 ", " 2 ", " 3 ", " 4 ", " 5 ", " 6 ", " 7 ", " 8 ", " 9 "]
 myWorkspaces = [" WEB ", " DEV ", " VIRMAN ", " CHAT ", " MUS ", " VID ", " SYS "]
@@ -161,16 +132,15 @@ myManageHook = composeAll
      -- I'm doing it this way because otherwise I would have to write out the full
      -- name of my workspaces and the names would be very long if using clickable workspaces.
      [ className =? "confirm"         --> doFloat
-     , className =? "file_progress"   --> doFloat
-     , className =? "dialog"          --> doFloat
+     , className =? "file_progress"   --> doCenterFloat
+     , className =? "dialog"          --> doCenterFloat
      , className =? "download"        --> doFloat
      , className =? "error"           --> doFloat
      , className =? "notification"    --> doFloat
      , className =? "splash"          --> doFloat
      , className =? "toolbar"         --> doFloat
-     , (className =? "firefox" <&&> resource =? "Dialog") --> doFloat  -- Float Firefox Dialog
      , isFullscreen -->  doFullFloat
-     , className =? "lxpolkit"        --> doFloat
+     , className =? "lxpolkit"        --> doCenterFloat
      ]
 
 myKeys :: [(String, X ())]
@@ -184,18 +154,18 @@ myKeys =
         , ("M-C-r", spawn (myTerminal ++ " -e reboot"))
 
     -- Run Prompt
-        , ("M-r", spawn "rofi -show drun") -- Dmenu
+        , ("M-r", spawn "rofi -show drun") -- Rofi
 
     -- Useful programs to have a keybinding for launch
         , ("M-x", spawn (myTerminal))
         , ("M-b", spawn (myBrowser))
         , ("M-d", spawn ("discord"))
         , ("M-c", spawn (myEditor))
+        , ("M-p", spawn (myEditor ++ " ~/Projects/Rust"))
         , ("M-e", spawn (myFile))
 
     -- Kill windows
         , ("M-q", kill)     -- Kill the currently focused client
-        -- , ("M-C-q", killAll)   -- Kill all windows on current workspace
 
     -- Floating windows
         , ("M-f", sendMessage (T.Toggle "floats")) -- Toggles my 'floats' layout
@@ -258,11 +228,11 @@ main = do
               { ppOutput = \x -> hPutStrLn xmproc x                          -- xmobar on monitor 1
               , ppCurrent = xmobarColor "#98be65" "" . wrap "[" "]"           -- Current workspace
               , ppVisible = xmobarColor "#98be65" "" . clickable              -- Visible but not current workspace
-              , ppHidden = xmobarColor "#82AAFF" "" . wrap "*" "" . clickable -- Hidden workspaces
+              , ppHidden = xmobarColor "#82aaff" "" . wrap "*" "" . clickable -- Hidden workspaces
               , ppHiddenNoWindows = xmobarColor "#c792ea" ""  . clickable     -- Hidden workspaces (no windows)
               , ppTitle = xmobarColor "#b3afc2" "" . shorten 60               -- Title of active window
               , ppSep =  "<fc=#666666> <fn=1>|</fn> </fc>"                    -- Separator character
-              , ppUrgent = xmobarColor "#C45500" "" . wrap "!" "!"            -- Urgent workspace
+              , ppUrgent = xmobarColor "#c45500" "" . wrap "!" "!"            -- Urgent workspace
               , ppExtras  = [windowCount]                                     -- # of windows current workspace
               , ppOrder  = \(ws:l:t:ex) -> [ws,l]++ex++[t]                    -- order of things in xmobar
               }
