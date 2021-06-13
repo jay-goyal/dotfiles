@@ -1,18 +1,29 @@
-#########################################################
+##################################################################################################################
 #GENERAL
-#########################################################
+##################################################################################################################
 set $mod Mod4
 set $term "alacritty"
 set $browser "brave"
 set $file "thunar"
+set $editor "neovide --multiGrid"
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
-font pango:Roboto 12
+font pango:SauceCodePro Mono 12
 
-#########################################################
+# Define names for default workspaces for which we configure key bindings later on.
+# We use variables to avoid repeating the names in multiple places.
+set $ws1 "1"
+set $ws2 "2"
+set $ws3 "3"
+set $ws4 "4"
+set $ws5 "5"
+set $ws6 "6"
+set $ws7 "7"
+
+##################################################################################################################
 #KEYMAPS
-#########################################################
+##################################################################################################################
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -21,12 +32,14 @@ floating_modifier $mod
 bindsym $mod+x exec $term
 bindsym $mod+b exec $browser
 bindsym $mod+e exec $file
+bindsym $mod+c exec $editor
 
 # kill focused window
 bindsym $mod+q kill
 
 # start rofi (a program launcher)
 bindsym $mod+r exec rofi -show drun
+bindsym Mod1+Tab exec rofi -show window
 
 # change focus
 bindsym $mod+h focus left
@@ -42,7 +55,6 @@ bindsym $mod+Shift+l move right
 
 # split in horizontal orientation
 bindsym $mod+Shift+v split h
-
 # split in vertical orientation
 bindsym $mod+v split v
 
@@ -67,16 +79,6 @@ bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
 bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
 
-# Define names for default workspaces for which we configure key bindings later on.
-# We use variables to avoid repeating the names in multiple places.
-set $ws1 "1: "
-set $ws2 "2: "
-set $ws3 "3: "
-set $ws4 "4: "
-set $ws5 "5: "
-set $ws6 "6: "
-set $ws7 "7: "
-
 # switch to workspace
 bindsym $mod+1 workspace number $ws1
 bindsym $mod+2 workspace number $ws2
@@ -95,12 +97,11 @@ bindsym $mod+Shift+5 move container to workspace number $ws5
 bindsym $mod+Shift+6 move container to workspace number $ws6
 bindsym $mod+Shift+7 move container to workspace number $ws7
 
-# reload the configuration file
 bindsym $mod+Shift+c reload
-# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
-# exit i3 (logs you out of your X session)
-bindsym $mod+Shift+q exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
+bindsym $mod+Shift+q exec i3-msg exit
+bindsym $mod+Ctrl+s exec shutdown now
+bindsym $mod+Ctrl+r exec reboot
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -122,20 +123,46 @@ mode "resize" {
 
 bindsym $mod+z mode "resize"
 
-# Start i3bar to display a workspace bar (plus the system information i3status
-# finds out, if available)
-bar {
-        status_command i3status
-}
+##################################################################################################################
+#THEMING AND BAR
+##################################################################################################################
+# class                 border  bground text    indicator child_border
+client.focused          #6272A4 #6272A4 #F8F8F2 #6272A4   #6272A4
+client.focused_inactive #44475A #44475A #F8F8F2 #44475A   #44475A
+client.unfocused        #282A36 #282A36 #BFBFBF #282A36   #282A36
+client.urgent           #44475A #FF5555 #F8F8F2 #FF5555   #FF5555
+client.placeholder      #282A36 #282A36 #F8F8F2 #282A36   #282A36
 
-#########################################################
+client.background       #F8F8F2
+
+for_window [class=".*"] border pixel 2
+
+gaps inner 10
+
+# bar {
+        #status_command i3status
+        #colors {
+            #background #282A36
+            #statusline #F8F8F2
+            #separator  #44475A
+
+            #focused_workspace  #44475A #44475A #F8F8F2
+            #active_workspace   #282A36 #44475A #F8F8F2
+            #inactive_workspace #282A36 #282A36 #BFBFBF
+            #urgent_workspace   #FF5555 #FF5555 #F8F8F2
+            #binding_mode       #FF5555 #FF5555 #F8F8F2
+  #}
+#}
+
+##################################################################################################################
 #WINDOW RULES
-#########################################################
+##################################################################################################################
 for_window [class="Brave-browser"] move to workspace $ws1
+for_window [class="Spotify"] move to workspace $ws4
 
-#########################################################
+##################################################################################################################
 # AUTOSTART
-#########################################################
+##################################################################################################################
 exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 exec --no-startup-id nm-applet
 exec --no-startup-id volumeicon
@@ -143,3 +170,4 @@ exec --no-startup-id thunar --daemon
 exec --no-startup-id picom --experimental-backends
 exec --no-startup-id lxsession
 exec_always --no-startup-id feh --randomize --bg-fill ~/wallpapers/*
+exec_always --no-startup-id /home/jay/.config/polybar/launch_i3.sh
