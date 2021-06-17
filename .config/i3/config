@@ -170,4 +170,4 @@ exec --no-startup-id thunar --daemon
 exec --no-startup-id picom --experimental-backends
 exec --no-startup-id lxsession
 exec_always --no-startup-id feh --randomize --bg-fill ~/wallpapers/*
-exec_always --no-startup-id /home/jay/.config/polybar/launch_i3.sh
+exec_always --no-startup-id /home/jay/.config/polybar/launch.sh
