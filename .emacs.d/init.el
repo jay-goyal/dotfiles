@@ -47,6 +47,10 @@
 (column-number-mode)
 (global-display-line-numbers-mode 1)
 (setq display-line-numbers-type 'relative)
+;; Disable line numbers for some modes
+(dolist (mode '(shell-mode-hook
+                eshell-mode-hook))
+        (add-hook mode (lambda () (display-line-numbers-mode 0))))
 
 (use-package all-the-icons)
 
@@ -57,7 +61,30 @@
 (setq doom-modeline-icon t)
 
 (use-package doom-themes
-    :init (load-theme 'doom-dracula t))
+  :ensure t
+  :config
+  (setq doom-themes-enable-bold t    ; if nil, bold is universally disabled
+	doom-themes-enable-italic t) ; if nil, italics is universally disabled
+  (load-theme 'doom-dracula t)
+  (doom-themes-neotree-config)
+  (doom-themes-org-config))
+
+(use-package dashboard
+  :init (setq dashboard-set-heading-icons t)
+        (setq dashboard-set-file-icons t)
+	(setq dashboard-banner-logo-title "Emacs is Awesome")
+	(setq dashboard-startup-banner "~/.emacs.d/emacs-dash.png")
+	(setq dashboard-center-content nil)
+	(setq dashboard-items '((recents . 5)
+				(agenda . 5 )
+				(bookmarks . 3)
+				;;(projects . 3)
+				(registers . 3)))
+  :config (dashboard-setup-startup-hook)
+          (dashboard-modify-heading-icons '((recents . "file-text")
+					    (bookmarks . "book"))))
+
+(setq initial-buffer-choice (lambda () (get-buffer "*dashboard*")))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; IVY
@@ -96,21 +123,24 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; EVIL MODE
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
 (use-package evil
-    :init
-    (setq evil-want-integration t)
-    (setq evil-want-keybinding nil)
-    (setq evil-vsplit-window-right t)
-    (setq evil-split-window-below t)
-    (evil-mode)
-    :config
-    (evil-mode 1))
+    :init (setq evil-want-integration t)
+          (setq evil-want-keybinding nil)
+	  (setq evil-vsplit-window-right t)
+	  (setq evil-want-C-i-jump nil)
+	  (setq evil-split-window-below t)
+	  (evil-mode)
+    :config (evil-mode 1))
 
 (use-package evil-collection
     :after evil
-    :config
-    (evil-collection-init))
+    :config (setq evil-collection-mode-list '(dashboard dired ibuffer))
+            (evil-collection-init))
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; KEYBOARD SHORTCUTS
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(use-package general)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; MISC PACKAGES
@@ -124,16 +154,26 @@
   :config
   (setq which-key-idle-delay 0.5))
 
+(use-package helpful
+  :custom
+  (counsel-describe-function-function #'helpful-callable)
+  (counsel-describe-variable-function #'helpful-variable)
+  :bind
+  ([remap describe-function] . counsel-describe-function)
+  ([remap describe-command] . helpful-command)
+  ([remap describe-variable] . counsel-describe-variable)
+  ([remap describe-key] . helpful-key))
+
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(custom-safe-themes
-   '("b7e460a67bcb6cac0a6aadfdc99bdf8bbfca1393da535d4e8945df0648fa95fb" default))
+   '("47db50ff66e35d3a440485357fb6acb767c100e135ccdf459060407f8baea7b2" "b7e460a67bcb6cac0a6aadfdc99bdf8bbfca1393da535d4e8945df0648fa95fb" default))
  '(ivy-rich-mode t)
  '(package-selected-packages
-   '(helpful ivy-rich counsel which-key rainbow-delimiters swiper ivy doom-themes doom-modeline use-package)))
+   '(general dashboard helpful ivy-rich counsel which-key rainbow-delimiters swiper ivy doom-themes doom-modeline use-package)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
