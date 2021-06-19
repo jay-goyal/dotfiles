@@ -41,6 +41,8 @@ fixed-center = true
 background = ${colors.background}
 foreground = ${colors.foreground}
 
+line-size=3
+
 border-size = 0
 
 padding-left = 0
@@ -57,7 +59,7 @@ font-4 = Material Design Icons:pixelsize=17;2
 
 modules-left = i3 bspwm
 modules-center = xwindow
-modules-right = cpu memory temperature filesystem network pkgupdates-available date powermenu
+modules-right = cpu memory temperature filesystem network uname date powermenu
 separator = |
 
 tray-position = right
@@ -200,10 +202,10 @@ label-connected-foreground = ${colors.green}
 label-disconnected = No Internet
 label-disconnected-foreground = ${colors.green}
 
-[module/pkgupdates-available]
+[module/uname]
 type = custom/script
-exec = checkupdates | wc -l
-label = 󰂚 %output%
+exec = uname -r
+label = 󱄅 %output%
 label-foreground = ${colors.magenta}
 interval = 60
 
