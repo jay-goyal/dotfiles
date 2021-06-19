@@ -59,7 +59,7 @@ font-4 = Material Design Icons:pixelsize=17;2
 
 modules-left = i3 bspwm
 modules-center = xwindow
-modules-right = cpu memory temperature filesystem network uname date powermenu
+modules-right = cpu memory temperature filesystem network pkg-updates date
 separator = |
 
 tray-position = right
@@ -137,6 +137,7 @@ ws-icon-3 = 4;󰝚
 ws-icon-4 = 5;󰕧
 ws-icon-5 = 6;󰊴
 ws-icon-6 = 7;󰆍
+ws-icon-7 = 8;󰂓
 
 label-focused = %icon%
 label-focused-background = ${colors.background-alt}
@@ -202,10 +203,10 @@ label-connected-foreground = ${colors.green}
 label-disconnected = No Internet
 label-disconnected-foreground = ${colors.green}
 
-[module/uname]
+[module/pkg-updates]
 type = custom/script
-exec = uname -r
-label = 󱄅 %output%
+exec = checkupdates | wc -l
+label = 󰁠 %output%
 label-foreground = ${colors.magenta}
 interval = 60
 

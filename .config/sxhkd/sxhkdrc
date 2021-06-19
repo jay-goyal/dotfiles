@@ -8,7 +8,7 @@ super + e
 super + b
     brave
 super + c
-    neovide --multiGrid
+    emacsclient -c
 super + r
 	rofi -show drun
 alt + Tab
@@ -62,12 +62,12 @@ super + {_,shift + }{h,j,k,l}
 	bspc node -{f,s} {west,south,north,east}
 
 # focus or send to the given desktop
-super + {_,shift + }{1-7}
-	bspc {desktop -f,node -d} '^{1-7}'
+super + {_,shift + }{1-8}
+	bspc {desktop -f,node -d} '^{1-8}'
 
 # send to given desktop and focus
-super + ctrl + {1-7}
-    bspc node -d {1-7} && bspc desktop -f {1-7}
+super + ctrl + {1-8}
+    bspc node -d {1-8} && bspc desktop -f {1-8}
 
 super + control + {Right, Left}
 	bspc node @parent --rotate {90,270}
