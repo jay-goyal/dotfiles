@@ -36,10 +36,12 @@ white = #F8F8F2
 width = 100%
 height = 29
 radius = 0.0
-fixed-center = true
+fixed-center = false
 
 background = ${colors.background}
 foreground = ${colors.foreground}
+
+line-size = 3
 
 border-size = 0
 
@@ -57,7 +59,7 @@ font-4 = Material Design Icons:pixelsize=17;2
 
 modules-left = i3 bspwm
 modules-center = xwindow
-modules-right = cpu memory temperature filesystem wired-network pkgupdates-available date powermenu
+modules-right = uname cpu memory temperature filesystem network date powermenu
 separator = |
 
 tray-position = right
@@ -77,8 +79,8 @@ mount-0 = /home
 
 label-mounted = 󰋊 %free%
 label-unmounted = %mountpoint% not mounted
-label-mounted-foreground = ${colors.blue}
-label-unmounted-foreground = ${colors.blue}
+label-mounted-foreground = ${colors.green}
+label-unmounted-foreground = ${colors.green}
 
 [module/i3]
 type = internal/i3
@@ -146,7 +148,7 @@ label-occupied = %icon%
 label-occupied-padding = 4
 label-occupied-font = 5
 
-label-urgent = %icon%!
+label-urgent = %icon%
 label-urgent-background = ${colors.alert}
 label-urgent-padding = 4
 label-urgent-font = 5
@@ -163,14 +165,14 @@ label-empty-font = 5
 type = internal/cpu
 interval = 0.5
 label = 󰍹 %percentage:2%%
-label-foreground = ${colors.white}
+label-foreground = ${colors.yellow}
 
 [module/memory]
 type = internal/memory
 interval = 0.5
 ;format-underline = #4bffdc
 label = 󰒋 %mb_used%
-label-foreground = ${colors.yellow}
+label-foreground = ${colors.red}
 
 [module/date]
 type = internal/date
@@ -190,21 +192,21 @@ interval = 0.5
 label = 󰔏 %temperature-c%
 label-warn = 󰔏 %temperature-c%
 label-warn-foreground = ${colors.red}
-label-foreground = ${colors.red}
+label-foreground = ${colors.blue}
 
-[module/wired-network]
+[module/network]
 type = internal/network
-interface = enp4s0
+interface = wlp0s20f0u4
 label-connected = %downspeed% 󰳛 󰳡 %upspeed%
-label-connected-foreground = ${colors.green}
+label-connected-foreground = ${colors.magenta}
 label-disconnected = No Internet
-label-disconnected-foreground = ${colors.green}
+label-disconnected-foreground = ${colors.magenta}
 
-[module/pkgupdates-available]
+[module/uname]
 type = custom/script
-exec = checkupdates | wc -l
-label = 󰂚 %output%
-label-foreground = ${colors.magenta}
+exec = uname -r
+label = 󰌽 %output%
+label-foreground = ${colors.white}
 interval = 60
 
 [module/powermenu]
@@ -212,7 +214,7 @@ type = custom/menu
 
 expand-right = true
 
-format-spacing = 1
+format-spacing = 0
 
 label-open = 
 label-open-foreground = ${colors.secondary}
@@ -220,21 +222,6 @@ label-close =  cancel
 label-close-foreground = ${colors.secondary}
 label-separator = |
 label-separator-foreground = ${colors.foreground-alt}
-
-menu-0-0 = reboot
-menu-0-0-exec = menu-open-1
-menu-0-1 = power off
-menu-0-1-exec = menu-open-2
-
-menu-1-0 = cancel
-menu-1-0-exec = menu-open-0
-menu-1-1 = reboot
-menu-1-1-exec = sudo reboot
-
-menu-2-0 = power off
-menu-2-0-exec = sudo poweroff
-menu-2-1 = cancel
-menu-2-1-exec = menu-open-0
 
 [settings]
 screenchange-reload = true
