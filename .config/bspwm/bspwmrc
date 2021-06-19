@@ -12,7 +12,7 @@ killall thunar
 thunar --daemon &
 killall lxsession
 lxsession &
-picom --experimental-backends &
+picom &
 emacs --daemon &
 feh --randomize --bg-fill ~/wallpapers/* &
 /home/jay/.config/polybar/launch.sh &
