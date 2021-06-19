@@ -3,18 +3,11 @@
 ;;; Emacs Startup File --- initialization for Emacs
 ;;; Code:
 
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; GENERAL SETTINGS
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
 (scroll-bar-mode -1)        ; Disable visible scrollbar
 (tool-bar-mode -1)          ; Disable the toolbar
 (tooltip-mode -1)           ; Disable tooltips
 (set-fringe-mode 10)        ; Give some breathing room
 (menu-bar-mode -1)          ; Disable the menu bar
-;; Deal with custom block at end
-(setq custom-file "~/.emacs.d/custom.el")
-(load custom-file)
 
 ;; Backup Files setting
 (setq backup-directory-alist '(("." . "~/.emacs.d/backup"))
@@ -25,18 +18,14 @@
   kept-old-versions 0    ; and how many of the old
   )
 
-(set-face-attribute 'default nil :font "JetBrainsMono Nerd Font" :height 120)
-(set-face-attribute 'fixed-pitch nil :font "JetBrainsMono Nerd Font" :height 120)
-(set-face-attribute 'variable-pitch nil :font "Source Sans Pro" :height 120 :weight 'regular)
-
 ;; Make ESC quit prompts
 (global-set-key (kbd "<escape>") 'keyboard-escape-quit)
 
 (setq tab-width 4)  ; Set Tab length
 
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; PACKAGE MANAGEMENT SETTINGS
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(set-face-attribute 'default nil :font "JetBrainsMono Nerd Font" :height 120)
+(set-face-attribute 'fixed-pitch nil :font "JetBrainsMono Nerd Font" :height 120)
+(set-face-attribute 'variable-pitch nil :font "Source Sans Pro" :height 120 :weight 'regular)
 
 (require 'package)
 
@@ -53,10 +42,6 @@
   (package-install 'use-package))
 (require 'use-package)
 (setf use-package-always-ensure t)
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; THEMING
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 (column-number-mode)
 (global-display-line-numbers-mode 1)
@@ -101,10 +86,6 @@
 
 (setq initial-buffer-choice (lambda () (get-buffer "*dashboard*")))
 
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; IVY
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
 (use-package swiper)
 
 (use-package counsel
@@ -137,10 +118,6 @@
   :init
   (ivy-rich-mode 1))
 
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; EVIL MODE
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
 (use-package evil
   :init
   (setq evil-want-integration t)
@@ -161,12 +138,8 @@
 (use-package evil-collection
   :after evil
   :config
-  (setq evil-collection-mode-list '(dashboard dired ibuffer))
+  (setq evil-collection-mode-list '(dashboard dired ibuffer magit))
   (evil-collection-init))
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; KEYBOARD SHORTCUTS
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 (use-package general
   :config (general-create-definer semacs/leader-keys
@@ -189,10 +162,6 @@
 (semacs/leader-keys
   "ts" '(hydra-text-scale/body :which-key "scale text"))
 
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; PROJECT MANAGEMENT
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
 (use-package projectile
   :diminish projectile-mode
   :config (projectile-mode)
@@ -207,19 +176,11 @@
 (use-package counsel-projectile
   :config (counsel-projectile-mode))
 
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; MAGIT
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(use-package magit
+  :custom
+  (magit-display-buffer-function #'magit-display-buffer-same-window-except-diff-v1))
 
-(use-package magit)
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; ORG MODE
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
-(defun efs/org-mode-setup ()
-  (org-indent-mode)
-  (visual-line-mode 1))
+(use-package forge)
 
 (use-package org
   :hook (org-mode . efs/org-mode-setup)
@@ -231,18 +192,6 @@
   :hook (org-mode . org-bullets-mode)
   :custom
   (org-bullets-bullet-list '("◉" "○" "●" "○" "●" "○" "●")))
-
-(defun efs/org-mode-visual-fill ()
-  (setq visual-fill-column-width 100
-        visual-fill-column-center-text t)
-  (visual-fill-column-mode 1))
-
-(use-package visual-fill-column
-  :hook (org-mode . efs/org-mode-visual-fill))
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; MISC PACKAGES
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 (use-package rainbow-delimiters
   :hook (prog-mode . rainbow-delimiters-mode))
@@ -268,3 +217,20 @@
 
 (provide 'init)
 ;;; init.el ends here
+
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(custom-safe-themes
+   '("47db50ff66e35d3a440485357fb6acb767c100e135ccdf459060407f8baea7b2" "b7e460a67bcb6cac0a6aadfdc99bdf8bbfca1393da535d4e8945df0648fa95fb" default))
+ '(ivy-rich-mode t)
+ '(package-selected-packages
+   '(evil-collection evil visual-fill-column evil-magit magit counsel-projectile org-bullets projectile hydra format-all format-all-buffer general dashboard helpful ivy-rich counsel which-key rainbow-delimiters swiper ivy doom-themes doom-modeline use-package)))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
