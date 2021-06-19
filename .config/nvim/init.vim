@@ -10,7 +10,7 @@ call plug#begin('~/.vim/plugged')
 
 " Themeing
 Plug 'vim-airline/vim-airline'
-Plug 'dracula/vim', { 'as': 'dracula' }
+Plug 'drewtempelmeyer/palenight.vim'
 
 " Nerd Tree
 Plug 'preservim/nerdtree'
@@ -71,10 +71,10 @@ set nowritebackup
 " Colorscheme
 set termguicolors
 let g:onedark_termcolors=256
-colorscheme dracula
+colorscheme palenight
 
 " Airline settings
-let g:airline_theme='dracula'
+let g:airline_theme='palenight'
 let g:airline_powerline_fonts = 1
 
 " Nerd Tree
