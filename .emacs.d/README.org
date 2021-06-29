@@ -1,5 +1,5 @@
 #+TITLE: Emacs Config
-#+PROPERTY: header-args :tangle init.el
+#+PROPERTY: header-args :tangle ~/.emacs.d/init.el
 #+AUTHOR: Jay Goyal
 
 * Basic Config
@@ -265,7 +265,7 @@ I use projectile for my project management
                   (org-level-8 . 1.1)))
     (set-face-attribute (car face) nil :font "JetBrainsMono Nerd Font" :weight 'regular :height (cdr face))))
   (use-package org
-    :hook (org-mode . efs/org-mode-setup)
+    :hook (org-mode)
     :config
     (setq org-ellipsis " ▾"))
 
