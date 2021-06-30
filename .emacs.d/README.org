@@ -5,16 +5,16 @@
 * Basic Config
 If I don't set it up, Emacs Complains
 
-#+BEGIN_SRC emacs-lisp
+#+begin_src emacs-lisp
 ;;; init.el --- Initialization file for Emacs
 ;;; Commentary:
 ;;; Emacs Startup File --- initialization for Emacs
 ;;; Code:
-#+END_SRC
+#+end_src
 
 ** Basic Settings
 
-#+BEGIN_SRC emacs-lisp
+#+begin_src emacs-lisp
 (scroll-bar-mode -1)        ; Disable visible scrollbar
 (tool-bar-mode -1)          ; Disable the toolbar
 (tooltip-mode -1)           ; Disable tooltips
@@ -34,19 +34,19 @@ If I don't set it up, Emacs Complains
 (global-set-key (kbd "<escape>") 'keyboard-escape-quit)
 
 (setq tab-width 4)  ; Set Tab length
-#+END_SRC
+#+end_src
 
 ** Font Settings
 
-#+BEGIN_SRC emacs-lisp
+#+begin_src emacs-lisp
 (set-face-attribute 'default nil :font "JetBrainsMono Nerd Font" :height 120)
 (set-face-attribute 'fixed-pitch nil :font "JetBrainsMono Nerd Font" :height 120)
 (set-face-attribute 'variable-pitch nil :font "Source Sans Pro" :height 120 :weight 'regular)
-#+END_SRC
+#+end_src
 
 * Package Management Setup
 
-#+BEGIN_SRC emacs-lisp
+#+begin_src emacs-lisp
 (require 'package)
 
 (setq package-archives '(("melpa" . "https://melpa.org/packages/")
@@ -62,13 +62,13 @@ If I don't set it up, Emacs Complains
   (package-install 'use-package))
 (require 'use-package)
 (setf use-package-always-ensure t)
-#+END_SRC
+#+end_src
 
 * Theming
 ** Line Numbers
 I use relative line numbers
 
-#+BEGIN_SRC emacs-lisp
+#+begin_src emacs-lisp
 (column-number-mode)
 (global-display-line-numbers-mode 1)
 (setq display-line-numbers-type 'relative)
@@ -76,12 +76,12 @@ I use relative line numbers
 (dolist (mode '(shell-mode-hook
                 eshell-mode-hook))
   (add-hook mode (lambda () (display-line-numbers-mode 0))))
-#+END_SRC
+#+end_src
 
 ** Doom Modeline
 Run all-the-icons-install-fonts first time
 
-#+BEGIN_SRC emacs-lisp
+#+begin_src emacs-lisp
 (use-package all-the-icons)
 
 (use-package doom-modeline
@@ -90,12 +90,12 @@ Run all-the-icons-install-fonts first time
   :custom
   ((doom-modeline-height 42)
    (doom-modeline-icon t)
-   (doom-modeline-major-mode-icon nil)))
-#+END_SRC
+   (doom-modeline-major-mode-icon t)))
+#+end_src
 
 ** Doom Themes
 
-#+BEGIN_SRC emacs-lisp
+#+begin_src emacs-lisp
 (use-package doom-themes
   :config
   (setq doom-themes-enable-bold t    ; if nil, bold is universally disabled
@@ -103,10 +103,10 @@ Run all-the-icons-install-fonts first time
   (load-theme 'doom-palenight t)
   (doom-themes-neotree-config)
   (doom-themes-org-config))
-#+END_SRC
+#+end_src
 
 ** Dashboard
-#+BEGIN_SRC emacs-lisp
+#+begin_src emacs-lisp
 (use-package dashboard
   :init
   (setq dashboard-set-heading-icons t)
@@ -123,12 +123,12 @@ Run all-the-icons-install-fonts first time
 				    (bookmarks . "book"))))
 
 (setq initial-buffer-choice (lambda () (get-buffer "*dashboard*")))
-#+END_SRC
+#+end_src
 
 * Ivy
 I use Ivy as my completion engine.
 
-#+BEGIN_SRC emacs-lisp
+#+begin_src emacs-lisp
 (use-package swiper)
 
 (use-package counsel
@@ -160,12 +160,12 @@ I use Ivy as my completion engine.
 (use-package ivy-rich
   :init
   (ivy-rich-mode 1))
-#+END_SRC
+#+end_src
 
 * Evil Mode
 I love the dark side
 
-#+BEGIN_SRC emacs-lisp
+#+begin_src emacs-lisp
 (use-package evil
   :init
   (setq evil-want-integration t)
@@ -188,12 +188,12 @@ I love the dark side
   :config
   (setq evil-collection-mode-list '(dashboard dired ibuffer magit))
   (evil-collection-init))
-#+END_SRC
+#+end_src
 
 * Setup Keyboard Shortcuts
 I use general for my keybindings
 
-#+BEGIN_SRC emacs-lisp
+#+begin_src emacs-lisp
 (use-package general
   :config (general-create-definer semacs/leader-keys
 	    :keymaps '(normal insert visual emacs)
@@ -214,12 +214,12 @@ I use general for my keybindings
 
 (semacs/leader-keys
   "ts" '(hydra-text-scale/body :which-key "scale text"))
-#+END_SRC
+#+end_src
 
 * Project Management
 I use projectile for my project management
 
-#+BEGIN_SRC emacs-lisp
+#+begin_src emacs-lisp
 (use-package projectile
   :diminish projectile-mode
   :config (projectile-mode)
@@ -233,36 +233,36 @@ I use projectile for my project management
 
 (use-package counsel-projectile
   :config (counsel-projectile-mode))
-#+END_SRC
+#+end_src
 
 * Magit.... Frickin' Finally
 
-#+BEGIN_SRC emacs-lisp
+#+begin_src emacs-lisp
 (use-package magit
   :custom
   (magit-display-buffer-function #'magit-display-buffer-same-window-except-diff-v1))
 
 (use-package forge)
-#+END_SRC
+#+end_src
 
 * Org Mode
 
-#+BEGIN_SRC emacs-lisp
+#+begin_src emacs-lisp
   (defun efs/org-font-setup ()
   ;; Replace list hyphen with dot
     (font-lock-add-keywords 'org-mode
-                          '(("^ *\\([-]\\) "
-                             (0 (prog1 () (compose-region (match-beginning 1) (match-end 1) "•"))))))
+			  '(("^ *\\([-]\\) "
+			     (0 (prog1 () (compose-region (match-beginning 1) (match-end 1) "•"))))))
 
   ;; Set faces for heading levels
     (dolist (face '((org-level-1 . 1.2)
-                  (org-level-2 . 1.1)
-                  (org-level-3 . 1.05)
-                  (org-level-4 . 1.0)
-                  (org-level-5 . 1.1)
-                  (org-level-6 . 1.1)
-                  (org-level-7 . 1.1)
-                  (org-level-8 . 1.1)))
+		  (org-level-2 . 1.1)
+		  (org-level-3 . 1.05)
+		  (org-level-4 . 1.0)
+		  (org-level-5 . 1.1)
+		  (org-level-6 . 1.1)
+		  (org-level-7 . 1.1)
+		  (org-level-8 . 1.1)))
     (set-face-attribute (car face) nil :font "JetBrainsMono Nerd Font" :weight 'regular :height (cdr face))))
   (use-package org
     :hook (org-mode)
@@ -274,10 +274,31 @@ I use projectile for my project management
     :hook (org-mode . org-bullets-mode)
     :custom
     (org-bullets-bullet-list '("◉" "○" "●" "○" "●" "○" "●")))
-#+END_SRC
+
+  (require 'org-tempo)
+
+  (add-to-list 'org-structure-template-alist '("sh" . "src shell"))
+  (add-to-list 'org-structure-template-alist '("el" . "src emacs-lisp"))
+  (add-to-list 'org-structure-template-alist '("rs" . "src rust"))
+#+end_src
+
+* Development
+
+** Setting up LSP Mode
+
+#+begin_src emacs-lisp
+(use-package lsp-mode
+  :commands (lsp lsp-deferred)
+  :hook (lsp-mode . efs/lsp-mode-setup)
+  :init
+  (setq lsp-keymap-prefix "C-c l")  ;; Or 'C-l', 's-l'
+  :config
+  (lsp-enable-which-key-integration t))
+#+end_src
 
 * Other Miscellaneous Packages
-#+BEGIN_SRC emacs-lisp
+
+#+begin_src emacs-lisp
 (use-package rainbow-delimiters
   :hook (prog-mode . rainbow-delimiters-mode))
 
@@ -299,19 +320,19 @@ I use projectile for my project management
   ([remap describe-command] . helpful-command)
   ([remap describe-variable] . counsel-describe-variable)
   ([remap describe-key] . helpful-key))
-#+END_SRC
+#+end_src
 
 * Other Basic Stuff
 More stuff to stop emacs from complaining
 
-#+BEGIN_SRC emacs-lisp
+#+begin_src emacs-lisp
 (provide 'init)
 ;;; init.el ends here
-#+END_SRC
+#+end_src
 
 ** Stuff Added by custom
 
-#+BEGIN_SRC emacs-lisp
+#+begin_src emacs-lisp
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -328,4 +349,4 @@ More stuff to stop emacs from complaining
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  )
-#+END_SRC
+#+end_src
