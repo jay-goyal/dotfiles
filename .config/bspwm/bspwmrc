@@ -57,5 +57,6 @@ bspc config right_padding        0
 bspc rule -a Brave-browser desktop='^1'
 bspc rule -a heroic desktop='^6'
 bspc rule -a Steam desktop='^6'
+bspc rule -a qBittorrent desktop='^8'
 bspc rule -a Lxpolkit state=floating
 bspc rule -a Emacs state=tiled

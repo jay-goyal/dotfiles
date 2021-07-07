@@ -51,16 +51,15 @@ padding-right = 2
 module-margin-left = 1
 module-margin-right = 2
 
-font-0 = Roboto Mono:pixelsize=11;1
+font-0 = Roboto Mono:pixelsize=12;1
 font-1 = unifont:fontformat=truetype:size=8:antialias=false;0
 font-2 = siji:pixelsize=10;1
-font-3 = Material Design Icons:pixelsize=14;2
-font-4 = Material Design Icons:pixelsize=17;2
+font-3 = Material Design Icons:pixelsize=17;2
 
-modules-left = i3 bspwm
-modules-center = xwindow
-modules-right = cpu memory temperature filesystem network pkg-updates date
-separator = |
+modules-left = i3 bspwm xwindow
+modules-center =
+modules-right = date
+separator = " "
 
 tray-position = right
 tray-padding = 2
@@ -70,17 +69,9 @@ cursor-scroll = ns-resize
 [module/xwindow]
 type = internal/xwindow
 label = %title:0:30:...%
-
-[module/filesystem]
-type = internal/fs
-interval = 25
-
-mount-0 = /home
-
-label-mounted = 󰋊 %free%
-label-unmounted = %mountpoint% not mounted
-label-mounted-foreground = ${colors.blue}
-label-unmounted-foreground = ${colors.blue}
+label-padding = 4
+label-foreground = ${colors.white}
+label-underline = ${colors.magenta}
 
 [module/i3]
 type = internal/i3
@@ -96,25 +87,25 @@ label-focused = %icon%
 label-focused-background = ${colors.background-alt}
 label-focused-underline= ${colors.primary}
 label-focused-padding = 4
-label-focused-font = 5
+label-focused-font = 4
 
 ; unfocused = Inactive workspace on any monitor
 label-unfocused = %icon%
 label-unfocused-padding = 4
-label-unfocused-font = 5
+label-unfocused-font = 4
 
 ; visible = Active workspace on unfocused monitor
 label-visible = %icon%
 label-visible-background = ${self.label-focused-background}
 label-visible-underline = ${self.label-focused-underline}
 label-visible-padding = ${self.label-focused-padding}
-label-visible-font = 5
+label-visible-font = 4
 
 ; urgent = Workspace with urgency hint set
 label-urgent = %icon%
 label-urgent-background = ${colors.alert}
 label-urgent-padding = 4
-label-urgent-font = 5
+label-urgent-font = 4
 
 ; Separator in between workspaces
 ; label-separator = |
@@ -122,7 +113,7 @@ label-urgent-font = 5
 ws-icon-0 = 1;󰖟
 ws-icon-1 = 2;󰘦
 ws-icon-2 = 3;󰭹
-ws-icon-3 = 4;󰝚
+ws-icon-3 = 4;󰓇
 ws-icon-4 = 5;󰕧
 ws-icon-5 = 6;󰊴
 ws-icon-6 = 7;󰆍
@@ -132,48 +123,36 @@ type = internal/bspwm
 
 ws-icon-0 = 1;󰖟
 ws-icon-1 = 2;󰘦
-ws-icon-2 = 3;󰭹
-ws-icon-3 = 4;󰝚
-ws-icon-4 = 5;󰕧
+ws-icon-2 = 3;󰓇
+ws-icon-3 = 4;󰕧
+ws-icon-4 = 5;󰧨
 ws-icon-5 = 6;󰊴
 ws-icon-6 = 7;󰆍
 ws-icon-7 = 8;󰂓
 
 label-focused = %icon%
 label-focused-background = ${colors.background-alt}
-label-focused-underline= ${colors.primary}
+label-focused-underline= ${colors.yellow}
 label-focused-padding = 4
-label-focused-font = 5
+label-focused-font = 4
 
 label-occupied = %icon%
+label-occupied-underline = ${colors.blue}
 label-occupied-padding = 4
-label-occupied-font = 5
+label-occupied-font = 4
 
 label-urgent = %icon%!
 label-urgent-background = ${colors.alert}
 label-urgent-padding = 4
-label-urgent-font = 5
+label-urgent-font = 4
 
 label-empty = %icon%
 label-empty-foreground = ${colors.foreground-alt}
 label-empty-padding = 4
-label-empty-font = 5
+label-empty-font = 4
 
 ; Separator in between workspaces
 ; label-separator = |
-
-[module/cpu]
-type = internal/cpu
-interval = 0.5
-label = 󰍹 %percentage:2%%
-label-foreground = ${colors.white}
-
-[module/memory]
-type = internal/memory
-interval = 0.5
-;format-underline = #4bffdc
-label = 󰒋 %mb_used%
-label-foreground = ${colors.yellow}
 
 [module/date]
 type = internal/date
@@ -182,62 +161,9 @@ interval = 5
 date = %b %d %Y
 time = %H:%M
 label = %date% - (%time%)
-label-foreground = ${colors.cyan}
-
-[module/temperature]
-type = internal/temperature
-thermal-zone = 0
-warn-temperature = 60
-interval = 0.5
-
-label = 󰔏 %temperature-c%
-label-warn = 󰔏 %temperature-c%
-label-warn-foreground = ${colors.red}
-label-foreground = ${colors.red}
-
-[module/network]
-type = internal/network
-interface = wlp0s20f0u4
-label-connected = %downspeed% 󰳛 󰳡 %upspeed%
-label-connected-foreground = ${colors.green}
-label-disconnected = No Internet
-label-disconnected-foreground = ${colors.green}
-
-[module/pkg-updates]
-type = custom/script
-exec = checkupdates | wc -l
-label = 󰁠 %output%
-label-foreground = ${colors.magenta}
-interval = 60
-
-[module/powermenu]
-type = custom/menu
-
-expand-right = true
-
-format-spacing = 1
-
-label-open = 
-label-open-foreground = ${colors.secondary}
-label-close =  cancel
-label-close-foreground = ${colors.secondary}
-label-separator = |
-label-separator-foreground = ${colors.foreground-alt}
-
-menu-0-0 = reboot
-menu-0-0-exec = menu-open-1
-menu-0-1 = power off
-menu-0-1-exec = menu-open-2
-
-menu-1-0 = cancel
-menu-1-0-exec = menu-open-0
-menu-1-1 = reboot
-menu-1-1-exec = sudo reboot
-
-menu-2-0 = power off
-menu-2-0-exec = sudo poweroff
-menu-2-1 = cancel
-menu-2-1-exec = menu-open-0
+label-foreground = ${colors.white}
+label-padding = 4
+label-underline = ${colors.cyan}
 
 [settings]
 screenchange-reload = true

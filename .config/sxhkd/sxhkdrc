@@ -5,8 +5,6 @@ super + x
 	alacritty
 super + e
     thunar
-super + shift + e
-    alacritty -e lf
 super + b
     brave
 super + c

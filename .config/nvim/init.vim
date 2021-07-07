@@ -45,7 +45,6 @@ set expandtab
 set smartindent
 
 " Line numbers
-set relativenumber
 set nu
 
 " Search stuff
@@ -119,7 +118,7 @@ else
 endif
 
 let g:coc_global_extensions = [
-    \ 'coc-rls',
+    \ 'coc-rust-analyzer',
     \ 'coc-json',
     \ 'coc-pyright',
     \ 'coc-pairs',
