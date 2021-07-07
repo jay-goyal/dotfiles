@@ -51,14 +51,14 @@ padding-right = 2
 module-margin-left = 1
 module-margin-right = 2
 
-font-0 = Roboto Mono:pixelsize=12;1
+font-0 = Roboto:pixelsize=12;1
 font-1 = unifont:fontformat=truetype:size=8:antialias=false;0
 font-2 = siji:pixelsize=10;1
-font-3 = Material Design Icons:pixelsize=17;2
+font-3 = Material Design Icons:pixelsize=16;2
 
 modules-left = i3 bspwm xwindow
 modules-center =
-modules-right = date
+modules-right = date pulseaudio
 separator = " "
 
 tray-position = right
@@ -69,7 +69,7 @@ cursor-scroll = ns-resize
 [module/xwindow]
 type = internal/xwindow
 label = %title:0:30:...%
-label-padding = 4
+label-padding = 2
 label-foreground = ${colors.white}
 label-underline = ${colors.magenta}
 
@@ -87,25 +87,21 @@ label-focused = %icon%
 label-focused-background = ${colors.background-alt}
 label-focused-underline= ${colors.primary}
 label-focused-padding = 4
-label-focused-font = 4
 
 ; unfocused = Inactive workspace on any monitor
 label-unfocused = %icon%
 label-unfocused-padding = 4
-label-unfocused-font = 4
 
 ; visible = Active workspace on unfocused monitor
 label-visible = %icon%
 label-visible-background = ${self.label-focused-background}
 label-visible-underline = ${self.label-focused-underline}
 label-visible-padding = ${self.label-focused-padding}
-label-visible-font = 4
 
 ; urgent = Workspace with urgency hint set
 label-urgent = %icon%
 label-urgent-background = ${colors.alert}
 label-urgent-padding = 4
-label-urgent-font = 4
 
 ; Separator in between workspaces
 ; label-separator = |
@@ -134,22 +130,18 @@ label-focused = %icon%
 label-focused-background = ${colors.background-alt}
 label-focused-underline= ${colors.yellow}
 label-focused-padding = 4
-label-focused-font = 4
 
 label-occupied = %icon%
 label-occupied-underline = ${colors.blue}
 label-occupied-padding = 4
-label-occupied-font = 4
 
 label-urgent = %icon%!
 label-urgent-background = ${colors.alert}
 label-urgent-padding = 4
-label-urgent-font = 4
 
 label-empty = %icon%
 label-empty-foreground = ${colors.foreground-alt}
 label-empty-padding = 4
-label-empty-font = 4
 
 ; Separator in between workspaces
 ; label-separator = |
@@ -164,6 +156,16 @@ label = %date% - (%time%)
 label-foreground = ${colors.white}
 label-padding = 4
 label-underline = ${colors.cyan}
+
+[module/pulseaudio]
+type = internal/pulseaudio
+use-ui-max = false
+label-muted = 󰸈  Muted
+label-volume = 󰕾  %percentage%%
+label-volume-underline = ${colors.blue}
+label-muted-underline = ${colors.blue}
+label-volume-padding = 2
+label-muted-padding = 2
 
 [settings]
 screenchange-reload = true
