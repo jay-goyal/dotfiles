@@ -17,20 +17,20 @@
 ;==========================================================
 
 [colors]
-background = #282A36
-background-alt = #44475A
-foreground = #F8F8F2
-foreground-alt = #F8F8F2
-primary = #F1FA8C
-secondary = #FF5555
-alert = #FF5555
-red = #FF5555
-green = #5AF75E
-yellow = #F1FA8C
-blue = #51AFEF
-magenta = #BD93F9
-cyan = #8BE9FD
-white = #F8F8F2
+background = #292d3E
+background-alt = #434758
+foreground = #D0D0D0
+foreground-alt = #D0D0D0
+primary = #FFCB5B
+secondary = #F07178
+alert = #F07178
+red = #F07178
+green = #C3E88D
+yellow = #FFCB5B
+blue = #82AAFF
+magenta = #C792EA
+cyan = #89DDFF
+white = #D0D0D0
 
 [bar/bar]
 width = 100%
@@ -58,8 +58,9 @@ font-3 = Material Design Icons:pixelsize=16;2
 
 modules-left = i3 bspwm xwindow
 modules-center =
-modules-right = date pulseaudio
+modules-right = network date pulseaudio
 separator = " "
+wm-restack = bspwm
 
 tray-position = right
 tray-padding = 2
@@ -166,6 +167,16 @@ label-volume-underline = ${colors.blue}
 label-muted-underline = ${colors.blue}
 label-volume-padding = 2
 label-muted-padding = 2
+
+[module/network]
+type = internal/network
+interface = wlp0s20f0u4
+label-connected = %upspeed% 󰁝 󰁅 %downspeed%
+label-connected-underline = ${colors.green}
+label-connected-padding = 3
+label-disconnected = 󰯡 Not Connected
+label-disconnected-underline = ${colors.green}
+label-disconnected-padding = 3
 
 [settings]
 screenchange-reload = true

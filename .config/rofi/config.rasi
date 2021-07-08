@@ -8,11 +8,11 @@ configuration {
 
 * {
     font: "Roboto 12";
-    foreground: #f8f8f2;
+    foreground: #d0d0d0;
     foreground-dark: #a9a9a9;
-    background-color: #282a36;
-    active-background: #6272a4;
-    urgent-background: #ff5555;
+    background-color: #292d3e;
+    active-background: #82aadd;
+    urgent-background: #f07178;
     selected-background: @active-background;
     selected-urgent-background: @urgent-background;
     selected-active-background: @active-background;
