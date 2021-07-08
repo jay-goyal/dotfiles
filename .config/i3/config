@@ -5,11 +5,11 @@ set $mod Mod4
 set $term "alacritty"
 set $browser "brave"
 set $file "thunar"
-set $editor "neovide --multiGrid"
+set $editor "emacsclient -c"
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
-font pango:SauceCodePro Mono 12
+font pango:Roboto 12
 
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
@@ -20,7 +20,6 @@ set $ws4 "4"
 set $ws5 "5"
 set $ws6 "6"
 set $ws7 "7"
-set $ws8 "8"
 
 ##################################################################################################################
 #KEYMAPS
@@ -103,6 +102,7 @@ bindsym $mod+Shift+r restart
 bindsym $mod+Shift+q exec i3-msg exit
 bindsym $mod+Ctrl+s exec shutdown now
 bindsym $mod+Ctrl+r exec reboot
+bindsym $mod+Shift+x betterlockscreen -l
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -186,9 +186,10 @@ for_window [class="Spotify"] move to workspace $ws4
 ##################################################################################################################
 exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 exec --no-startup-id nm-applet
-exec --no-startup-id volumeicon
 exec --no-startup-id thunar --daemon
 exec --no-startup-id picom --experimental-backends
 exec --no-startup-id lxsession
+exec_always --no-startup-id emacs --daemon
 exec_always --no-startup-id feh --randomize --bg-fill ~/wallpapers/*
 exec_always --no-startup-id /home/jay/.config/polybar/launch.sh
+exec_always betterlockscreen -u /home/jay/wallpapers

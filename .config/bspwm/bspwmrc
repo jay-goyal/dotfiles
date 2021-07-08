@@ -20,7 +20,7 @@ betterlockscreen -u /home/jay/wallpapers &
 ##################################################################################################################
 #SETTINGS
 ##################################################################################################################
-bspc monitor HDMI-0 -d 1 2 3 4 5 6 7 8
+bspc monitor HDMI-0 -d 1 2 3 4 5 6 7
 
 bspc config pointer_action1 move
 bspc config pointer_action2 resize_side
@@ -54,9 +54,7 @@ bspc config right_padding        0
 #WINDOW RULES
 ##################################################################################################################
 bspc rule -a Brave-browser desktop='^1'
-bspc rule -a heroic desktop='^6'
-bspc rule -a Steam desktop='^6'
 bspc rule -a Spotify desktop='^3'
-bspc rule -a qBittorrent desktop='^8'
+bspc rule -a qBittorrent desktop='^7'
 bspc rule -a Lxpolkit state=floating
 bspc rule -a Emacs state=tiled
