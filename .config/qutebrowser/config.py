@@ -15,7 +15,7 @@ config.set('content.javascript.enabled', True, 'qute://*/*')
 c.downloads.location.directory = '/home/jay/Downloads'
 c.downloads.location.prompt = True
 c.url.default_page = 'https://search.brave.com'
-c.url.searchengines = {'DEFAULT': 'https://search.brave.com/search?q=a{}', 'aw': 'https://wiki.archlinux.org/?search={}', 'yt': 'https://www.youtube.com/results?search_query={}'}
+c.url.searchengines = {'DEFAULT': 'https://search.brave.com/search?q={}', 'aw': 'https://wiki.archlinux.org/?search={}', 'yt': 'https://www.youtube.com/results?search_query={}'}
 c.url.start_pages = 'https://search.brave.com/'
 c.colors.webpage.darkmode.enabled = True
 c.fonts.default_family = '"Roboto"'
@@ -24,4 +24,3 @@ c.fonts.completion.entry = '11pt "Roboto"'
 c.fonts.debug_console = '11pt "Roboto"'
 c.fonts.prompts = 'default_size Roboto'
 c.fonts.statusbar = '11pt "Roboto"'
-
