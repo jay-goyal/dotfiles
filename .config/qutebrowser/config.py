@@ -1,4 +1,5 @@
 config.load_autoconfig(False)
+c.colors.webpage.darkmode.enabled = True
 c.backend = 'webengine'
 config.set('content.cookies.accept', 'all', 'chrome-devtools://*')
 config.set('content.cookies.accept', 'all', 'devtools://*')
@@ -17,7 +18,6 @@ c.downloads.location.prompt = True
 c.url.default_page = 'https://search.brave.com'
 c.url.searchengines = {'DEFAULT': 'https://search.brave.com/search?q={}', 'aw': 'https://wiki.archlinux.org/?search={}', 'yt': 'https://www.youtube.com/results?search_query={}'}
 c.url.start_pages = 'https://search.brave.com/'
-c.colors.webpage.darkmode.enabled = True
 c.fonts.default_family = '"Roboto"'
 c.fonts.default_size = '11pt'
 c.fonts.completion.entry = '11pt "Roboto"'
