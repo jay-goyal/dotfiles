@@ -257,7 +257,7 @@ I use projectile for my project management
   :config
   (evil-collection-define-key 'normal 'dired-mode-map
     "H" 'dired-hide-dotfiles-mode))
-#+end_src>
+#+end_src
 * Development
 
 ** Setting up LSP Mode
@@ -341,11 +341,14 @@ I use projectile for my project management
 * Magit.... Frickin' Finally
 
 #+begin_src emacs-lisp
-(use-package magit
-  :custom
-  (magit-display-buffer-function #'magit-display-buffer-same-window-except-diff-v1))
+  (use-package magit
+    :custom
+    (magit-display-buffer-function #'magit-display-buffer-same-window-except-diff-v1))
 
-(use-package forge)
+  (sme/leader-keys
+    "g" '(magit-status :which-key "Open Magit Status Pane"))
+
+  (use-package forge)
 #+end_src
 
 * Org Mode
