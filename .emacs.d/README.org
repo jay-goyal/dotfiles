@@ -1,5 +1,6 @@
 #+TITLE: Emacs Config
 #+PROPERTY: header-args :tangle ~/.emacs.d/init.el
+#+AUTHOR: Jay Goyal
 
 * Basic Config
 If I don't set it up, Emacs Complains
