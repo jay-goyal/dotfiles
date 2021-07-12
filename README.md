@@ -1,3 +1,3 @@
 # Dotfiles
 My Personal Dotfiles...
-Alacritty, Xmonad, Xmobar, Zsh
+Alacritty, BSPWM, Rofi, Emacs, NeoVim, SXHKD, Qutebrowser and other stuff
