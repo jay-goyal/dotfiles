@@ -1,3 +1,3 @@
 # Dotfiles
 My Personal Dotfiles...
-Alacritty, BSPWM, Rofi, Emacs, NeoVim, SXHKD, Qutebrowser and other stuff
+\nAlacritty, BSPWM, Rofi, Emacs, NeoVim, SXHKD, Qutebrowser and other stuff
