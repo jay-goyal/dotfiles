@@ -10,7 +10,6 @@ killall thunar
 thunar --daemon &
 killall lxsession
 lxsession &
-picom &
 killall emacs
 emacs --daemon &
 feh --randomize --bg-fill ~/wallpapers/* &
