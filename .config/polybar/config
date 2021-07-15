@@ -47,11 +47,13 @@ module-margin-left = 1
 module-margin-right = 2
 
 font-0 = Roboto:pixelsize=12;1
-font-1 = Material Design Icons:pixelsize=14;2
+font-1 = Font Awesome 5 Free:pixelsize=13;2
+font-2 = Font Awesome 5 Free Solid:pixelsize=13;2
+font-3 = Font Awesome 5 Brands:pixelsize=13;2
 
-modules-left = i3 bspwm xwindow
+modules-left = bspwm xwindow
 modules-center =
-modules-right = network date pulseaudio
+modules-right = network date alsa
 separator = " "
 wm-restack = bspwm
 
@@ -67,46 +69,22 @@ label-padding = 2
 label-foreground = ${colors.white}
 label-underline = ${colors.magenta}
 
-[module/i3]
-type = internal/i3
-format = <label-state> <label-mode>
-index-sort = true
-wrapping-scroll = false
-
-pin-workspaces = true
-
-label-focused = 󰝥
-label-focused-foreground = ${colors.white-bright}
-label-focused-padding = 4
-
-label-unfocused = 󰝦
-label-unfocused-padding = 4
-
-label-visible = 󰝥
-label-visible-padding = 4
-
-label-urgent = 󰪥
-label-urgent-foreground = ${colors.red}
-label-urgent-padding = 4
-
-; Separator in between workspaces
-; label-separator = |
-
 [module/bspwm]
 type = internal/bspwm
 
-label-focused = 󰝥
+label-focused = 
 label-focused-foreground = ${colors.white-bright}
 label-focused-padding = 4
+label-focused-font = 3
 
-label-occupied = 󰪥
+label-occupied = 
 label-occupied-padding = 4
 
-label-urgent = 󰪥
+label-urgent = 
 label-urgent-foreground = ${colors.red}
 label-urgent-padding = 4
 
-label-empty = 󰝦
+label-empty = 
 label-empty-padding = 4
 
 ; Separator in between workspaces
@@ -123,20 +101,20 @@ label-foreground = ${colors.white}
 label-padding = 4
 label-underline = ${colors.cyan}
 
-[module/pulseaudio]
-type = internal/pulseaudio
+[module/alsa]
+type = internal/alsa
 use-ui-max = false
-label-muted = 󰸈  Muted
-label-volume = 󰕾  %percentage%%
+label-muted =  Muted
+label-volume =   %percentage%%
 label-volume-underline = ${colors.blue}
 label-muted-underline = ${colors.blue}
 label-volume-padding = 2
-label-muted-padding = 2
+label-muted-padding = 3
 
 [module/network]
 type = internal/network
 interface = wlp0s20f0u4
-label-connected = %downspeed% 󰁅󰁝 %upspeed%
+label-connected = %downspeed%   %upspeed%
 label-connected-underline = ${colors.green}
 label-connected-padding = 3
 label-disconnected = 󰯡 Not Connected

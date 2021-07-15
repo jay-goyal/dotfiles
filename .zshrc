@@ -1,6 +1,6 @@
 # Set Editors
 export EDITOR="nvim"
-export VISUAL="nvim"
+export VISUAL="emacsclient -c"
 export SUDO_EDITOR="nvim"
 
 autoload -U colors && colors
@@ -18,7 +18,7 @@ SPACESHIP_XCODE_SHOW_LOCAL=false
 SPACESHIP_SWIFT_SHOW_LOCAL=false
 SPACESHIP_GOLANG_SHOW=false
 SPACESHIP_PHP_SHOW=false
-SPACESHIP_VI_MODE_SHOW=true
+SPACESHIP_VI_MODE_SHOW=false
 SPACESHIP_JULIA_SHOW=false
 SPACESHIP_DOCKER_SHOW=false
 SPACESHIP_DOCKER_CONTEXT_SHOW=false
@@ -85,5 +85,3 @@ alias lt='exa -aT --color=always --group-directories-first' # tree listing
 
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh 2>/dev/null
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 2>/dev/null
-spaceship_vi_mode_enable
-if [ -e /home/jay/.nix-profile/etc/profile.d/nix.sh ]; then . /home/jay/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
