@@ -13,7 +13,7 @@ font:
 colors:
   primary:
     background: '0x262d3e'
-    foreground: '0xd0d0d0'
+    foreground: '0xffffff'
   normal:
     black:   '0x292d3e'
     red:     '0xf07178'
@@ -32,5 +32,3 @@ colors:
     magenta: '0xe1acff'
     cyan:    '0xa3f7ff'
     white:   '0xffffff'
-
-background_opacity: 0.85
