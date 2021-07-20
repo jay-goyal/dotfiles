@@ -83,5 +83,5 @@ alias la='exa -al --color=always --group-directories-first'  # all files and dir
 alias ll='exa -l --color=always --group-directories-first'  # long format
 alias lt='exa -aT --color=always --group-directories-first' # tree listing
 
-source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh 2>/dev/null
-source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 2>/dev/null
+source /usr/share/zsh/site-functions/zsh-syntax-highlighting.zsh 2>/dev/null
+source /usr/share/zsh/site-functions/zsh-autosuggestions.zsh 2>/dev/null

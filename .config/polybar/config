@@ -73,7 +73,6 @@ label-underline = ${colors.magenta}
 type = internal/bspwm
 
 label-focused = 
-label-focused-foreground = ${colors.white-bright}
 label-focused-padding = 4
 label-focused-font = 3
 

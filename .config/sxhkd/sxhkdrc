@@ -5,8 +5,8 @@ super + x
 	alacritty
 super + e
     thunar
-super + b
-    qutebrowser
+super + {_,shift} + b
+    {qutebrowser, firefox}
 super + c
     emacsclient -c
 super + r
@@ -21,7 +21,7 @@ super + Escape
 ##################################################################################################################
 # shutdown/restart computer
 super + ctrl + {s,r}
-    {shutdown now,reboot}
+    alacritty -e sudo {shutdown -h now,reboot}
 
 # volume
 XF86Audio{Raise,Lower}Volume
