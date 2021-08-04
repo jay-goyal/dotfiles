@@ -44,3 +44,5 @@ x11-misc/xdg-user-dirs
 sys-apps/ripgrep
 sys-apps/exa
 x11-apps/setxkbmap
+media-video/celluloid
+net-p2p/transmission

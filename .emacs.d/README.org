@@ -39,9 +39,9 @@ If I don't set it up, Emacs Complains
 ** Font Settings
 
 #+begin_src emacs-lisp
-(set-face-attribute 'default nil :font "Roboto Mono Nerd Font" :height 120)
-(set-face-attribute 'fixed-pitch nil :font "Roboto Mono Nerd Font" :height 120)
-(set-face-attribute 'variable-pitch nil :font "Source Sans Pro" :height 120 :weight 'regular)
+(set-face-attribute 'default nil :font "SauceCodePro Nerd Font Mono" :height 120)
+(set-face-attribute 'fixed-pitch nil :font "SauceCodePro Nerd Font Mono" :height 120)
+(set-face-attribute 'variable-pitch nil :font "Roboto" :height 120 :weight 'regular)
 #+end_src
 
 * Package Management Setup
@@ -165,28 +165,29 @@ I use Ivy as my completion engine.
 I love the dark side
 
 #+begin_src emacs-lisp
-(use-package evil
-  :init
-  (setq evil-want-integration t)
-  (setq evil-want-keybinding nil)
-  (setq evil-vsplit-window-right t)
-  (setq evil-want-C-i-jump nil)
-  (setq evil-split-window-below t)
-  (evil-mode)
-  :config
-  (evil-mode 1)
-  (define-key evil-insert-state-map (kbd "C-h") 'evil-delete-backward-char-and-join)
+  (use-package evil
+    :init
+    (setq evil-want-integration t)
+    (setq evil-want-keybinding nil)
+    (setq evil-vsplit-window-right t)
+    (setq evil-want-C-i-jump nil)
+    (setq evil-split-window-below t)
+    (evil-mode)
+    :config
+    (evil-mode 1)
+    (define-key evil-insert-state-map (kbd "C-g") 'evil-normal-state
+                evil-insert-state-map (kbd "C-h") 'evil-delete-backward-char-and-join)
 
-  ;; Use visual line motions even outside of visual-line-mode buffers
-  (evil-global-set-key 'motion "j" 'evil-next-visual-line)
-  (evil-global-set-key 'motion "k" 'evil-previous-visual-line))
+    ;; Use visual line motions even outside of visual-line-mode buffers
+    (evil-global-set-key 'motion "j" 'evil-next-visual-line)
+    (evil-global-set-key 'motion "k" 'evil-previous-visual-line))
 
 
-(use-package evil-collection
-  :after evil
-  :config
-  (setq evil-collection-mode-list '(dashboard dired ibuffer magit))
-  (evil-collection-init))
+  (use-package evil-collection
+    :after evil
+    :config
+    (setq evil-collection-mode-list '(dashboard dired ibuffer magit))
+    (evil-collection-init))
 #+end_src
 
 * Setup Keyboard Shortcuts
@@ -369,7 +370,7 @@ I use projectile for my project management
 		  (org-level-6 . 1.1)
 		  (org-level-7 . 1.1)
 		  (org-level-8 . 1.1)))
-    (set-face-attribute (car face) nil :font "Roboto Mono Nerd Font" :weight 'regular :height (cdr face))))
+    (set-face-attribute (car face) nil :font "SauceCodePro Nerd Font" :weight 'regular :height (cdr face))))
   (use-package org
     :hook
     (org-mode . sme/org-font-setup)
