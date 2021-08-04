@@ -5,8 +5,8 @@ super + x
 	alacritty
 super + e
     thunar
-super + {_,shift} + b
-    {qutebrowser, firefox}
+super + b
+    vimb 
 super + c
     emacsclient -c
 super + r

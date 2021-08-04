@@ -50,7 +50,6 @@ bspc config right_padding        0
 ##################################################################################################################
 #WINDOW RULES
 ##################################################################################################################
-bspc rule -a qutebrowser desktop='^1'
-bspc rule -a Firefox desktop='^1'
+bspc rule -a Vimb desktop='^1'
 bspc rule -a Transmission-gtk desktop='^7'
 bspc rule -a Emacs state=tiled

@@ -1,0 +1,4 @@
+sys-boot/grub mount
+net-misc/networkmanager -ofono wifi
+app-editors/emacs gui
+x11-misc/polybar network
