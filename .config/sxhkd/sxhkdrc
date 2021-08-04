@@ -4,7 +4,7 @@
 super + x
 	alacritty
 super + e
-    thunar
+    pcmanfm
 super + b
     vimb 
 super + c

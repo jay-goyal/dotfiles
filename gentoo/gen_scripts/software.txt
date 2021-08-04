@@ -31,7 +31,7 @@ net-misc/wget
 net-misc/curl
 x11-misc/sxhkd
 x11-wm/bspwm
-xfce-base/thunar
+x11-misc/pcmanfm
 app-editors/emacs
 x11-misc/polybar
 x11-themes/papirus-icon-theme
