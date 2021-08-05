@@ -46,3 +46,4 @@ sys-apps/exa
 x11-apps/setxkbmap
 media-video/celluloid
 net-p2p/transmission
+dev-util/rust-analyzer

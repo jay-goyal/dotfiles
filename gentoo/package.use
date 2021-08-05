@@ -2,3 +2,9 @@ sys-boot/grub mount
 net-misc/networkmanager -ofono wifi
 app-editors/emacs gui
 x11-misc/polybar network
+x11-libs/libfm automount gtk
+gnome-base/gvfs archive
+www-client/vimb gstreamer adblock
+media-video/mpv bluray libmpv
+media-video/ffmpeg encode chromium mp3
+dev-lang/rust clippy rustfmt rls
