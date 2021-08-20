@@ -1,0 +1,20 @@
+set home-page=about:blank
+set download-path=~/Downloads
+set editor-command=emacs %s
+
+set webgl=true
+set incsearch=true
+set dark-mode=true
+
+set default-font=Roboto
+set monospace-font=SauceCodePro Nerd Font Mono
+set sans-serif-font=Roboto
+set serif-font=Roboto
+set font-size=16
+
+shortcut-add br=https://search.brave.com/search?q=$0
+shortcut-add yt=https://www.youtube.com/results?search_query=$0
+shortcut-add aw=https://wiki.archlinux.org/index.php?search=$0
+shortcut-add gw=https://wiki.gentoo.org/index.php?search=$0
+shortcut-add gp=https://packages.gentoo.org/packages/search?q=$0
+shortcut-default br
