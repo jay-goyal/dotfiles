@@ -24,6 +24,7 @@ net-misc/wget
 net-misc/curl
 x11-misc/xdg-utils
 x11-misc/xdg-user-dirs
+app-admin/eclean-kernel
 
 #ZSH and Plugins and Other Shell related
 app-shells/zsh-autosuggestions
