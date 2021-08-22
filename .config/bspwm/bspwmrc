@@ -9,8 +9,9 @@ nm-applet &
 killall emacs
 emacs --daemon &
 feh --randomize --bg-fill ~/wallpapers/* &
+thunar --daemon &
+lxsession &
 /home/jay/.config/polybar/launch.sh &
-killall notification-daemon &
 
 ##################################################################################################################
 #SETTINGS
@@ -33,7 +34,7 @@ bspc config gapless_monocle      true
 ##################################################################################################################
 #THEMING
 ##################################################################################################################
-bspc config normal_border_color "#434758"
+bspc config normal_border_color "#82aaff"
 bspc config active_border_color "#82aaff"
 bspc config focused_border_color "#82aaff"
 bspc config presel_feedback_color "#9cc5ff"
@@ -47,6 +48,6 @@ bspc config right_padding        0
 ##################################################################################################################
 #WINDOW RULES
 ##################################################################################################################
-bspc rule -a Vimb desktop='^1'
-bspc rule -a Transmission-gtk desktop='^7'
+bspc rule -a qutebrowser desktop='^1'
+bspc rule -a qBittorrent desktop='^7'
 bspc rule -a Emacs state=tiled

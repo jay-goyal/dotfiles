@@ -4,9 +4,9 @@
 super + x
 	alacritty
 super + e
-    pcmanfm
+    thunar
 super + b
-    vimb 
+    qutebrowser 
 super + c
     emacsclient -c
 super + r
@@ -21,13 +21,13 @@ super + Escape
 ##################################################################################################################
 # shutdown/restart computer
 super + ctrl + {s,r}
-    alacritty -e sudo {shutdown -h now,reboot}
+    {shutdown now, reboot}
 
 # volume
 XF86Audio{Raise,Lower}Volume
-    amixer set Master 1%{+,-}
+    pactl set-sink-volume @DEFAULT_SINK@ {+,-}1%
 XF86AudioMute
-   amixer set Mastertoggle
+    pactl set-sink-mute @DEFAULT_SINK@ toggle
 ##################################################################################################################
 #BSPWM
 ##################################################################################################################

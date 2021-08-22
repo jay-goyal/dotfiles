@@ -52,7 +52,7 @@ font-3 = Font Awesome 5 Brands:pixelsize=12;2
 
 modules-left = bspwm xwindow
 modules-center =
-modules-right = network date alsa
+modules-right = network date pulseaudio
 separator = " "
 wm-restack = bspwm
 
@@ -99,8 +99,8 @@ label-foreground = ${colors.white}
 label-padding = 4
 label-underline = ${colors.cyan}
 
-[module/alsa]
-type = internal/alsa
+[module/pulseaudio]
+type = internal/pulseaudio
 use-ui-max = false
 label-muted =  Muted
 label-volume =   %percentage%%
