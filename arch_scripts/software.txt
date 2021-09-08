@@ -47,6 +47,7 @@ feh
 sxhkd
 bspwm
 thunar
+thunar-volman
 polybar-git
 papirus-icon-theme
 rofi
