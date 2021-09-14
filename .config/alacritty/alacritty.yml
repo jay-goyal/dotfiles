@@ -1,14 +1,14 @@
 font:
   size: 12
   normal:
-    family: Roboto Mono Nerd Font
+    family: Fira Code Nerd Font Mono
     style: Regular
   bold:
-    family: Roboto Mono Nerd Font
+    family: Fira Code Nerd Font Mono
   itaic:
-    family: Roboto Mono Nerd Font
+    family: Fira Code Nerd Font Mono
   bold_italic:
-    family: Roboto Mono Nerd Font
+    family: Fira Code Nerd Font Mono
 
 colors:
   primary:
@@ -32,3 +32,5 @@ colors:
     magenta: '0xe1acff'
     cyan:    '0xa3f7ff'
     white:   '0xffffff'
+
+background-opacity: 0.85

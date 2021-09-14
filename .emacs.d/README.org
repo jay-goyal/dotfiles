@@ -39,9 +39,9 @@
 ** Font Settings
 
    #+begin_src emacs-lisp
-     (set-face-attribute 'default nil :font "SauceCodePro Nerd Font Mono" :height 120)
-     (set-face-attribute 'fixed-pitch nil :font "SauceCodePro Nerd Font Mono" :height 120)
-     (set-face-attribute 'variable-pitch nil :font "Roboto" :height 120 :weight 'regular)
+     (set-face-attribute 'default nil :font "Fira Code Nerd Font Mono" :height 120)
+     (set-face-attribute 'fixed-pitch nil :font "Fira Code Nerd Font Mono" :height 120)
+     (set-face-attribute 'variable-pitch nil :font "Fira Code Nerd Font" :height 120 :weight 'regular)
    #+end_src
 
 * Package Management Setup
