@@ -50,7 +50,8 @@ thunar
 thunar-volman
 polybar-git
 papirus-icon-theme
-rofi
+dmenu
+j4-dmenu-desktop-git
 alacritty
 network-manager-applet
 lxappearance
