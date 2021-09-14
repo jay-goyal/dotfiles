@@ -4,6 +4,7 @@ emacs
 
 #System
 linux-firmware
+base-devel
 intel-ucode
 sudo
 xorg
