@@ -273,7 +273,6 @@
        (lsp lsp-deferred)
        :hook
        (lsp-mode . sme/lsp-mode-setup)
-       ((typescript-mode js2-mode web-mode) . lsp)
        :init
        (setq lsp-keymap-prefix "C-c l")  ;; Or 'C-l', 's-l'
        :custom
@@ -331,51 +330,6 @@
        (setq rustic-format-on-save t))
    #+end_src
 
-** JavaScript/TypeScript
-
-   #+begin_src emacs-lisp
-     (use-package typescript-mode
-       :mode "\\.ts\\'"
-       :config
-       (setq typescript-indent-level 4))
-     (defun sme/set-js-indentation ()
-       (setq js-indent-level 4)
-       (setq evil-shift-width js-indent-level)
-       (setq-default tab-width 4))
-     (use-package js2-mode
-       :mode "\\.jsx?\\'"
-       :config
-       ;; Don't use built-in syntax checking
-       (setq js2-mode-show-strict-warnings nil)
-
-       ;; Set up proper indentation in JavaScript and JSON files
-       (add-hook 'js2-mode-hook #'sme/set-js-indentation)
-       (add-hook 'json-mode-hook #'sme/set-js-indentation))
-
-     (use-package prettier-js
-       :hook ((js2-mode . prettier-js-mode))
-       :config
-       (setq prettier-js-show-errors nil))
-   #+end_src
-
-** HTML
-   #+begin_src emacs-lisp
-     (use-package web-mode
-       :mode "(\\.\\(html?\\|ejs\\|tsx\\|jsx\\)\\'"
-       :config
-       (setq-default web-mode-code-indent-offset 2)
-       (setq-default web-mode-markup-indent-offset 2)
-       (setq-default web-mode-attribute-indent-offset 2))
-
-     ;; 1. Start the server with `httpd-start'
-     ;; 2. Use `impatient-mode' on any buffer
-     (use-package impatient-mode
-       :straight t)
-
-     (use-package skewer-mode
-       :straight t)
-   #+end_src
-   
 ** Misc
    #+begin_src emacs-lisp
      ;; Commenting
