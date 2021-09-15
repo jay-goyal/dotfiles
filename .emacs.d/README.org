@@ -330,6 +330,29 @@
        (setq rustic-format-on-save t))
    #+end_src
 
+** JavaScript
+
+   #+begin_src emacs-lisp
+     (defun sme/set-js-indentation ()
+       (setq js-indent-level 4)
+       (setq evil-shift-width js-indent-level)
+       (setq-default tab-width 4))
+     (use-package js2-mode
+       :mode "\\.jsx?\\'"
+       :config
+       ;; Don't use built-in syntax checking
+       (setq js2-mode-show-strict-warnings nil)
+
+       ;; Set up proper indentation in JavaScript and JSON files
+       (add-hook 'js2-mode-hook #'sme/set-js-indentation)
+       (add-hook 'json-mode-hook #'sme/set-js-indentation))
+
+     (use-package prettier-js
+       :hook ((js2-mode . prettier-js-mode))
+       :config
+       (setq prettier-js-show-errors nil))
+   #+end_src
+   
 ** Misc
    #+begin_src emacs-lisp
      ;; Commenting
