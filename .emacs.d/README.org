@@ -273,6 +273,7 @@
        (lsp lsp-deferred)
        :hook
        (lsp-mode . sme/lsp-mode-setup)
+       ((typescript-mode js2-mode web-mode) . lsp)
        :init
        (setq lsp-keymap-prefix "C-c l")  ;; Or 'C-l', 's-l'
        :custom
@@ -330,9 +331,13 @@
        (setq rustic-format-on-save t))
    #+end_src
 
-** JavaScript
+** JavaScript/TypeScript
 
    #+begin_src emacs-lisp
+     (use-package typescript-mode
+       :mode "\\.ts\\'"
+       :config
+       (setq typescript-indent-level 4))
      (defun sme/set-js-indentation ()
        (setq js-indent-level 4)
        (setq evil-shift-width js-indent-level)
@@ -351,6 +356,24 @@
        :hook ((js2-mode . prettier-js-mode))
        :config
        (setq prettier-js-show-errors nil))
+   #+end_src
+
+** HTML
+   #+begin_src emacs-lisp
+     (use-package web-mode
+       :mode "(\\.\\(html?\\|ejs\\|tsx\\|jsx\\)\\'"
+       :config
+       (setq-default web-mode-code-indent-offset 2)
+       (setq-default web-mode-markup-indent-offset 2)
+       (setq-default web-mode-attribute-indent-offset 2))
+
+     ;; 1. Start the server with `httpd-start'
+     ;; 2. Use `impatient-mode' on any buffer
+     (use-package impatient-mode
+       :straight t)
+
+     (use-package skewer-mode
+       :straight t)
    #+end_src
    
 ** Misc
