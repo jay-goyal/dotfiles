@@ -33,7 +33,7 @@
      ;; Make ESC quit prompts
      (global-set-key (kbd "<escape>") 'keyboard-escape-quit)
 
-     (setq tab-width 4)  ; Set Tab length
+     (setq-default tab-width 4)  ; Set Tab length
    #+end_src
 
 ** Font Settings
@@ -292,22 +292,24 @@
 ** Company Mode
 
    #+begin_src emacs-lisp
-     (use-package company
-       :after lsp-mode
-       :hook (lsp-mode . company-mode)
-       :bind
-       (:map company-active-map
-	     ("<tab>" . company-complete-selection)
-	     ("C-j" . company-select-next)
-	     ("C-k . company-select-previous"))
-       (:map lsp-mode-map
-	     ("<tab>" . company-indent-or-complete-common))
-       :custom
-       (company-minimum-prefix-length 1)
-       (company-idle-delay 0.0))
+	 (use-package company
+	   :after lsp-mode
+	   :hook
+	   (lsp-mode . company-mode)
+	   ((typescript-mode js2-mode web-mode) . lsp)
+	   :bind
+	   (:map company-active-map
+		 ("<tab>" . company-complete-selection)
+		 ("C-j" . company-select-next)
+		 ("C-k . company-select-previous"))
+	   (:map lsp-mode-map
+		 ("<tab>" . company-indent-or-complete-common))
+	   :custom
+	   (company-minimum-prefix-length 1)
+	   (company-idle-delay 0.0))
 
-     (use-package company-box
-       :hook (company-mode . company-box-mode))
+	 (use-package company-box
+	   :hook (company-mode . company-box-mode))
    #+end_src
 
 ** Rust Setup
@@ -330,6 +332,51 @@
        (setq rustic-format-on-save t))
    #+end_src
 
+** JavaScript/TypeScript
+
+   #+begin_src emacs-lisp
+     (use-package typescript-mode
+       :mode "\\.ts\\'"
+       :config
+       (setq typescript-indent-level 4))
+     (defun sme/set-js-indentation ()
+       (setq js-indent-level 4)
+       (setq evil-shift-width js-indent-level)
+       (setq-default tab-width 4))
+     (use-package js2-mode
+       :mode "\\.jsx?\\'"
+       :config
+       ;; Don't use built-in syntax checking
+       (setq js2-mode-show-strict-warnings nil)
+
+       ;; Set up proper indentation in JavaScript and JSON files
+       (add-hook 'js2-mode-hook #'sme/set-js-indentation)
+       (add-hook 'json-mode-hook #'sme/set-js-indentation))
+
+     (use-package prettier-js
+       :hook ((js2-mode . prettier-js-mode))
+       :config
+       (setq prettier-js-show-errors nil))
+   #+end_src
+
+** HTML
+   #+begin_src emacs-lisp
+     (use-package web-mode
+       :mode "(\\.\\(html?\\|ejs\\|tsx\\|jsx\\)\\'"
+       :config
+       (setq-default web-mode-code-indent-offset 2)
+       (setq-default web-mode-markup-indent-offset 2)
+       (setq-default web-mode-attribute-indent-offset 2))
+
+     ;; 1. Start the server with `httpd-start'
+     ;; 2. Use `impatient-mode' on any buffer
+     (use-package impatient-mode
+       :straight t)
+
+     (use-package skewer-mode
+       :straight t)
+   #+end_src
+   
 ** Misc
    #+begin_src emacs-lisp
      ;; Commenting
