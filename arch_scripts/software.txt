@@ -40,7 +40,6 @@ ttf-roboto
 nerd-fonts-complete
 
 #Apps
-qutebrowser
 git
 neofetch
 htop
