@@ -8,7 +8,7 @@ super + e
 super + {_,shift} + b
     {qutebrowser, brave} 
 super + c
-    code
+    emacsclient -c
 super + r
     j4-dmenu-desktop --dmenu="dmenu -h 27 -l 20 -bw 1 -p 'Run: '" --term="alacritty"
 super + Escape
