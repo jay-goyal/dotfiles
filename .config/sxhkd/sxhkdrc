@@ -5,8 +5,8 @@ super + x
 	alacritty
 super + e
     thunar
-super + {_,shift} + b
-    {qutebrowser, brave} 
+super + b
+    brave 
 super + c
     emacsclient -c
 super + r
