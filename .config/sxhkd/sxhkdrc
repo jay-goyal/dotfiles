@@ -8,9 +8,9 @@ super + e
 super + {_,shift} + b
     {qutebrowser, brave} 
 super + c
-    emacsclient -c
+    code
 super + r
-    j4-dmenu-desktop --dmenu="dmenu -h 27 -l 20 -bw 1 -i -p 'Run: '" --term="alacritty"
+    j4-dmenu-desktop --dmenu="dmenu -h 27 -l 20 -bw 1 -p 'Run: '" --term="alacritty"
 super + Escape
 	pkill -USR1 -x sxhkd
 
