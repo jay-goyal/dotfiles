@@ -363,10 +363,6 @@
    #+begin_src emacs-lisp
 	 (use-package web-mode
 	   :mode "\\.html?\\'"
-	   :mode "\\.css\\'"
-	   :mode "\\.scss\\'"
-	   :mode "\\.js\\'"
-	   :mode "\\.ts\\'"
 	   :config
 	   (setq-default web-mode-code-indent-offset 2)
 	   (setq-default web-mode-markup-indent-offset 2)
@@ -378,7 +374,7 @@
 	   :hook (web-mode . impatient-mode))
 
 	 (use-package emmet-mode
-	   :hook (web-mode . emmet-preview-mode)
+	   :hook ((web-mode css-mode scss-mode) . emmet-preview-mode)
 	   :bind ("C-j" . emmet-expand-line))
    #+end_src
    

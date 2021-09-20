@@ -41,6 +41,7 @@ nerd-fonts-complete
 
 #Apps
 git
+firefox-developer-edition
 neofetch
 htop
 feh
