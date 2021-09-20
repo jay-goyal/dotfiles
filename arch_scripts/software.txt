@@ -68,6 +68,6 @@ alsa
 
 #Misc
 matcha-gtk-theme-git
-rust-analyzer-git
+rust-analyzer
 neovim-plug-git
 gvfs-mtp
