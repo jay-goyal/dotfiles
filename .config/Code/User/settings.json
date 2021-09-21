@@ -1,9 +1,13 @@
 {
-    "workbench.colorTheme": "Ace Palenight",
     "workbench.iconTheme": "material-icon-theme",
     "workbench.productIconTheme": "material-product-icons",
     "editor.fontFamily": "'FiraCode Nerd Font'",
     "editor.fontSize": 16,
     "explorer.confirmDelete": false,
     "editor.minimap.enabled": false,
+    "[html]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "prettier.useTabs": true,
+    "workbench.colorTheme": "Palenight Italic",
 }
