@@ -1,7 +1,6 @@
 #+TITLE: Emacs Config
 #+PROPERTY: header-args :tangle ~/.emacs.d/init.el
 #+AUTHOR: Jay Goyal
-
 * Basic Config
   If I don't set it up, Emacs Complains
 
@@ -195,26 +194,25 @@
   I use general for my keybindings
 
   #+begin_src emacs-lisp
-    (use-package general
-      :config (general-create-definer sme/leader-keys
+	(use-package general
+	  :config (general-create-definer sme/leader-keys
 		:keymaps '(normal insert visual emacs)
 		:prefix "SPC"
-		:global-prefix "C-SPC")
+		:global-prefix "C-SPC"))
 
-      (sme/leader-keys
-	"tt" '(counsel-load-theme :which-key "Choose theme")
-	"x" '(counsel-M-x :which-key "Execute a command")))
+	(use-package hydra)
 
-    (use-package hydra)
+	(defhydra hydra-text-scale (:timeout 4)
+	  "scale text"
+	  ("j" text-scale-increase "in")
+	  ("k" text-scale-decrease "out")
+	  ("f" nil "finished" :exit t))
 
-    (defhydra hydra-text-scale (:timeout 4)
-      "scale text"
-      ("j" text-scale-increase "in")
-      ("k" text-scale-decrease "out")
-      ("f" nil "finished" :exit t))
-
-    (sme/leader-keys
-      "ts" '(hydra-text-scale/body :which-key "scale text"))
+	(sme/leader-keys
+	  "b" '(format-all-buffer :which-key "Format the buffer")
+	  "ts" '(hydra-text-scale/body :which-key "Scale text")
+	  "tt" '(counsel-load-theme :which-key "Choose theme")
+	  "x" '(counsel-M-x :which-key "Execute a command"))
   #+end_src
 
 * Project Management
@@ -273,7 +271,7 @@
        (lsp lsp-deferred)
        :hook
        (lsp-mode . sme/lsp-mode-setup)
-	   ((typescript-mode js2-mode web-mode) . lsp)
+	   ((typescript-mode js2-mode web-mode css-mode scss-mode) . lsp)
        :init
        (setq lsp-keymap-prefix "C-c l")  ;; Or 'C-l', 's-l'
        :custom
@@ -281,11 +279,6 @@
        (lsp-rust-analyzer-server-display-inlay-hints t)
        :config
        (lsp-enable-which-key-integration t))
-
-     (use-package lsp-ui
-       :hook (lsp-mode . lsp-ui-mode)
-       :custom
-       (lsp-ui-doc-position 'bottom))
 
      (use-package lsp-ivy)
    #+end_src
@@ -374,7 +367,7 @@
 	   :hook (web-mode . impatient-mode))
 
 	 (use-package emmet-mode
-	   :hook ((web-mode css-mode scss-mode) . emmet-preview-mode)
+	   :hook (web-mode . emmet-preview-mode)
 	   :bind ("C-j" . emmet-expand-line))
    #+end_src
    

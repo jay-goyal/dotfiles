@@ -6,8 +6,6 @@
 killall sxhkd
 sxhkd &
 nm-applet &
-killall emacs
-emacs --daemon &
 feh --randomize --bg-fill ~/wallpapers/* &
 thunar --daemon &
 lxsession &
