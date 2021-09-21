@@ -6,7 +6,7 @@ cd paru
 makepkg -si
 software="`sed -e 's/#.*$//' -e '/^$/d' ~/dotfiles/arch_scripts/software.txt | tr '\n' ' '`"
 ext=(
-acestojanoski.ace-palenight
+whizkydee.material-palenight-theme
 esbenp.prettier-vscode
 matklad.rust-analyzer
 PKief.material-icon-theme
