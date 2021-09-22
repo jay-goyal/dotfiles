@@ -1,7 +1,0 @@
-acestojanoski.ace-palenight
-esbenp.prettier-vscode
-matklad.rust-analyzer
-PKief.material-icon-theme
-PKief.material-product-icons
-ritwickdey.LiveServer
-vscodevim.vim

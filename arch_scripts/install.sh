@@ -7,20 +7,7 @@ git clone --depth 1 https://github.com/hlissner/doom-emacs ~/.doom-emacs
 cd paru
 makepkg -si
 software="`sed -e 's/#.*$//' -e '/^$/d' ~/dotfiles/arch_scripts/software.txt | tr '\n' ' '`"
-ext=(
-whizkydee.material-palenight-theme
-esbenp.prettier-vscode
-matklad.rust-analyzer
-PKief.material-icon-theme
-PKief.material-product-icons
-ritwickdey.LiveServer
-vscodevim.vim
-)
 paru -S $software --needed
-for ex in $ext
-do
-code --install-extension $ex
-done
 sudo systemctl enable NetworkManager
 cp -r ~/dotfiles/.config ~/
 cp -r ~/dotfiles/wallpapers ~/
