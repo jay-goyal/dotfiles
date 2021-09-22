@@ -5,6 +5,8 @@
 ##################################################################################################################
 killall sxhkd
 sxhkd &
+killall emacs
+emacs --daemon &
 nm-applet &
 feh --randomize --bg-fill ~/wallpapers/* &
 thunar --daemon &
