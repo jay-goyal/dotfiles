@@ -1,5 +1,5 @@
 #+TITLE: Emacs Config
-#+PROPERTY: header-args :tangle ~/.my-emacs/init.el
+#+PROPERTY: header-args :tangle ~/.emacs.d/init.el
 #+AUTHOR: Jay Goyal
 * Basic Config
   If I don't set it up, Emacs Complains
@@ -212,6 +212,7 @@
 	  "b" '(format-all-buffer :which-key "Format the buffer")
 	  "ts" '(hydra-text-scale/body :which-key "Scale text")
 	  "tt" '(counsel-load-theme :which-key "Choose theme")
+	  "d" '(dired :which-key "Open dired")
 	  "x" '(counsel-M-x :which-key "Execute a command"))
   #+end_src
 
@@ -237,26 +238,26 @@
 * Dired
   Setting up Dired
   #+begin_src emacs-lisp
-    (use-package dired
-      :ensure nil
-      :commands (dired dired-jump)
-      :bind (("C-x C-j" . dired-jump))
-      :custom ((dired-listing-switches "-agho --group-directories-first"))
-      :config
-      (evil-collection-define-key 'normal 'dired-mode-map
-	"h" 'dired-single-up-directory
-	"l" 'dired-single-buffer))
+	(use-package dired
+	  :ensure nil
+	  :commands (dired dired-jump)
+	  :bind (("C-x C-j" . dired-jump))
+	  :custom ((dired-listing-switches "-agho --group-directories-first"))
+	  :config
+	  (evil-collection-define-key 'normal 'dired-mode-map
+		"h" 'dired-single-up-directory
+		"l" 'dired-single-buffer))
 
-    (use-package dired-single)
+	(use-package dired-single)
 
-    (use-package all-the-icons-dired
-      :hook (dired-mode . all-the-icons-dired-mode))
+	(use-package all-the-icons-dired
+	  :hook (dired-mode . all-the-icons-dired-mode))
 
-    (use-package dired-hide-dotfiles
-      :hook (dired-mode . dired-hide-dotfiles-mode)
-      :config
-      (evil-collection-define-key 'normal 'dired-mode-map
-	"H" 'dired-hide-dotfiles-mode))
+	(use-package dired-hide-dotfiles
+	  :hook (dired-mode . dired-hide-dotfiles-mode)
+	  :config
+	  (evil-collection-define-key 'normal 'dired-mode-map
+		"H" 'dired-hide-dotfiles-mode))
   #+end_src
 * Development
 
@@ -271,7 +272,7 @@
        (lsp lsp-deferred)
        :hook
        (lsp-mode . sme/lsp-mode-setup)
-	   ((typescript-mode js2-mode web-mode css-mode scss-mode) . lsp)
+	   ((typescript-mode js2-mode web-mode css-mode scss-mode lua-mode) . lsp)
        :init
        (setq lsp-keymap-prefix "C-c l")  ;; Or 'C-l', 's-l'
        :custom

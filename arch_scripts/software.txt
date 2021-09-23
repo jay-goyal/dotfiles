@@ -72,3 +72,4 @@ matcha-gtk-theme-git
 rust-analyzer
 neovim-plug-git
 gvfs-mtp
+picom
