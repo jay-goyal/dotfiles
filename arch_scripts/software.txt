@@ -1,7 +1,6 @@
 # Editors
 neovim
 emacs
-visual-studio-code-bin
 
 #System
 linux-firmware
