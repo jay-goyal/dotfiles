@@ -58,6 +58,8 @@ network-manager-applet
 lxappearance
 lxsession
 vlc
+droidcam
+qt5-styleplugins
 
 #Drivers
 rtl88x2bu-dkms-git
