@@ -6,7 +6,7 @@ super + x
 super + e
     thunar
 super + b
-    firefox-development-edition
+    firefox-developer-edition
 super +  c
     emacsclient -c
 super + r

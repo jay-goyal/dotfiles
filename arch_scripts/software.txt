@@ -4,6 +4,7 @@ emacs
 
 #System
 linux-firmware
+linux-headers
 base-devel
 intel-ucode
 sudo

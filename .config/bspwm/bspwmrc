@@ -11,6 +11,7 @@ nm-applet &
 feh --randomize --bg-fill ~/wallpapers/* &
 thunar --daemon &
 lxsession &
+picom &
 /home/jay/.config/polybar/launch.sh &
 
 ##################################################################################################################
