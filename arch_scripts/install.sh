@@ -12,7 +12,6 @@ cp -r ~/dotfiles/.config ~/
 cp -r ~/dotfiles/wallpapers ~/
 cp -r ~/dotfiles/.emacs.d ~/
 cp ~/dotfiles/.xinitrc ~/
-cp ~/dotfiles/.zprofile ~/
 cp ~/dotfiles/.zshenv ~/
 cp ~/dotfiles/.zshrc ~/
 xdg-user-dirs-update
