@@ -213,6 +213,8 @@
 	  "ts" '(hydra-text-scale/body :which-key "Scale text")
 	  "tt" '(counsel-load-theme :which-key "Choose theme")
 	  "d" '(dired :which-key "Open dired")
+	  "rn" '(cargo-process-new :which-key "Create a new rust project")
+	  "rb" '(cargo-process-build :which-key "Build a rust project")
 	  "x" '(counsel-M-x :which-key "Execute a command"))
   #+end_src
 
@@ -309,69 +311,26 @@
 ** Rust Setup
 
    #+begin_src emacs-lisp
-     (use-package flycheck)
+	 (use-package flycheck)
 
-     (use-package rustic
-       :bind (:map rustic-mode-map
-		   ("M-j" . lsp-ui-imenu)
-		   ("M-?" . lsp-find-references)
-		   ("C-c l" . flycheck-list-errors)
-		   ("C-c a" . lsp-execute-code-action)
-		   ("C-c r" . lsp-rename)
-		   ("C-c C-r" . lsp-workspace-restart)
-		   ("C-c q" . lsp-workspace-shutdown)
-		   ("C-c s" . lsp-rust-analyzer-status))
-       :config
-       ;; comment to disable rustfmt on save
-       (setq rustic-format-on-save t))
-   #+end_src
-
-** JavaScript/TypeScript
-
-   #+begin_src emacs-lisp
-     (use-package typescript-mode
-       :mode "\\.ts\\'"
-       :config
-       (setq typescript-indent-level 4))
-     (defun sme/set-js-indentation ()
-       (setq js-indent-level 4)
-       (setq evil-shift-width js-indent-level)
-       (setq-default tab-width 4))
-     (use-package js2-mode
-       :mode "\\.jsx?\\'"
-       :config
-       ;; Don't use built-in syntax checking
-       (setq js2-mode-show-strict-warnings nil)
-
-       ;; Set up proper indentation in JavaScript and JSON files
-       (add-hook 'js2-mode-hook #'sme/set-js-indentation)
-       (add-hook 'json-mode-hook #'sme/set-js-indentation))
-
-     (use-package prettier-js
-       :hook ((js2-mode . prettier-js-mode))
-       :config
-       (setq prettier-js-show-errors nil))
-   #+end_src
-
-** HTML
-   #+begin_src emacs-lisp
-	 (use-package web-mode
-	   :mode "\\.html?\\'"
+	 (use-package rustic
+	   :bind (:map rustic-mode-map
+				   ("M-j" . lsp-ui-imenu)
+				   ("M-?" . lsp-find-references)
+				   ("C-c l" . flycheck-list-errors)
+				   ("C-c a" . lsp-execute-code-action)
+				   ("C-c r" . lsp-rename)
+				   ("C-c C-r" . lsp-workspace-restart)
+				   ("C-c q" . lsp-workspace-shutdown)
+				   ("C-c s" . lsp-rust-analyzer-status))
 	   :config
-	   (setq-default web-mode-code-indent-offset 2)
-	   (setq-default web-mode-markup-indent-offset 2)
-	   (setq-default web-mode-attribute-indent-offset 2))
+	   ;; comment to disable rustfmt on save
+	   (setq rustic-format-on-save t))
 
-	 ;; 1. Start the server with `httpd-start'
-	 ;; 2. Use `impatient-mode' on any buffer
-	 (use-package impatient-mode
-	   :hook (web-mode . impatient-mode))
-
-	 (use-package emmet-mode
-	   :hook (web-mode . emmet-preview-mode)
-	   :bind ("C-j" . emmet-expand-line))
+	 (use-package cargo
+	   :hook(rustic-mode . cargo-minor-mode))
    #+end_src
-   
+
 ** Misc
    #+begin_src emacs-lisp
      ;; Commenting

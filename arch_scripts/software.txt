@@ -14,11 +14,12 @@ networkmanager
 xdg-utils
 xdg-user-dirs
 grub
-os-prober
 efibootmgr
 dosfstools
 openssh
 lightdm-webkit-theme-litarvan
+reflector
+qt5-styleplugins
 
 #Compression
 unzip
@@ -60,13 +61,14 @@ lxappearance
 lxsession
 vlc
 droidcam
-qt5-styleplugins
+qbittorrent
 
 #Drivers
 rtl88x2bu-dkms-git
 nvidia
 pulseaudio
 pulseaudio-alsa
+pavucontrol
 alsa
 
 #Misc
