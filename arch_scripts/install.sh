@@ -18,6 +18,7 @@ sudo pacman -S nvidia-utils lib32-nvidia-utils nvidia-settings vulkan-icd-loader
 
 sudo systemctl enable NetworkManager
 sudo systemctl enable lightdm
+sudo systemctl enable libvirtd
 cp -r ~/dotfiles/.config ~/
 cp -r ~/dotfiles/wallpapers ~/
 cp -r ~/dotfiles/.emacs.d ~/

@@ -264,7 +264,7 @@
 * Development
 
 ** Setting up LSP Mode
-
+   
    #+begin_src emacs-lisp
      (defun sme/lsp-mode-setup ()
        (setq lsp-headerline-breadcrumb-segments '(path-up-to-project file symbols))
@@ -331,7 +331,15 @@
 	   :hook(rustic-mode . cargo-minor-mode))
    #+end_src
 
+** C/C++
+
+   #+begin_src emacs-lisp
+	 (use-package ccls
+	   :hook ((c-mode c++-mode objc-mode cuda-mode) . lsp))
+   #+end_src
+   
 ** Misc
+
    #+begin_src emacs-lisp
      ;; Commenting
      (use-package evil-nerd-commenter

@@ -6,9 +6,9 @@ super + x
 super + e
     thunar
 super + b
-    firefox-developer-edition
-super +  c
-    emacsclient -c
+    brave
+super + c
+    $HOME/super_dmenu/scripts/editor.sh
 super + r
     j4-dmenu-desktop --dmenu="dmenu -h 27 -l 20 -bw 1 -p 'Run: '" --term="alacritty"
 super + Escape
