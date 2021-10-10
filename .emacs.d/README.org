@@ -335,8 +335,47 @@
 
    #+begin_src emacs-lisp
 	 (use-package ccls
-	   :hook ((c-mode c++-mode objc-mode cuda-mode) . lsp))
+	   :after projectile
+	   :ensure-system-package ccls
+	   :custom
+	   (ccls-args nil)
+	   (ccls-executable (executable-find "ccls"))
+	   (projectile-project-root-files-top-down-recurring
+		(append '("compile_commands.json" ".ccls")
+				projectile-project-root-files-top-down-recurring))
+	   :config (push ".ccls-cache" projectile-globally-ignored-directories))
    #+end_src
+
+*** CMake
+
+   #+begin_src emacs-lisp
+	 (use-package cmake-mode
+	   :mode ("CMakeLists\\.txt\\'" "\\.cmake\\'"))
+
+	 (use-package cmake-font-lock
+	   :after (cmake-mode)
+	   :hook (cmake-mode . cmake-font-lock-activate))
+
+	 (use-package cmake-ide
+	   :after projectile
+	   :hook (c++-mode . sme/cmake-ide-find-project)
+	   :preface
+	   (defun sme/cmake-ide-find-project ()
+		 "Finds the directory of the project for cmake-ide."
+		 (with-eval-after-load 'projectile
+		   (setq cmake-ide-project-dir (projectile-project-root))
+		   (setq cmake-ide-build-dir (concat cmake-ide-project-dir "build")))
+		 (setq cmake-ide-compile-command 
+			   (concat "cd " cmake-ide-build-dir " && cmake .. && make"))
+		 (cmake-ide-load-db))
+
+	   (defun sme/switch-to-compilation-window ()
+		 "Switches to the *compilation* buffer after compilation."
+		 (other-window 1))
+	   :bind ([remap comment-region] . cmake-ide-compile)
+	   :init (cmake-ide-setup)
+	   :config (advice-add 'cmake-ide-compile :after #'sme/switch-to-compilation-window))
+	#+end_src
    
 ** Misc
 

@@ -36,6 +36,13 @@ ripgrep
 exa
 spaceship-prompt-git
 
+# Development Related
+nodejs-browser-sync
+rust-analyzer
+clang-format-all-git
+ccls
+cmake
+
 #Fonts
 ttf-font-awesome
 ttf-roboto
@@ -79,8 +86,6 @@ alsa
 
 #Misc
 matcha-gtk-theme-git
-rust-analyzer
 neovim-plug-git
 gvfs-mtp
 picom
-nodejs-browser-sync
