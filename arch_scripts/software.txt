@@ -1,11 +1,6 @@
 # Editors
 neovim
 emacs
-clion
-clion-jre
-clion-cmake
-clion-gdb
-clion-lldb
 
 #System
 linux-firmware

@@ -51,7 +51,6 @@ bspc config right_padding        0
 ##################################################################################################################
 bspc rule -a firefoxdeveloperedition desktop='^1'
 bspc rule -a Brave-browser desktop='^1'
-bspc rule -a jetbrains-clion desktop='^2'
 bspc rule -a Virt-manager desktop='^4'
 bspc rule -a Lutris desktop='^5'
 bspc rule -a battle.net.exe desktop='^5'
