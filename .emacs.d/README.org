@@ -275,7 +275,7 @@
        (lsp lsp-deferred)
        :hook
        (lsp-mode . sme/lsp-mode-setup)
-	   ((typescript-mode js2-mode web-mode css-mode scss-mode lua-mode) . lsp)
+	   ((c++-mode js2-mode web-mode css-mode scss-mode) . lsp)
        :init
        (setq lsp-keymap-prefix "C-c l")  ;; Or 'C-l', 's-l'
        :custom
