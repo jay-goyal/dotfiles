@@ -213,7 +213,9 @@
 	  "b" '(format-all-buffer :which-key "Format the buffer")
 	  "ts" '(hydra-text-scale/body :which-key "Scale text")
 	  "tt" '(counsel-load-theme :which-key "Choose theme")
-	  "d" '(dired :which-key "Open dired")
+	  "td" '(dired :which-key "Open dired")
+	  "da" '(dap-breakpoint-add :which-key "Add a breakpoint")
+	  "dd" '(dap-breakpoint-delete :which-key "Delete the breakpoint")
 	  "rn" '(cargo-process-new :which-key "Create a new rust project")
 	  "rb" '(cargo-process-build :which-key "Build a rust project")
 	  "x" '(counsel-M-x :which-key "Execute a command"))
@@ -285,6 +287,33 @@
        (lsp-enable-which-key-integration t))
 
      (use-package lsp-ivy)
+   #+end_src
+
+** Setting up DAP Mode
+   
+   #+begin_src emacs-lisp
+	 (use-package exec-path-from-shell
+	   :ensure
+	   :init (exec-path-from-shell-initialize))
+
+	 (use-package dap-mode
+	   :ensure
+	   :config
+	   (dap-ui-mode)
+	   (dap-ui-controls-mode 1)
+
+	   (require 'dap-lldb)
+	   (require 'dap-gdb-lldb)
+	   ;; installs .extension/vscode
+	   (dap-gdb-lldb-setup)
+	   (dap-register-debug-template
+		"Rust::LLDB Run Configuration"
+		(list :type "lldb"
+			  :request "launch"
+			  :name "LLDB::Run"
+			  :gdbpath "rust-lldb"
+			  :target nil
+			  :cwd nil)))
    #+end_src
 
 ** Company Mode

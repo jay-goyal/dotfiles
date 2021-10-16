@@ -42,6 +42,8 @@ rust-analyzer
 clang-format-all-git
 ccls
 cmake
+llvm
+lldb-mi-git
 
 #Fonts
 ttf-font-awesome
