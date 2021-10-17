@@ -2,8 +2,11 @@ cd ~
 sudo pacman -S rustup base-devel --needed
 rustup install stable
 git clone https://aur.archlinux.org/paru-git.git ~/paru
-cd paru
+cd ~/paru
 makepkg -si
+git clone https://gitlab.com/jgoyal/super-dmenu.git ~/super_dmenu
+cd ~/super_dmenu
+sudo make install
 software="`sed -e 's/#.*$//' -e '/^$/d' ~/dotfiles/arch_scripts/software.txt | tr '\n' ' '`"
 paru -S $software --needed
 sudo systemctl enable NetworkManager
