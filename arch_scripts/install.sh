@@ -18,4 +18,5 @@ cp -r ~/dotfiles/.emacs.d ~/
 cp ~/dotfiles/.xinitrc ~/
 cp ~/dotfiles/.zshenv ~/
 cp ~/dotfiles/.zshrc ~/
+sudo cp ~/dotfiles/jay.jpg /var/lib/AccountsService/icons/jay.jpg
 xdg-user-dirs-update

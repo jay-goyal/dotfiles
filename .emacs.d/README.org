@@ -195,30 +195,33 @@
   I use general for my keybindings
 
   #+begin_src emacs-lisp
-	(use-package general
-	  :config (general-create-definer sme/leader-keys
-		:keymaps '(normal insert visual emacs)
-		:prefix "SPC"
-		:global-prefix "C-SPC"))
+		(use-package general
+		  :config (general-create-definer sme/leader-keys
+			:keymaps '(normal insert visual emacs)
+			:prefix "SPC"
+			:global-prefix "C-SPC"))
 
-	(use-package hydra)
+		(use-package hydra)
 
-	(defhydra hydra-text-scale (:timeout 4)
-	  "scale text"
-	  ("j" text-scale-increase "in")
-	  ("k" text-scale-decrease "out")
-	  ("f" nil "finished" :exit t))
+		(defhydra hydra-text-scale (:timeout 4)
+		  "scale text"
+		  ("j" text-scale-increase "in")
+		  ("k" text-scale-decrease "out")
+		  ("f" nil "finished" :exit t))
 
-	(sme/leader-keys
-	  "b" '(format-all-buffer :which-key "Format the buffer")
-	  "ts" '(hydra-text-scale/body :which-key "Scale text")
-	  "tt" '(counsel-load-theme :which-key "Choose theme")
-	  "td" '(dired :which-key "Open dired")
-	  "da" '(dap-breakpoint-add :which-key "Add a breakpoint")
-	  "dd" '(dap-breakpoint-delete :which-key "Delete the breakpoint")
-	  "rn" '(cargo-process-new :which-key "Create a new rust project")
-	  "rb" '(cargo-process-build :which-key "Build a rust project")
-	  "x" '(counsel-M-x :which-key "Execute a command"))
+		(sme/leader-keys
+		  "x" '(counsel-M-x :which-key "Execute a command")
+		  "b" '(format-all-buffer :which-key "Format the buffer")
+		  "ts" '(hydra-text-scale/body :which-key "Scale text")
+		  "tt" '(counsel-load-theme :which-key "Choose theme")
+		  "td" '(dired :which-key "Open dired")
+		  ;;dap mode
+		  "da" '(dap-breakpoint-add :which-key "Add a breakpoint")
+		  "dd" '(dap-breakpoint-delete :which-key "Delete the breakpoint")
+		  ;;cargo shortcuts
+		  "rn" '(cargo-process-new :which-key "Create a new rust project")
+		  "rb" '(cargo-process-build :which-key "Build the rust project")
+		  "rr" '(cargo-process-run :which-key "Run the rust project"))
   #+end_src
 
 * Project Management

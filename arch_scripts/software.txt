@@ -91,3 +91,4 @@ matcha-gtk-theme-git
 neovim-plug-git
 gvfs-mtp
 picom
+interception-caps2esc
