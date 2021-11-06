@@ -4,10 +4,12 @@
 #AUTOSTART
 ##################################################################################################################
 killall sxhkd
+killall emacs
 sxhkd &
 nm-applet &
 feh --randomize --bg-fill ~/wallpapers/* &
 thunar --daemon &
+emacs --daemon &
 lxsession &
 picom &
 /home/jay/.config/polybar/launch.sh &
