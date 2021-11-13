@@ -6,7 +6,7 @@ super + x
 super + e
     thunar
 super + b
-    brave
+    firefox
 super + c
     emacsclient -c
 super + r
