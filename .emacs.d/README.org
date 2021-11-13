@@ -38,9 +38,9 @@
 ** Font Settings
 
    #+begin_src emacs-lisp
-     (set-face-attribute 'default nil :font "Fira Code Nerd Font Mono" :height 120)
-     (set-face-attribute 'fixed-pitch nil :font "Fira Code Nerd Font Mono" :height 120)
-     (set-face-attribute 'variable-pitch nil :font "Roboto" :height 120 :weight 'regular)
+	 (set-face-attribute 'default nil :font "Fira Code Nerd Font Mono" :height 120)
+	 (set-face-attribute 'fixed-pitch nil :font "Fira Code Nerd Font Mono" :height 120)
+	 (set-face-attribute 'variable-pitch nil :font "Roboto" :height 120 :weight 'regular)
    #+end_src
 
 * Package Management Setup
@@ -71,7 +71,6 @@
    #+begin_src emacs-lisp
      (column-number-mode)
      (global-display-line-numbers-mode 1)
-     (setq display-line-numbers-type 'relative)
      ;; Disable line numbers for some modes
      (dolist (mode '(shell-mode-hook
 		     eshell-mode-hook))
@@ -88,7 +87,7 @@
        :init
        (doom-modeline-mode 1)
        :custom
-       ((doom-modeline-height 40)
+       ((doom-modeline-height 32)
 	(doom-modeline-icon t)
 	(doom-modeline-major-mode-icon t)))
    #+end_src
@@ -195,33 +194,35 @@
   I use general for my keybindings
 
   #+begin_src emacs-lisp
-		(use-package general
-		  :config (general-create-definer sme/leader-keys
-			:keymaps '(normal insert visual emacs)
-			:prefix "SPC"
-			:global-prefix "C-SPC"))
+	(use-package general
+	  :config (general-create-definer sme/leader-keys
+		:keymaps '(normal insert visual emacs)
+		:prefix "SPC"
+		:global-prefix "C-SPC"))
 
-		(use-package hydra)
+	(use-package hydra)
 
-		(defhydra hydra-text-scale (:timeout 4)
-		  "scale text"
-		  ("j" text-scale-increase "in")
-		  ("k" text-scale-decrease "out")
-		  ("f" nil "finished" :exit t))
+	(defhydra hydra-text-scale (:timeout 4)
+	  "scale text"
+	  ("j" text-scale-increase "in")
+	  ("k" text-scale-decrease "out")
+	  ("f" nil "finished" :exit t))
 
-		(sme/leader-keys
-		  "x" '(counsel-M-x :which-key "Execute a command")
-		  "b" '(format-all-buffer :which-key "Format the buffer")
-		  "ts" '(hydra-text-scale/body :which-key "Scale text")
-		  "tt" '(counsel-load-theme :which-key "Choose theme")
-		  "td" '(dired :which-key "Open dired")
-		  ;;dap mode
-		  "da" '(dap-breakpoint-add :which-key "Add a breakpoint")
-		  "dd" '(dap-breakpoint-delete :which-key "Delete the breakpoint")
-		  ;;cargo shortcuts
-		  "rn" '(cargo-process-new :which-key "Create a new rust project")
-		  "rb" '(cargo-process-build :which-key "Build the rust project")
-		  "rr" '(cargo-process-run :which-key "Run the rust project"))
+	(sme/leader-keys
+	  "x" '(counsel-M-x :which-key "Execute a command")
+	  "b" '(format-all-buffer :which-key "Format the buffer")
+	  "ts" '(hydra-text-scale/body :which-key "Scale text")
+	  "tt" '(counsel-load-theme :which-key "Choose theme")
+	  "td" '(dired :which-key "Open dired")
+	  "tb" '(switch-to-buffer :which-key "Switch to a particular buffer")
+	  ;;dap mode
+	  "da" '(dap-breakpoint-add :which-key "Add a breakpoint")
+	  "dd" '(dap-breakpoint-delete :which-key "Delete the breakpoint")
+	  ;;cargo shortcuts
+	  "rb" '(cargo-process-build :which-key "Build the rust project")
+	  "rn" '(cargo-process-new :which-key "Create a new rust project")
+	  "rr" '(cargo-process-run :which-key "Run the rust project")
+	  "rt" '(cargo-process-test :which-key "Run the tests for rust project"))
   #+end_src
 
 * Project Management
@@ -267,8 +268,8 @@
 	  (evil-collection-define-key 'normal 'dired-mode-map
 		"H" 'dired-hide-dotfiles-mode))
   #+end_src
-* Development
 
+* Development
 ** Setting up LSP Mode
    
    #+begin_src emacs-lisp
@@ -280,11 +281,10 @@
        (lsp lsp-deferred)
        :hook
        (lsp-mode . sme/lsp-mode-setup)
-	   ((c++-mode js2-mode web-mode css-mode scss-mode) . lsp)
+	   ((c++-mode typescript-mode js2-mode web-mode) . lsp)
        :init
        (setq lsp-keymap-prefix "C-c l")  ;; Or 'C-l', 's-l'
        :custom
-       (lsp-eldoc-render-all t)
        (lsp-rust-analyzer-server-display-inlay-hints t)
        :config
        (lsp-enable-which-key-integration t))
@@ -328,11 +328,11 @@
 	   (lsp-mode . company-mode)
 	   :bind
 	   (:map company-active-map
-		 ("<tab>" . company-complete-selection)
-		 ("C-j" . company-select-next)
-		 ("C-k . company-select-previous"))
+			 ("<tab>" . company-complete-selection)
+			 ("C-j" . company-select-next)
+			 ("C-k . company-select-previous"))
 	   (:map lsp-mode-map
-		 ("<tab>" . company-indent-or-complete-common))
+			 ("<tab>" . company-indent-or-complete-common))
 	   :custom
 	   (company-minimum-prefix-length 1)
 	   (company-idle-delay 0.0))
@@ -362,6 +362,8 @@
 
 	 (use-package cargo
 	   :hook(rustic-mode . cargo-minor-mode))
+
+	 (use-package toml-mode)
    #+end_src
 
 ** C/C++
@@ -410,6 +412,46 @@
 	   :config (advice-add 'cmake-ide-compile :after #'sme/switch-to-compilation-window))
 	#+end_src
    
+** JS/TS
+   #+begin_src emacs-lisp
+	 (use-package typescript-mode
+	   :mode "\\.ts\\'"
+	   :config
+	   (setq typescript-indent-level 4))
+	 (defun sme/set-js-indentation ()
+	   (setq js-indent-level 4)
+	   (setq evil-shift-width js-indent-level)
+	   (setq-default tab-width 4))
+	 (use-package js2-mode
+	   :mode "\\.jsx?\\'"
+	   :config
+	   ;; Don't use built-in syntax checking
+	   (setq js2-mode-show-strict-warnings nil)
+
+	   ;; Set up proper indentation in JavaScript and JSON files
+	   (add-hook 'js2-mode-hook #'sme/set-js-indentation)
+	   (add-hook 'json-mode-hook #'sme/set-js-indentation))
+    (use-package prettier-js
+       :hook ((js2-mode . prettier-js-mode))
+       :config
+       (setq prettier-js-show-errors nil))
+   #+end_src
+
+** HTML
+   #+begin_src emacs-lisp
+	 (use-package web-mode
+	   :mode "(\\.\\(html?\\|ejs\\|tsx\\|jsx\\)\\'"
+	   :config
+	   (setq-default web-mode-code-indent-offset 2)
+	   (setq-default web-mode-markup-indent-offset 2)
+	   (setq-default web-mode-attribute-indent-offset 2))
+
+
+	 (use-package emmet-mode
+	   :hook (web-mode . emmet-preview-mode)
+	   :bind ("C-j" . emmet-expand-line))
+   #+end_src  
+	
 ** Misc
 
    #+begin_src emacs-lisp
