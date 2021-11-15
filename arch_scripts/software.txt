@@ -39,6 +39,7 @@ spaceship-prompt-git
 
 # Development Related
 nodejs-browser-sync
+gulp
 rust-analyzer
 clang-format-all-git
 ccls
@@ -72,6 +73,7 @@ lxsession
 vlc
 droidcam
 qbittorrent
+spotify
 
 #Virtualisation
 qemu
