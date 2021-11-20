@@ -229,19 +229,19 @@
   I use projectile for my project management
 
   #+begin_src emacs-lisp
-    (use-package projectile
-      :diminish projectile-mode
-      :config (projectile-mode)
-      :custom ((projectile-completion-system 'ivy))
-      :init
-      (when (file-directory-p "~/projects")
-	(setq projectile-project-search-path '("~/projects"))))
+	(use-package projectile
+	  :diminish projectile-mode
+	  :config (projectile-mode)
+	  :custom ((projectile-completion-system 'ivy))
+	  :init
+	  (when (file-directory-p "~/projects")
+		(setq projectile-project-search-path '("~/projects"))))
 
-    (sme/leader-keys
-      "p" '(projectile-command-map :which-key "Projectile Commands"))
+	(sme/leader-keys
+	  "p" '(projectile-command-map :which-key "Projectile Commands"))
 
-    (use-package counsel-projectile
-      :config (counsel-projectile-mode))
+	(use-package counsel-projectile
+	  :config (counsel-projectile-mode))
   #+end_src
 
 * Dired
@@ -273,27 +273,28 @@
 ** Setting up LSP Mode
    
    #+begin_src emacs-lisp
-	 (defun sme/lsp-mode-setup ()
-	   (setq lsp-headerline-breadcrumb-segments '(path-up-to-project file symbols))
-	   (lsp-headerline-breadcrumb-mode))
-	 (use-package lsp-mode
-	   :commands
-	   (lsp lsp-deferred)
-	   :hook
-	   (lsp-mode . sme/lsp-mode-setup)
-	   ((c++-mode typescript-mode js2-mode web-mode css-mode scss-mode) . lsp)
-	   :init
-	   (setq lsp-keymap-prefix "C-c l")  ;; Or 'C-l', 's-l'
-	   :custom
-	   (lsp-rust-analyzer-server-display-inlay-hints t)
-	   :config
-	   (lsp-enable-which-key-integration t))
+		  (defun sme/lsp-mode-setup ()
+			(setq lsp-headerline-breadcrumb-segments '(path-up-to-project file symbols))
+			(lsp-headerline-breadcrumb-mode))
+		  (use-package lsp-mode
+			:commands
+			(lsp lsp-deferred)
+			:hook
+			(lsp-mode . sme/lsp-mode-setup)
+			((c++-mode typescript-mode web-mode vue-mode) . lsp)
+			:init
+			(setq lsp-keymap-prefix "C-c l")  ;; Or 'C-l', 's-l'
+			:custom
+			(lsp-rust-analyzer-server-display-inlay-hints t)
+			:config
+			(lsp-enable-which-key-integration t))
 
-	 (with-eval-after-load 'lsp-mode
-	   (add-to-list 'lsp-language-id-configuration
-					'("\\.scss\\'" . "scss")))
+		  (with-eval-after-load 'lsp-mode
+			(add-to-list 'lsp-language-id-configuration
+						 '("\\.scss\\'" . "scss")
+						 '(vue-mode . "vue")))
 
-	   (use-package lsp-ivy)
+			(use-package lsp-ivy)
    #+end_src
    
 ** Setting up DAP Mode
@@ -422,19 +423,7 @@
 	   :mode "\\.ts\\'"
 	   :config
 	   (setq typescript-indent-level 4))
-	 (defun sme/set-js-indentation ()
-	   (setq js-indent-level 4)
-	   (setq evil-shift-width js-indent-level)
-	   (setq-default tab-width 4))
-	 (use-package js2-mode
-	   :mode "\\.jsx?\\'"
-	   :config
-	   ;; Don't use built-in syntax checking
-	   (setq js2-mode-show-strict-warnings nil)
 
-	   ;; Set up proper indentation in JavaScript and JSON files
-	   (add-hook 'js2-mode-hook #'sme/set-js-indentation)
-	   (add-hook 'json-mode-hook #'sme/set-js-indentation))
 	 (use-package prettier-js
 	   :hook (web-mode . prettier-js-mode)
 	   :config
@@ -467,6 +456,15 @@
 	   (setq-default web-mode-markup-indent-offset 2)
 	   (setq-default web-mode-attribute-indent-offset 2))
    #+end_src  
+
+** Vue
+   #+begin_src emacs-lisp
+	 (use-package vue-mode
+	   :mode "\\.vue\\'"
+	   :hook (vue-mode . prettier-js-mode)
+	   :config
+	   (setq prettier-js-args '("--parser vue")))
+   #+end_src
 	
 ** Misc
 

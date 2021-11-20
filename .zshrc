@@ -27,6 +27,7 @@ SPACESHIP_KUBECONTEXT_SHOW=false
 SPACESHIP_TERRAFORM_SHOW=false
 SPACESHIP_TERRAFORM_SHOW=false
 SPACESHIP_RUST_SHOW=false
+SPACESHIP_GIT_STATUS_DELETED="␥"
 SPACESHIP_EXEC_TIME_ELAPSED=5
 autoload -U promptinit; promptinit
 prompt spaceship
@@ -78,7 +79,7 @@ alias la='exa -al --color=always --group-directories-first'  # all files and dir
 alias ll='exa -l --color=always --group-directories-first'  # long format
 alias lt='exa -aT --color=always --group-directories-first' # tree listing
 alias mu='sudo reflector --latest 50 --sort rate --protocol https --verbose --save /etc/pacman.d/mirrorlist'
-alias lp='browser-sync start -s --cwd --port 5050'
+alias lp='browser-sync start --server --files "./"'
 
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 2>/dev/null
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh 2>/dev/null
