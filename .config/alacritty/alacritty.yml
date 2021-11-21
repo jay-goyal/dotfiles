@@ -1,14 +1,14 @@
 font:
   size: 12
   normal:
-    family: FiraCode Nerd Font Mono
+    family: MesloLGS Nerd Font Mono
     style: Regular
   bold:
-    family: FiraCode Nerd Font Mono
+    family: MesloLGS Nerd Font Mono
   itaic:
-    family: FiraCode Nerd Font Mono
+    family: MesloLGS Nerd Font Mono
   bold_italic:
-    family: FiraCode Nerd Font Mono
+    family: MesloLGS Nerd Font Mono
 
 colors:
   primary:
@@ -32,5 +32,3 @@ colors:
     magenta: '0xe1acff'
     cyan:    '0xa3f7ff'
     white:   '0xffffff'
-
-background_opacity: 0.85
