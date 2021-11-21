@@ -35,7 +35,7 @@ zsh-completions
 zsh-syntax-highlighting
 ripgrep
 exa
-spaceship-prompt-git
+zsh-theme-powerlevel10k
 
 # Development Related
 nodejs-browser-sync
