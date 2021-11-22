@@ -449,7 +449,10 @@
 	   :mode (("\\.html?\\'" . web-mode)
 			  ("\\.css\\'" . web-mode)
 			  ("\\.scss\\'" . web-mode)
-			  ("\\.js\\'" . web-mode))
+			  ("\\.js\\'" . web-mode)
+			  ("\\.ts\\'" . web-mode)
+			  ("\\.jsx\\'" . web-mode)
+			  ("\\.tsx\\'" . web-mode))
 	   :hook (web-mode . sme/web-mode-setup)
 	   :config
 	   (setq-default web-mode-code-indent-offset 2)
@@ -457,15 +460,6 @@
 	   (setq-default web-mode-attribute-indent-offset 2))
    #+end_src  
 
-** Vue
-   #+begin_src emacs-lisp
-	 (use-package vue-mode
-	   :mode "\\.vue\\'"
-	   :hook (vue-mode . prettier-js-mode)
-	   :config
-	   (setq prettier-js-args '("--parser vue")))
-   #+end_src
-	
 ** Misc
 
    #+begin_src emacs-lisp

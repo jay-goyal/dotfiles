@@ -5,8 +5,8 @@ super + x
 	alacritty
 super + e
     thunar
-super + b
-    firefox
+super + {_, shift} + b
+    {brave, firefox}
 super + c
     emacsclient -c
 super + r
