@@ -113,7 +113,7 @@
        (setq dashboard-banner-logo-title "Emacs is Awesome")
        (setq dashboard-startup-banner "~/.emacs.d/emacs.png")
        (setq dashboard-center-content nil)
-       (setq dashboard-items '((projects . 3)
+       (setq dashboard-items '((projects . 5)
 			       (recents . 3)
 			       (agenda . 5 )))
        :config
@@ -281,7 +281,7 @@
 			(lsp lsp-deferred)
 			:hook
 			(lsp-mode . sme/lsp-mode-setup)
-			((c++-mode typescript-mode web-mode vue-mode) . lsp)
+			((c++-mode typescript-mode web-mode svelte-mode) . lsp)
 			:init
 			(setq lsp-keymap-prefix "C-c l")  ;; Or 'C-l', 's-l'
 			:custom
@@ -292,7 +292,7 @@
 		  (with-eval-after-load 'lsp-mode
 			(add-to-list 'lsp-language-id-configuration
 						 '("\\.scss\\'" . "scss")
-						 '(vue-mode . "vue")))
+						 '(svelte-mode . "svelte")))
 
 			(use-package lsp-ivy)
    #+end_src
@@ -459,6 +459,11 @@
 	   (setq-default web-mode-markup-indent-offset 2)
 	   (setq-default web-mode-attribute-indent-offset 2))
    #+end_src  
+
+** Svelte
+   #+begin_src emacs-lisp
+	 (use-package svelte-mode)
+   #+end_src
 
 ** Misc
 
