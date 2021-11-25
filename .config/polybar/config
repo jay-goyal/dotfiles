@@ -20,11 +20,11 @@
 black = #292D3E
 red = #F07178
 green = #C3E88D
-yellow = #FFCB5B
+yellow = #FFCB6B
 blue = #82AAFF
 magenta = #C792EA
 cyan = #89DDFF
-white = #D0D0D0
+white = #FFFFFF
 
 [bar/bar]
 width = 100%
@@ -63,7 +63,7 @@ cursor-scroll = ns-resize
 
 [module/xwindow]
 type = internal/xwindow
-label = %title:0:30:...%
+label = [  ] =  %title:0:30:...%
 label-padding = 2
 label-foreground = ${colors.white}
 label-underline = ${colors.magenta}
@@ -71,19 +71,28 @@ label-underline = ${colors.magenta}
 [module/bspwm]
 type = internal/bspwm
 
-label-focused = 
+ws-icon-0 = 1;
+ws-icon-1 = 2;
+ws-icon-2 = 3;
+ws-icon-3 = 4;
+ws-icon-4 = 5;
+ws-icon-5 = 6;
+ws-icon-6 = 7;
+label-focused = %icon%
 label-focused-padding = 4
-label-focused-font = 3
+label-focused-background = ${colors.yellow}
 
-label-occupied = 
+label-occupied = %icon%
 label-occupied-padding = 4
+label-occupied-background = ${colors.red}
 
-label-urgent = 
+label-urgent = %icon%
 label-urgent-foreground = ${colors.red}
 label-urgent-padding = 4
 
-label-empty = 
+label-empty = %icon%
 label-empty-padding = 4
+
 
 ; Separator in between workspaces
 ; label-separator = |
@@ -93,7 +102,7 @@ type = internal/date
 interval = 5
 
 date = %b %d %Y
-time = %H:%M
+time = %I:%M %p
 label = %date% - (%time%)
 label-foreground = ${colors.white}
 label-padding = 4
