@@ -61,10 +61,9 @@ neofetch
 htop
 feh
 sxhkd
-bspwm
 thunar
 thunar-volman
-polybar-git
+polybar-dwm-module
 papirus-icon-theme
 dmenu
 j4-dmenu-desktop-git

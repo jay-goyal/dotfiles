@@ -26,7 +26,7 @@ magenta = #C792EA
 cyan = #89DDFF
 white = #FFFFFF
 
-[bar/bar]
+[bar/bar-bspwm]
 width = 100%
 height = 27
 radius = 0.0
@@ -61,12 +61,88 @@ tray-padding = 2
 cursor-click = pointer
 cursor-scroll = ns-resize
 
+[bar/bar-dwm]
+width = 100%
+height = 27
+radius = 0.0
+fixed-center = true
+
+background = ${colors.black}
+foreground = ${colors.white}
+
+line-size=3
+
+border-size = 0
+
+padding-left = 0
+padding-right = 2
+
+module-margin-left = 1
+module-margin-right = 2
+
+font-0 = Roboto:pixelsize=12;1
+font-1 = Font Awesome 5 Free:pixelsize=12;2
+font-2 = Font Awesome 5 Free Solid:pixelsize=12;2
+font-3 = Font Awesome 5 Brands:pixelsize=12;2
+
+modules-left = dwm
+modules-center =
+modules-right = network date pulseaudio
+separator = " "
+
+tray-position = right
+tray-padding = 2
+cursor-click = pointer
+cursor-scroll = ns-resize
+
 [module/xwindow]
 type = internal/xwindow
-label = [  ] =  %title:0:30:...%
+label = %title:0:30:...%
 label-padding = 2
 label-foreground = ${colors.white}
 label-underline = ${colors.magenta}
+
+[module/dwm]
+type = internal/dwm
+format = <label-tags> <label-layout> <label-floating> <label-title>
+
+enable-tags-click = false
+enable-tags-scroll = false
+tags-scroll-empty = false
+tags-scroll-reverse = false
+tags-scroll-wrap = false
+enable-layout-click = false
+enable-layout-scroll = false
+layout-scroll-wrap = false
+layout-scroll-reverse = false
+label-foreground = {$colors.white}
+
+label-floating = F
+
+label-title = %title%
+label-title-underline = ${colors.magenta}
+
+label-layout = %symbol%
+label-layout-padding = 2
+
+label-focused = %name%
+label-focused-background = ${colors.yellow}
+label-focused-padding = 4
+
+label-unfocused = %name%
+label-unfocused-background = ${colors.blue}
+label-unfocused-padding = 4
+
+label-visible = %name%
+label-visible-background = ${colors.red}
+label-visible-padding = 4
+
+label-urgent = %name%
+label-urgent-background = ${colors.red}
+label-urgent-padding = 4
+
+label-empty = %name%
+label-empty-padding = 4
 
 [module/bspwm]
 type = internal/bspwm
