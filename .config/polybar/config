@@ -52,7 +52,7 @@ font-3 = Font Awesome 5 Brands:pixelsize=12;2
 
 modules-left = bspwm xwindow
 modules-center =
-modules-right = updates network date pulseaudio
+modules-right = network date pulseaudio
 separator = " | "
 wm-restack = bspwm
 
@@ -87,7 +87,7 @@ font-3 = Font Awesome 5 Brands:pixelsize=11;2
 
 modules-left = dwm
 modules-center =
-modules-right = updates network date pulseaudio
+modules-right = network date pulseaudio
 separator = " | "
 
 tray-position = right
@@ -104,11 +104,11 @@ label-foreground = ${colors.white}
 type = internal/dwm
 format = <label-tags> |  <label-layout> <label-floating> <label-title>
 
-enable-tags-click = false
-enable-tags-scroll = false
+enable-tags-click = true
+enable-tags-scroll = true
 tags-scroll-empty = false
 tags-scroll-reverse = false
-tags-scroll-wrap = false
+tags-scroll-wrap = true
 enable-layout-click = true
 enable-layout-scroll = true
 layout-scroll-wrap = false
@@ -119,13 +119,14 @@ label-floating = [F]
 
 
 label-title = %title%
+label-title-maxlen = 30
 
 label-layout = %symbol%
 label-layout-padding = 2
 
 label-focused = [ %name% ]
 label-focused-foreground = ${colors.yellow}
-label-focused-padding = 4
+label-focused-padding = 2
 
 label-unfocused = %name%
 label-unfocused-foreground = ${colors.green}
@@ -197,12 +198,6 @@ label-connected = %downspeed%   %upspeed%
 label-connected-foreground = ${colors.green}
 label-disconnected = 󰯡 Not Connected
 label-disconnected-underline = ${colors.green}
-
-[module/updates]
-type = custom/script
-exec = "paru -Qu 2> /dev/null | wc -l"
-format =  <label> Updates
-format-foreground = ${colors.magenta}
 
 [settings]
 screenchange-reload = true
