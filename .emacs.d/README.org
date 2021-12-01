@@ -41,6 +41,7 @@
 	 (set-face-attribute 'default nil :font "MesloLGS Nerd Font Mono" :height 120)
 	 (set-face-attribute 'fixed-pitch nil :font "MesloLGS Nerd Font Mono" :height 120)
 	 (set-face-attribute 'variable-pitch nil :font "Roboto" :height 120 :weight 'regular)
+	 (add-to-list 'default-frame-alist '((font . "MesloLGS Nerd Font Mono-11")))
    #+end_src
 
 * Package Management Setup
@@ -273,28 +274,31 @@
 ** Setting up LSP Mode
    
    #+begin_src emacs-lisp
-		  (defun sme/lsp-mode-setup ()
-			(setq lsp-headerline-breadcrumb-segments '(path-up-to-project file symbols))
-			(lsp-headerline-breadcrumb-mode))
-		  (use-package lsp-mode
-			:commands
-			(lsp lsp-deferred)
-			:hook
-			(lsp-mode . sme/lsp-mode-setup)
-			((c++-mode typescript-mode web-mode svelte-mode) . lsp)
-			:init
-			(setq lsp-keymap-prefix "C-c l")  ;; Or 'C-l', 's-l'
-			:custom
-			(lsp-rust-analyzer-server-display-inlay-hints t)
-			:config
-			(lsp-enable-which-key-integration t))
+	 (defun sme/lsp-mode-setup ()
+	   (setq lsp-headerline-breadcrumb-segments '(path-up-to-project file symbols))
+	   (lsp-headerline-breadcrumb-mode))
+	 (use-package lsp-mode
+	   :commands
+	   (lsp lsp-deferred)
+	   :hook
+	   (lsp-mode . sme/lsp-mode-setup)
+	   ((c++-mode typescript-mode web-mode vue-mode) . lsp)
+	   :init
+	   (setq lsp-keymap-prefix "C-c l")  ;; Or 'C-l', 's-l'
+	   :custom
+	   (lsp-rust-analyzer-server-display-inlay-hints t)
+	   (lsp-vetur-format-default-formatter-css "prettier")
+	   (lsp-vetur-format-default-formatter-html "prettier")
+	   (lsp-vetur-format-default-formatter-js "prettier")
+	   (lsp-vetur-validation-template nil)
+	   :config
+	   (lsp-enable-which-key-integration t))
 
-		  (with-eval-after-load 'lsp-mode
-			(add-to-list 'lsp-language-id-configuration
-						 '("\\.scss\\'" . "scss")
-						 '(svelte-mode . "svelte")))
+	 (with-eval-after-load 'lsp-mode
+	   (add-to-list 'lsp-language-id-configuration
+					'("\\.scss\\'" . "scss")))
 
-			(use-package lsp-ivy)
+	 (use-package lsp-ivy)
    #+end_src
    
 ** Setting up DAP Mode
@@ -422,10 +426,10 @@
 	 (use-package typescript-mode
 	   :mode "\\.ts\\'"
 	   :config
-	   (setq typescript-indent-level 4))
+	   (setq typescript-indent-level 2))
 
 	 (use-package prettier-js
-	   :hook (web-mode . prettier-js-mode)
+	   :hook ((web-mode) . prettier-js-mode)
 	   :config
 	   (setq prettier-js-show-errors nil))
    #+end_src
@@ -450,9 +454,7 @@
 			  ("\\.css\\'" . web-mode)
 			  ("\\.scss\\'" . web-mode)
 			  ("\\.js\\'" . web-mode)
-			  ("\\.ts\\'" . web-mode)
-			  ("\\.jsx\\'" . web-mode)
-			  ("\\.tsx\\'" . web-mode))
+			  ("\\.jsx\\'" . web-mode))
 	   :hook (web-mode . sme/web-mode-setup)
 	   :config
 	   (setq-default web-mode-code-indent-offset 2)
@@ -460,11 +462,12 @@
 	   (setq-default web-mode-attribute-indent-offset 2))
    #+end_src  
 
-** Svelte
+** Vue
    #+begin_src emacs-lisp
-	 (use-package svelte-mode)
+	 (use-package vue-mode
+	   :mode "\\.vue\\'")
    #+end_src
-
+  
 ** Misc
 
    #+begin_src emacs-lisp
