@@ -41,7 +41,8 @@
 	 (set-face-attribute 'default nil :font "MesloLGS Nerd Font Mono" :height 120)
 	 (set-face-attribute 'fixed-pitch nil :font "MesloLGS Nerd Font Mono" :height 120)
 	 (set-face-attribute 'variable-pitch nil :font "Roboto" :height 120 :weight 'regular)
-	 (add-to-list 'default-frame-alist '((font . "MesloLGS Nerd Font Mono-11")))
+	 (add-to-list 'initial-frame-alist '(font . "MesloLGS Nerd Font Mono-11.5"))
+	 (add-to-list 'default-frame-alist '(font . "MesloLGS Nerd Font Mono-11.5"))
    #+end_src
 
 * Package Management Setup
@@ -510,7 +511,7 @@
 		      (org-level-6 . 1.1)
 		      (org-level-7 . 1.1)
 		      (org-level-8 . 1.1)))
-	(set-face-attribute (car face) nil :font "SauceCodePro Nerd Font" :weight 'regular :height (cdr face))))
+	(set-face-attribute (car face) nil :font "MesloLGS Nerd Font Mono" :weight 'regular :height (cdr face))))
     (use-package org
       :hook
       (org-mode . sme/org-font-setup)
