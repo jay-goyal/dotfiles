@@ -21,6 +21,7 @@ dosfstools
 openssh
 lightdm-webkit-theme-litarvan
 reflector
+picom
 qt5-styleplugins
 
 #Compression
