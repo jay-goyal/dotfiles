@@ -32,3 +32,5 @@ colors:
     magenta: '0xe1acff'
     cyan:    '0xa3f7ff'
     white:   '0xffffff'
+
+background_opacity: 0.80
