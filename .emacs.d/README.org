@@ -479,7 +479,7 @@
      ;; Automatic pairing of parantheses
      (electric-pair-mode 1)
    #+end_src 
-
+   
 * Magit.... Frickin' Finally
 
   #+begin_src emacs-lisp

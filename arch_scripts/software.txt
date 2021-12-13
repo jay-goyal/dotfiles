@@ -41,6 +41,7 @@ zsh-theme-powerlevel10k
 
 # Development Related
 nodejs-browser-sync
+yarn
 gulp
 rust-analyzer
 clang-format-all-git
