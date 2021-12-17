@@ -44,6 +44,8 @@ ex ()
   fi
 }
 
+# C file running
+com() {gcc $1.c -o $1 && ./$1}
 
 alias vim="nvim"
 alias grep="rg"
