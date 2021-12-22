@@ -47,6 +47,8 @@ ex ()
 # C file running
 com() {gcc $1.c -o $1 && ./$1}
 
+export PATH="$HOME/.yarn/bin:$PATH"
+
 alias vim="nvim"
 alias grep="rg"
 alias l='exa  --color=always --group-directories-first' # my preferred listing

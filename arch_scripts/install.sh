@@ -11,7 +11,10 @@ git clone https://github.com/jay-goyal/super-dwm.git ~/super-dwm
 cd ~/super-dwm
 sudo make clean install
 software="`sed -e 's/#.*$//' -e '/^$/d' ~/dotfiles/arch_scripts/software.txt | tr '\n' ' '`"
+yarn_soft="`sed -e 's/#.*$//' -e '/^$/d' ~/dotfiles/arch_scripts/yarn-pkg.txt | tr '\n' ' '`"
 paru -S $software --needed
+yarn config set prefix ~/.yarn
+yarn global add $yarn_soft 
 sudo systemctl enable NetworkManager
 sudo systemctl enable lightdm
 sudo systemctl enable libvirtd
