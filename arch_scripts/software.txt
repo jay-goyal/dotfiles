@@ -77,6 +77,8 @@ vlc
 droidcam
 qbittorrent
 spotify
+zathura
+zathura-pdf-poppler
 
 #Virtualisation
 qemu
