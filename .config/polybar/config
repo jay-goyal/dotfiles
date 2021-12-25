@@ -52,7 +52,7 @@ font-3 = Font Awesome 5 Brands:pixelsize=12;2
 
 modules-left = bspwm xwindow
 modules-center =
-modules-right = network date pulseaudio
+modules-right = network date pulseaudio battery
 separator = " | "
 wm-restack = bspwm
 
@@ -87,7 +87,7 @@ font-3 = Font Awesome 5 Brands:pixelsize=11;2
 
 modules-left = dwm
 modules-center =
-modules-right = network date pulseaudio
+modules-right = network date pulseaudio battery
 separator = " | "
 
 tray-position = right
@@ -181,23 +181,37 @@ interval = 5
 date = %b %d %Y
 time = %I:%M %p
 label = %date% - (%time%)
-label-foreground = ${colors.cyan}
+label-foreground = ${colors.green}
 
 [module/pulseaudio]
 type = internal/pulseaudio
 use-ui-max = false
 label-muted =  Muted
 label-volume =   %percentage%%
-label-volume-foreground = ${colors.blue}
-label-muted-underline = ${colors.blue}
+label-volume-foreground = ${colors.cyan}
+label-muted-foreground = ${colors.cyan}
 
 [module/network]
 type = internal/network
-interface = wlp0s20f0u2
+interface = wlp0s20u3
 label-connected = %downspeed%   %upspeed%
-label-connected-foreground = ${colors.green}
+label-connected-foreground = ${colors.magenta}
 label-disconnected = 󰯡 Not Connected
 label-disconnected-underline = ${colors.green}
+
+[module/battery]
+type = internal/battery
+full-at = 99
+battery = BAT1
+adapter = ACAD
+ramp-capacity-0 = 
+ramp-capacity-1 = 
+ramp-capacity-2 = 
+ramp-capacity-3 = 
+ramp-capacity-4 = 
+
+format-discharging = <ramp-capacity> <label-discharging>
+format-charging = Charging
 
 [settings]
 screenchange-reload = true
