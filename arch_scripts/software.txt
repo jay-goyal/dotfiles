@@ -5,10 +5,11 @@ emacs
 
 #System
 linux-firmware
-linux-headers
+linux-g14
+linux-g14-headers
 base-devel
 man-pages
-intel-ucode
+amd-ucode
 sudo
 xorg
 xclip
@@ -84,12 +85,14 @@ ebtables
 dnsmasq
 
 #Drivers
-rtl88x2bu-dkms-git
-nvidia
-pulseaudio
-pulseaudio-alsa
+nvidia-dkms
+pipewire
+pipewire-alsa
+pipewire-pulse
+auto-cpufreq
+asusctl
+supergfxctl
 pavucontrol
-alsa
 
 #Misc
 matcha-gtk-theme-git
