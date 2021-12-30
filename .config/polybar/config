@@ -210,8 +210,12 @@ ramp-capacity-2 = 
 ramp-capacity-3 = 
 ramp-capacity-4 = 
 
-format-discharging = <ramp-capacity> <label-discharging>
-format-charging = Charging
+bar-capacity-width = 10
+bar-capacity-empty = -
+bar-capacity-fill = -
+bar-capacity-indicator = |
+format-discharging = <bar-capacity> <label-discharging>
+format-charging = <bar-capacity> <label-charging>
 
 [settings]
 screenchange-reload = true
