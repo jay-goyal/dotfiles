@@ -29,5 +29,5 @@ cp ~/dotfiles/.xinitrc ~/
 cp ~/dotfiles/.zshenv ~/
 cp ~/dotfiles/.zshrc ~/
 mkdir ~/.emacs.d
-sudo cp ~/dotfiles/.emacs.d/emacs.png ~/.emacs.d 
+cp ~/dotfiles/.emacs.d/emacs.png ~/.emacs.d 
 xdg-user-dirs-update
