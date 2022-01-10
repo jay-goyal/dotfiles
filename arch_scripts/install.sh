@@ -9,12 +9,6 @@ yarn_soft="`sed -e 's/#.*$//' -e '/^$/d' ~/dotfiles/arch_scripts/yarn-pkg.txt | 
 paru -S $software --needed
 yarn config set prefix ~/.yarn
 yarn global add $yarn_soft 
-sudo systemctl enable NetworkManager
-sudo systemctl enable lightdm
-sudo systemctl enable libvirtd
-sudo systemctl enable power-profiles-daemon.service
-sudo systemctl enable supergfxd
-sudo systemctl enable auto-cpufreq
 grub-mkconfig -o /boot/grub.cfg
 git clone https://github.com/jay-goyal/super_dmenu.git ~/super-dmenu
 cd ~/super-dmenu
@@ -28,6 +22,13 @@ cp -r ~/dotfiles/wallpapers ~/
 cp ~/dotfiles/.xinitrc ~/
 cp ~/dotfiles/.zshenv ~/
 cp ~/dotfiles/.zshrc ~/
+sudo cp ~/dotfiles/auto-cpufreq.conf /etc/
+sudo systemctl enable NetworkManager
+sudo systemctl enable lightdm
+sudo systemctl enable libvirtd
+sudo systemctl enable power-profiles-daemon.service
+sudo systemctl enable supergfxd
+sudo systemctl enable auto-cpufreq
 mkdir ~/.emacs.d
 cp ~/dotfiles/.emacs.d/emacs.png ~/.emacs.d 
 xdg-user-dirs-update
