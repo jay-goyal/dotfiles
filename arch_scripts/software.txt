@@ -2,6 +2,11 @@
 neovim
 visual-studio-code-bin
 emacs
+clion
+clion-cmake
+clion-gdb
+clion-jre
+clion-lldb
 
 #System
 linux-firmware
