@@ -5,7 +5,7 @@ declare -a editors=(
 "Quit"
 )
 
-choice = $(printf '%s\n' "${editors[@]}" | dmenu -h 27 -l 20 -bw 1 -p 'Open Editor: ')
+choice=$(printf '%s\n' "${editors[@]}" | dmenu -h 27 -l 20 -bw 1 -p 'Open Editor: ')
 
 case "$choice" in
     "CLion") clion;;
