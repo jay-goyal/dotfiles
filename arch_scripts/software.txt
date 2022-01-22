@@ -62,6 +62,7 @@ nerd-fonts-complete
 #Apps
 git
 firefox-developer-edition
+firefox
 brave-bin
 neofetch
 htop
