@@ -1,3 +1,4 @@
 browser-sync
 gulp
 typescript
+@vue/cli
