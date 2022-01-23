@@ -29,6 +29,8 @@ lightdm-webkit-theme-litarvan
 reflector
 picom
 qt5-styleplugins
+dunst
+libnotify
 
 #Compression
 unzip
