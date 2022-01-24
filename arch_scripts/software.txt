@@ -48,7 +48,7 @@ exa
 zsh-theme-powerlevel10k
 
 # Development Related
-yarn
+npm
 rust-analyzer
 clang-format-all-git
 ccls

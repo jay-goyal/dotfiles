@@ -47,10 +47,10 @@ ex ()
 # C file running
 com() {gcc $1.c -o $1 && ./$1}
 
-export PATH="$HOME/.yarn/bin:$PATH"
 
 alias vim="nvim"
 alias grep="rg"
+alias ls='exa  --color=always --group-directories-first' # my preferred listing
 alias l='exa  --color=always --group-directories-first' # my preferred listing
 alias la='exa -al --color=always --group-directories-first'  # all files and dirs
 alias ll='exa -l --color=always --group-directories-first'  # long format
@@ -64,3 +64,5 @@ source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+source /home/jay/.config/broot/launcher/bash/br
