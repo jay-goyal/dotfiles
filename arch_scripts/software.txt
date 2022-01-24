@@ -31,6 +31,7 @@ picom
 qt5-styleplugins
 dunst
 libnotify
+gnome-keyring
 
 #Compression
 unzip
