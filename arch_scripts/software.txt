@@ -3,10 +3,12 @@ neovim
 visual-studio-code-bin
 emacs
 clion
+webstorm
 clion-cmake
 clion-gdb
 clion-jre
 clion-lldb
+webstorm-jre
 
 #System
 linux-firmware
@@ -50,6 +52,7 @@ zsh-theme-powerlevel10k
 
 # Development Related
 npm
+yarn
 rust-analyzer
 clang-format-all-git
 ccls
@@ -86,6 +89,7 @@ qbittorrent
 spotify
 zathura
 zathura-pdf-poppler
+broot
 
 #Virtualisation
 qemu

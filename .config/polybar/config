@@ -46,9 +46,9 @@ module-margin-left = 1
 module-margin-right = 2
 
 font-0 = Roboto:pixelsize=12;1
-font-1 = Font Awesome 5 Free:pixelsize=12;2
-font-2 = Font Awesome 5 Free Solid:pixelsize=12;2
-font-3 = Font Awesome 5 Brands:pixelsize=12;2
+font-1 = Font Awesome 6 Free:pixelsize=12;2
+font-2 = Font Awesome 6 Free Solid:pixelsize=12;2
+font-3 = Font Awesome 6 Brands:pixelsize=12;2
 
 modules-left = bspwm xwindow
 modules-center =
@@ -81,13 +81,13 @@ module-margin-left = 1
 module-margin-right = 2
 
 font-0 = Roboto:pixelsize=15;1
-font-1 = Font Awesome 5 Free Solid:pixelsize=13;2
-font-2 = Font Awesome 5 Free:pixelsize=13;2
-font-3 = Font Awesome 5 Brands:pixelsize=13;2
+font-1 = Font Awesome 6 Free Solid:pixelsize=13;2
+font-2 = Font Awesome 6 Free:pixelsize=13;2
+font-3 = Font Awesome 6 Brands:pixelsize=13;2
 
 modules-left = dwm
 modules-center =
-modules-right = network date pulseaudio battery
+modules-right = network-eth network-wifi date pulseaudio battery
 separator = " | "
 
 tray-position = right
@@ -191,12 +191,20 @@ label-volume =   %percentage%%
 label-volume-foreground = ${colors.cyan}
 label-muted-foreground = ${colors.cyan}
 
-[module/network]
+[module/network-wifi]
 type = internal/network
 interface = wlp2s0
 label-connected = %downspeed%   %upspeed%
 label-connected-foreground = ${colors.magenta}
-label-disconnected = 󰯡 Not Connected
+label-disconnected = 
+label-disconnected-underline = ${colors.green}
+
+[module/network-eth]
+type = internal/network
+interface = enp4s0f4u2
+label-connected = %downspeed%   %upspeed%
+label-connected-foreground = ${colors.magenta}
+label-disconnected = 
 label-disconnected-underline = ${colors.green}
 
 [module/battery]
@@ -204,18 +212,28 @@ type = internal/battery
 full-at = 99
 battery = BAT0
 adapter = AC0
-ramp-capacity-0 = 
-ramp-capacity-1 = 
-ramp-capacity-2 = 
-ramp-capacity-3 = 
-ramp-capacity-4 = 
+poll-interval = 0
 
 bar-capacity-width = 10
 bar-capacity-empty = -
 bar-capacity-fill = -
 bar-capacity-indicator = |
+
+animation-charging-0 = |---------
+animation-charging-1 = -|--------
+animation-charging-2 = --|-------
+animation-charging-3 = ---|------
+animation-charging-4 = ----|-----
+animation-charging-5 = -----|----
+animation-charging-6 = ------|---
+animation-charging-7 = -------|--
+animation-charging-8 = --------|-
+animation-charging-9 = ---------|
+animation-charing-framerate = 7
+
 format-discharging = <bar-capacity> <label-discharging>
-format-charging = <bar-capacity> <label-charging>
+format-full = ---------| 100%
+format-charging = <animation-charging> <label-charging>
 
 [settings]
 screenchange-reload = true

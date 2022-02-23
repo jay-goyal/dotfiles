@@ -5,9 +5,9 @@ git clone https://aur.archlinux.org/paru-git.git ~/paru
 cd ~/paru
 makepkg -si
 software="`sed -e 's/#.*$//' -e '/^$/d' ~/dotfiles/arch_scripts/software.txt | tr '\n' ' '`"
-npm_pkg="`sed -e 's/#.*$//' -e '/^$/d' ~/dotfiles/arch_scripts/npm-pkg.txt | tr '\n' ' '`"
+yarn_pkg="`sed -e 's/#.*$//' -e '/^$/d' ~/dotfiles/arch_scripts/npm-pkg.txt | tr '\n' ' '`"
 paru -S $software --needed
-sudo npm install -g npm_pkg
+yarn global add $yarn_pkg
 grub-mkconfig -o /boot/grub.cfg
 git clone https://github.com/jay-goyal/super_dmenu.git ~/super-dmenu
 cd ~/super-dmenu
