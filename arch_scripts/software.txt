@@ -23,7 +23,7 @@ xclip
 networkmanager
 xdg-utils
 xdg-user-dirs
-grub
+refind
 efibootmgr
 dosfstools
 openssh
@@ -48,7 +48,7 @@ zsh-completions
 zsh-syntax-highlighting
 ripgrep
 exa
-zsh-theme-powerlevel10k
+starship
 
 # Development Related
 npm
@@ -99,6 +99,7 @@ dnsmasq
 
 #Drivers
 nvidia-dkms
+xf86-video-amdgpu
 pipewire
 pipewire-alsa
 pipewire-pulse

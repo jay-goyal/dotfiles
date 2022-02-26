@@ -8,7 +8,7 @@ software="`sed -e 's/#.*$//' -e '/^$/d' ~/dotfiles/arch_scripts/software.txt | t
 yarn_pkg="`sed -e 's/#.*$//' -e '/^$/d' ~/dotfiles/arch_scripts/npm-pkg.txt | tr '\n' ' '`"
 paru -S $software --needed
 yarn global add $yarn_pkg
-grub-mkconfig -o /boot/grub.cfg
+refind-install
 git clone https://github.com/jay-goyal/super_dmenu.git ~/super-dmenu
 cd ~/super-dmenu
 sudo make clean install
