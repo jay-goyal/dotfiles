@@ -283,7 +283,7 @@
 	   (lsp lsp-deferred)
 	   :hook
 	   (lsp-mode . sme/lsp-mode-setup)
-	   ((c++-mode c-mode typescript-mode web-mode vue-mode) . lsp)
+	   ((c++-mode c-mode web-mode vue-mode) . lsp)
 	   :init
 	   (setq lsp-keymap-prefix "C-c l")  ;; Or 'C-l', 's-l'
 	   :custom
@@ -424,15 +424,15 @@
    
 ** JS/TS
    #+begin_src emacs-lisp
-	 (use-package typescript-mode
-	   :mode "\\.ts\\'"
-	   :config
-	   (setq typescript-indent-level 2))
-
 	 (use-package prettier-js
 	   :hook ((web-mode) . prettier-js-mode)
 	   :config
 	   (setq prettier-js-show-errors nil))
+   #+end_src
+
+** React
+   #+begin_src emacs-lisp
+	 (use-package react-snippets)
    #+end_src
    
 ** HTML
@@ -455,6 +455,8 @@
 			  ("\\.css\\'" . web-mode)
 			  ("\\.scss\\'" . web-mode)
 			  ("\\.js\\'" . web-mode)
+			  ("\\.ts\\'" . web-mode)
+			  ("\\.tsx\\'" . web-mode)
 			  ("\\.jsx\\'" . web-mode))
 	   :hook (web-mode . sme/web-mode-setup)
 	   :config
