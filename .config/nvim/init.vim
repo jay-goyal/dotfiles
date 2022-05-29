@@ -74,10 +74,10 @@ let g:onedark_termcolors=256
 colorscheme cobalt2
 
 " Airline settings
-let g:rigel_airline = 1
 let g:airline_theme='rigel'
 let g:airline_powerline_fonts = 1
-let g:airline_extensions = ['branch', 'hunks', 'coc']
+let g:airline#extensions#branch#enabled = 1
+let g:airline#extensions#tabline#enabled = 1
 
 "*************************************************************
 " NERD Tree
@@ -133,6 +133,7 @@ let g:coc_global_extensions = [
     \ 'coc-emmet',
     \ 'coc-css',
     \ 'coc-html',
+    \ 'coc-prettier',
     \ 'coc-clangd',
     \ ]
 
