@@ -56,13 +56,13 @@ alias la='exa -al --color=always --group-directories-first'  # all files and dir
 alias ll='exa -l --color=always --group-directories-first'  # long format
 alias lt='exa -aT --color=always --group-directories-first' # tree listing
 alias mu='sudo reflector --latest 50 --sort rate --protocol https --verbose --save /etc/pacman.d/mirrorlist'
-alias lp='browser-sync start --server --files "*"'
+alias lp='browser-sync start --server --files "./**/*"'
 
-export PATH="$(yarn global bin):$PATH"
+export PATH="$(yarn global bin):$HOME/.emacs.d/bin:/opt/android-sdk/tools:/opt/android-sdk/platform-tools:$PATH"
 
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 2>/dev/null
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh 2>/dev/null
-source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
+eval "$(starship init zsh)"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh

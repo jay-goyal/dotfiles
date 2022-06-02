@@ -1,4 +1,4 @@
-"***********************************************************
+"*************************************************************
 " PLUGINS
 "*************************************************************
 " Plugins using vim-plug
@@ -10,8 +10,8 @@ call plug#begin('~/.vim/plugged')
 
 " Theming
 Plug 'vim-airline/vim-airline'
-Plug 'GlennLeo/cobalt2'
-Plug 'Rigellute/rigel'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'romgrk/doom-one.vim'
 
 " Nerd Tree
 Plug 'preservim/nerdtree'
@@ -27,6 +27,10 @@ Plug 'rust-lang/rust.vim'
 
 " Git
 Plug 'airblade/vim-gitgutter'
+
+" Session management
+Plug 'xolox/vim-session'
+Plug 'xolox/vim-misc'
 
 " Misc
 Plug 'ap/vim-css-color'     " Color Preview
@@ -71,10 +75,10 @@ set nowritebackup
 " Colorscheme
 set termguicolors
 let g:onedark_termcolors=256
-colorscheme cobalt2
+colorscheme doom-one
 
 " Airline settings
-let g:airline_theme='rigel'
+let g:airline_theme='deus'
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#branch#enabled = 1
 let g:airline#extensions#tabline#enabled = 1
@@ -135,7 +139,16 @@ let g:coc_global_extensions = [
     \ 'coc-html',
     \ 'coc-prettier',
     \ 'coc-clangd',
+    \ 'coc-sumneko-lua',
+    \ 'coc-stylua'
     \ ]
+
+"*************************************************************
+" COC Autocomplete
+"*************************************************************
+let g:session_autosave = 'no'
+let g:session_autoload = 'no'
+let g:session_autosave_periodic = 0
 
 "*************************************************************
 " KEYBINDINGS
@@ -154,9 +167,14 @@ vnoremap <C-c> "+y
 nnoremap <C-p> "+gP
 vnoremap <C-p> "+gP
 
-
 " FZF
 nnoremap <leader>t :Files<CR>
+
+" Sessions
+nnoremap <leader>ss :SaveSession
+nnoremap <leader>so :OpenSession<CR>
+nnoremap <leader>sd :DeleteSession<CR>
+nnoremap <leader>sc :CloseSession<CR>
 
 " Navigating Splits
 nnoremap <C-h> <C-w>h
@@ -186,7 +204,7 @@ inoremap <silent><expr> <TAB>
       \ pumvisible() ? "\<C-n>" :
       \ CheckBackspace() ? "\<TAB>" :
       \ coc#refresh()
-inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+inoremap <expr><S-TAB> pumvisible() ? "\<C-z>" : "\<C-h>"
 
 function! CheckBackspace() abort
   let col = col('.') - 1
@@ -308,7 +326,7 @@ nnoremap <silent><nowait> <space>c  :<C-u>CocList commands<cr>
 " Find symbol of current document.
 nnoremap <silent><nowait> <space>o  :<C-u>CocList outline<cr>
 " Search workspace symbols.
-nnoremap <silent><nowait> <space>s  :<C-u>CocList -I symbols<cr>
+nnoremap <silent><nowait> <C-space>s  :<C-u>CocList -I symbols<cr>
 " Do default action for next item.
 nnoremap <silent><nowait> <space>j  :<C-u>CocNext<CR>
 " Do default action for previous item.
