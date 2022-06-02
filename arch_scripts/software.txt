@@ -2,13 +2,6 @@
 neovim
 visual-studio-code-bin
 emacs
-clion
-webstorm
-clion-cmake
-clion-gdb
-clion-jre
-clion-lldb
-webstorm-jre
 
 #System
 linux-firmware
@@ -23,7 +16,8 @@ xclip
 networkmanager
 xdg-utils
 xdg-user-dirs
-refind
+grub
+grub-customizer
 efibootmgr
 dosfstools
 openssh
@@ -76,10 +70,7 @@ feh
 sxhkd
 thunar
 thunar-volman
-polybar-dwm-module
 papirus-icon-theme
-dmenu
-j4-dmenu-desktop-git
 alacritty
 network-manager-applet
 lxappearance
@@ -90,6 +81,7 @@ spotify
 zathura
 zathura-pdf-poppler
 broot
+awesome
 
 #Virtualisation
 qemu

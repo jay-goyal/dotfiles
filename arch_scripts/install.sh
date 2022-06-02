@@ -7,8 +7,9 @@ makepkg -si
 software="`sed -e 's/#.*$//' -e '/^$/d' ~/dotfiles/arch_scripts/software.txt | tr '\n' ' '`"
 yarn_pkg="`sed -e 's/#.*$//' -e '/^$/d' ~/dotfiles/arch_scripts/npm-pkg.txt | tr '\n' ' '`"
 paru -S $software --needed
+sudo grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=ARCH
+grub-mkconfig -o /boot/grub/grub.cfg
 yarn global add $yarn_pkg
-refind-install
 git clone https://github.com/jay-goyal/super_dmenu.git ~/super-dmenu
 cd ~/super-dmenu
 sudo make clean install
