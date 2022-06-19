@@ -2,4 +2,5 @@ set smartcase
 set ignorecase
 set nohlsearch
 set incsearch
-set clipboard+=unnamed
+
+imap jj <ESC>
