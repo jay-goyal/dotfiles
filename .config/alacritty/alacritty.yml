@@ -11,34 +11,35 @@ font:
     family: MesloLGS Nerd Font Mono
 
 colors:
+  # Default colors
   primary:
-    background: '#282c34'
-    foreground: '#dfdfdf'
-  cursor:
-    text: CellBackground
-    cursor: '#dfdfdf'
-  selection:
-    text: CellForeground
-    background: '#3e4451'
-  normal:
-    black:   '#1c1f24'
-    red:     '#ff6c6b'
-    green:   '#98be65'
-    yellow:  '#da8548'
-    blue:    '#51afef'
-    magenta: '#c678dd'
-    cyan:    '#5699af'
-    white:   '#202328'
-  bright:
-    black:   '#5b6268'
-    red:     '#da8548'
-    green:   '#4db5bd'
-    yellow:  '#ecbe7b'
-    blue:    '#3071db'   
-    magenta: '#a9a1e1'
-    cyan:    '#46d9ff'
-    white:   '#dfdfdf'
+    background: '0x292d3e'
+    foreground: '0xd0d0d0'
 
+  # Normal colors
+  normal:
+    black:   '0x292d3e'
+    red:     '0xf07178'
+    green:   '0xc3e88d'
+    yellow:  '0xffcb6b'
+    blue:    '0x82aaff'
+    magenta: '0xc792ea'
+    cyan:    '0x89ddff'
+    white:   '0xd0d0d0'
+
+  # Bright colors
+  bright:
+    black:   '0x434758'
+    red:     '0xff8b92'
+    green:   '0xddffa7'
+    yellow:  '0xffe585'
+    blue:    '0x9cc4ff'
+    magenta: '0xe1acff'
+    cyan:    '0xa3f7ff'
+    white:   '0xffffff'
 
 window:
-  opacity: 0.80
+  opacity: 0.8
+  padding:
+    x: 5
+    y: 0
