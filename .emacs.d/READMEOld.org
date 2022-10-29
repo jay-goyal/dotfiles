@@ -1,7 +1,6 @@
 #+TITLE: Emacs Config
 #+PROPERTY: header-args :tangle ~/.emacs.d/init.el
 #+AUTHOR: Jay Goyal
-
 * Basic Config
   If I don't set it up, Emacs Complains
 
@@ -15,15 +14,14 @@
 ** Basic Settings
 
    #+begin_src emacs-lisp
-	 (add-hook 'window-setup-hook 'toggle-frame-maximized t)
-	 (scroll-bar-mode -1)        ; Disable visible scrollbar
-	 (tool-bar-mode -1)          ; Disable the toolbar
-	 (tooltip-mode -1)           ; Disable tooltips
-	 (set-fringe-mode 10)        ; Give some breathing room
-	 (menu-bar-mode -1)          ; Disable the menu bar
+     (scroll-bar-mode -1)        ; Disable visible scrollbar
+     (tool-bar-mode -1)          ; Disable the toolbar
+     (tooltip-mode -1)           ; Disable tooltips
+     (set-fringe-mode 10)        ; Give some breathing room
+     (menu-bar-mode -1)          ; Disable the menu bar
 
-	 ;; Backup Files setting
-	 (setq backup-directory-alist '(("." . "~/.emacs.d/backup"))
+     ;; Backup Files setting
+     (setq backup-directory-alist '(("." . "~/.emacs.d/backup"))
 	   backup-by-copying t    ; Don't delink hardlinks
 	   version-control t      ; Use version numbers on backups
 	   delete-old-versions t  ; Automatically delete excess backups
@@ -31,11 +29,10 @@
 	   kept-old-versions 0    ; and how many of the old
 	   )
 
-	 ;; Make ESC quit prompts
-	 (global-set-key (kbd "<escape>") 'keyboard-escape-quit)
+     ;; Make ESC quit prompts
+     (global-set-key (kbd "<escape>") 'keyboard-escape-quit)
 
-	 (setq-default tab-width 4)  ; Set Tab length
-	 (setq display-line-numbers-type 'relative)
+     (setq-default tab-width 4)  ; Set Tab length
    #+end_src
 
 ** Font Settings
@@ -44,8 +41,8 @@
 	 (set-face-attribute 'default nil :font "FiraCode Nerd Font Mono" :height 140)
 	 (set-face-attribute 'fixed-pitch nil :font "FiraCode Nerd Font Mono" :height 140)
 	 (set-face-attribute 'variable-pitch nil :font "Roboto" :height 140 :weight 'regular)
-	 (add-to-list 'initial-frame-alist '(font . "FiraCode Nerd Font Mono-12"))
-	 (add-to-list 'default-frame-alist '(font . "FiraCode Nerd Font Mono-12"))
+	 (add-to-list 'initial-frame-alist '(font . "FiraCode Nerd Font Mono-13.5"))
+	 (add-to-list 'default-frame-alist '(font . "FiraCode Nerd Font Mono-13.5"))
    #+end_src
 
 * Package Management Setup
@@ -97,13 +94,16 @@
 	(doom-modeline-major-mode-icon t)))
    #+end_src
 
-** Catppuccin Theme
+** Doom Themes
 
    #+begin_src emacs-lisp
-	 (use-package autothemer)
-	 (use-package catppuccin-theme
-	   :config
-	   (load-theme 'catppuccin-mocha t))
+     (use-package doom-themes
+       :config
+       (setq doom-themes-enable-bold t    ; if nil, bold is universally disabled
+	     doom-themes-enable-italic t) ; if nil, italics is universally disabled
+       (load-theme 'doom-palenight t)
+       (doom-themes-neotree-config)
+       (doom-themes-org-config))
    #+end_src
 
 ** Dashboard
@@ -197,16 +197,10 @@
 
   #+begin_src emacs-lisp
 	(use-package general
-	  :config
-	  (general-evil-setup t)
-	  (general-create-definer sme/leader-keys
+	  :config (general-create-definer sme/leader-keys
 		:keymaps '(normal insert visual emacs)
 		:prefix "SPC"
-		:global-prefix "C-SPC")
-	  (general-imap "j"
-					(general-key-dispatch 'self-insert-command
-					  :timeout 0.25
-					  "k" 'evil-normal-state)))
+		:global-prefix "C-SPC"))
 
 	(use-package hydra)
 
@@ -218,7 +212,7 @@
 
 	(sme/leader-keys
 	  "x" '(counsel-M-x :which-key "Execute a command")
-	  "b" '(lsp-format-buffer :which-key "Format the buffer")
+	  "b" '(format-all-buffer :which-key "Format the buffer")
 	  "ts" '(hydra-text-scale/body :which-key "Scale text")
 	  "tt" '(counsel-load-theme :which-key "Choose theme")
 	  "td" '(dired :which-key "Open dired")
@@ -281,22 +275,24 @@
 ** Setting up LSP Mode
    
    #+begin_src emacs-lisp
+	 (defun sme/lsp-mode-setup ()
+	   (setq lsp-headerline-breadcrumb-segments '(path-up-to-project file symbols))
+	   (lsp-headerline-breadcrumb-mode))
 	 (use-package lsp-mode
 	   :commands
 	   (lsp lsp-deferred)
 	   :hook
+	   (lsp-mode . sme/lsp-mode-setup)
 	   ((c++-mode c-mode web-mode vue-mode) . lsp)
 	   :init
 	   (setq lsp-keymap-prefix "C-c l")  ;; Or 'C-l', 's-l'
 	   :custom
-	   (lsp-clangd-binary-path "/usr/bin/clangd")
 	   (lsp-rust-analyzer-server-display-inlay-hints t)
 	   (lsp-vetur-format-default-formatter-css "prettier")
 	   (lsp-vetur-format-default-formatter-html "prettier")
 	   (lsp-vetur-format-default-formatter-js "prettier")
 	   (lsp-vetur-validation-template nil)
 	   :config
-	   (setq lsp-headerline-breadcrumb-enable nil)
 	   (lsp-enable-which-key-integration t))
 
 	 (with-eval-after-load 'lsp-mode
@@ -304,6 +300,33 @@
 					'("\\.scss\\'" . "scss")))
 
 	 (use-package lsp-ivy)
+   #+end_src
+   
+** Setting up DAP Mode
+   
+   #+begin_src emacs-lisp
+	 (use-package exec-path-from-shell
+	   :ensure
+	   :init (exec-path-from-shell-initialize))
+
+	 (use-package dap-mode
+	   :ensure
+	   :config
+	   (dap-ui-mode)
+	   (dap-ui-controls-mode 1)
+
+	   (require 'dap-lldb)
+	   (require 'dap-gdb-lldb)
+	   ;; installs .extension/vscode
+	   (dap-gdb-lldb-setup)
+	   (dap-register-debug-template
+		"Rust::LLDB Run Configuration"
+		(list :type "lldb"
+			  :request "launch"
+			  :name "LLDB::Run"
+			  :gdbpath "rust-lldb"
+			  :target nil
+			  :cwd nil)))
    #+end_src
 
 ** Company Mode
@@ -326,22 +349,6 @@
 
 	 (use-package company-box
 	   :hook (company-mode . company-box-mode))
-   #+end_src
-
-** Snippets
-   #+begin_src emacs-lisp
-	 (use-package yasnippet :config (yas-global-mode))
-   #+end_src
-
-** Java
-   #+begin_src emacs-lisp
-	 (use-package lsp-java
-	   :config (add-hook 'java-mode-hook 'lsp)
-  :custom
-  (lsp-java-sources-organize-imports-static-star-threshold 3)
-  (lsp-java-sources-organize-imports-star-threshold 5)
-  (lsp-java-completion-import-order ["" "javax" "java" "#"]
-                                    "Order import statements as in IntelliJ. '#' is for static imports, empty string stands for 'everything else'"))
    #+end_src
 
 ** Rust Setup
@@ -369,6 +376,52 @@
 	 (use-package toml-mode)
    #+end_src
 
+** C/C++
+
+   #+begin_src emacs-lisp
+	 (use-package ccls
+	   :after projectile
+	   :ensure-system-package ccls
+	   :custom
+	   (ccls-args nil)
+	   (ccls-executable (executable-find "ccls"))
+	   (projectile-project-root-files-top-down-recurring
+		(append '("compile_commands.json" ".ccls")
+				projectile-project-root-files-top-down-recurring))
+	   :config (push ".ccls-cache" projectile-globally-ignored-directories))
+   #+end_src
+
+*** CMake
+
+   #+begin_src emacs-lisp
+	 (use-package cmake-mode
+	   :mode ("CMakeLists\\.txt\\'" "\\.cmake\\'"))
+
+	 (use-package cmake-font-lock
+	   :after (cmake-mode)
+	   :hook (cmake-mode . cmake-font-lock-activate))
+
+	 (use-package cmake-ide
+	   :after projectile
+	   :hook (c++-mode . sme/cmake-ide-find-project)
+	   :preface
+	   (defun sme/cmake-ide-find-project ()
+		 "Finds the directory of the project for cmake-ide."
+		 (with-eval-after-load 'projectile
+		   (setq cmake-ide-project-dir (projectile-project-root))
+		   (setq cmake-ide-build-dir (concat cmake-ide-project-dir "build")))
+		 (setq cmake-ide-compile-command 
+			   (concat "cd " cmake-ide-build-dir " && cmake .. && make"))
+		 (cmake-ide-load-db))
+
+	   (defun sme/switch-to-compilation-window ()
+		 "Switches to the *compilation* buffer after compilation."
+		 (other-window 1))
+	   :bind ([remap comment-region] . cmake-ide-compile)
+	   :init (cmake-ide-setup)
+	   :config (advice-add 'cmake-ide-compile :after #'sme/switch-to-compilation-window))
+	#+end_src
+   
 ** JS/TS
    #+begin_src emacs-lisp
 	 (use-package prettier-js
@@ -417,12 +470,6 @@
 	 (use-package vue-mode
 	   :mode "\\.vue\\'")
    #+end_src
-
-** Solidity
-   #+begin_src emacs-lisp
-	 (use-package solidity-mode
-	   :mode ("\\.sol\\'" . solidity-mode))
-   #+end_src
   
 ** Misc
 
@@ -434,12 +481,6 @@
      ;; Automatic pairing of parantheses
      (electric-pair-mode 1)
    #+end_src 
-
-* Terminal
-   #+begin_src emacs-lisp
-	 (use-package vterm
-	   :config (setq term-prompt-regexp "~?.* (\[[^\[\]]+\])* *❯"))
-   #+end_src
    
 * Magit.... Frickin' Finally
 
@@ -525,3 +566,24 @@
     (provide 'init)
     ;;; init.el ends here
   #+end_src
+
+** Stuff Added by custom
+
+   #+begin_src emacs-lisp
+     (custom-set-variables
+      ;; custom-set-variables was added by Custom.
+      ;; If you edit it by hand, you could mess it up, so be careful.
+      ;; Your init file should contain only one such instance.
+      ;; If there is more than one, they won't work right.
+      '(custom-safe-themes
+	'("47db50ff66e35d3a440485357fb6acb767c100e135ccdf459060407f8baea7b2" "b7e460a67bcb6cac0a6aadfdc99bdf8bbfca1393da535d4e8945df0648fa95fb" default))
+      '(ivy-rich-mode t)
+      '(package-selected-packages
+	'(evil-collection evil visual-fill-column evil-magit magit counsel-projectile org-bullets projectile hydra format-all format-all-buffer general dashboard helpful ivy-rich counsel which-key rainbow-delimiters swiper ivy doom-themes doom-modeline use-package)))
+     (custom-set-faces
+      ;; custom-set-faces was added by Custom.
+      ;; If you edit it by hand, you could mess it up, so be careful.
+      ;; Your init file should contain only one such instance.
+      ;; If there is more than one, they won't work right.
+      )
+   #+end_src

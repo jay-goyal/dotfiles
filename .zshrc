@@ -51,7 +51,7 @@ alias lt='exa -aT --color=always --group-directories-first' # tree listing
 alias mu='sudo reflector --latest 50 --sort rate --protocol https --verbose --save /etc/pacman.d/mirrorlist'
 alias lp='browser-sync start --server --files "./**/*"'
 
-export PATH="$(yarn global bin):$HOME/.emacs.d/bin:/opt/android-sdk/tools:/opt/android-sdk/platform-tools:$PATH"
+export PATH="$(yarn global bin):$HOME/.local/bin/gradle/bin:$PATH"
 
 source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 2>/dev/null
 source /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh 2>/dev/null
