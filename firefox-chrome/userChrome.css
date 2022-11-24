@@ -1,0 +1,99 @@
+@import 'window-controls.css';
+@import 'navbar.css';
+@import 'sidebar.css';
+@import 'hide-tabline.css';
+
+:root {
+	--wc-red: hsl(343, 81%, 75%);
+	--wc-green: hsl(115, 54%, 76%);
+	--wc-yellow: hsl(41, 86%, 83%);
+	--bg-primary: #1e1e2e;
+	--bg-secondary: #181825;
+	--bg-tertiary: #6c7086;
+	--bg-hover-light: hsla(232, 97%, 85%, 0.06);
+	--bg-hover: hsla(232, 97%, 85%, 0.1);
+	--bg-active: hsla(232, 97%, 85%, 0.15);
+	--text-bright: #cdd6f4;
+	--text-primary: #a6adc8;
+	--text-secondary: #bac2de;
+	--text-tertiary: #6c7086;
+	--accent: hsl(232, 97%, 85%);
+	--shadow: 0 0 4px hsla(0, 0%, 0%, 0.4);
+	--roundness: 12px;
+	--roundness-small: 8px;
+	--roundness-tiny: 4px;
+	--navbar-height: 56px;
+	--sidebar-collapsed-width: 56px;
+	--sidebar-width: 250px;
+	--transition-duration: 0.2s;
+	--transition-ease: ease-out;
+
+	--button-bgcolor: var(--bg-secondary) !important;
+	--button-hover-bgcolor: var(--bg-hover) !important;
+	--button-active-bgcolor: var(--bg-active) !important;
+	--input-bgcolor: var(--bg-secondary) !important;
+	--input-color: var(--text-primary) !important;
+	--input-border-color: none !important;
+	--panel-banner-item-update-supported-bgcolor: none;
+	--panel-banner-item-info-icon-bgcolor: none;
+	--panel-item-hover-bgcolor: var(--bg-hover) !important;
+	--panel-item-active-bgcolor: var(--bg-active) !important;
+	--panel-border-radius: var(--roundness) !important;
+	--panel-separator-color: var(--bg-tertiary) !important;
+	--urlbar-box-bgcolor: var(--bg-tertiary) !important;
+	--urlbar-box-focus-bgcolor: var(--bg-tertiary) !important;
+	--urlbar-box-hover-bgcolor: var(--bg-hover) !important;
+	--urlbar-box-active-bgcolor: var(--bg-active) !important;
+	--arrowpanel-background: var(--bg-primary) !important;
+	--arrowpanel-color: var(--text-primary) !important;
+	--arrowpanel-border-color: none !important;
+	--arrowpanel-border-radius: var(--roundness) !important;
+	--arrowpanel-menuitem-border-radius: var(--roundness-small) !important;
+	--arrowpanel-dimmed: var(--bg-hover) !important;
+	--toolbar-field-background-color: var(--bg-secondary) !important;
+	--toolbar-field-color: var(--text-primary) !important;
+	--toolbar-field-border-color: none !important;
+	--toolbar-field-focus-background-color: var(--bg-secondary) !important;
+	--toolbar-field-focus-color: var(--text-primary) !important;
+	--toolbar-bgcolor: var(--bg-primary) !important;
+	--toolbar-color: var(--text-primary) !important;
+	--toolbarbutton-icon-fill: var(--text-primary) !important;
+	--toolbarbutton-hover-background: var(--bg-hover) !important;
+	--toolbarbutton-active-background: var(--bg-active) !important;
+	--toolbarbutton-border-radius: var(--roundness-small) !important;
+	--lwt-tab-text: var(--text-primary) !important;
+	--lwt-selected-tab-background-color: var(--bg-secondary) !important;
+	--lwt-text-color: var(--text-primary) !important;
+	--lwt-tab-line-color: none !important;
+	--tab-loading-fill: red !important;
+	--autocomplete-popup-highlight-background: var(--bg-hover) !important;
+	--autocomplete-popup-highlight-color: var(--text-primary) !important;
+	--autocomplete-popup-separator-color: var(--bg-tertiary) !important;
+	--windows-panel-box-shadow: var(--shadow) !important;
+	--menuitem-hover-background-color: var(--bg-hover) !important;
+	--menuitem-active-background-color: var(--bg-active) !important;
+	--menu-background-color: var(--bg-primary) !important;
+	--menu-color: var(--text-primary) !important;
+	--menu-border-color: none !important;
+	--tabpanel-background-color: var(--bg-primary) !important;
+}
+
+menuseparator {
+	--menu-border-color: var(--bg-tertiary) !important;
+}
+
+panel,
+menupopup {
+	--windows-panel-box-shadow: var(--shadow) !important;
+}
+
+spacer,
+button {
+	border: none !important;
+}
+
+button,
+input,
+menulist {
+	border-radius: var(--roundness-small) !important;
+}
