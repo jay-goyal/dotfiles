@@ -6,3 +6,4 @@ export _JAVA_AWT_WM_NONREPARENTING=1
 export ANDROID_HOME=/opt/android-sdk
 export GDK_SCALE=1.15
 export GDK_DPI_SCALE=1.15
+. "$HOME/.cargo/env"

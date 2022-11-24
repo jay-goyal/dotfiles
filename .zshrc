@@ -50,10 +50,18 @@ alias ll='exa -l --color=always --group-directories-first'  # long format
 alias lt='exa -aT --color=always --group-directories-first' # tree listing
 alias mu='sudo reflector --latest 50 --sort rate --protocol https --verbose --save /etc/pacman.d/mirrorlist'
 alias lp='browser-sync start --server --files "./**/*"'
+alias pn='pnpm'
+alias pnx='pnpm dlx'
 
-export PATH="$(yarn global bin):$HOME/.local/bin/gradle/bin:$PATH"
+eval "$(fnm env)"
+# pnpm
+export PNPM_HOME="/home/jay/.local/share/pnpm"
+export PATH="$PNPM_HOME:$PATH"
+# pnpm end
+export PATH="$(pnpm bin -g):$HOME/.local/bin/gradle/bin:$PATH"
 
 source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 2>/dev/null
 source /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh 2>/dev/null
 eval "$(starship init zsh)"
+
 

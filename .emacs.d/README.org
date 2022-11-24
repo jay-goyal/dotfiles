@@ -15,27 +15,31 @@
 ** Basic Settings
 
    #+begin_src emacs-lisp
-	 (add-hook 'window-setup-hook 'toggle-frame-maximized t)
-	 (scroll-bar-mode -1)        ; Disable visible scrollbar
-	 (tool-bar-mode -1)          ; Disable the toolbar
-	 (tooltip-mode -1)           ; Disable tooltips
-	 (set-fringe-mode 10)        ; Give some breathing room
-	 (menu-bar-mode -1)          ; Disable the menu bar
+	  (add-hook 'window-setup-hook 'toggle-frame-maximized t)
+	  (scroll-bar-mode -1)        ; Disable visible scrollbar
+	  (tool-bar-mode -1)          ; Disable the toolbar
+	  (tooltip-mode -1)           ; Disable tooltips
+	  (set-fringe-mode 10)        ; Give some breathing room
+	  (menu-bar-mode -1)          ; Disable the menu bar
 
-	 ;; Backup Files setting
-	 (setq backup-directory-alist '(("." . "~/.emacs.d/backup"))
-	   backup-by-copying t    ; Don't delink hardlinks
-	   version-control t      ; Use version numbers on backups
-	   delete-old-versions t  ; Automatically delete excess backups
-	   kept-new-versions 10   ; how many of the newest versions to keep
-	   kept-old-versions 0    ; and how many of the old
-	   )
+	  ;; Backup Files setting
+	  (setq backup-directory-alist '((".*" . "~/.emacs.d/backup"))
+		backup-by-copying t    ; Don't delink hardlinks
+		version-control t      ; Use version numbers on backups
+		delete-old-versions t  ; Automatically delete excess backups
+		kept-new-versions 10   ; how many of the newest versions to keep
+		kept-old-versions 0    ; and how many of the old
+		)
+	 (setq auto-save-file-name-transforms
+		   `((".*" ,temporary-file-directory t)))
 
-	 ;; Make ESC quit prompts
-	 (global-set-key (kbd "<escape>") 'keyboard-escape-quit)
+	  ;; Make ESC quit prompts
+	  (global-set-key (kbd "<escape>") 'keyboard-escape-quit)
+	  ;; Disable warnings showing
+	  (setq warning-minimum-level :emergency)
 
-	 (setq-default tab-width 4)  ; Set Tab length
-	 (setq display-line-numbers-type 'relative)
+	  (setq-default tab-width 4)  ; Set Tab length
+	  (setq display-line-numbers-type 'relative)
    #+end_src
 
 ** Font Settings
@@ -106,24 +110,53 @@
 	   (load-theme 'catppuccin-mocha t))
    #+end_src
 
+** Ligatures
+   #+begin_src emacs-lisp
+	 (use-package ligature
+	   :config
+	   ;; Enable the "www" ligature in every possible major mode
+	   (ligature-set-ligatures 't '("www"))
+	   ;; Enable traditional ligature support in eww-mode, if the
+	   ;; `variable-pitch' face supports it
+	   (ligature-set-ligatures 'eww-mode '("ff" "fi" "ffi"))
+	   ;; Enable all Cascadia Code ligatures in programming modes
+	   (ligature-set-ligatures 'prog-mode '("|||>" "<|||" "<==>" "<!--" "####" "~~>" "***" "||=" "||>"
+											":::" "::=" "=:=" "===" "==>" "=!=" "=>>" "=<<" "=/=" "!=="
+											"!!." ">=>" ">>=" ">>>" ">>-" ">->" "->>" "-->" "---" "-<<"
+											"<~~" "<~>" "<*>" "<||" "<|>" "<$>" "<==" "<=>" "<=<" "<->"
+											"<--" "<-<" "<<=" "<<-" "<<<" "<+>" "</>" "###" "#_(" "..<"
+											"..." "+++" "/==" "///" "_|_" "www" "&&" "^=" "~~" "~@" "~="
+											"~>" "~-" "**" "*>" "*/" "||" "|}" "|]" "|=" "|>" "|-" "{|"
+											"[|" "]#" "::" ":=" ":>" ":<" "$>" "==" "=>" "!=" "!!" ">:"
+											">=" ">>" ">-" "-~" "-|" "->" "--" "-<" "<~" "<*" "<|" "<:"
+											"<$" "<=" "<>" "<-" "<<" "<+" "</" "#{" "#[" "#:" "#=" "#!"
+											"##" "#(" "#?" "#_" "%%" ".=" ".-" ".." ".?" "+>" "++" "?:"
+											"?=" "?." "??" ";;" "/*" "/=" "/>" "//" "__" "~~" "(*" "*)"
+											"\\\\" "://"))
+	   ;; Enables ligature checks globally in all buffers. You can also do it
+	   ;; per mode with `ligature-mode'.
+	   (global-ligature-mode t))
+   #+end_src
+
 ** Dashboard
    #+begin_src emacs-lisp
-     (use-package dashboard
-       :init
-       (setq dashboard-set-heading-icons t)
-       (setq dashboard-set-file-icons t)
-       (setq dashboard-banner-logo-title "Emacs is Awesome")
-       (setq dashboard-startup-banner "~/.emacs.d/emacs.png")
-       (setq dashboard-center-content nil)
-       (setq dashboard-items '((projects . 5)
-			       (recents . 3)
-			       (agenda . 5 )))
-       :config
-       (dashboard-setup-startup-hook)
-       (dashboard-modify-heading-icons '((recents . "file-text")
-					 (bookmarks . "book"))))
+	 (use-package dashboard
+	   :init
+	   (setq dashboard-set-heading-icons t)
+	   (setq dashboard-set-file-icons t)
+	   (setq dashboard-banner-logo-title "Emacs is Evil")
+	   (setq dashboard-startup-banner "~/.emacs.d/emacs.png")
+	   (setq dashboard-center-content nil)
+	   (setq dashboard-items '((bookmarks . 3)
+							   (projects . 5)
+							   (recents . 5)
+							   (agenda . 5 )))
+	   :config
+	   (dashboard-setup-startup-hook)
+	   (dashboard-modify-heading-icons '((recents . "file-text")
+										 (bookmarks . "book"))))
 
-     (setq initial-buffer-choice (lambda () (get-buffer "*dashboard*")))
+	 (setq initial-buffer-choice (lambda () (get-buffer "*dashboard*")))
    #+end_src
 
 * Ivy
@@ -225,12 +258,7 @@
 	  "tb" '(switch-to-buffer :which-key "Switch to a particular buffer")
 	  ;;dap mode
 	  "da" '(dap-breakpoint-add :which-key "Add a breakpoint")
-	  "dd" '(dap-breakpoint-delete :which-key "Delete the breakpoint")
-	  ;;cargo shortcuts
-	  "rb" '(cargo-process-build :which-key "Build the rust project")
-	  "rn" '(cargo-process-new :which-key "Create a new rust project")
-	  "rr" '(cargo-process-run :which-key "Run the rust project")
-	  "rt" '(cargo-process-test :which-key "Run the tests for rust project"))
+	  "dd" '(dap-breakpoint-delete :which-key "Delete the breakpoint"))
   #+end_src
 
 * Project Management
@@ -296,12 +324,15 @@
 	   (lsp-vetur-format-default-formatter-js "prettier")
 	   (lsp-vetur-validation-template nil)
 	   :config
+	   (setq lsp-signature-render-documentation nil)
 	   (setq lsp-headerline-breadcrumb-enable nil)
-	   (lsp-enable-which-key-integration t))
+	   (setq lsp-enable-which-key-integration t))
 
-	 (with-eval-after-load 'lsp-mode
-	   (add-to-list 'lsp-language-id-configuration
-					'("\\.scss\\'" . "scss")))
+	 (use-package lsp-ui
+	   :hook (lsp-mode . lsp-ui-mode)
+	   :custom
+	   (lsp-ui-doc-position 'bottom))
+
 
 	 (use-package lsp-ivy)
    #+end_src
@@ -312,7 +343,7 @@
 	 (use-package company
 	   :after lsp-mode
 	   :hook
-	   (lsp-mode . company-mode)
+	   ((lsp-mode solidity-mode) . company-mode)
 	   :bind
 	   (:map company-active-map
 			 ("<tab>" . company-complete-selection)
@@ -365,6 +396,12 @@
 
 	 (use-package cargo
 	   :hook(rustic-mode . cargo-minor-mode))
+	 (sme/leader-keys
+	  ;;cargo shortcuts
+	  "rb" '(cargo-process-build :which-key "Build the rust project")
+	  "rn" '(cargo-process-new :which-key "Create a new rust project")
+	  "rr" '(cargo-process-run :which-key "Run the rust project")
+	  "rt" '(cargo-process-test :which-key "Run the tests for rust project"))
 
 	 (use-package toml-mode)
    #+end_src
@@ -372,9 +409,11 @@
 ** JS/TS
    #+begin_src emacs-lisp
 	 (use-package prettier-js
-	   :hook ((web-mode) . prettier-js-mode)
+	   :hook (web-mode . prettier-js-mode)
 	   :config
-	   (setq prettier-js-show-errors nil))
+	   (setq prettier-js-show-errors nil)
+	   (setq prettier-js-command "/home/jay/.local/share/pnpm/prettier")
+	   (setq prettier-js-args '("--tab-width" "2")))
    #+end_src
 
 ** React
@@ -398,7 +437,7 @@
 								   ))))
 
 	 (use-package web-mode
-	   :mode (("\\.html?\\'" . web-mode)
+	   :mode (("\\.html\\'" . web-mode)
 			  ("\\.css\\'" . web-mode)
 			  ("\\.scss\\'" . web-mode)
 			  ("\\.js\\'" . web-mode)
@@ -421,7 +460,12 @@
 ** Solidity
    #+begin_src emacs-lisp
 	 (use-package solidity-mode
-	   :mode ("\\.sol\\'" . solidity-mode))
+	   :mode ("\\.sol\\'" . solidity-mode)
+	   :config
+	   (setq solidity-solc-path "/usr/local/bin/solc")
+	   (setq solidity-solium-path "/home/jay/.local/share/pnpm/solium"))
+	 (use-package solidity-flycheck)
+	 (use-package company-solidity)
    #+end_src
   
 ** Misc
@@ -439,6 +483,19 @@
    #+begin_src emacs-lisp
 	 (use-package vterm
 	   :config (setq term-prompt-regexp "~?.* (\[[^\[\]]+\])* *❯"))
+	 (use-package vterm-toggle
+	   :bind
+	   (:map vterm-mode-map
+			 ("<C-return>" . vterm-toggle-insert-cd))
+	   :config
+	   (add-to-list 'display-buffer-alist
+					'("\*vterm\*"
+					  (display-buffer-in-side-window)
+					  (window-height . 0.3)
+					  (side . bottom)
+					  (slot . 0))))
+	 (sme/leader-keys
+	   "`" '(vterm-toggle :which-key "Toggle vterm"))
    #+end_src
    
 * Magit.... Frickin' Finally

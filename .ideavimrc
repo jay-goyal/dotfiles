@@ -3,4 +3,4 @@ set ignorecase
 set nohlsearch
 set incsearch
 
-imap jj <ESC>
+imap jk <ESC>
