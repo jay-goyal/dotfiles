@@ -1,6 +1,5 @@
 # Editors
 neovim
-visual-studio-code-bin
 emacs
 
 #System
@@ -11,8 +10,6 @@ base-devel
 man-pages
 amd-ucode
 sudo
-xorg
-xclip
 networkmanager
 xdg-utils
 xdg-user-dirs
@@ -23,7 +20,6 @@ dosfstools
 openssh
 lightdm-webkit-theme-litarvan
 reflector
-picom
 qt5-styleplugins
 dunst
 libnotify
@@ -58,15 +54,15 @@ lldb-mi-git
 ttf-font-awesome
 ttf-roboto
 nerd-fonts-complete
+brightnessctl
 
 #Apps
 git
-firefox-developer-edition
 firefox
 brave-bin
 neofetch
 htop
-feh
+hyprpaper
 sxhkd
 thunar
 thunar-volman
@@ -81,7 +77,13 @@ spotify
 zathura
 zathura-pdf-poppler
 broot
-awesome
+waybar-hyprland-git
+wofi
+hyprland-bin
+wlogout
+swaylock-effects
+steam
+obsidian
 
 #Virtualisation
 qemu
@@ -95,13 +97,12 @@ xf86-video-amdgpu
 pipewire
 pipewire-alsa
 pipewire-pulse
-auto-cpufreq
 asusctl
 supergfxctl
 pavucontrol
 
 #Misc
-matcha-gtk-theme-git
+catppuccin-gtk-theme-mocha
 neovim-plug-git
 gvfs-mtp
 interception-caps2esc

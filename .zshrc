@@ -57,11 +57,9 @@ eval "$(fnm env)"
 # pnpm
 export PNPM_HOME="/home/jay/.local/share/pnpm"
 export PATH="$PNPM_HOME:$PATH"
-# pnpm end
-export PATH="$(pnpm bin -g):$HOME/.local/bin/gradle/bin:$PATH"
 
-source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 2>/dev/null
-source /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh 2>/dev/null
+source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 2>/dev/null
+source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh 2>/dev/null
 eval "$(starship init zsh)"
 
 
