@@ -1,0 +1,89 @@
+@import "themes/catppuccin_mocha.css";
+* {
+    border: none;
+    border-radius: 0;
+    font-family: FiraCode Nerd Font Mono;
+    font-weight: 600;
+    font-size: 14px;
+    margin: 0;
+    padding: 0;
+}
+
+window#waybar {
+    background: @base;
+    color: @text;
+    padding: 2px 10px;
+}
+
+tooltip {
+    background: #1e1e2e;
+    border-width: 2px;
+    border-style: solid;
+    border-color: #11111b;
+}
+
+#workspaces button {
+    padding: 0 2px;
+    color: @subtext0;
+}
+
+#workspaces button.active {
+    color: @base;
+    background: @lavender;
+}
+
+#workspaces button.urgent {
+    color: #11111b;
+    background: #eba0ac;
+}
+
+#workspaces button:hover {
+    background: #11111b;
+    color: #cdd6f4;
+}
+
+#custom-language,
+#custom-updates,
+#custom-caffeine,
+#window,
+#clock,
+#battery,
+#pulseaudio,
+#network,
+#workspaces,
+#tray,
+#backlight {
+    background: #1e1e2e;
+    padding: 0 10px;
+}
+
+#workspaces {
+    background: #1e1e2e;
+}
+
+#custom-language {
+    color: #f38ba8;
+}
+
+#custom-updates {
+    color: #f5c2e7;
+}
+#clock {
+    color: #f9e2af;
+}
+
+#network {
+    color: #fab387;
+}
+
+#pulseaudio {
+    color: #89b4fa;
+}
+
+#battery {
+    color: #a6e3a1;
+}
+
+#backlight {
+    color: #cba6f7;
+}
