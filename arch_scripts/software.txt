@@ -18,9 +18,10 @@ grub-customizer
 efibootmgr
 dosfstools
 openssh
-lightdm-webkit-theme-litarvan
+sddm
 reflector
 qt5-styleplugins
+qt6gtk2
 dunst
 libnotify
 gnome-keyring
@@ -42,13 +43,13 @@ starship
 
 # Development Related
 npm
-yarn
 rust-analyzer
 clang-format-all-git
 ccls
 cmake
 llvm
 lldb-mi-git
+fnm-bin
 
 #Fonts
 ttf-font-awesome
@@ -63,8 +64,7 @@ brave-bin
 neofetch
 htop
 hyprpaper
-sxhkd
-thunar
+nemo
 thunar-volman
 papirus-icon-theme
 alacritty
@@ -74,16 +74,26 @@ lxsession
 vlc
 qbittorrent
 spotify
+spicetify
 zathura
 zathura-pdf-poppler
 broot
 waybar-hyprland-git
+wlogout
 wofi
 hyprland-bin
 wlogout
 swaylock-effects
 steam
 obsidian
+blueman
+bluez
+bottles
+brightnessctl
+gamemode
+steam
+gitkraken
+mailspring
 
 #Virtualisation
 qemu
@@ -103,6 +113,7 @@ pavucontrol
 
 #Misc
 catppuccin-gtk-theme-mocha
+catppuccin-mocha-dark-cursors
 neovim-plug-git
 gvfs-mtp
 interception-caps2esc
