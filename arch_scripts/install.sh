@@ -16,7 +16,7 @@ cp ~/dotfiles/.zshenv ~/
 cp ~/dotfiles/.zshrc ~/
 sudo cp ~/dotfiles/auto-cpufreq.conf /etc/
 sudo systemctl enable NetworkManager
-sudo systemctl enable lightdm
+sudo systemctl enable sddm
 sudo systemctl enable libvirtd
 sudo systemctl enable power-profiles-daemon.service
 sudo systemctl enable supergfxd
