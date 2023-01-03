@@ -78,7 +78,7 @@ spicetify
 zathura
 zathura-pdf-poppler
 broot
-waybar-hyprland-git
+waybar-hyprland
 wlogout
 wofi
 hyprland-bin
