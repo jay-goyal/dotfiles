@@ -74,7 +74,7 @@ lxsession
 vlc
 qbittorrent
 spotify
-spicetify
+spicetify-cli
 zathura
 zathura-pdf-poppler
 broot
@@ -121,7 +121,6 @@ catppuccin-gtk-theme-mocha
 catppuccin-mocha-dark-cursors
 neovim-plug-git
 gvfs-mtp
-interception-caps2esc
 
 #Wine
 wine-staging
@@ -129,8 +128,8 @@ giflib
 lib32-giflib
 libpng
 lib32-libpng
-libdldap
-lib32-libdldap
+libldap
+lib32-libldap
 gnutls
 lib32-gnutls
 mpg123
@@ -148,7 +147,7 @@ lib32-alsa-plugins
 alsa-lib
 lib32-alsa-lib
 libjpeg-turbo
-lib32-jpeg-turbo
+lib32-libjpeg-turbo
 sqlite
 lib32-sqlite
 libxcomposite
