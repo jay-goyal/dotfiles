@@ -61,7 +61,7 @@ brightnessctl
 git
 firefox
 brave-bin
-neofetch
+nitch
 htop
 hyprpaper
 nemo
