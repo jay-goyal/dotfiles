@@ -1,89 +1,113 @@
 @import "themes/catppuccin_mocha.css";
 * {
-    border: none;
-    border-radius: 0;
-    font-family: FiraCode Nerd Font Mono;
-    font-weight: 600;
-    font-size: 14px;
-    margin: 0;
-    padding: 0;
+  border: none;
+  border-radius: 0;
+  font-family: FiraCode Nerd Font;
+  font-weight: 600;
+  font-size: 14px;
+  margin: 0;
+  padding: 0;
 }
 
 window#waybar {
-    background: @base;
-    color: @text;
-    padding: 2px 10px;
+  background: @base-tr;
+  color: @text;
+  padding: 20px 10px;
 }
 
 tooltip {
-    background: #1e1e2e;
-    border-width: 2px;
-    border-style: solid;
-    border-color: #11111b;
+  background: @base;
+  border-width: 2px;
+  border-style: solid;
+  border-color: @crust;
+}
+
+#workspaces {
+  background: @base;
+  border-radius: 20px;
 }
 
 #workspaces button {
-    padding: 0 2px;
-    color: @subtext0;
+  padding: 0 4px;
+  color: @subtext0;
 }
 
 #workspaces button.active {
-    color: @base;
-    background: @lavender;
+  color: @lavender;
+  border-bottom: 2px @lavender solid;
 }
 
 #workspaces button.urgent {
-    color: #11111b;
-    background: #eba0ac;
+  color: @crust;
+  background: @maroon;
+  font-size: 16px;
 }
 
 #workspaces button:hover {
-    background: #11111b;
-    color: #cdd6f4;
+  background: @crust;
+  color: @text;
 }
 
-#custom-language,
-#custom-updates,
-#custom-caffeine,
-#window,
 #clock,
 #battery,
 #pulseaudio,
 #network,
 #workspaces,
 #tray,
-#backlight {
-    background: #1e1e2e;
-    padding: 0 10px;
+#backlight,
+#cpu,
+#memory,
+#custom-launcher,
+#custom-spotify,
+#custom-power {
+  background: @base;
+  padding: 0 10px;
+  border-radius: 10px;
+  margin: 0 2px;
 }
 
-#workspaces {
-    background: #1e1e2e;
+#memory {
+	color: @flamingo;
 }
 
-#custom-language {
-    color: #f38ba8;
+#cpu {
+	color: @sapphire;
 }
 
-#custom-updates {
-    color: #f5c2e7;
-}
 #clock {
-    color: #f9e2af;
+  color: @yellow;
 }
 
 #network {
-    color: #fab387;
+  color: @peach;
 }
 
 #pulseaudio {
-    color: #89b4fa;
+  color: @blue;
 }
 
 #battery {
-    color: #a6e3a1;
+  color: @green;
+}
+
+#battery.critical:not(.charging) {
+  color: @red;
+  animation-name: blink;
+  animation-duration: 0.5s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+#custom-spotify {
+  padding: 0 20px;
+}
+
+#custom-power {
+  color: @sky;
+  padding: 0 20px;
 }
 
 #backlight {
-    color: #cba6f7;
+  color: @mauve;
 }

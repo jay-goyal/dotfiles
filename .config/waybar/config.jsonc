@@ -2,35 +2,37 @@
     "layer": "top",
     "position": "top",
     "height": 30,
-    "modules-left": [ "wlr/workspaces"],
-    "modules-center": ["hyprland/window"],
+    "modules-left": [ "custom/launcher","wlr/workspaces", "cpu", "memory"],
+    "modules-center": ["custom/spotify"],
     "modules-right": [
+        "tray",
         "network",
         "backlight",
         "pulseaudio",
         "battery",
         "clock",
-        "tray"
+		"custom/power"
     ],
-
-    "hyprland/window": {
-        "format": "{}"
-    },
     "wlr/workspaces": {
         "active-only": false,
         "disable-scroll": true,
         "all-outputs": false,
         "on-click": "activate",
         "format": "{name}"
-
     },
-    "custom/updates": {
-        "exec": "(checkupdates ; paru -Qu) | wc -l",
-        "interval": 7200,
-        "format": " {}"
+    "custom/launcher": {
+        "format": " <span color='#6a92d7'> </span>",
+        "on-click": "wofi -show drun",
+    },
+	"custom/spotify": {
+		"exec": "~/.config/waybar/scripts/spotify.sh" 		
+    },
+	"custom/power": {
+	    "format": "⏻",
+        "on-click": "wlogout",
     },
     "tray": {
-        "icon-size": 13,
+        "icon-size": 14,
         "spacing": 10
     },
     "backlight": {
@@ -47,11 +49,11 @@
             "warning": 30,
             "critical": 20
         },
-        "format": "{icon} {capacity}%",
-        "format-charging": " {capacity}%",
-        "format-plugged": " {capacity}%",
-        "format-alt": "{time} {icon}",
-        "format-icons": ["", "", "", "", "", "", "", "", "", "", ""]
+        "format": "{icon}  {capacity}%",
+        "format-charging": "  {capacity}%",
+        "format-plugged": "  {capacity}%",
+        "format-alt": "{time}  {icon}",
+        "format-icons": ["", "", "", "", ""]
     },
     "clock": {
         "format": "{: %R}",
@@ -64,6 +66,18 @@
         "format-linked": "{ifname} (No IP) ",
         "format-disconnected": "睊 Disconnected",
         "tooltip-format-wifi": "Signal Strenght: {signalStrength}% | Down Speed: {bandwidthDownBits}, Up Speed: {bandwidthUpBits}",
+    },
+    "cpu": {
+      "interval": 10,
+      "format": " {}%",
+      "max-length": 10,
+      "on-click": "",
+    },
+    "memory": {
+        "interval": 30,
+        "format": " {}%",
+        "format-alt":" {used:0.1f}G",
+        "max-length": 10,
     },
     "pulseaudio": {
         "format": "{icon} {volume}%",
