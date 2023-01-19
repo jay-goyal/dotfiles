@@ -2,15 +2,17 @@
     "layer": "top",
     "position": "top",
     "height": 30,
+    "margin-top": 10,
+    "margin-right": 10,
+    "margin-left": 10,
     "modules-left": [ "custom/launcher","wlr/workspaces", "cpu", "memory"],
     "modules-center": ["custom/spotify"],
     "modules-right": [
         "tray",
-        "network",
         "backlight",
         "pulseaudio",
         "battery",
-        "clock",
+		"clock",
 		"custom/power"
     ],
     "wlr/workspaces": {
@@ -21,11 +23,12 @@
         "format": "{name}"
     },
     "custom/launcher": {
-        "format": " <span color='#6a92d7'> </span>",
+        "format": "<span color='#6a92d7'></span>",
         "on-click": "wofi -show drun",
     },
 	"custom/spotify": {
-		"exec": "~/.config/waybar/scripts/spotify.sh" 		
+		"exec": "~/.config/waybar/scripts/spotify.sh",
+		"format": "{:.40}"
     },
 	"custom/power": {
 	    "format": "⏻",
@@ -46,8 +49,9 @@
     "battery": {
         "states": {
             "good": 95,
-            "warning": 30,
-            "critical": 20
+			"ok": 50,
+            "warning": 20,
+            "critical": 10
         },
         "format": "{icon}  {capacity}%",
         "format-charging": "  {capacity}%",
@@ -56,7 +60,7 @@
         "format-icons": ["", "", "", "", ""]
     },
     "clock": {
-        "format": "{: %R}",
+        "format": "{: %R   %d/%m}",
         "timezone": "Asia/Kolkata",
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
     },

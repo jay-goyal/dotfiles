@@ -1,14 +1,14 @@
 font:
   size: 12
   normal:
-    family: FiraCode Nerd Font Mono
+    family: JetBrains Mono Nerd Font Mono
     style: Regular
   bold:
-    family: FiraCode Nerd Font Mono
+    family: JetBrains Mono Nerd Font Mono
   itaic:
-    family: FiraCode Nerd Font Mono
+    family: JetBrains Mono Nerd Font Mono
   bold_italic:
-    family: FiraCode Nerd Font Mono
+    family: JetBrains Mono Nerd Font Mono
 
 colors:
   primary:

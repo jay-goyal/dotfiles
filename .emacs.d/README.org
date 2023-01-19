@@ -50,11 +50,11 @@ If I don't set it up, Emacs Complains
 ** Font Settings
 
 #+begin_src emacs-lisp
-  (set-face-attribute 'default nil :font "FiraCode Nerd Font Mono" :height 130)
-  (set-face-attribute 'fixed-pitch nil :font "FiraCode Nerd Font Mono" :height 130)
+  (set-face-attribute 'default nil :font "JetBrains Mono Nerd Font Mono" :height 130)
+  (set-face-attribute 'fixed-pitch nil :font "JetBrains Mono Nerd Font Mono" :height 130)
   (set-face-attribute 'variable-pitch nil :font "Roboto" :height 130 :weight 'regular)
-  (add-to-list 'initial-frame-alist '(font . "FiraCode Nerd Font Mono-11.5"))
-  (add-to-list 'default-frame-alist '(font . "FiraCode Nerd Font Mono-11.5"))
+  (add-to-list 'initial-frame-alist '(font . "JetBrains Mono Nerd Font Mono-11.5"))
+  (add-to-list 'default-frame-alist '(font . "JetBrains Mono Nerd Font Mono-11.5"))
 #+end_src
 
 * Package Management Setup
@@ -376,17 +376,6 @@ Setting up Dired
   (use-package yasnippet :config (yas-global-mode))
 #+end_src
 
-** Java
-#+begin_src emacs-lisp
-  (use-package lsp-java
-	:config (add-hook 'java-mode-hook 'lsp)
-	:custom
-	(lsp-java-sources-organize-imports-static-star-threshold 3)
-	(lsp-java-sources-organize-imports-star-threshold 5)
-	(lsp-java-completion-import-order ["" "javax" "java" "#"]
-									  "Order import statements as in IntelliJ. '#' is for static imports, empty string stands for 'everything else'"))
-#+end_src
-
 ** Rust Setup
 
 #+begin_src emacs-lisp
@@ -425,8 +414,7 @@ Setting up Dired
 	:config
 	(setq prettier-js-show-errors nil)
 	(setq prettier-js-command "/home/jay/.local/share/pnpm/prettier")
-	(setq prettier-js-args '("--tab-width" "2"
-							 "--print-width" "70")))
+	(setq prettier-js-args '("--tab-width" "2")))
 #+end_src
 
 ** React
@@ -436,39 +424,35 @@ Setting up Dired
    
 ** HTML
 #+begin_src emacs-lisp
-  (use-package emmet-mode
-	:mode ("\\.html?\\'" . emmet-mode)
-	:bind ("C-l" . emmet-expand-line))
+	  (use-package emmet-mode
+		:mode ("\\.html?\\'" . emmet-mode)
+		:bind ("C-l" . emmet-expand-line))
 
-  (defun sme/web-mode-setup()
-	(set (make-local-variable
-		  'company-backends) '((
-								company-web-html
-								company-css
-								company-dabbrev-code
-								company-dabbrev
-								))))
+	  (defun sme/web-mode-setup()
+		(set (make-local-variable
+			  'company-backends) '((
+									company-web-html
+									company-css
+									company-dabbrev-code
+									company-dabbrev
+									))))
 
-  (use-package web-mode
-	:mode (("\\.html\\'" . web-mode)
-		   ("\\.css\\'" . web-mode)
-		   ("\\.scss\\'" . web-mode)
-		   ("\\.js\\'" . web-mode)
-		   ("\\.ts\\'" . web-mode)
-		   ("\\.tsx\\'" . web-mode)
-		   ("\\.jsx\\'" . web-mode))
-	:hook (web-mode . sme/web-mode-setup)
-	:config
-	(setq-default web-mode-code-indent-offset 2)
-	(setq-default web-mode-markup-indent-offset 2)
-	(setq-default web-mode-attribute-indent-offset 2))
+	  (use-package web-mode
+		:mode (("\\.html\\'" . web-mode)
+			   ("\\.css\\'" . web-mode)
+			   ("\\.scss\\'" . web-mode)
+			   ("\\.js\\'" . web-mode)
+			   ("\\.ts\\'" . web-mode)
+			   ("\\.tsx\\'" . web-mode)
+			   ("\\.jsx\\'" . web-mode)
+			   ("\\.vue\\'" . web-mode)
+			   ("\\.svelte\\'" . web-mode))
+		:hook (web-mode . sme/web-mode-setup)
+		:config
+		(setq-default web-mode-code-indent-offset 2)
+		(setq-default web-mode-markup-indent-offset 2)
+		(setq-default web-mode-attribute-indent-offset 2))
 #+end_src  
-
-** Vue
-#+begin_src emacs-lisp
-  (use-package vue-mode
-	:mode "\\.vue\\'")
-#+end_src
 
 ** Solidity
 #+begin_src emacs-lisp
@@ -547,7 +531,8 @@ Setting up Dired
 	:hook
 	(org-mode . sme/org-font-setup)
 	:config
-	(setq org-ellipsis " ▾"))
+	(setq org-ellipsis " ▾")
+	(setq org-html-validation-link nil))
 
   (use-package org-bullets
 	:after org

@@ -52,14 +52,18 @@ alias mu='sudo reflector --latest 50 --sort rate --protocol https --verbose --sa
 alias lp='browser-sync start --server --files "./**/*"'
 alias pn='pnpm'
 alias pnx='pnpm dlx'
+alias install='paru -Sy'
+alias search='paru -Ss'
+alias update='paru -Syu'
+
 
 eval "$(fnm env)"
 # pnpm
 export PNPM_HOME="/home/jay/.local/share/pnpm"
 export PATH="$PNPM_HOME:$PATH"
 
+source ~/.zsh/catppuccin_mocha-zsh-syntax-highlighting.zsh
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 2>/dev/null
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh 2>/dev/null
 eval "$(starship init zsh)"
-
-
+nitch

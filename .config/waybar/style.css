@@ -2,7 +2,7 @@
 * {
   border: none;
   border-radius: 0;
-  font-family: FiraCode Nerd Font;
+  font-family: JetBrains Mono Nerd Font;
   font-weight: 600;
   font-size: 14px;
   margin: 0;
@@ -10,9 +10,8 @@
 }
 
 window#waybar {
-  background: @base-tr;
+  background: none;
   color: @text;
-  padding: 20px 10px;
 }
 
 tooltip {
@@ -25,34 +24,39 @@ tooltip {
 #workspaces {
   background: @base;
   border-radius: 20px;
+  background: @base;
+  border-radius: 10px;
+  margin: 0 2px;
 }
 
 #workspaces button {
-  padding: 0 4px;
+  padding: 0 10px;
   color: @subtext0;
 }
 
 #workspaces button.active {
   color: @lavender;
-  border-bottom: 2px @lavender solid;
+  background: @surface0;
+  border-radius: 10px;
 }
 
 #workspaces button.urgent {
   color: @crust;
   background: @maroon;
   font-size: 16px;
+  border-radius: 10px;
 }
 
 #workspaces button:hover {
   background: @crust;
   color: @text;
+  border-radius: 10px;
 }
 
 #clock,
 #battery,
 #pulseaudio,
 #network,
-#workspaces,
 #tray,
 #backlight,
 #cpu,
@@ -67,11 +71,11 @@ tooltip {
 }
 
 #memory {
-	color: @flamingo;
+  color: @flamingo;
 }
 
 #cpu {
-	color: @sapphire;
+  color: @sapphire;
 }
 
 #clock {
@@ -90,6 +94,20 @@ tooltip {
   color: @green;
 }
 
+#custom-launcher {
+  padding: 0 20px;
+  padding-right: 25px;
+  background: linear-gradient(to right, @red, @peach, @yellow);
+}
+
+#battery.ok:not(.charging) {
+  color: @flamingo;
+}
+
+#battery.warning:not(.charging) {
+  color: @red;
+}
+
 #battery.critical:not(.charging) {
   color: @red;
   animation-name: blink;
@@ -104,8 +122,9 @@ tooltip {
 }
 
 #custom-power {
-  color: @sky;
+  color: @sapphire;
   padding: 0 20px;
+  padding-right: 23px;
 }
 
 #backlight {

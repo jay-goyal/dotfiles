@@ -5,18 +5,18 @@ while true; do
 
 	if [ -z "$(playerctl metadata album)" ]; then
 		if [ "$player_status" = "Playing" ]; then
-			echo "$(playerctl metadata artist) - $(playerctl metadata title)"
+			echo "$(playerctl metadata title)"
 		elif [ "$player_status" = "Paused" ]; then
-			echo " $(playerctl metadata artist) - $(playerctl metadata title)"
-    else
+			echo " $(playerctl metadata title)"
+		else
 			echo ""
 		fi
 	else
 		if [ "$player_status" = "Playing" ]; then
-			echo " $(playerctl metadata artist) - $(playerctl metadata title)"
+			echo " $(playerctl metadata title)"
 		elif [ "$player_status" = "Paused" ]; then
-			echo "  $(playerctl metadata artist) - $(playerctl metadata title)"
-    else
+			echo "  $(playerctl metadata title)"
+		else
 			echo ""
 		fi
 	fi
