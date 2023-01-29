@@ -50,11 +50,11 @@ If I don't set it up, Emacs Complains
 ** Font Settings
 
 #+begin_src emacs-lisp
-  (set-face-attribute 'default nil :font "JetBrains Mono Nerd Font Mono" :height 130)
-  (set-face-attribute 'fixed-pitch nil :font "JetBrains Mono Nerd Font Mono" :height 130)
-  (set-face-attribute 'variable-pitch nil :font "Roboto" :height 130 :weight 'regular)
-  (add-to-list 'initial-frame-alist '(font . "JetBrains Mono Nerd Font Mono-11.5"))
-  (add-to-list 'default-frame-alist '(font . "JetBrains Mono Nerd Font Mono-11.5"))
+  (set-face-attribute 'default nil :font "FiraCode Nerd Font Mono" :height 150)
+  (set-face-attribute 'fixed-pitch nil :font "FiraCode Nerd Font Mono" :height 150)
+  (set-face-attribute 'variable-pitch nil :font "Roboto" :height 150 :weight 'regular)
+  (add-to-list 'initial-frame-alist '(font . "FiraCode Nerd Font Mono-12"))
+  (add-to-list 'default-frame-alist '(font . "FiraCode Nerd Font Mono-12"))
 #+end_src
 
 * Package Management Setup
@@ -379,7 +379,8 @@ Setting up Dired
 ** Rust Setup
 
 #+begin_src emacs-lisp
-  (use-package flycheck)
+  (use-package flycheck
+	:hook (solidity-mode . flycheck-mode))
 
   (use-package rustic
 	:bind (:map rustic-mode-map
@@ -424,45 +425,89 @@ Setting up Dired
    
 ** HTML
 #+begin_src emacs-lisp
-	  (use-package emmet-mode
-		:mode ("\\.html?\\'" . emmet-mode)
-		:bind ("C-l" . emmet-expand-line))
+  (use-package emmet-mode
+	:mode ("\\.html?\\'" . emmet-mode)
+	:bind ("C-l" . emmet-expand-line))
 
-	  (defun sme/web-mode-setup()
-		(set (make-local-variable
-			  'company-backends) '((
-									company-web-html
-									company-css
-									company-dabbrev-code
-									company-dabbrev
-									))))
+  (defun sme/web-mode-setup()
+	(set (make-local-variable
+		  'company-backends) '((
+								company-web-html
+								company-css
+								company-dabbrev-code
+								company-dabbrev
+								))))
 
-	  (use-package web-mode
-		:mode (("\\.html\\'" . web-mode)
-			   ("\\.css\\'" . web-mode)
-			   ("\\.scss\\'" . web-mode)
-			   ("\\.js\\'" . web-mode)
-			   ("\\.ts\\'" . web-mode)
-			   ("\\.tsx\\'" . web-mode)
-			   ("\\.jsx\\'" . web-mode)
-			   ("\\.vue\\'" . web-mode)
-			   ("\\.svelte\\'" . web-mode))
-		:hook (web-mode . sme/web-mode-setup)
-		:config
-		(setq-default web-mode-code-indent-offset 2)
-		(setq-default web-mode-markup-indent-offset 2)
-		(setq-default web-mode-attribute-indent-offset 2))
+  (use-package web-mode
+	:mode (("\\.html\\'" . web-mode)
+		   ("\\.css\\'" . web-mode)
+		   ("\\.scss\\'" . web-mode)
+		   ("\\.js\\'" . web-mode)
+		   ("\\.ts\\'" . web-mode)
+		   ("\\.tsx\\'" . web-mode)
+		   ("\\.jsx\\'" . web-mode)
+		   ("\\.vue\\'" . web-mode)
+		   ("\\.svelte\\'" . web-mode))
+	:hook (web-mode . sme/web-mode-setup)
+	:config
+	(setq-default web-mode-code-indent-offset 2)
+	(setq-default web-mode-markup-indent-offset 2)
+	(setq-default web-mode-attribute-indent-offset 2))
 #+end_src  
 
 ** Solidity
 #+begin_src emacs-lisp
+  (defun sme/solidity-mode-setup()
+	(set (make-local-variable
+		  'company-backends) '(company-solidity)))
+
   (use-package solidity-mode
 	:mode ("\\.sol\\'" . solidity-mode)
+	:hook (solidity-mode . sme/solidity-mode-setup)
 	:config
 	(setq solidity-solc-path "/usr/bin/solc")
-	(setq solidity-solium-path "/home/jay/.local/share/pnpm/solium"))
+	(setq solidity-solium-path "/home/jay/.local/share/pnpm/solium")
+	(setq solidity-comment-style 'slash)
+	(setq solidity-flycheck-solc-checker-active t)
+	(setq solidity-flycheck-solium-checker-active t))
+
   (use-package solidity-flycheck)
   (use-package company-solidity)
+
+  (defgroup lsp-solidity nil
+	"LSP support for solidityl using solidity-language-server."
+	:group 'lsp-mode
+	:link '(url-link "https://www.npmjs.com/package/solidity-language-server"))
+
+  (defcustom lsp-clients-solidity-executable '("solidity-language-server"  "--stdio")
+	"Command to start the solidity language server."
+	:group 'lsp-solidity
+	:risky t
+	:type 'file)
+
+  (defcustom lsp-clients-solidity-initialization-options '()
+	"Initialization options for solidity language server."
+	:group 'lsp-solidity
+	:type 'alist)
+
+  (lsp-dependency 'solidity-language-server
+				  '(:system "solidity-language-server")
+				  '(:npm :package "solidity-ls"
+						 :path "solidity-ls"))
+
+  (lsp-register-client
+   (make-lsp-client :new-connection (lsp-stdio-connection
+									 (lambda ()
+									   `(,(or (executable-find (cl-first lsp-clients-solidity-executable))
+											  (lsp-package-path 'solidity-language-server))
+										 ,@(cl-rest lsp-clients-solidity-executable))))
+					:major-modes '(solidity-mode)
+					:priority -1
+					:server-id 'solidity-ls
+					:initialization-options (lambda () lsp-clients-solidity-initialization-options)
+					:download-server-fn (lambda (_client callback error-callback _update?)
+										  (lsp-package-ensure 'solidity-language-server
+															  callback error-callback))))
 #+end_src
   
 ** Misc
