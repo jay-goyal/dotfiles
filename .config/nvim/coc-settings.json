@@ -1,8 +1,0 @@
-{
-    "prettier.resolveGlobalModules": true,
-    "coc.preferences.formatOnSaveFiletypes": ["css", "html", "javascript", "typescript", "vue"],
-    "emmet.includeLanguages": {
-      "vue-html": "html"
-    },
-    "Lua.telemetry.enable": true
-}

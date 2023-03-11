@@ -108,15 +108,12 @@ Run all-the-icons-install-fonts first time
 
 #+end_src
 
-** Theme
+** Catppuccin Theme
 
 #+begin_src emacs-lisp
-  (use-package doom-themes
-	:config
-    (setq doom-themes-enable-bold t
-		doom-themes-enable-italic t)
-    (load-theme 'doom-one t)
-    (doom-themes-neotree-config))
+	(use-package autothemer)
+	(use-package catppuccin-theme
+	  :config (load-theme 'catppuccin t))
 #+end_src
 
 ** Dashboard
