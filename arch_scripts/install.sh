@@ -1,6 +1,7 @@
 cd ~
 sudo pacman -S rustup base-devel --needed
 rustup install stable
+rustup component add rust-analyzer
 git clone https://aur.archlinux.org/paru-git.git ~/paru
 cd ~/paru
 makepkg -si

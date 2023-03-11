@@ -43,13 +43,19 @@ starship
 
 # Development Related
 npm
-rust-analyzer
 clang-format-all-git
 ccls
 cmake
 llvm
 lldb-mi-git
 fnm-bin
+flutter
+ninja
+android-sdk
+android-sdk-build-tools
+android-platform
+android-sdk-cmdline-tools-latest
+android-sdk-platform-tools
 
 #Fonts
 ttf-font-awesome
@@ -63,7 +69,7 @@ firefox
 brave-bin
 nitch
 htop
-hyprpaper
+swaybg
 nemo
 thunar-volman
 papirus-icon-theme

@@ -1,6 +1,3 @@
-set smartcase
-set ignorecase
-set nohlsearch
-set incsearch
-
-imap jk <ESC>
+set relativenumber
+set nu rnu
+imap jk <Esc>
