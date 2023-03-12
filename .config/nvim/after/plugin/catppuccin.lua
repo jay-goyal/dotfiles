@@ -1,14 +1,15 @@
 require("catppuccin").setup({
+    transparent_background = false,
     color_overrides = {
-        all = {
-            text = "#ffffff",
-        },
-        mocha = {
-            base = "#1e1e2e",
-        },
-        frappe = {},
-        macchiato = {},
-        latte = {},
+      all = {
+          text = "#ffffff",
+      },
+      mocha = {
+          base = "#181825",
+      },
+      frappe = {},
+      macchiato = {},
+      latte = {},
     },
     integrations = {
 	  treesitter = true,
@@ -70,5 +71,34 @@ require("catppuccin").setup({
     fidget = true,
     treesitter_context = false,
   },
-  custom_highlights = {}
+  custom_highlights = function(C)
+	return {
+	  CmpItemKindSnippet = { fg = C.mauve },
+	  CmpItemKindKeyword = { fg = C.red },
+	  CmpItemKindText = { fg = C.teal },
+	  CmpItemKindMethod = { fg = C.blue },
+	  CmpItemKindConstructor = { fg = C.blue },
+	  CmpItemKindFunction = { fg = C.blue },
+	  CmpItemKindFolder = { fg = C.blue },
+	  CmpItemKindModule = { fg = C.blue },
+	  CmpItemKindConstant = { fg = C.peach },
+	  CmpItemKindField = { fg = C.green },
+	  CmpItemKindProperty = { fg = C.green },
+	  CmpItemKindEnum = { fg = C.green },
+	  CmpItemKindUnit = { fg = C.green },
+	  CmpItemKindClass = { fg = C.yellow },
+	  CmpItemKindVariable = { fg = C.flamingo },
+	  CmpItemKindFile = { fg = C.blue },
+	  CmpItemKindInterface = { fg = C.yellow },
+	  CmpItemKindColor = { fg = C.red },
+	  CmpItemKindReference = { fg = C.red },
+	  CmpItemKindEnumMember = { fg = C.red },
+	  CmpItemKindStruct = { fg = C.blue },
+	  CmpItemKindValue = { fg = C.peach },
+	  CmpItemKindEvent = { fg = C.blue },
+	  CmpItemKindOperator = { fg = C.blue },
+	  CmpItemKindTypeParameter = { fg = C.blue },
+	  CmpItemKindCopilot = { fg = C.teal },
+	}
+  end,
 })

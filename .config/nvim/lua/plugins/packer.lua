@@ -109,6 +109,7 @@ return packer.startup(function(use)
 		requires = { { 'hoob3rt/lualine.nvim', opt = true }, { 'kyazdani42/nvim-web-devicons', opt = true } }
   }
 
+
   if PACKER_BOOTSTRAP then
     require("packer").sync()
   end

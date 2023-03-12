@@ -2,9 +2,9 @@ local cmd = vim.cmd
 local fn = vim.fn
 local g = vim.g
 local opt = vim.opt
-color = color or "catppuccin"
+Color = Color or "catppuccin"
 
-options = {
+local options = {
   -- Indents
   tabstop = 4,
   softtabstop = 4,
@@ -34,13 +34,14 @@ options = {
   signcolumn = "yes",
   cursorline = true,
   termguicolors = true,
-  scrolloff = 8,
+  scrolloff = 15,
   updatetime = 50,
+  termguicolors = true;
 }
 
 for k,v in pairs(options) do
     opt[k] = v
 end
 
-cmd.colorscheme(color)
+cmd.colorscheme(Color)
 opt.isfname:append("@-@")

@@ -73,7 +73,7 @@ swaybg
 nemo
 thunar-volman
 papirus-icon-theme
-alacritty
+kitty
 network-manager-applet
 lxappearance
 lxsession
