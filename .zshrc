@@ -1,4 +1,3 @@
-# History
 HISTSIZE=10000
 SAVEHIST=10000
 HISTFILE=~/.cache/zshhistory
@@ -40,7 +39,7 @@ ex ()
 # C file running
 com() {gcc $1.c -o $1 && ./$1}
 
-
+# other commands
 alias vim="nvim"
 alias grep="rg"
 alias ls='exa  --color=always --group-directories-first' # my preferred listing
@@ -50,20 +49,37 @@ alias ll='exa -l --color=always --group-directories-first'  # long format
 alias lt='exa -aT --color=always --group-directories-first' # tree listing
 alias mu='sudo reflector --latest 50 --sort rate --protocol https --verbose --save /etc/pacman.d/mirrorlist'
 alias lp='browser-sync start --server --files "./**/*"'
+
+# package manager
 alias pn='pnpm'
 alias pnx='pnpm dlx'
-alias install='paru -Sy'
+alias install='paru -S'
 alias search='paru -Ss'
 alias update='paru -Syu'
+alias remove='paru -Rns'
 
+# git aliases
+alias gs='git status'
+alias ga='git add'
+alias gc='git commit -m'
+alias gp='git push'
+alias gf='git pull'
+
+# Wayland environment fixes
+alias emulator='QT_QPA_PLATFORM=xcb emulator'
+alias neovide='WINIT_UNIX_BACKEND=x11 neovide'
 
 eval "$(fnm env)"
 # pnpm
 export PNPM_HOME="/home/jay/.local/share/pnpm"
-export PATH="$PNPM_HOME:$PATH"
+export PATH="$PNPM_HOME:$HOME/.config/emacs/bin:$PATH"
 
 source ~/.zsh/catppuccin_mocha-zsh-syntax-highlighting.zsh
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 2>/dev/null
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh 2>/dev/null
 eval "$(starship init zsh)"
+#source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme 2>/dev/null
 nitch
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
