@@ -9,7 +9,7 @@ software="`sed -e 's/#.*$//' -e '/^$/d' ~/dotfiles/arch_scripts/software.txt | t
 paru -S $software --needed
 sudo grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=ARCH
 sudo grub-mkconfig -o /boot/grub/grub.cfg
-cp -r ~/dotfiles/.config ~/
+cp -r ~/dotfiles/config ~/.config
 cp -r ~/dotfiles/.dwm ~/
 cp -r ~/dotfiles/wallpapers ~/
 cp ~/dotfiles/.xinitrc ~/
