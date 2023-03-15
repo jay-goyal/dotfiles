@@ -26,8 +26,17 @@ keymap("n", "<C-Down>", ":resize +3<CR>", opts)
 
 -- Copy and Pasting from system keyboards
 keymap("v", "<leader>p", '"_dP', opts)
+keymap("n", "<leader>p", '"+p', opts)
+keymap("n", "<leaderP", '"+P', opts)
 keymap("n", "<leader>y", '"+y', opts)
 keymap("v", "<leader>y", '"+y', opts)
 keymap("n", "<leader>Y", '"+Y', opts)
 keymap("n", "<leader>d", '"_d', opts)
 keymap("v", "<leader>d", '"_d', opts)
+
+-- NVIM Tree
+keymap("n", "<leader>ft", ":NvimTreeToggle<CR>", opts)
+
+-- Misc
+keymap("n", "<leader>so", ":source %<CR>", opts)
+keymap("n", "<leader>sp", ":PackerSync<CR>", opts)
