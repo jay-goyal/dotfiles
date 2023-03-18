@@ -33,6 +33,10 @@ return packer.startup(function(use)
 	-- Packer can manage itself
 	use("wbthomason/packer.nvim")
 
+	-- Themes
+	use({ "catppuccin/nvim", as = "catppuccin" })
+	use("folke/tokyonight.nvim")
+
 	-- File Manager
 	use({
 		"nvim-tree/nvim-tree.lua",
@@ -40,9 +44,8 @@ return packer.startup(function(use)
 		requires = "nvim-tree/nvim-web-devicons",
 	})
 
-	-- Themes
-	use({ "catppuccin/nvim", as = "catppuccin" })
-	use("folke/tokyonight.nvim")
+    -- Startup screen
+    use("goolord/alpha-nvim")
 
 	-- LSP
 	use("neovim/nvim-lspconfig") -- enable LSP
@@ -99,6 +102,7 @@ return packer.startup(function(use)
 		requires = { { "nvim-lua/plenary.nvim" } },
 	})
 	use("nvim-telescope/telescope-media-files.nvim")
+    use("ahmedkhalf/project.nvim")
 
 	-- Status Line and Tab Line
 	use({

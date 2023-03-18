@@ -9,8 +9,9 @@ local actions = require("telescope.actions")
 local builtin = require("telescope.builtin")
 
 vim.keymap.set("n", "<leader>ff", builtin.find_files, opts)
-vim.keymap.set("n", "<leader>fp", builtin.git_files, opts)
+vim.keymap.set("n", "<leader>fg", builtin.git_files, opts)
 vim.keymap.set("n", "<leader>fr", builtin.live_grep, opts)
+vim.keymap.set("n", "<leader>fp", telescope.extensions.projects.projects, opts)
 
 telescope.setup({
 	defaults = {

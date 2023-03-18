@@ -36,8 +36,8 @@ keymap("v", "<leader>d", '"_d', opts)
 
 -- Buffer Navigation
 keymap("n", "<leader>q", ":bp<bar>sp<bar>bn<bar>bd<CR>", opts)
-keymap("n", "<leader>l", ":bnext<CR>", opts)
-keymap("n", "<leader>h", ":bprev<CR>", opts)
+keymap("n", "L", ":bnext<CR>", opts)
+keymap("n", "H", ":bprev<CR>", opts)
 
 -- NVIM Tree
 keymap("n", "<leader>ft", ":NvimTreeToggle<CR>", opts)
