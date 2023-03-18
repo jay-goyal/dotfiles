@@ -5,42 +5,42 @@ local opt = vim.opt
 Color = Color or "catppuccin"
 
 local options = {
-  -- Indents
-  tabstop = 4,
-  softtabstop = 4,
-  shiftwidth = 4,
-  expandtab = true,
-  smartindent = true,
-  
-  -- Line Numbers
-  number = true,
-  relativenumber = true,
-  
-  -- Search
-  smartcase = true,
-  ignorecase = true,
-  hlsearch = false,
-  incsearch = true,
-  
-  -- Splits
-  splitbelow = true,
-  splitright = true,
-  
-  -- Misc
-  hidden = true,
-  errorbells = false,
-  wrap = false,
-  scrolloff = 10,
-  signcolumn = "yes",
-  cursorline = true,
-  termguicolors = true,
-  scrolloff = 15,
-  updatetime = 50,
-  termguicolors = true;
+	-- Indents
+	tabstop = 4,
+	softtabstop = 4,
+	shiftwidth = 4,
+	expandtab = true,
+	smartindent = true,
+
+	-- Line Numbers
+	number = true,
+	relativenumber = true,
+
+	-- Search
+	smartcase = true,
+	ignorecase = true,
+	hlsearch = false,
+	incsearch = true,
+
+	-- Splits
+	splitbelow = true,
+	splitright = true,
+
+	-- Misc
+	hidden = true,
+	errorbells = false,
+	wrap = false,
+	scrolloff = 10,
+	signcolumn = "yes",
+	cursorline = true,
+	termguicolors = true,
+	scrolloff = 15,
+	updatetime = 50,
+	termguicolors = true,
 }
 
-for k,v in pairs(options) do
-    opt[k] = v
+for k, v in pairs(options) do
+	opt[k] = v
 end
 
 cmd.colorscheme(Color)
