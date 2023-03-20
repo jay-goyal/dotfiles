@@ -15,6 +15,7 @@ cp -r ~/dotfiles/wallpapers ~/
 cp ~/dotfiles/.xinitrc ~/
 cp ~/dotfiles/.zshenv ~/
 cp ~/dotfiles/.zshrc ~/
+cp ~/dotfiles/.p10k.zsh ~/
 sudo cp ~/dotfiles/auto-cpufreq.conf /etc/
 sudo systemctl enable NetworkManager
 sudo systemctl enable sddm

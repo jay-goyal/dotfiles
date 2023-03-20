@@ -77,8 +77,8 @@ export PATH="$PNPM_HOME:$HOME/.config/emacs/bin:$PATH"
 source ~/.zsh/catppuccin_mocha-zsh-syntax-highlighting.zsh
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 2>/dev/null
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh 2>/dev/null
-eval "$(starship init zsh)"
-#source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme 2>/dev/null
+#eval "$(starship init zsh)"
+source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme 2>/dev/null
 nitch
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.

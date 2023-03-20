@@ -39,7 +39,7 @@ zsh-completions
 zsh-syntax-highlighting
 ripgrep
 exa
-starship
+zsh-theme-powerlevel10k
 
 # Development Related
 npm
