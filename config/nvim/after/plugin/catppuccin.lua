@@ -4,9 +4,9 @@ require("catppuccin").setup({
 		all = {
 			text = "#ffffff",
 		},
-		mocha = {
-			base = "#181825",
-		},
+        mocha = {
+    base = "#181825"
+        },
 		frappe = {},
 		macchiato = {},
 		latte = {},
@@ -48,7 +48,10 @@ require("catppuccin").setup({
 		which_key = false,
 		indent_blankline = {
 			enabled = true,
-			colored_indent_levels = false,
+			colored_indent_levels = true,
+		},
+		barbecue = {
+			dim_dirname = true,
 		},
 		dashboard = false,
 		neogit = false,

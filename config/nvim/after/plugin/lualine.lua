@@ -57,16 +57,6 @@ local filetype_tab = {
 	color = { bg = "#313244" },
 }
 
-local buffer = {
-	require("tabline").tabline_buffers,
-	separator = { left = "", right = "" },
-}
-
-local tabs = {
-	require("tabline").tabline_tabs,
-	separator = { left = "", right = "" },
-}
-
 local fileformat = {
 	"fileformat",
 	color = { bg = "#b4befe", fg = "#313244" },
@@ -146,7 +136,6 @@ require("lualine").setup({
 		globalstatus = true,
 		refresh = {
 			statusline = 1000,
-			tabline = 1000,
 			winbar = 1000,
 		},
 	},
@@ -188,20 +177,6 @@ require("lualine").setup({
 		lualine_c = { "filename" },
 		lualine_x = { "location" },
 		lualine_y = {},
-		lualine_z = {},
-	},
-	tabline = {
-		lualine_a = {
-			buffer,
-		},
-		lualine_b = {},
-		lualine_c = {},
-		lualine_x = {
-			tabs,
-		},
-		lualine_y = {
-			space,
-		},
 		lualine_z = {},
 	},
 	winbar = {},

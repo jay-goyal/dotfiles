@@ -1,9 +1,4 @@
-local status_ok, telescope = pcall(require, "telescope")
-if not status_ok then
-	return
-end
-
-keymap = vim.api.nvim_set_keymap
+keymap = vim.keymap.set
 opts = { noremap = true, silent = true }
 local rem_opts = { silent = true }
 local g = vim.g
@@ -36,17 +31,12 @@ keymap("v", "<leader>d", '"_d', opts)
 
 -- Buffer Navigation
 keymap("n", "<leader>q", ":bp<bar>sp<bar>bn<bar>bd<CR>", opts)
-keymap("n", "L", ":bnext<CR>", opts)
-keymap("n", "H", ":bprev<CR>", opts)
 
 -- NVIM Tree
 keymap("n", "<leader>ft", ":NvimTreeToggle<CR>", opts)
-
--- Terminal
-keymap("n", "<leader>tn", ":lua _NODE_TOGGLE()<CR>", opts)
-keymap("n", "<leader>th", ":lua _HTOP_TOGGLE()<CR>", opts)
 
 -- Misc
 keymap("n", "<leader>so", ":source %<CR>", opts)
 keymap("n", "<leader>sp", ":PackerSync<CR>", opts)
 keymap("n", "<leader>gs", ":Mason<CR>", opts)
+keymap("n", "<M-e>", ":EmojiPicker<CR>", opts)

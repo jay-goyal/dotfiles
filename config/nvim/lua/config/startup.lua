@@ -30,13 +30,11 @@ local options = {
 	hidden = true,
 	errorbells = false,
 	wrap = false,
-	scrolloff = 10,
 	signcolumn = "yes",
 	cursorline = true,
 	termguicolors = true,
 	scrolloff = 15,
 	updatetime = 50,
-	termguicolors = true,
 }
 
 for k, v in pairs(options) do

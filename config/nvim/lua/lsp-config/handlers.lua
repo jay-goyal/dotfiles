@@ -1,5 +1,17 @@
 local M = {}
 
+local lsp_formatting = function(bufnr)
+	vim.lsp.buf.format({
+		filter = function(client)
+			-- apply whatever logic you want (in this example, we'll only use null-ls)
+			return client.name == "null-ls"
+		end,
+		bufnr = bufnr,
+	})
+end
+
+local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
+
 M.setup = function()
 	local signs = {
 		{ name = "DiagnosticSignError", text = "" },
@@ -16,9 +28,7 @@ M.setup = function()
 	end
 
 	local config = {
-		-- disable virtual text
-		virtual_text = false,
-		-- show signs
+		virtual_text = true,
 		signs = {
 			active = signs,
 		},
@@ -82,18 +92,18 @@ local function lsp_keymaps(bufnr)
 	vim.api.nvim_buf_set_keymap(
 		bufnr,
 		"n",
-		"<leader>gK",
+		"<leader>gk",
 		":lua vim.lsp.buf.hover()<CR>",
 		opts
 	)
 	-- vim.api.nvim_buf_set_keymap(bufnr, "n", "gi", ":lua vim.lsp.buf.implementation()<CR>", opts)
-	vim.api.nvim_buf_set_keymap(
-		bufnr,
-		"n",
-		"<leader>gk",
-		":lua vim.lsp.buf.signature_help()<CR>",
-		opts
-	)
+	--[[ vim.api.nvim_buf_set_keymap( ]]
+	--[[ 	bufnr, ]]
+	--[[ 	"n", ]]
+	--[[ 	"<leader>gk", ]]
+	--[[ 	":lua vim.lsp.buf.signature_help()<CR>", ]]
+	--[[ 	opts ]]
+	--[[ ) ]]
 	vim.api.nvim_buf_set_keymap(
 		bufnr,
 		"n",
@@ -148,6 +158,16 @@ M.on_attach = function(client, bufnr)
 	end
 	lsp_keymaps(bufnr)
 	lsp_highlight_document(client)
+	if client.supports_method("textDocument/formatting") then
+		vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
+		vim.api.nvim_create_autocmd("BufWritePre", {
+			group = augroup,
+			buffer = bufnr,
+			callback = function()
+				lsp_formatting(bufnr)
+			end,
+		})
+	end
 end
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()

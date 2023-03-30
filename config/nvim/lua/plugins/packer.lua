@@ -34,7 +34,7 @@ return packer.startup(function(use)
 	use("wbthomason/packer.nvim")
 
 	-- Themes
-	use({ "catppuccin/nvim", as = "catppuccin" })
+	use({ "catppuccin/nvim", as = "catppuccin", commit = "128af65" })
 	use("folke/tokyonight.nvim")
 
 	-- File Manager
@@ -44,15 +44,21 @@ return packer.startup(function(use)
 		requires = "nvim-tree/nvim-web-devicons",
 	})
 
-    -- Startup screen
-    use("goolord/alpha-nvim")
+	-- Startup screen
+	use("goolord/alpha-nvim")
 
 	-- LSP
 	use("neovim/nvim-lspconfig") -- enable LSP
 	use("williamboman/mason.nvim") -- simple to use language server installer
 	use("williamboman/mason-lspconfig.nvim") -- simple to use language server installer
+	use("jay-babu/mason-nvim-dap.nvim")
 	use("jose-elias-alvarez/null-ls.nvim") -- LSP diagnostics and code actions
 	use("jay-babu/mason-null-ls.nvim")
+
+	-- DAP
+	use("mfussenegger/nvim-dap")
+	use("rcarriga/nvim-dap-ui")
+	use("theHamsta/nvim-dap-virtual-text")
 
 	-- Treesitter
 	use({
@@ -66,24 +72,15 @@ return packer.startup(function(use)
 	use("HiPhish/nvim-ts-rainbow2")
 
 	-- Coding
-	use({
-		"saecki/crates.nvim",
-		tag = "v0.3.0",
-		requires = { "nvim-lua/plenary.nvim" },
-		config = function()
-			require("crates").setup()
-		end,
-	})
 	use("lukas-reineke/indent-blankline.nvim")
 	use("windwp/nvim-autopairs") -- Autopairs, integrates with both cmp and treesitter
 	use("numToStr/Comment.nvim") -- Easily comment stuff
 	use("JoosepAlviste/nvim-ts-context-commentstring")
 	use("lewis6991/gitsigns.nvim")
-	use("akinsho/toggleterm.nvim")
 
 	-- Cmp Plugins
 	use("hrsh7th/nvim-cmp") -- The completion plugin
-	use("hrsh7th/cmp-buffer") -- buffer completions
+	--[[ use("hrsh7th/cmp-buffer") -- buffer completions ]]
 	use("hrsh7th/cmp-path") -- path completions
 	use("hrsh7th/cmp-cmdline") -- cmdline completions
 	use("saadparwaiz1/cmp_luasnip") -- snippet completions
@@ -94,7 +91,14 @@ return packer.startup(function(use)
 	use("L3MON4D3/LuaSnip") --snippet engine
 	use("rafamadriz/friendly-snippets") -- a bunch of snippets to use
 
-	-- Greatness
+	-- Rust
+	use({
+		"saecki/crates.nvim",
+		tag = "v0.3.0",
+	})
+	use("simrat39/rust-tools.nvim")
+
+	-- Telescope
 	use({
 		"nvim-telescope/telescope.nvim",
 		tag = "0.1.1",
@@ -102,45 +106,30 @@ return packer.startup(function(use)
 		requires = { { "nvim-lua/plenary.nvim" } },
 	})
 	use("nvim-telescope/telescope-media-files.nvim")
-    use("ahmedkhalf/project.nvim")
+	use("ahmedkhalf/project.nvim")
+	use("nvim-telescope/telescope-file-browser.nvim")
 
-	-- Status Line and Tab Line
+	-- Status Line
 	use({
 		"nvim-lualine/lualine.nvim",
 		requires = { "nvim-tree/nvim-web-devicons", opt = true },
 	})
 	use({
-		"kdheepak/tabline.nvim",
-		config = function()
-			require("tabline").setup({
-				-- Defaults configuration options
-				enable = true,
-				options = {
-					-- If lualine is installed tabline will use separators configured in lualine by default.
-					-- These options can be used to override those settings.
-					component_separators = { "", "" },
-					section_separators = { "", "" },
-					max_bufferline_percent = 66, -- set to nil by default, and it uses vim.o.columns * 2/3
-					show_tabs_always = true, -- this shows tabs only when there are more than one tab or if the first tab is named
-					show_devicons = true, -- this shows devicons in buffer section
-					colored = true,
-					show_bufnr = false, -- this appends [bufnr] to buffer section,
-					tabline_show_last_separator = true,
-					show_filename_only = true, -- shows base filename only instead of relative path in filename
-					modified_icon = "+ ", -- change the default modified icon
-					modified_italic = true, -- set to true by default; this determines whether the filename turns italic if modified
-					show_tabs_only = false, -- this shows only tabs instead of tabs + buffers
-				},
-			})
-			vim.cmd([[
-            set guioptions-=e " Use showtabline in gui vim
-            set sessionoptions+=tabpages,globals " store tabpages and globals in session
-          ]])
-		end,
+		"utilyre/barbecue.nvim",
+		tag = "*",
 		requires = {
-			{ "hoob3rt/lualine.nvim", opt = true },
-			{ "nvim-tree/nvim-web-devicons", opt = true },
+			"SmiteshP/nvim-navic",
+			"nvim-tree/nvim-web-devicons", -- optional dependency
 		},
+		after = "nvim-web-devicons", -- keep this if you're using NvChad
+	})
+
+	-- Emoji
+	use({
+		"WilsonOh/emoji_picker-nvim",
+		config = function()
+			require("emoji_picker").setup()
+		end,
 	})
 
 	if PACKER_BOOTSTRAP then
