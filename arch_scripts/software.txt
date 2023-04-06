@@ -1,6 +1,5 @@
 # Editors
 neovim
-emacs
 
 #System
 linux-firmware
@@ -51,11 +50,7 @@ lldb-mi-git
 fnm-bin
 flutter
 ninja
-android-sdk
-android-sdk-build-tools
-android-platform
-android-sdk-cmdline-tools-latest
-android-sdk-platform-tools
+tmux
 
 #Fonts
 ttf-font-awesome
@@ -120,6 +115,7 @@ pipewire-alsa
 pipewire-pulse
 asusctl
 supergfxctl
+rog-control-center
 pavucontrol
 
 #Misc
