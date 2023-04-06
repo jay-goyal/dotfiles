@@ -4,7 +4,7 @@ swaylock \
     --hide-keyboard-layout \
     --indicator-radius 100 \
     --indicator-thickness 7 \
-    --ring-color cba6f7 \
+    --ring-color b4befe \
     --ring-ver-color 89b4fa \
     --ring-wrong-color f38ba8 \
     --ring-clear-color a6e3a1 \
@@ -17,7 +17,7 @@ swaylock \
     --line-wrong-color 00000000 \
     --line-clear-color 00000000 \
     --separator-color 00000000 \
-    --inside-color cba6f7 \
+    --inside-color b4befe \
     --inside-ver-color 89b4fa\
     --inside-wrong-color f38ba8 \
     --inside-clear-color a6e3a1 \

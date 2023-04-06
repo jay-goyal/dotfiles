@@ -23,6 +23,7 @@ null_ls.setup({
 				"--column-width",
 				"80",
 			},
+			extra_filetypes = { "html" },
 		}),
 		formatting.rustfmt,
 		formatting.google_java_format,

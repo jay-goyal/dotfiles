@@ -41,5 +41,4 @@ for k, v in pairs(options) do
 	opt[k] = v
 end
 
-cmd.colorscheme(Color)
 opt.isfname:append("@-@")

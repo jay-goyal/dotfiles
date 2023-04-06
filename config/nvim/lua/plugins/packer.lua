@@ -34,7 +34,8 @@ return packer.startup(function(use)
 	use("wbthomason/packer.nvim")
 
 	-- Themes
-	use({ "catppuccin/nvim", as = "catppuccin", commit = "128af65" })
+	use({ "catppuccin/nvim", as = "catppuccin" })
+	--[[ use({ "catppuccin/nvim", as = "catppuccin", commit = "128af65" }) ]]
 	use("folke/tokyonight.nvim")
 
 	-- File Manager
@@ -108,6 +109,7 @@ return packer.startup(function(use)
 	use("nvim-telescope/telescope-media-files.nvim")
 	use("ahmedkhalf/project.nvim")
 	use("nvim-telescope/telescope-file-browser.nvim")
+	use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" })
 
 	-- Status Line
 	use({
@@ -124,13 +126,9 @@ return packer.startup(function(use)
 		after = "nvim-web-devicons", -- keep this if you're using NvChad
 	})
 
-	-- Emoji
-	use({
-		"WilsonOh/emoji_picker-nvim",
-		config = function()
-			require("emoji_picker").setup()
-		end,
-	})
+	-- Misc
+	use("NvChad/nvim-colorizer.lua")
+	use("tpope/vim-sleuth")
 
 	if PACKER_BOOTSTRAP then
 		require("packer").sync()

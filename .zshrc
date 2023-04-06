@@ -62,8 +62,12 @@ alias remove='paru -Rns'
 alias gs='git status'
 alias ga='git add'
 alias gc='git commit -m'
+alias gca='git commit --amend'
 alias gp='git push'
 alias gf='git pull'
+alias gd='git diff'
+alias gl='git log --oneline'
+alias gcl='git clone'
 
 # Wayland environment fixes
 alias emulator='QT_QPA_PLATFORM=xcb emulator'

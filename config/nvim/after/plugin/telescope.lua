@@ -5,6 +5,7 @@ end
 
 telescope.load_extension("media_files")
 telescope.load_extension("file_browser")
+telescope.load_extension("fzf")
 
 local actions = require("telescope.actions")
 local builtin = require("telescope.builtin")
@@ -85,6 +86,12 @@ telescope.setup({
 		},
 		find_files = {
 			grouped = true,
+		},
+		fzf = {
+			fuzzy = true,
+			override_generic_sorter = true,
+			override_file_sorter = true,
+			case_mode = "smart_case",
 		},
 	},
 })

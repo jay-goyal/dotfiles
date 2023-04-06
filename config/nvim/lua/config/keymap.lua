@@ -34,6 +34,7 @@ keymap("n", "<leader>q", ":bp<bar>sp<bar>bn<bar>bd<CR>", opts)
 
 -- NVIM Tree
 keymap("n", "<leader>ft", ":NvimTreeToggle<CR>", opts)
+keymap("n", "<leader>fF", ":NvimTreeFocus<CR>", opts)
 
 -- Misc
 keymap("n", "<leader>so", ":source %<CR>", opts)

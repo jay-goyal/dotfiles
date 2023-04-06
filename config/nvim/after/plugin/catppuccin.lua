@@ -4,9 +4,9 @@ require("catppuccin").setup({
 		all = {
 			text = "#ffffff",
 		},
-        mocha = {
-    base = "#181825"
-        },
+		mocha = {
+			base = "#181825",
+		},
 		frappe = {},
 		macchiato = {},
 		latte = {},
@@ -105,3 +105,5 @@ require("catppuccin").setup({
 		}
 	end,
 })
+
+vim.cmd.colorscheme(Color)
