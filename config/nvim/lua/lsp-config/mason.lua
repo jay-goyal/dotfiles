@@ -7,6 +7,7 @@ local servers = {
 	"cssls",
 	"rust_analyzer",
 	"pyright",
+	"sqlls",
 }
 
 local settings = {

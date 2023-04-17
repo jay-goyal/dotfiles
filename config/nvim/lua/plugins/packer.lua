@@ -129,6 +129,7 @@ return packer.startup(function(use)
 	-- Misc
 	use("NvChad/nvim-colorizer.lua")
 	use("tpope/vim-sleuth")
+	use("tpope/vim-surround")
 
 	if PACKER_BOOTSTRAP then
 		require("packer").sync()
