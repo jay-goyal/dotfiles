@@ -79,10 +79,11 @@ spicetify-cli
 zathura
 zathura-pdf-poppler
 broot
-waybar-hyprland
+waybar-hyprland-git
+xdg-desktop-portal-hyprland
 wlogout
 wofi
-hyprland-bin
+hyprland
 wlogout
 swaylock-effects
 steam

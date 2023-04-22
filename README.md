@@ -1,3 +1,8 @@
 # Dotfiles
-My Personal Dotfiles...
-Alacritty, BSPWM, Emacs, NeoVim, SXHKD and other stuff
+
+Programs:
+
+- Terminal: Kitty
+- WM: Hyprland
+- Run: rofi
+- Bar: Waybar
