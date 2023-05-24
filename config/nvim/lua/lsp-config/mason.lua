@@ -8,11 +8,12 @@ local servers = {
 	"rust_analyzer",
 	"pyright",
 	"sqlls",
+	"clangd",
 }
 
 local settings = {
 	ui = {
-		border = "none",
+		border = "rounded",
 		icons = {
 			package_installed = "◍",
 			package_pending = "◍",

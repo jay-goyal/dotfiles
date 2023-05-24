@@ -49,8 +49,8 @@ return packer.startup(function(use)
 	use("goolord/alpha-nvim")
 
 	-- LSP
-	use("neovim/nvim-lspconfig") -- enable LSP
-	use("williamboman/mason.nvim") -- simple to use language server installer
+	use("neovim/nvim-lspconfig")          -- enable LSP
+	use("williamboman/mason.nvim")        -- simple to use language server installer
 	use("williamboman/mason-lspconfig.nvim") -- simple to use language server installer
 	use("jay-babu/mason-nvim-dap.nvim")
 	use("jose-elias-alvarez/null-ls.nvim") -- LSP diagnostics and code actions
@@ -80,16 +80,16 @@ return packer.startup(function(use)
 	use("lewis6991/gitsigns.nvim")
 
 	-- Cmp Plugins
-	use("hrsh7th/nvim-cmp") -- The completion plugin
+	use("hrsh7th/nvim-cmp")      -- The completion plugin
 	--[[ use("hrsh7th/cmp-buffer") -- buffer completions ]]
-	use("hrsh7th/cmp-path") -- path completions
-	use("hrsh7th/cmp-cmdline") -- cmdline completions
+	use("hrsh7th/cmp-path")      -- path completions
+	use("hrsh7th/cmp-cmdline")   -- cmdline completions
 	use("saadparwaiz1/cmp_luasnip") -- snippet completions
 	use("hrsh7th/cmp-nvim-lsp")
 	use("hrsh7th/cmp-nvim-lua")
 
 	-- Snippets
-	use("L3MON4D3/LuaSnip") --snippet engine
+	use("L3MON4D3/LuaSnip")          --snippet engine
 	use("rafamadriz/friendly-snippets") -- a bunch of snippets to use
 
 	-- Rust
@@ -130,6 +130,15 @@ return packer.startup(function(use)
 	use("NvChad/nvim-colorizer.lua")
 	use("tpope/vim-sleuth")
 	use("tpope/vim-surround")
+	use("MunifTanjim/nui.nvim")
+	use("rcarriga/nvim-notify")
+	use("folke/noice.nvim")
+	use({
+		"iamcco/markdown-preview.nvim",
+		run = "cd app && npm install",
+		setup = function() vim.g.mkdp_filetypes = { "markdown" } end,
+		ft = { "markdown" },
+	})
 
 	if PACKER_BOOTSTRAP then
 		require("packer").sync()

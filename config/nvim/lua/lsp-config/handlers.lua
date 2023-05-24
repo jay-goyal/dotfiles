@@ -1,3 +1,16 @@
+local _, rt = pcall(require, "rust-tools")
+
+local border = {
+    { "╭", "FloatBorder" },
+    { "─", "FloatBorder" },
+    { "╮", "FloatBorder" },
+    { "│", "FloatBorder" },
+    { "╯", "FloatBorder" },
+    { "─", "FloatBorder" },
+    { "╰", "FloatBorder" },
+    { "│", "FloatBorder" },
+}
+
 local M = {}
 
 M.setup = function()
@@ -9,14 +22,12 @@ M.setup = function()
     }
 
     for _, sign in ipairs(signs) do
-        vim.fn.sign_define(
-            sign.name,
-            { texthl = sign.name, text = sign.text, numhl = "" }
-        )
+        vim.fn.sign_define(sign.name, { texthl = sign.name, text = sign.text, numhl = "" })
     end
 
+
     local config = {
-        virtual_text = true,
+        virtual_text = false,
         signs = {
             active = signs,
         },
@@ -24,9 +35,9 @@ M.setup = function()
         underline = true,
         severity_sort = true,
         float = {
-            focusable = false,
+            focusable = true,
             style = "minimal",
-            border = "rounded",
+            border = "single",
             source = "always",
             header = "",
             prefix = "",
@@ -34,16 +45,6 @@ M.setup = function()
     }
 
     vim.diagnostic.config(config)
-
-    vim.lsp.handlers["textDocument/hover"] =
-        vim.lsp.with(vim.lsp.handlers.hover, {
-            border = "rounded",
-        })
-
-    vim.lsp.handlers["textDocument/signatureHelp"] =
-        vim.lsp.with(vim.lsp.handlers.signature_help, {
-            border = "rounded",
-        })
 end
 
 local function lsp_highlight_document(client)
@@ -140,6 +141,8 @@ M.on_attach = function(client, bufnr)
     if client.name == "tsserver" then
         client.server_capabilities.documentFormattingProvider = false
     end
+
+
     lsp_highlight_document(client)
 end
 

@@ -34,16 +34,18 @@ null_ls.setup({
                 "--column-width",
                 "80",
                 "--indent_type",
-                "Spaces",
+                "Tabs",
                 "--indent_width",
-                "2"
+                "4"
             },
         }),
         formatting.rustfmt,
         formatting.google_java_format,
         formatting.black.with({ extra_args = { "--fast" } }),
         formatting.sqlfluff,
+        formatting.clang_format,
         diagnostics.eslint_d.with({ extra_filetypes = { "svelte" } }),
         diagnostics.sqlfluff.with({ extra_args = { "--dialect", "mysql" } }),
+        --[[ diagnostics.cpplint, ]]
     }
 })

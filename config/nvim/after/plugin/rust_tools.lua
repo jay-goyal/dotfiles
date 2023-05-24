@@ -9,7 +9,7 @@ rt.setup({
 			keymap(
 				"n",
 				"<leader>rk",
-				":RustHoverActions<CR> :RustHoverActions<CR>",
+				":RustHoverActions<CR>",
 				{ buffer = bufnr }
 			)
 			keymap(
