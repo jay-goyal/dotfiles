@@ -128,6 +128,7 @@ return packer.startup(function(use)
 
 	-- Misc
 	use("NvChad/nvim-colorizer.lua")
+	use("tamago324/nlsp-settings.nvim")
 	use("tpope/vim-sleuth")
 	use("tpope/vim-surround")
 	use("MunifTanjim/nui.nvim")

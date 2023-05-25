@@ -5,6 +5,7 @@ local servers = {
 	"solidity",
 	"jdtls",
 	"cssls",
+	"jsonls",
 	"rust_analyzer",
 	"pyright",
 	"sqlls",
