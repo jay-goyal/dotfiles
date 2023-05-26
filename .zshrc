@@ -57,6 +57,8 @@ alias install='paru -S'
 alias search='paru -Ss'
 alias update='paru -Syu'
 alias remove='paru -Rns'
+alias dclean='paru -Rns $(paru -Qqdt)'
+alias pclean='paru -Scc'
 
 # git aliases
 alias gs='git status'
