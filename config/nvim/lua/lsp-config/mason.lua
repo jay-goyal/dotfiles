@@ -10,6 +10,7 @@ local servers = {
 	"pyright",
 	"sqlls",
 	"clangd",
+	"asm_lsp",
 }
 
 local settings = {

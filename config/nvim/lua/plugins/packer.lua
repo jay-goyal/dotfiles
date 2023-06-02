@@ -140,6 +140,8 @@ return packer.startup(function(use)
 		setup = function() vim.g.mkdp_filetypes = { "markdown" } end,
 		ft = { "markdown" },
 	})
+	use("ggandor/leap.nvim")
+	use("tpope/vim-repeat")
 
 	if PACKER_BOOTSTRAP then
 		require("packer").sync()
