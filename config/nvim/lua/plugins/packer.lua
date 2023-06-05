@@ -55,6 +55,7 @@ return packer.startup(function(use)
 	use("jay-babu/mason-nvim-dap.nvim")
 	use("jose-elias-alvarez/null-ls.nvim") -- LSP diagnostics and code actions
 	use("jay-babu/mason-null-ls.nvim")
+	use("tamago324/nlsp-settings.nvim")
 
 	-- DAP
 	use("mfussenegger/nvim-dap")
@@ -128,7 +129,6 @@ return packer.startup(function(use)
 
 	-- Misc
 	use("NvChad/nvim-colorizer.lua")
-	use("tamago324/nlsp-settings.nvim")
 	use("tpope/vim-sleuth")
 	use("tpope/vim-surround")
 	use("MunifTanjim/nui.nvim")
@@ -142,6 +142,7 @@ return packer.startup(function(use)
 	})
 	use("ggandor/leap.nvim")
 	use("tpope/vim-repeat")
+	use("windwp/nvim-ts-autotag")
 
 	if PACKER_BOOTSTRAP then
 		require("packer").sync()

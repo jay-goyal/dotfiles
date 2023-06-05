@@ -1,3 +1,51 @@
+" Basic Setup
+set scrolloff=10
+set showmode
+set showcmd
 set relativenumber
 set nu rnu
+set visualbell
+set ignorecase
+set smartcase
+set incsearch
+set hlsearch
+let mapleader = " "
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" PLUGINS
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+Plug 'tpope/vim-surround'
+Plug 'easymotion/vim-easymotion'
+Plug 'preservim/nerdtree'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-commentary'
+Plug 'machakann/vim-highlightedyank'
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" KEYMAPS
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 imap jk <Esc>
+
+" Split Nav
+noremap <C-h> <C-w>h
+noremap <C-j> <C-w>j
+noremap <C-k> <C-w>k
+noremap <C-l> <C-w>l
+
+" Copy and Pasting from system clipboards
+vnoremap <leader>p "_dP
+noremap <leader>p "+p
+noremap <leader>P "+P
+noremap <leader>y "+y
+voremap <leader>y "+y
+noremap <leader>d "_d
+voremap <leader>d "_d
+
+" Easymotion
+noremap s <Plug>(easymotion-s)
+noremap S <Plug>(easymotion-f)
+
+" NERDTree
+noremap <leader>ft :NERDTreeToggle<CR>
+noremap <leader>fF :NERDTreeFocus<CR>
+
