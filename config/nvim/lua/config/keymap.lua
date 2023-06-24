@@ -20,14 +20,14 @@ keymap("n", "<C-Up>", ":resize -3<CR>", opts_loc)
 keymap("n", "<C-Down>", ":resize +3<CR>", opts_loc)
 
 -- Copy and Pasting from system keyboards
-keymap("v", "<leader>p", '"_dP', opts_loc)
-keymap("n", "<leader>p", '"+p', opts_loc)
-keymap("n", "<leaderP", '"+P', opts_loc)
-keymap("n", "<leader>y", '"+y', opts_loc)
-keymap("v", "<leader>y", '"+y', opts_loc)
-keymap("n", "<leader>Y", '"+Y', opts_loc)
-keymap("n", "<leader>d", '"_d', opts_loc)
-keymap("v", "<leader>d", '"_d', opts_loc)
+keymap("v", "<leader>p", "\"_dP", opts_loc)
+keymap("n", "<leader>p", "\"+p", opts_loc)
+keymap("n", "<leaderP", "\"+P", opts_loc)
+keymap("n", "<leader>y", "\"+y", opts_loc)
+keymap("v", "<leader>y", "\"+y", opts_loc)
+keymap("n", "<leader>Y", "\"+Y", opts_loc)
+keymap("n", "<leader>d", "\"_d", opts_loc)
+keymap("v", "<leader>d", "\"_d", opts_loc)
 
 -- Buffer Navigation
 keymap("n", "<leader>q", ":bp<bar>sp<bar>bn<bar>bd<CR>", opts_loc)
@@ -38,6 +38,4 @@ keymap("n", "<leader>fF", ":NvimTreeFocus<CR>", opts_loc)
 
 -- Misc
 keymap("n", "<leader>so", ":source %<CR>", opts_loc)
-keymap("n", "<leader>sp", ":PackerSync<CR>", opts_loc)
 keymap("n", "<leader>gs", ":Mason<CR>", opts_loc)
-keymap("n", "<M-e>", ":EmojiPicker<CR>", opts_loc)

@@ -2,7 +2,7 @@ local cmd = vim.cmd
 local fn = vim.fn
 local g = vim.g
 local opt = vim.opt
-Color = Color or "catppuccin"
+Color = Color or "tokyonight-night"
 
 local options = {
 	-- Indents

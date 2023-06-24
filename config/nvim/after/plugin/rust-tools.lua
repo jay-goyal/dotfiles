@@ -8,13 +8,13 @@ rt.setup({
 		on_attach = function(_, bufnr)
 			keymap(
 				"n",
-				"<leader>rk",
+				"<leader>grk",
 				":RustHoverActions<CR>",
 				{ buffer = bufnr }
 			)
 			keymap(
 				"n",
-				"<leader>rcc",
+				"<leader>grcc",
 				rt.open_cargo_toml.open_cargo_toml,
 				{ buffer = bufnr }
 			)

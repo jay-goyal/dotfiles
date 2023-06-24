@@ -1,12 +1,13 @@
 local colors = {
-	red = "#cdd6f4",
-	grey = "#181825",
-	black = "#1e1e2e",
-	white = "#313244",
-	light_green = "#6c7086",
-	orange = "#fab387",
-	green = "#a6e3a1",
-	blue = "#80A7EA",
+	red = "#F7768E",
+	grey = "#1A1B26",
+	black = "#1A1B26",
+	white = "#414868",
+	light_green = "#587738",
+	orange = "#FF9E64",
+	green = "#9ECE6A",
+	blue = "#2AC3DE",
+	light_blue = "#3D59A1",
 }
 
 local theme = {
@@ -26,19 +27,19 @@ local vim_icons = {
 		return " "
 	end,
 	separator = { left = "", right = "" },
-	color = { bg = "#313244", fg = "#80A7EA" },
+	color = { bg = colors.white, fg = colors.blue },
 }
 
 local space = {
 	function()
 		return " "
 	end,
-	color = { bg = colors.grey, fg = "#80A7EA" },
+	color = { bg = colors.grey, fg = colors.blue },
 }
 
 local filename = {
 	"filename",
-	color = { bg = "#80A7EA", fg = "#242735" },
+	color = { bg = colors.blue, fg = colors.grey },
 	separator = { left = "", right = "" },
 }
 
@@ -46,7 +47,7 @@ local filetype = {
 	"filetype",
 	icon_only = true,
 	colored = true,
-	color = { bg = "#313244" },
+	color = { bg = colors.white },
 	separator = { left = "", right = "" },
 }
 
@@ -54,30 +55,30 @@ local filetype_tab = {
 	"filetype",
 	icon_only = true,
 	colored = true,
-	color = { bg = "#313244" },
+	color = { bg = colors.white },
 }
 
 local fileformat = {
 	"fileformat",
-	color = { bg = "#b4befe", fg = "#313244" },
+	color = { bg = colors.light_blue, fg = colors.black },
 	separator = { left = "", right = "" },
 }
 
 local encoding = {
 	"encoding",
-	color = { bg = "#313244", fg = "#80A7EA" },
+	color = { bg = colors.white, fg = colors.blue },
 	separator = { left = "", right = "" },
 }
 
 local branch = {
 	"branch",
-	color = { bg = "#a6e3a1", fg = "#313244" },
+	color = { bg = colors.green, fg = colors.black },
 	separator = { left = "", right = "" },
 }
 
 local diff = {
 	"diff",
-	color = { bg = "#313244", fg = "#313244" },
+	color = { bg = colors.white, fg = colors.black },
 	separator = { left = "", right = "" },
 }
 
@@ -86,7 +87,7 @@ local modes = {
 	fmt = function(str)
 		return str:sub(1, 1)
 	end,
-	color = { bg = "#fab387		", fg = "#1e1e2e" },
+	color = { bg = colors.orange, fg = colors.black },
 	separator = { left = "", right = "" },
 }
 
@@ -108,7 +109,7 @@ end
 
 local dia = {
 	"diagnostics",
-	color = { bg = "#313244", fg = "#80A7EA" },
+	color = { bg = colors.white, fg = colors.blue },
 	separator = { left = "", right = "" },
 }
 
@@ -117,11 +118,10 @@ local lsp = {
 		return getLspName()
 	end,
 	separator = { left = "", right = "" },
-	color = { bg = "#f38ba8", fg = "#1e1e2e" },
+	color = { bg = colors.red, fg = colors.black },
 }
 
 require("lualine").setup({
-
 	options = {
 		icons_enabled = true,
 		theme = theme,

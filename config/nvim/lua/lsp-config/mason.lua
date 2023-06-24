@@ -11,6 +11,7 @@ local servers = {
 	"sqlls",
 	"clangd",
 	"asm_lsp",
+	"gopls",
 }
 
 local settings = {
