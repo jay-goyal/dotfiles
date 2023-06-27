@@ -12,6 +12,7 @@ local servers = {
 	"clangd",
 	"asm_lsp",
 	"gopls",
+	"emmet_ls",
 }
 
 local settings = {

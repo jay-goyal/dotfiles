@@ -1,0 +1,40 @@
+[{
+    "layer": "top",
+    "position": "top",
+    "output": "eDP-1",
+    "height": 30,
+    "margin-top": 10,
+    "margin-right": 10,
+    "margin-left": 10,
+    "modules-left": [ "custom/launcher","wlr/workspaces", "cpu", "memory"],
+    "modules-center": ["custom/spotify"],
+    "modules-right": [
+        "tray",
+        "backlight",
+        "pulseaudio",
+        "battery",
+		"clock",
+		"custom/power"
+    ],
+    "include": ["~/.config/waybar/default-modules.json"]
+},
+{
+    "layer": "top",
+    "position": "top",
+    "output": "HDMI-A-1",
+    "height": 30,
+    "margin-top": 10,
+    "margin-right": 10,
+    "margin-left": 10,
+    "modules-left": [ "custom/launcher","wlr/workspaces", "cpu", "memory"],
+    "modules-center": ["hyprland/window"],
+    "modules-right": [
+        "tray",
+        "backlight",
+        "pulseaudio",
+        "battery",
+		"clock",
+		"custom/power"
+    ],
+    "include": ["~/.config/waybar/default-modules.json"]
+}]

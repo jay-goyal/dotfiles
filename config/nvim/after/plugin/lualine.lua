@@ -10,6 +10,15 @@ local colors = {
 	light_blue = "#3D59A1",
 }
 
+local function add_missing(dst, src)
+	for k, v in pairs(src) do
+		if dst[k] == nil then
+			dst[k] = v
+		end
+	end
+	return dst -- for convenience (chaining)
+end
+
 local theme = {
 	normal = {
 		a = { fg = colors.black, bg = colors.blue },
@@ -49,13 +58,6 @@ local filetype = {
 	colored = true,
 	color = { bg = colors.white },
 	separator = { left = "", right = "" },
-}
-
-local filetype_tab = {
-	"filetype",
-	icon_only = true,
-	colored = true,
-	color = { bg = colors.white },
 }
 
 local fileformat = {
@@ -121,6 +123,15 @@ local lsp = {
 	color = { bg = colors.red, fg = colors.black },
 }
 
+local swenv = {
+	"swenv",
+	separator = { left = "", right = "" },
+	color = { fg = colors.black, bg = colors.orange },
+	cond = function()
+		return getLspName() == "  pyright"
+	end,
+}
+
 require("lualine").setup({
 	options = {
 		icons_enabled = true,
@@ -158,17 +169,27 @@ require("lualine").setup({
 			branch,
 			diff,
 		},
-		lualine_x = {
+		lualine_v = {
 			space,
 		},
-		lualine_y = {
+		lualine_w = {
 			encoding,
 			fileformat,
 			space,
 		},
-		lualine_z = {
+		lualine_x = {
 			dia,
 			lsp,
+		},
+		lualine_y = {
+			add_missing({
+				cond = function()
+					return getLspName() == "  pyright"
+				end,
+			}, space),
+		},
+		lualine_z = {
+			swenv,
 		},
 	},
 	inactive_sections = {

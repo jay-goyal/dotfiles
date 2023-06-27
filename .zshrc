@@ -40,6 +40,8 @@ ex ()
 com() {gcc $1.c -o $1 && ./$1}
 
 # other commands
+alias c="clear"
+alias v="nvim"
 alias vim="nvim"
 alias grep="rg"
 alias ls='exa  --color=always --group-directories-first' # my preferred listing
@@ -80,12 +82,13 @@ eval "$(fnm env)"
 export PNPM_HOME="/home/jay/.local/share/pnpm"
 export PATH="$PNPM_HOME:$HOME/.config/emacs/bin:$PATH"
 
-source ~/.zsh/catppuccin_mocha-zsh-syntax-highlighting.zsh
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 2>/dev/null
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh 2>/dev/null
 #eval "$(starship init zsh)"
 source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme 2>/dev/null
 nitch
+
+bindkey -s ^f "~/.local/bin/tmux-sessionizer.sh\n"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh

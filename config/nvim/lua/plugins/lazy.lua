@@ -42,6 +42,10 @@ local packages = {
 	"jose-elias-alvarez/null-ls.nvim", -- LSP diagnostics and code actions
 	"jay-babu/mason-null-ls.nvim",
 	"tamago324/nlsp-settings.nvim",
+	{
+		"folke/trouble.nvim",
+		dependencies = { "nvim-tree/nvim-web-devicons" },
+	},
 
 	-- DAP
 	"mfussenegger/nvim-dap",
@@ -153,10 +157,10 @@ local packages = {
 	"windwp/nvim-ts-autotag",
 }
 
-local opts = {
+local lazy_opts = {
 	ui = {
 		border = "rounded",
 	},
 }
 
-lazy.setup(packages, opts)
+lazy.setup(packages, lazy_opts)

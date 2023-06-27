@@ -1,6 +1,6 @@
 #!/bin/bash
 
-CONFIG_FILES="$HOME/.config/waybar/config $HOME/.config/waybar/style.css $HOME/.config/waybar/default-modules.json"
+CONFIG_FILES="$HOME/.config/waybar/config $HOME/.config/waybar/style.css $HOME/.config/waybar/default-modules.json $HOME/.config/waybar/themes/tokyonight.css $HOME/.config/waybar/themes/catppuccin_mocha.css"
 
 trap "killall waybar" EXIT
 

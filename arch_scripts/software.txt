@@ -65,8 +65,8 @@ brave-bin
 nitch
 htop
 swaybg
+swayidle
 nemo
-thunar-volman
 papirus-icon-theme
 kitty
 network-manager-applet

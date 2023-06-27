@@ -1,3 +1,4 @@
 #!/bin/sh
 
-swayidle -w before-sleep "$HOME/.config/hypr/scripts/lock.sh"
+swayidle -w timeout 300 "$HOME/.config/hypr/scripts/lock.sh" \
+    before-sleep "$HOME/.config/hypr/scripts/lock.sh"
