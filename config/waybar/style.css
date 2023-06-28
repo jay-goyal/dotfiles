@@ -1,4 +1,4 @@
-@import "themes/catppuccin_mocha.css";
+@import "themes/tokyonight.css";
 * {
   border: none;
   border-radius: 0;
@@ -35,7 +35,7 @@ tooltip {
 }
 
 #workspaces button.active {
-  color: @lavender;
+  color: @text;
   background: @surface0;
   border-radius: 10px;
 }
