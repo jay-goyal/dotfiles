@@ -82,13 +82,22 @@ eval "$(fnm env)"
 export PNPM_HOME="/home/jay/.local/share/pnpm"
 export PATH="$PNPM_HOME:$HOME/.config/emacs/bin:$PATH"
 
+# FZF Theme
+export FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS' 
+	--color=fg:#c0caf5,bg:#1a1b26,hl:#bb9af7
+	--color=fg+:#c0caf5,bg+:#1a1b26,hl+:#7dcfff
+	--color=info:#7aa2f7,prompt:#7dcfff,pointer:#7dcfff 
+	--color=marker:#9ece6a,spinner:#9ece6a,header:#9ece6a'
+
+# Keybinds
+bindkey -s ^f "~/.local/bin/tmux-sessionizer.sh\n"
+
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 2>/dev/null
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh 2>/dev/null
 #eval "$(starship init zsh)"
 source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme 2>/dev/null
 nitch
 
-bindkey -s ^f "~/.local/bin/tmux-sessionizer.sh\n"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh

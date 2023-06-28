@@ -73,9 +73,9 @@ network-manager-applet
 lxappearance
 lxsession
 vlc
-qbittorrent
-spotify
-spicetify-cli
+deluge-gtk
+grimblast
+cider-bin
 zathura
 zathura-pdf-poppler
 broot
