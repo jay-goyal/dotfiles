@@ -42,12 +42,11 @@ sys-devel/llvm
 dev-util/lldb
 dev-util/ninja
 app-misc/tmux
-#dev-util/rustup
 
 #Fonts
 media-fonts/fontawesome
 media-fonts/roboto
-#media-fonts/nerd-fonts
+media-fonts/nerd-fonts
 
 #Apps
 dev-vcs/git
@@ -72,9 +71,11 @@ gui-apps/rofi-wayland
 gui-wm/hyprland
 gui-apps/swaylock-effects
 app-misc/brightnessctl
+media-sound/playerctl
 games-util/steam-meta
 net-wireless/blueman
 net-wireless/bluez
+sys-fs/inotify-tools
 
 #Virtualisation
 app-emulation/qemu

@@ -5,17 +5,12 @@ doas eselect repository enable dm9pZCAq
 doas eselect repository enable steam-overlay
 doas eselect repository enable zGentoo
 doas emerge --ask --update --newuse --deep --autounmask-write $software @world
-#rustup install stable
-#rustup component add rust-analyzer
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -y
+rustup component add rust-analyzer
 doas grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id=GENTOO
 doas grub-mkconfig -o /boot/grub/grub.cfg
-cp -r ~/dotfiles/config ~/.config
-cp -r ~/dotfiles/.dwm ~/
-cp -r ~/dotfiles/wallpapers ~/
-cp ~/dotfiles/.xinitrc ~/
-cp ~/dotfiles/.zshenv ~/
-cp ~/dotfiles/.zshrc ~/
-cp ~/dotfiles/.p10k.zsh ~/
+cd dotfiles
+stow alacritty dunst htop hypr kitty nvim scripts starship tmux wallpapers waybar wlogout wofi zathura zsh
 doas systemctl enable NetworkManager
 doas systemctl enable libvirtd
 doas systemctl enable greetd
