@@ -1,0 +1,83 @@
+format = """
+[](#cdd6f4)\
+$sudo\
+[  ](bg:#cdd6f4 fg:#11111b)\
+[](bg:#89b4fa fg:#cdd6f4)\
+$directory\
+[](fg:#89b4fa bg:#585b70)\
+$git_branch\
+$git_status\
+[](fg:#585b70 bg:#313244)\
+$nodejs\
+$c\
+$rust\
+[](fg:#313244)\
+$character"""
+
+right_format="""
+[](fg:#11111b)
+$cmd_duration\
+[](fg:#11111b bg:#cba6f7)\
+[  ](fg:#11111b bg:#cba6f7)\
+[](fg:#cba6f7)"""
+
+[sudo]
+disabled = false
+symbol = ""
+style = "bg:#cdd6f4 fg:#11111b"
+format = '[\[$symbol\]]($style)'
+
+[character]
+disabled = false
+format = " "
+
+[directory]
+style = "fg:#45475a bg:#89b4fa"
+read_only = ""
+format = "[ $path $read_only ]($style)"
+truncation_length = 3
+truncation_symbol = "…/"
+
+[git_branch]
+symbol = ""
+style = "bg:#585b70"
+format = '[[ $symbol $branch ](fg:#89b4fa bg:#585b70)]($style)'
+
+[git_status]
+style = "bg:#585b70"
+ahead = "$count⇡"
+behind = "$count⇣"
+diverged = "$ahead_count $behind_count⇕"
+untracked = "$count?"
+stashed = "$count$"
+modified = "$count!"
+staged = "$count+"
+renamed = "$count»"
+deleted = "$count✘"
+format = '[[($all_status$ahead_behind )](fg:#89b4fa bg:#585b70)]($style)'
+
+[c]
+symbol = "ﭰ"
+style = "bg:#313244"
+format = '[[ $symbol ($version) ](fg:#89b4fa bg:#313244)]($style)'
+
+[lua]
+symbol = ""
+style = "bg:#313244"
+format = '[[ $symbol ($version) ](fg:#89b4fa bg:#313244)]($style)'
+
+[nodejs]
+symbol = ""
+style = "bg:#313244"
+format = '[[ $symbol ($version) ](fg:#89b4fa bg:#313244)]($style)'
+
+[rust]
+symbol = ""
+style = "bg:#313244"
+format = '[[ $symbol ($version) ](fg:#89b4fa bg:#313244)]($style)'
+
+[cmd_duration]
+disabled = false
+min_time = 0
+style = "bg:#11111b"
+format = '[[ $duration ](fg:#7f849c bg:#11111b)]($style)'
