@@ -77,13 +77,10 @@ alias gcl='git clone'
 # doasedit
 alias doasedit='$HOME/.local/bin/doasedit.sh'
 
-# Wayland environment fixes
-alias emulator='QT_QPA_PLATFORM=xcb emulator'
-alias neovide='WINIT_UNIX_BACKEND=x11 neovide'
-
 # pnpm
 export PNPM_HOME="/home/jay/.local/share/pnpm"
 export PATH="$PNPM_HOME:$HOME/.cargo/bin:$HOME/.config/tmux/plugins/tmuxifier/bin/:$PATH"
+export TMUXIFIER_LAYOUT_PATH="$HOME/.tmux-layouts"
 
 # FZF Theme
 export FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS' 

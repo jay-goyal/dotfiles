@@ -22,8 +22,8 @@ local packages = {
 	"goolord/alpha-nvim",
 
 	-- LSP
-	"neovim/nvim-lspconfig", -- enable LSP
-	"williamboman/mason.nvim", -- simple to use language server installer
+	"neovim/nvim-lspconfig",          -- enable LSP
+	"williamboman/mason.nvim",        -- simple to use language server installer
 	"williamboman/mason-lspconfig.nvim", -- simple to use language server installer
 	"jose-elias-alvarez/null-ls.nvim", -- LSP diagnostics and code actions
 	"jay-babu/mason-null-ls.nvim",
@@ -58,16 +58,16 @@ local packages = {
 	"lewis6991/gitsigns.nvim",
 
 	-- Cmp Plugins
-	"hrsh7th/nvim-cmp", -- The completion plugin
+	"hrsh7th/nvim-cmp",      -- The completion plugin
 	--[[ "hrsh7th/cmp-buffer", -- buffer completions ]]
-	"hrsh7th/cmp-path", -- path completions
-	"hrsh7th/cmp-cmdline", -- cmdline completions
+	"hrsh7th/cmp-path",      -- path completions
+	"hrsh7th/cmp-cmdline",   -- cmdline completions
 	"saadparwaiz1/cmp_luasnip", -- snippet completions
 	"hrsh7th/cmp-nvim-lsp",
-	{ "hrsh7th/cmp-nvim-lua", ft = "lua" },
+	{ "hrsh7th/cmp-nvim-lua",     ft = "lua" },
 
 	-- Snippets
-	"L3MON4D3/LuaSnip", --snippet engine
+	"L3MON4D3/LuaSnip",          --snippet engine
 	"rafamadriz/friendly-snippets", -- a bunch of snippets to use
 
 	-- Rust
@@ -78,20 +78,17 @@ local packages = {
 	},
 	{ "simrat39/rust-tools.nvim", ft = "rust" },
 
-	-- Go
-	{ "leoluz/nvim-dap-go", ft = "go" },
-
 	-- Python
 	{
 		"mfussenegger/nvim-dap-python",
 		ft = "python",
 		config = function(_, opts)
 			local path =
-				"~/.local/share/nvim/mason/packages/debugpy/venv/bin/python"
+			"~/.local/share/nvim/mason/packages/debugpy/venv/bin/python"
 			require("dap-python").setup(path)
 		end,
 	},
-	{ "AckslD/swenv.nvim", ft = "python" },
+	{ "AckslD/swenv.nvim",                        ft = "python" },
 
 	-- Telescope
 	{
@@ -138,7 +135,35 @@ local packages = {
 	"MunifTanjim/nui.nvim",
 	"rcarriga/nvim-notify",
 	"stevearc/dressing.nvim",
-	"ggandor/leap.nvim",
+	{
+		"folke/flash.nvim",
+		event = "VeryLazy",
+		---@type Flash.Config
+		opts = {},
+		keys = {
+			{ "s", mode = { "n", "x", "o" }, function() require("flash").jump() end, },
+			{
+				"S",
+				mode = { "n", "o", "x" },
+				function() require("flash").treesitter() end,
+			},
+			{
+				"r",
+				mode = "o",
+				function() require("flash").remote() end,
+			},
+			{
+				"R",
+				mode = { "o", "x" },
+				function() require("flash").treesitter_search() end,
+			},
+			{
+				"<c-s>",
+				mode = { "c" },
+				function() require("flash").toggle() end,
+			},
+		},
+	},
 	"tpope/vim-repeat",
 	"windwp/nvim-ts-autotag",
 }

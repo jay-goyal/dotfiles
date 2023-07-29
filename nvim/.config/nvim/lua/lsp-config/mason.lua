@@ -11,7 +11,6 @@ local servers = {
 	"sqlls",
 	"clangd",
 	"asm_lsp",
-	"gopls",
 	"emmet_ls",
 }
 
