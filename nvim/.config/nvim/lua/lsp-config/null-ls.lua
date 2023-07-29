@@ -54,8 +54,3 @@ null_ls.setup({
 		--[[ diagnostics.cpplint, ]]
 	},
 })
-
-mason_null_ls.setup({
-	ensure_installed = nil,
-	automatic_installation = true,
-})

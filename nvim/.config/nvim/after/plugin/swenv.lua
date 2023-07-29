@@ -6,4 +6,3 @@ if not (status_ok_swenv and status_ok_api) then
 end
 
 swenv.setup()
-keymap("n", "<leader>gpv", api.pick_venv, opts)

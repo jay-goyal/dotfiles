@@ -5,7 +5,6 @@ end
 
 local packages = {
 	-- Themes
-	{ "catppuccin/nvim", name = "catppuccin" },
 	{
 		"folke/tokyonight.nvim",
 		lazy = false,
