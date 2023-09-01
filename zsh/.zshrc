@@ -57,7 +57,7 @@ alias pn='pnpm'
 alias pnx='pnpm dlx'
 alias in='doas emerge -aUD --autounmask-continue'
 alias se='emerge --search'
-alias up='doas emerge -auUD @world'
+alias up='doas emerge -auND --autounmask-continue --backtrack=100 --with-bdeps=y @world'
 alias rem='doas emerge -aW'
 alias dcl='doas emerge -ac'
 alias pcl='doas emerge --ask --clean'
@@ -74,13 +74,15 @@ alias gd='git diff'
 alias gl='git log --oneline'
 alias gcl='git clone'
 
-# doasedit
-alias doasedit='$HOME/.local/bin/doasedit.sh'
+# vpn
+alias vpnst="doas systemctl start openvpn-client@oracle"
+alias vpnstp="doas systemctl stop openvpn-client@oracle"
 
 # pnpm
 export PNPM_HOME="/home/jay/.local/share/pnpm"
 export PATH="$PNPM_HOME:$HOME/.cargo/bin:$HOME/.config/tmux/plugins/tmuxifier/bin/:$PATH"
-export TMUXIFIER_LAYOUT_PATH="$HOME/.tmux-layouts"
+export TMUXIFIER_LAYOUT_PATH="$HOME/.tmux_layouts"
+
 
 # FZF Theme
 export FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS' 

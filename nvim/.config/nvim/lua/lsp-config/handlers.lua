@@ -1,4 +1,7 @@
-local _, rt = pcall(require, "rust-tools")
+local status_ok, rt = pcall(require, "rust-tools")
+if not status_ok then
+	return
+end
 
 local M = {}
 
@@ -18,7 +21,7 @@ M.setup = function()
 	end
 
 	local config = {
-		virtual_text = false,
+		virtual_text = true,
 		signs = {
 			active = signs,
 		},
@@ -90,6 +93,27 @@ vim.api.nvim_create_autocmd("LspAttach", {
 M.on_attach = function(client, bufnr)
 	if client.name == "tsserver" then
 		client.server_capabilities.documentFormattingProvider = false
+	end
+	if client.name == "rust_analyzer" then
+		vim.keymap.set(
+			"n",
+			"<leader>grk",
+			rt.hover_actions.hover_actions,
+			{ buffer = bufnr }
+		)
+		vim.keymap.set(
+			"n",
+			"<leader>grcc",
+			rt.open_cargo_toml.open_cargo_toml,
+			{ buffer = bufnr }
+		)
+		vim.keymap.set(
+			"n",
+			"<leader>grp",
+			rt.parent_module.parent_module,
+			{ buffer = bufnr }
+		)
+		rt.inlay_hints.enable()
 	end
 
 	lsp_highlight_document(client)

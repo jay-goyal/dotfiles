@@ -12,6 +12,8 @@ local servers = {
 	"clangd",
 	"asm_lsp",
 	"emmet_ls",
+	"dockerls",
+	"zls",
 }
 
 local settings = {

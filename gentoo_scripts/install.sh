@@ -4,7 +4,7 @@ doas eselect repository enable guru
 doas eselect repository enable dm9pZCAq
 doas eselect repository enable steam-overlay
 doas eselect repository enable zGentoo
-doas emerge --ask --update --newuse --deep --autounmask-write $software @world
+doas emerge --ask --update --newuse --deep --autounmask-continue $software @world
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -y
 rustup component add rust-analyzer
 doas grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id=GENTOO

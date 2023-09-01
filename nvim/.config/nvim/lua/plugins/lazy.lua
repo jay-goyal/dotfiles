@@ -12,18 +12,20 @@ local packages = {
 		opts = {},
 	},
 
-	-- File Manager
-	{
-		"nvim-tree/nvim-tree.lua",
-		dependencies = "nvim-tree/nvim-web-devicons",
-	},
-
-	-- Startup screen
+	-- Sartup screen
 	"goolord/alpha-nvim",
 
+	-- File Explorer
+	{
+		"stevearc/oil.nvim",
+		opts = {},
+		-- Optional dependencies
+		dependencies = { "nvim-tree/nvim-web-devicons" },
+	},
+
 	-- LSP
-	"neovim/nvim-lspconfig",          -- enable LSP
-	"williamboman/mason.nvim",        -- simple to use language server installer
+	"neovim/nvim-lspconfig", -- enable LSP
+	"williamboman/mason.nvim", -- simple to use language server installer
 	"williamboman/mason-lspconfig.nvim", -- simple to use language server installer
 	"jose-elias-alvarez/null-ls.nvim", -- LSP diagnostics and code actions
 	"jay-babu/mason-null-ls.nvim",
@@ -51,23 +53,23 @@ local packages = {
 	"HiPhish/nvim-ts-rainbow2",
 
 	-- Coding
-	"lukas-reineke/indent-blankline.nvim",
+	{ "shellRaining/hlchunk.nvim", event = { "UIEnter" } }, -- Scope Highlight
 	"windwp/nvim-autopairs", -- Autopairs, integrates with both cmp and treesitter
 	"numToStr/Comment.nvim", -- Easily comment stuff
 	"JoosepAlviste/nvim-ts-context-commentstring",
 	"lewis6991/gitsigns.nvim",
 
 	-- Cmp Plugins
-	"hrsh7th/nvim-cmp",      -- The completion plugin
+	"hrsh7th/nvim-cmp", -- The completion plugin
 	--[[ "hrsh7th/cmp-buffer", -- buffer completions ]]
-	"hrsh7th/cmp-path",      -- path completions
-	"hrsh7th/cmp-cmdline",   -- cmdline completions
+	"hrsh7th/cmp-path", -- path completions
+	"hrsh7th/cmp-cmdline", -- cmdline completions
 	"saadparwaiz1/cmp_luasnip", -- snippet completions
 	"hrsh7th/cmp-nvim-lsp",
-	{ "hrsh7th/cmp-nvim-lua",     ft = "lua" },
+	{ "hrsh7th/cmp-nvim-lua", ft = "lua" },
 
 	-- Snippets
-	"L3MON4D3/LuaSnip",          --snippet engine
+	"L3MON4D3/LuaSnip", --snippet engine
 	"rafamadriz/friendly-snippets", -- a bunch of snippets to use
 
 	-- Rust
@@ -76,7 +78,17 @@ local packages = {
 		version = "v0.3.0",
 		ft = { "toml", "rust" },
 	},
-	{ "simrat39/rust-tools.nvim", ft = "rust" },
+	{
+		"simrat39/rust-tools.nvim",
+		ft = "rust",
+		dependencies = {
+			"neovim/nvim-lspconfig",
+			"tamago324/nlsp-settings.nvim",
+		},
+		config = function()
+			require("rust-tools").setup()
+		end,
+	},
 
 	-- Python
 	{
@@ -84,11 +96,11 @@ local packages = {
 		ft = "python",
 		config = function(_, opts)
 			local path =
-			"~/.local/share/nvim/mason/packages/debugpy/venv/bin/python"
+				"~/.local/share/nvim/mason/packages/debugpy/venv/bin/python"
 			require("dap-python").setup(path)
 		end,
 	},
-	{ "AckslD/swenv.nvim",                        ft = "python" },
+	{ "AckslD/swenv.nvim", ft = "python" },
 
 	-- Telescope
 	{
@@ -116,6 +128,9 @@ local packages = {
 		},
 	},
 
+	-- TMUX
+	"christoomey/vim-tmux-navigator",
+
 	-- Misc
 	{
 		"folke/todo-comments.nvim",
@@ -141,26 +156,40 @@ local packages = {
 		---@type Flash.Config
 		opts = {},
 		keys = {
-			{ "s", mode = { "n", "x", "o" }, function() require("flash").jump() end, },
+			{
+				"s",
+				mode = { "n", "x", "o" },
+				function()
+					require("flash").jump()
+				end,
+			},
 			{
 				"S",
 				mode = { "n", "o", "x" },
-				function() require("flash").treesitter() end,
+				function()
+					require("flash").treesitter()
+				end,
 			},
 			{
 				"r",
 				mode = "o",
-				function() require("flash").remote() end,
+				function()
+					require("flash").remote()
+				end,
 			},
 			{
 				"R",
 				mode = { "o", "x" },
-				function() require("flash").treesitter_search() end,
+				function()
+					require("flash").treesitter_search()
+				end,
 			},
 			{
 				"<c-s>",
 				mode = { "c" },
-				function() require("flash").toggle() end,
+				function()
+					require("flash").toggle()
+				end,
 			},
 		},
 	},
