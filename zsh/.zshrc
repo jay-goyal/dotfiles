@@ -44,24 +44,24 @@ alias c="clear"
 alias v="nvim"
 alias vim="nvim"
 alias grep="rg"
-alias ls='exa  --color=always --group-directories-first' # my preferred listing
-alias l='exa  --color=always --group-directories-first' # my preferred listing
-alias la='exa -al --color=always --group-directories-first'  # all files and dirs
-alias ll='exa -l --color=always --group-directories-first'  # long format
-alias lt='exa -aT --color=always --group-directories-first' # tree listing
+alias ls='eza --color=always --group-directories-first' # my preferred listing
+alias l='eza --color=always --group-directories-first' # my preferred listing
+alias la='eza --git -al --color=always --group-directories-first'  # all files and dirs
+alias ll='eza --git -l --color=always --group-directories-first'  # long format
+alias lt='eza -aT --color=always --group-directories-first' # tree listing
 alias mu='sudo reflector --latest 50 --sort rate --protocol https --verbose --save /etc/pacman.d/mirrorlist'
 alias lp='browser-sync start --server --files "./**/*"'
 
 # package manager
 alias pn='pnpm'
 alias pnx='pnpm dlx'
-alias in='doas emerge -aUD --autounmask-continue'
+alias in='sudo emerge -aUD --autounmask-continue'
 alias se='emerge --search'
-alias up='doas emerge -auND --autounmask-continue --backtrack=100 --with-bdeps=y @world'
-alias rem='doas emerge -aW'
-alias dcl='doas emerge -ac'
-alias pcl='doas emerge --ask --clean'
-alias sync='doas emerge --sync'
+alias up='sudo emerge -auND --autounmask-continue --backtrack=100 --with-bdeps=y @world'
+alias rem='sudo emerge -aW'
+alias dcl='sudo emerge -ac && sudo eclean distfiles && sudo eclean-kernel -n 1'
+alias pcl='sudo emerge --ask --clean'
+alias sync='sudo emerge --sync'
 
 # git aliases
 alias gs='git status'
@@ -75,21 +75,13 @@ alias gl='git log --oneline'
 alias gcl='git clone'
 
 # vpn
-alias vpnst="doas systemctl start openvpn-client@oracle"
-alias vpnstp="doas systemctl stop openvpn-client@oracle"
+alias vpnst="sudo systemctl start openvpn-client@oracle"
+alias vpnstp="sudo systemctl stop openvpn-client@oracle"
 
 # pnpm
 export PNPM_HOME="/home/jay/.local/share/pnpm"
-export PATH="$PNPM_HOME:$HOME/.cargo/bin:$HOME/.config/tmux/plugins/tmuxifier/bin/:$PATH"
+export PATH="$HOME/crossdev/opt/bin/:$HOME/.cargo/bin:$HOME/.config/tmux/plugins/tmuxifier/bin/:$PATH"
 export TMUXIFIER_LAYOUT_PATH="$HOME/.tmux_layouts"
-
-
-# FZF Theme
-export FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS' 
-	--color=fg:#c0caf5,bg:#1a1b26,hl:#bb9af7
-	--color=fg+:#c0caf5,bg+:#1a1b26,hl+:#7dcfff
-	--color=info:#7aa2f7,prompt:#7dcfff,pointer:#7dcfff 
-	--color=marker:#9ece6a,spinner:#9ece6a,header:#9ece6a'
 
 # Keybinds
 bindkey -s ^f "$HOME/.local/bin/tmux-sessionizer.sh\n"
@@ -120,3 +112,11 @@ fi
 unset __conda_setup
 # <<< conda initialize <<<
 
+
+# pnpm
+export PNPM_HOME="/home/jay/.local/share/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end

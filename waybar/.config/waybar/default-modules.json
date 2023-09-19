@@ -1,5 +1,5 @@
 {
-  "wlr/workspaces": {
+  "hyprland/workspaces": {
     "active-only": false,
     "disable-scroll": true,
     "all-outputs": false,
@@ -15,7 +15,7 @@
     "format": "{:.40}"
   },
   "hyprland/window": {
-    "format": "{:.40}",
+    "format": "{name}",
     "separate-outputs": false
   },
   "custom/power": {

@@ -19,7 +19,7 @@ project.setup({
 	-- detection_methods = { "lsp", "pattern" }, -- NOTE: lsp detection will get annoying with multiple langs in one project
 	detection_methods = { "pattern" },
 	---@usage patterns used to detect root dir, when **"pattern"** is in detection_methods
-	patterns = { ".git" },
+	patterns = { "Cargo.toml", "package.json", ".git" },
 	---@ Show hidden files in telescope when searching for files in a project
 	show_hidden = false,
 	---@usage When set to false, you will get a message when project.nvim changes your directory.

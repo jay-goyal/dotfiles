@@ -14,6 +14,7 @@ local servers = {
 	"emmet_ls",
 	"dockerls",
 	"zls",
+	"svlangserver",
 }
 
 local settings = {

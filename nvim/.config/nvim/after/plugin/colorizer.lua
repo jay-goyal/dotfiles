@@ -4,7 +4,7 @@ if not status_ok then
 end
 
 colorizer.setup({
-	filetypes = { "*" },
+	filetypes = { "css, scss, html, js" },
 	user_default_options = {
 		RGB = true, -- #RGB hex codes
 		RRGGBB = true, -- #RRGGBB hex codes

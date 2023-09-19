@@ -4,7 +4,6 @@ if initialize_session "ferrOS"; then
   new_window "neovim"
   run_cmd nvim
   new_window "cargo"
-  new_window "git"
   select_window 0
 fi
 

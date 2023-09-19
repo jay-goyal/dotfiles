@@ -10,8 +10,6 @@ if initialize_session "fcil"; then
   run_cmd nvim
   new_window "python"
   run_cmd "conda activate fcil"
-  new_window "git"
-  run_cmd "conda activate fcil"
   select_window 0
 fi
 

@@ -18,7 +18,6 @@ local packages = {
 	-- File Explorer
 	{
 		"stevearc/oil.nvim",
-		opts = {},
 		-- Optional dependencies
 		dependencies = { "nvim-tree/nvim-web-devicons" },
 	},
@@ -61,7 +60,6 @@ local packages = {
 
 	-- Cmp Plugins
 	"hrsh7th/nvim-cmp", -- The completion plugin
-	--[[ "hrsh7th/cmp-buffer", -- buffer completions ]]
 	"hrsh7th/cmp-path", -- path completions
 	"hrsh7th/cmp-cmdline", -- cmdline completions
 	"saadparwaiz1/cmp_luasnip", -- snippet completions
@@ -130,6 +128,18 @@ local packages = {
 
 	-- TMUX
 	"christoomey/vim-tmux-navigator",
+
+	-- Git
+	{
+		"NeogitOrg/neogit",
+		dependencies = {
+			"nvim-lua/plenary.nvim",
+			"nvim-telescope/telescope.nvim",
+			"sindrets/diffview.nvim",
+			"ibhagwan/fzf-lua",
+		},
+		config = true,
+	},
 
 	-- Misc
 	{

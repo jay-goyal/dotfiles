@@ -40,6 +40,9 @@ keymap("n", "<leader>gs", ":Mason<CR>", opts)
 -- File
 keymap("n", "<leader>ft", ":Oil<CR>", opts)
 
+-- Neogit
+keymap("n", "<leader>gg", ":Neogit<CR>", opts)
+
 -- Page Navigation
 keymap("n", "<C-d>", "<C-d>zz", opts)
 keymap("n", "<C-u>", "<C-u>zz", opts)
