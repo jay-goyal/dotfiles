@@ -107,9 +107,6 @@ local packages = {
 		-- or                          , branch = '0.1.x',
 		dependencies = { "nvim-lua/plenary.nvim" },
 	},
-	"nvim-telescope/telescope-media-files.nvim",
-	"ahmedkhalf/project.nvim",
-	"nvim-telescope/telescope-file-browser.nvim",
 	{ "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
 
 	-- Status Line

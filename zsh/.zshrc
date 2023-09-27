@@ -59,8 +59,8 @@ alias in='sudo emerge -aUD --autounmask-continue'
 alias se='emerge --search'
 alias up='sudo emerge -auND --autounmask-continue --backtrack=100 --with-bdeps=y @world'
 alias rem='sudo emerge -aW'
-alias dcl='sudo emerge -ac && sudo eclean distfiles && sudo eclean-kernel -n 1'
-alias pcl='sudo emerge --ask --clean'
+alias dcl='sudo emerge -ac'
+alias pcl='sudo eclean distfiles && sudo eclean-kernel -n 1'
 alias sync='sudo emerge --sync'
 
 # git aliases

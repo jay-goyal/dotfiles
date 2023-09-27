@@ -3,23 +3,19 @@ if not status_ok then
 	return
 end
 
-telescope.load_extension("media_files")
-telescope.load_extension("file_browser")
 telescope.load_extension("fzf")
 
 local actions = require("telescope.actions")
 local builtin = require("telescope.builtin")
-local fb_actions = telescope.extensions.file_browser.actions
 
 keymap("n", "<leader>ff", builtin.find_files, opts)
 keymap("n", "<leader>fg", builtin.git_files, opts)
 keymap("n", "<leader>fk", builtin.keymaps, opts)
 keymap("n", "<leader>fr", builtin.live_grep, opts)
-keymap("n", "<leader>fo", telescope.extensions.file_browser.file_browser, opts)
-keymap("n", "<leader>fp", telescope.extensions.projects.projects, opts)
 
 telescope.setup({
 	defaults = {
+		file_ignore_patterns = { "node_modules", ".git" },
 		prompt_prefix = "   ",
 		selection_caret = "  ",
 		entry_prefix = "  ",
@@ -44,8 +40,6 @@ telescope.setup({
 		path_display = { "smart" },
 		mappings = {
 			i = {
-				["<C-h>"] = fb_actions.toggle_hidden,
-				["<C-t>"] = fb_actions.create,
 				["<C-n>"] = actions.cycle_history_next,
 				["<C-p>"] = actions.cycle_history_prev,
 				["<C-j>"] = actions.move_selection_next,
@@ -68,8 +62,6 @@ telescope.setup({
 				["<C-l>"] = actions.complete_tag,
 			},
 			n = {
-				["<C-h>"] = fb_actions.toggle_hidden,
-				["<C-n>"] = fb_actions.create,
 				["<esc>"] = actions.close,
 				["<CR>"] = actions.select_default,
 				["<C-x>"] = actions.select_horizontal,
@@ -99,18 +91,17 @@ telescope.setup({
 		},
 	},
 	extensions = {
-		media_files = {
-			filetypes = { "png", "webp", "jpg", "jpeg" },
-			find_cmd = "rg",
-		},
-		find_files = {
-			grouped = true,
-		},
 		fzf = {
 			fuzzy = true,
 			override_generic_sorter = true,
 			override_file_sorter = true,
 			case_mode = "smart_case",
+		},
+	},
+	pickers = {
+		find_files = {
+			grouped = true,
+			hidden = true,
 		},
 	},
 })

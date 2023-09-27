@@ -20,7 +20,6 @@ dashboard.section.header.val = {
 }
 dashboard.section.buttons.val = {
 	dashboard.button("f", "  Find file", ":Telescope find_files <CR>"),
-	dashboard.button("p", "  Find project", ":Telescope projects <CR>"),
 	dashboard.button(
 		"r",
 		"  Recently used files",
