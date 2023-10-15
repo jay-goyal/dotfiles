@@ -7,7 +7,7 @@
     "format": "{name}"
   },
   "custom/launcher": {
-    "format": "<span color='#1f2335'>󰣨</span>",
+    "format": "<span color='#1f2335'></span>",
     "on-click": "wofi -show drun"
   },
   "custom/spotify": {
@@ -78,7 +78,7 @@
   "pulseaudio": {
     "format": "{icon} {volume}%",
     "format-muted": "󰝟 Muted",
-    "on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
+    "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
     "scroll-step": 1,
     "format-icons": {
       "headphone": "",
@@ -88,10 +88,9 @@
       "portable": "",
       "car": "",
       "default": [
-        "",
-        "",
-        "墳",
-        ""
+        "󰕿",
+        "󰖀",
+        "󰕾"
       ]
     }
   }

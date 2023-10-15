@@ -38,7 +38,7 @@ dap_vir.setup()
 --[[]]
 --[[ dap.configurations.c = dap.configurations.cpp ]]
 mason_dap.setup({
-	ensure_installed = { "codelldb", "delve", "python" },
+	ensure_installed = { "codelldb", "python" },
 	handlers = {}, -- sets up dap in the predefined manner
 })
 

@@ -10,11 +10,12 @@ local servers = {
 	"pyright",
 	"sqlls",
 	"clangd",
-	"asm_lsp",
+	--[[ "asm_lsp", ]]
 	"emmet_ls",
 	"dockerls",
 	"zls",
 	"svlangserver",
+	"nil_ls",
 }
 
 local settings = {

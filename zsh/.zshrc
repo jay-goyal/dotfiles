@@ -49,19 +49,19 @@ alias l='eza --color=always --group-directories-first' # my preferred listing
 alias la='eza --git -al --color=always --group-directories-first'  # all files and dirs
 alias ll='eza --git -l --color=always --group-directories-first'  # long format
 alias lt='eza -aT --color=always --group-directories-first' # tree listing
-alias mu='sudo reflector --latest 50 --sort rate --protocol https --verbose --save /etc/pacman.d/mirrorlist'
 alias lp='browser-sync start --server --files "./**/*"'
 
 # package manager
 alias pn='pnpm'
 alias pnx='pnpm dlx'
-alias in='sudo emerge -aUD --autounmask-continue'
-alias se='emerge --search'
-alias up='sudo emerge -auND --autounmask-continue --backtrack=100 --with-bdeps=y @world'
-alias rem='sudo emerge -aW'
-alias dcl='sudo emerge -ac'
-alias pcl='sudo eclean distfiles && sudo eclean-kernel -n 1'
-alias sync='sudo emerge --sync'
+# alias in='sudo emerge -aUD --autounmask-continue'
+# alias se='emerge --search'
+# alias up='sudo emerge -auND --autounmask-continue --backtrack=100 --with-bdeps=y @world'
+# alias rem='sudo emerge -aW'
+# alias dcl='sudo emerge -ac'
+# alias pcl='sudo eclean distfiles && sudo eclean-kernel -n 1'
+# alias sync='sudo emerge --sync'
+alias up='sudo nix-channel --update && sudo nixos-rebuild switch --upgrade && home-manager switch'
 
 # git aliases
 alias gs='git status'
@@ -75,8 +75,8 @@ alias gl='git log --oneline'
 alias gcl='git clone'
 
 # vpn
-alias vpnst="sudo systemctl start openvpn-client@oracle"
-alias vpnstp="sudo systemctl stop openvpn-client@oracle"
+alias vpnst="sudo systemctl start openvpn-oracle"
+alias vpnstp="sudo systemctl stop openvpn-oracle"
 
 # pnpm
 export PNPM_HOME="/home/jay/.local/share/pnpm"
@@ -86,13 +86,12 @@ export TMUXIFIER_LAYOUT_PATH="$HOME/.tmux_layouts"
 # Keybinds
 bindkey -s ^f "$HOME/.local/bin/tmux-sessionizer.sh\n"
 
-source /usr/share/zsh/site-functions/zsh-syntax-highlighting.zsh 2>/dev/null
-source /usr/share/zsh/site-functions/zsh-autosuggestions.zsh 2>/dev/null
+source $HOME/.nix-profile/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 2>/dev/null
+source $HOME/.nix-profile/share/zsh-autosuggestions/zsh-autosuggestions.zsh 2>/dev/null
 #eval "$(starship init zsh)"
-source $HOME/powerlevel10k/powerlevel10k.zsh-theme 2>/dev/null
+source $HOME/.nix-profile/share/zsh-powerlevel10k/powerlevel10k.zsh-theme 2>/dev/null
 eval "$(tmuxifier init -)"
 nitch
-
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
