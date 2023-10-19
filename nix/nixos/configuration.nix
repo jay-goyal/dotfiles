@@ -10,6 +10,7 @@
     ./vfio.nix
     ./nvidia.nix
     ./asus.nix
+    ./qemu.nix
   ];
 
   # Bootloader
@@ -104,7 +105,7 @@
   users.users.jay = {
     isNormalUser = true;
     description = "Jay Goyal";
-    extraGroups = [ "networkmanager" "wheel" "video" "audio" "libvirt"];
+    extraGroups = [ "networkmanager" "wheel" "video" "audio" "libvirtd" "kvm" "docker" ];
     shell = pkgs.zsh;
   };
 
@@ -118,6 +119,7 @@
     wget
     bluez
     glibc
+    glibc.static
     gcc
     binutils
     gnumake
@@ -128,6 +130,9 @@
     glib
     ntfs3g
     pciutils
+    freerdp
+    libiconv
+    virtiofsd
   ];
 
   # Hyprland
@@ -182,17 +187,6 @@
     alsa.support32Bit = true;
     pulse.enable = true;
     #jack.enable = true;
-  };
-
-  # Libvirt
-  virtualisation.libvirtd = {
-    enable = true;
-    qemu = {
-      ovmf.enable = true;
-      runAsRoot = false;
-    };
-    onBoot = "ignore";
-    onShutdown = "shutdown";
   };
 
   # Fonts

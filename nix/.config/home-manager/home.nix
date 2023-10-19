@@ -33,6 +33,7 @@
     kitty
     firefox
     neovim
+    vscode
     htop
     tmux
     virt-manager
@@ -47,6 +48,7 @@
     discord
     polychromatic
     youtube-music
+    zoom-us
     # dunst
 
     # Dev Utils
@@ -57,24 +59,17 @@
     zig
     verilog
     gtkwave
+    distrobox
+    stockfish
 
     # Utilities
-    # xdg-user-dirs
     eza
     stow
     wl-clipboard
     qemu
-    # inotify-tools
     ripgrep
     fzf
-    # feh
-    # swaybg
-    # swaylock-effects
-    # wlogout
-    # playerctl
-    # brightnessctl
-    # xdg-desktop-portal-hyprland
-    # gsettings-desktop-schemas
+    bc
 
   # Compression Utilities
     unzip
