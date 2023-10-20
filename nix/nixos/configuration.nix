@@ -133,6 +133,7 @@
     freerdp
     libiconv
     virtiofsd
+    alsa-lib
   ];
 
   # Hyprland
@@ -177,6 +178,7 @@
 
   # Shell
   programs.zsh.enable = true;
+  programs.nix-ld.enable = true;
 
   # Pipewire
   hardware.pulseaudio.enable = false;
