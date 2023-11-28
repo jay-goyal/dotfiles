@@ -1,16 +1,14 @@
 # Set a custom session root path. Default is `$HOME`.
 # Must be called before `initialize_session`.
-session_root "~/projects/ps/FCIL/"
+session_root "~/projects/personal/codecrafters-http-server-rust"
 
 # Create session with specified name if it does not already exist. If no
 # argument is given, session name will be based on layout file name.
-if initialize_session "fcil"; then
-  new_window "neovim"
-  run_cmd "conda activate fcil"
-  run_cmd nvim
-  new_window "python"
-  run_cmd "distrobox enter debian-dev"
-  run_cmd "conda activate fcil"
+if initialize_session "codecrafters-http-server-rust"; then
+  load_window "neovim"
+  new_window "cargo"
+  new_window "git"
+
   select_window 0
 fi
 

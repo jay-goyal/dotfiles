@@ -2,20 +2,25 @@ local servers = {
 	"lua_ls",
 	"tsserver",
 	"svelte",
-	"solidity",
-	"jdtls",
 	"cssls",
 	"jsonls",
 	"rust_analyzer",
 	"pyright",
-	"sqlls",
 	"clangd",
-	--[[ "asm_lsp", ]]
 	"emmet_ls",
 	"dockerls",
-	"zls",
-	"svlangserver",
 	"nil_ls",
+}
+
+local linters_and_formatters = {
+	-- formatters
+	"prettier",
+	"stylua",
+	"isort",
+	"black",
+	--linters
+	"eslint_d",
+	"ruff",
 }
 
 local settings = {
@@ -35,6 +40,9 @@ require("mason").setup(settings)
 require("mason-lspconfig").setup({
 	ensure_installed = servers,
 	automatic_installation = true,
+})
+require("mason-tool-installer").setup({
+	ensure_installed = linters_and_formatters
 })
 
 local lspconfig_status_ok, lspconfig = pcall(require, "lspconfig")

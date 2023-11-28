@@ -71,6 +71,7 @@ with lib.hm.gvariant;
         "user-theme@gnome-shell-extensions.gcampax.github.com"
         "caffeine@patapon.info"
         "drive-menu@gnome-shell-extensions.gcampax.github.com"
+        "cloudflare-warp-toggle@khaled.is-a.dev"
       ];
     };
 

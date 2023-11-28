@@ -23,12 +23,19 @@ local packages = {
 	},
 
 	-- LSP
-	"neovim/nvim-lspconfig", -- enable LSP
-	"williamboman/mason.nvim", -- simple to use language server installer
+	"neovim/nvim-lspconfig",          -- enable LSP
+	"williamboman/mason.nvim",        -- simple to use language server installer
 	"williamboman/mason-lspconfig.nvim", -- simple to use language server installer
-	"jose-elias-alvarez/null-ls.nvim", -- LSP diagnostics and code actions
-	"jay-babu/mason-null-ls.nvim",
 	"tamago324/nlsp-settings.nvim",
+	{
+		"stevearc/conform.nvim",
+		event = { "BufReadPre", "BufNewFile" },
+	},
+	{
+		"mfussenegger/nvim-lint",
+		event = { "BufReadPre", "BufNewFile" },
+	},
+	"WhoIsSethDaniel/mason-tool-installer.nvim",
 	{
 		"folke/trouble.nvim",
 		dependencies = { "nvim-tree/nvim-web-devicons" },
@@ -53,27 +60,26 @@ local packages = {
 
 	-- Coding
 	{ "shellRaining/hlchunk.nvim", event = { "UIEnter" } }, -- Scope Highlight
-	"windwp/nvim-autopairs", -- Autopairs, integrates with both cmp and treesitter
-	"numToStr/Comment.nvim", -- Easily comment stuff
+	"windwp/nvim-autopairs",                             -- Autopairs, integrates with both cmp and treesitter
+	"numToStr/Comment.nvim",                             -- Easily comment stuff
 	"JoosepAlviste/nvim-ts-context-commentstring",
 	"lewis6991/gitsigns.nvim",
 
 	-- Cmp Plugins
-	"hrsh7th/nvim-cmp", -- The completion plugin
-	"hrsh7th/cmp-path", -- path completions
-	"hrsh7th/cmp-cmdline", -- cmdline completions
+	"hrsh7th/nvim-cmp",      -- The completion plugin
+	"hrsh7th/cmp-path",      -- path completions
+	"hrsh7th/cmp-cmdline",   -- cmdline completions
 	"saadparwaiz1/cmp_luasnip", -- snippet completions
 	"hrsh7th/cmp-nvim-lsp",
-	{ "hrsh7th/cmp-nvim-lua", ft = "lua" },
+	{ "hrsh7th/cmp-nvim-lua",      ft = "lua" },
 
 	-- Snippets
-	"L3MON4D3/LuaSnip", --snippet engine
+	"L3MON4D3/LuaSnip",          --snippet engine
 	"rafamadriz/friendly-snippets", -- a bunch of snippets to use
 
 	-- Rust
 	{
 		"saecki/crates.nvim",
-		version = "v0.3.0",
 		ft = { "toml", "rust" },
 	},
 	{
@@ -94,16 +100,15 @@ local packages = {
 		ft = "python",
 		config = function(_, opts)
 			local path =
-				"~/.local/share/nvim/mason/packages/debugpy/venv/bin/python"
+			"~/.local/share/nvim/mason/packages/debugpy/venv/bin/python"
 			require("dap-python").setup(path)
 		end,
 	},
-	{ "AckslD/swenv.nvim", ft = "python" },
+	{ "AckslD/swenv.nvim",                        ft = "python" },
 
 	-- Telescope
 	{
 		"nvim-telescope/telescope.nvim",
-		version = "0.1.1",
 		-- or                          , branch = '0.1.x',
 		dependencies = { "nvim-lua/plenary.nvim" },
 	},
@@ -116,7 +121,6 @@ local packages = {
 	},
 	{
 		"utilyre/barbecue.nvim",
-		version = "*",
 		dependencies = {
 			"SmiteshP/nvim-navic",
 			"nvim-tree/nvim-web-devicons", -- optional dependency
@@ -146,16 +150,6 @@ local packages = {
 	"NvChad/nvim-colorizer.lua",
 	"tpope/vim-sleuth",
 	"tpope/vim-surround",
-	{
-		"folke/noice.nvim",
-		event = "VeryLazy",
-		dependencies = {
-			"MunifTanjim/nui.nvim",
-			"rcarriga/nvim-notify",
-		},
-	},
-	"MunifTanjim/nui.nvim",
-	"rcarriga/nvim-notify",
 	"stevearc/dressing.nvim",
 	{
 		"folke/flash.nvim",

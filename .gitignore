@@ -1,3 +1,5 @@
 config/tmux/plugins/*
 nix/nixos/result
 nix/nixos/hardware-configuration.nix
+scripts/.local/share/*
+scripts/.local/state/*

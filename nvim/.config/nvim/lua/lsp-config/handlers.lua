@@ -57,38 +57,34 @@ local function lsp_highlight_document(client)
 	end
 end
 
+vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
+	border = "rounded",
+})
+
 keymap("n", "<leader>gN", function()
 	vim.diagnostic.goto_prev({ border = "rounded" })
 end, opts)
-keymap("n", "<leader>gl", vim.diagnostic.open_float, opts)
+keymap("n", "<leader>gl", function()
+	vim.diagnostic.open_float({ border = "rounded" })
+end, opts)
 keymap("n", "<leader>gqn", function()
 	vim.diagnostic.goto_next({ border = "rounded" })
 end, opts)
-keymap("n", "<leader>gqq", vim.diagnostic.setloclist, opts)
+keymap("n", "<leader>gD", vim.lsp.buf.declaration, opts)
+keymap("n", "<leader>gd", vim.lsp.buf.definition, opts)
+keymap("n", "<leader>gk", vim.lsp.buf.hover, opts)
+keymap("n", "<leader>gR", vim.lsp.buf.rename, opts)
+keymap("n", "<leader>ca", vim.lsp.buf.code_action, opts)
+keymap("n", "<leader>gf", vim.lsp.buf.format, opts)
 
 vim.api.nvim_create_autocmd("LspAttach", {
 	group = vim.api.nvim_create_augroup("UserLspConfig", {}),
 	callback = function(ev)
-		local opts_local = { buffer = ev.buf }
 		vim.bo[ev.buf].omnifunc = "v:lua.vim.lsp.omnifunc"
-		keymap("n", "<leader>gD", vim.lsp.buf.declaration, opts_local)
-		keymap("n", "<leader>gd", vim.lsp.buf.definition, opts_local)
-		keymap("n", "<leader>gk", vim.lsp.buf.hover, opts_local)
-		-- keymap(bufnr, "n", "gi", ":lua vim.lsp.buf.implementation()<CR>", opts_local)
-		--[[ keymap( ]]
-		--[[ 	bufnr, ]]
-		--[[ 	"n", ]]
-		--[[ 	"<leader>gk", ]]
-		--[[ 	":lua vim.lsp.buf.signature_help()<CR>", ]]
-		--[[ 	opts_local ]]
-		--[[ ) ]]
-		keymap("n", "<leader>gR", vim.lsp.buf.rename, opts_local)
-		-- keymap(bufnr, "n", "gr", ":lua vim.lsp.buf.references()<CR>", opts_local)
-		-- keymap(bufnr, "n", "<leader>ca", ":lua vim.lsp.buf.code_action()<CR>", opts_local)
-		-- keymap(bufnr, "n", "<leader>f", ":lua vim.diagnostic.open_float()<CR>", opts_local)
-		keymap("n", "<leader>gf", vim.lsp.buf.format, opts_local)
 	end,
 })
+
+require("lspconfig.ui.windows").default_options.border = "rounded"
 
 M.on_attach = function(client, bufnr)
 	if client.name == "tsserver" then

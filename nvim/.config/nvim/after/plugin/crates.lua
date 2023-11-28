@@ -9,6 +9,9 @@ crates.setup({
 		enabled = true,
 		name = "crates.nvim",
 	},
+	cmp = {
+		enabled = true,
+	},
 	popup = {
 		autofocus = true,
 	},

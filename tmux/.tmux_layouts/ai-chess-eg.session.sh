@@ -8,12 +8,11 @@ if initialize_session "ai-chess-eg"; then
 
   # Create a new window inline within session layout definition.
   new_window "neovim"
-  run_cmd "distrobox enter debian-conda"
   run_cmd "conda activate ai-chess-eg"
   run_cmd "nvim"
 
   new_window "python"
-  run_cmd "distrobox enter debian-conda"
+  run_cmd "distrobox enter debian-dev"
   run_cmd "conda activate ai-chess-eg"
 
   select_window 0

@@ -49,7 +49,6 @@ null_ls.setup({
 		formatting.goimports_reviser,
 		formatting.golines,
 		formatting.zigfmt,
-		formatting.asmfmt,
 		diagnostics.eslint_d.with({ extra_filetypes = { "svelte" } }),
 		diagnostics.sqlfluff.with({ extra_args = { "--dialect", "mysql" } }),
 		diagnostics.ruff,
