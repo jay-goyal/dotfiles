@@ -1,5 +1,0 @@
-call_parentheses = "Always"
-quote_style = "ForceDouble"
-column_width = 80
-indent_type = "Spaces"
-indent_width = 4

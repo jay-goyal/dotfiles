@@ -17,7 +17,7 @@ conform.setup({
 				"--column-width",
 				"80",
 				"--indent-type",
-				"Tabs",
+				"Spaces",
 				"--indent-width",
 				"4",
 			})
@@ -36,7 +36,7 @@ conform.setup({
 		markdown = { "prettier" },
 		lua = { "stylua" },
 		rust = { "rustfmt" },
-		python = { "isort", "black" },
+		python = { "black" },
 	},
 	format_on_save = {
 		lsp_fallback = true,

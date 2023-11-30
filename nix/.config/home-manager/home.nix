@@ -40,30 +40,19 @@
     geogebra
     obs-studio
     vlc
-    # wofi
-    # networkmanagerapplet
-    # blueman
-    # pavucontrol
     slack
     gh
     discord
     polychromatic
-    youtube-music
-    zoom-us
     calibre
     obsidian
-    # dunst
 
     # Dev Utils
     rustup
     nodejs
     corepack
     bun
-    zig
-    verilog
-    gtkwave
     distrobox
-    zig
 
     # Utilities
     eza
@@ -74,7 +63,7 @@
     fzf
     bc
 
-  # Compression Utilities
+    # Compression Utilities
     unzip
     zip
     p7zip

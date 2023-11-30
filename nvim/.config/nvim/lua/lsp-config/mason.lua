@@ -16,7 +16,6 @@ local linters_and_formatters = {
 	-- formatters
 	"prettier",
 	"stylua",
-	"isort",
 	"black",
 	--linters
 	"eslint_d",
