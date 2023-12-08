@@ -54,14 +54,12 @@ alias lp='browser-sync start --server --files "./**/*"'
 # package manager
 alias pn='pnpm'
 alias pnx='pnpm dlx'
-# alias in='sudo emerge -aUD --autounmask-continue'
-# alias se='emerge --search'
-# alias up='sudo emerge -auND --autounmask-continue --backtrack=100 --with-bdeps=y @world'
-# alias rem='sudo emerge -aW'
-# alias dcl='sudo emerge -ac'
-# alias pcl='sudo eclean distfiles && sudo eclean-kernel -n 1'
-# alias sync='sudo emerge --sync'
-alias up='sudo nix-channel --update && sudo nixos-rebuild switch --upgrade && home-manager switch'
+alias in='sudo apt install'
+alias se='apt search'
+alias up='sudo apt update && sudo apt upgrade'
+alias rem='sudo apt remove'
+alias dcl='sudo apt autoremove'
+alias bup='brew update && brew upgrade'
 
 # git aliases
 alias gs='git status'
@@ -80,27 +78,19 @@ alias vpnstp="sudo systemctl stop openvpn-oracle"
 
 # pnpm
 export PNPM_HOME="/home/jay/.local/share/pnpm"
-export PATH="$HOME/crossdev/opt/bin/:$HOME/.cargo/bin:$HOME/.config/tmux/plugins/tmuxifier/bin/:$PATH"
+export PATH="$HOME/.local/share/pnpm:$HOME/.config/tmux/plugins/tmuxifier/bin/:$PATH"
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 export TMUXIFIER_LAYOUT_PATH="$HOME/.tmux_layouts"
 
 # Keybinds
 bindkey -s ^f "$HOME/.local/bin/tmux-sessionizer.sh\n"
 
-source $HOME/.nix-profile/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 2>/dev/null
-source $HOME/.nix-profile/share/zsh-autosuggestions/zsh-autosuggestions.zsh 2>/dev/null
+source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 2>/dev/null
+source /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh 2>/dev/null
 #eval "$(starship init zsh)"
-source $HOME/.nix-profile/share/zsh-powerlevel10k/powerlevel10k.zsh-theme 2>/dev/null
+source ~/powerlevel10k/powerlevel10k.zsh-theme 2> /dev/null
 eval "$(tmuxifier init -)"
 nitch
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-
-
-# pnpm
-export PNPM_HOME="/home/jay/.local/share/pnpm"
-case ":$PATH:" in
-  *":$PNPM_HOME:"*) ;;
-  *) export PATH="$PNPM_HOME:$PATH" ;;
-esac
-# pnpm end

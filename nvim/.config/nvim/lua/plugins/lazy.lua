@@ -23,9 +23,9 @@ local packages = {
 	},
 
 	-- LSP
-	"neovim/nvim-lspconfig",          -- enable LSP
+	"neovim/nvim-lspconfig",            -- enable LSP
 	{
-		"williamboman/mason.nvim",    -- simple to use language server installer
+		"williamboman/mason.nvim",      -- simple to use language server installer
 		dependencies = {
 			"williamboman/mason-lspconfig.nvim", -- simple to use language server installer
 			"tamago324/nlsp-settings.nvim",
@@ -33,15 +33,17 @@ local packages = {
 	},
 	"williamboman/mason-lspconfig.nvim", -- simple to use language server installer
 	"tamago324/nlsp-settings.nvim",
-	{
-		"stevearc/conform.nvim",
-		event = { "BufReadPre", "BufNewFile" },
-	},
-	{
-		"mfussenegger/nvim-lint",
-		event = { "BufReadPre", "BufNewFile" },
-	},
-	"WhoIsSethDaniel/mason-tool-installer.nvim",
+	--[[ { ]]
+	--[[ 	"stevearc/conform.nvim", ]]
+	--[[ 	event = { "BufReadPre", "BufNewFile" }, ]]
+	--[[ }, ]]
+	--[[ { ]]
+	--[[ 	"mfussenegger/nvim-lint", ]]
+	--[[ 	event = { "BufReadPre", "BufNewFile" }, ]]
+	--[[ }, ]]
+	--[[ "WhoIsSethDaniel/mason-tool-installer.nvim", ]]
+	"nvimtools/none-ls.nvim",
+	"jay-babu/mason-null-ls.nvim",
 	{
 		"folke/trouble.nvim",
 		dependencies = { "nvim-tree/nvim-web-devicons" },

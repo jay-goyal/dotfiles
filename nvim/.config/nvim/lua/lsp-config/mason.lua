@@ -9,17 +9,6 @@ local servers = {
 	"clangd",
 	"emmet_ls",
 	"dockerls",
-	"nil_ls",
-}
-
-local linters_and_formatters = {
-	-- formatters
-	"prettier",
-	"stylua",
-	"black",
-	--linters
-	"eslint_d",
-	"ruff",
 }
 
 local settings = {
@@ -40,8 +29,10 @@ require("mason-lspconfig").setup({
 	ensure_installed = servers,
 	automatic_installation = true,
 })
-require("mason-tool-installer").setup({
-	ensure_installed = linters_and_formatters
+
+require("mason-null-ls").setup({
+	ensure_installed = nil,
+	automatic_installation = true,
 })
 
 local lspconfig_status_ok, lspconfig = pcall(require, "lspconfig")
