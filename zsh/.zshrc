@@ -1,6 +1,8 @@
 HISTSIZE=10000
 SAVEHIST=10000
 HISTFILE=~/.cache/zshhistory
+FPATH="/home/linuxbrew/.linuxbrew/share/zsh/site-functions:${FPATH}"
+TERM=xterm-256color
 setopt appendhistory
 
 # Basic auto/tab complete:
@@ -71,6 +73,7 @@ alias gf='git pull'
 alias gd='git diff'
 alias gl='git log --oneline'
 alias gcl='git clone'
+alias nitch='~/nitch/nitch'
 
 # vpn
 alias vpnst="sudo systemctl start openvpn-oracle"
@@ -78,8 +81,8 @@ alias vpnstp="sudo systemctl stop openvpn-oracle"
 
 # pnpm
 export PNPM_HOME="/home/jay/.local/share/pnpm"
-export PATH="$HOME/.local/share/pnpm:$HOME/.config/tmux/plugins/tmuxifier/bin/:$PATH"
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+export PATH="$HOME/.local/share/pnpm:$HOME/.config/tmux/plugins/tmuxifier/bin/:$PATH"
 export TMUXIFIER_LAYOUT_PATH="$HOME/.tmux_layouts"
 
 # Keybinds
@@ -90,7 +93,23 @@ source /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh 2>/dev/null
 #eval "$(starship init zsh)"
 source ~/powerlevel10k/powerlevel10k.zsh-theme 2> /dev/null
 eval "$(tmuxifier init -)"
-nitch
+~/nitch/nitch
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/home/jay/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/home/jay/miniconda3/etc/profile.d/conda.sh" ]; then
+        . "/home/jay/miniconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/home/jay/miniconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
+

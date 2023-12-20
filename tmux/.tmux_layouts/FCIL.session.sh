@@ -9,7 +9,6 @@ if initialize_session "fcil"; then
   run_cmd "conda activate fcil"
   run_cmd nvim
   new_window "python"
-  run_cmd "distrobox enter debian-dev"
   run_cmd "conda activate fcil"
   select_window 0
 fi
