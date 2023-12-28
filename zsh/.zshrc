@@ -1,8 +1,6 @@
 HISTSIZE=10000
 SAVEHIST=10000
 HISTFILE=~/.cache/zshhistory
-FPATH="/home/linuxbrew/.linuxbrew/share/zsh/site-functions:${FPATH}"
-TERM=xterm-256color
 setopt appendhistory
 
 # Basic auto/tab complete:
@@ -61,7 +59,6 @@ alias se='apt search'
 alias up='sudo apt update && sudo apt upgrade'
 alias rem='sudo apt remove'
 alias dcl='sudo apt autoremove'
-alias bup='brew update && brew upgrade'
 
 # git aliases
 alias gs='git status'
@@ -81,9 +78,9 @@ alias vpnstp="sudo systemctl stop openvpn-oracle"
 
 # pnpm
 export PNPM_HOME="/home/jay/.local/share/pnpm"
-eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 export PATH="$HOME/.local/share/pnpm:$HOME/.config/tmux/plugins/tmuxifier/bin/:$PATH"
 export TMUXIFIER_LAYOUT_PATH="$HOME/.tmux_layouts"
+export TERM="xterm-256color"
 
 # Keybinds
 bindkey -s ^f "$HOME/.local/bin/tmux-sessionizer.sh\n"
@@ -91,12 +88,9 @@ bindkey -s ^f "$HOME/.local/bin/tmux-sessionizer.sh\n"
 source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 2>/dev/null
 source /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh 2>/dev/null
 #eval "$(starship init zsh)"
-source ~/powerlevel10k/powerlevel10k.zsh-theme 2> /dev/null
 eval "$(tmuxifier init -)"
+eval "$(starship init zsh)"
 ~/nitch/nitch
-
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!

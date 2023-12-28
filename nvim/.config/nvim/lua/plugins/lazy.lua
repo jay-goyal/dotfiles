@@ -42,7 +42,7 @@ local packages = {
 	--[[ 	event = { "BufReadPre", "BufNewFile" }, ]]
 	--[[ }, ]]
 	--[[ "WhoIsSethDaniel/mason-tool-installer.nvim", ]]
-	"nvimtools/none-ls.nvim",
+	{ "nvimtools/none-ls.nvim",    event = "VeryLazy" },
 	"jay-babu/mason-null-ls.nvim",
 	{
 		"folke/trouble.nvim",
@@ -79,7 +79,7 @@ local packages = {
 	"hrsh7th/cmp-cmdline",   -- cmdline completions
 	"saadparwaiz1/cmp_luasnip", -- snippet completions
 	"hrsh7th/cmp-nvim-lsp",
-	{ "hrsh7th/cmp-nvim-lua",      ft = "lua" },
+	{ "hrsh7th/cmp-nvim-lua", ft = "lua" },
 
 	-- Snippets
 	"L3MON4D3/LuaSnip",          --snippet engine
@@ -112,7 +112,7 @@ local packages = {
 			require("dap-python").setup(path)
 		end,
 	},
-	{ "AckslD/swenv.nvim",                        ft = "python" },
+	{ "AckslD/swenv.nvim",    ft = "python" },
 
 	-- Telescope
 	{
