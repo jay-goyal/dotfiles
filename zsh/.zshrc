@@ -87,10 +87,12 @@ bindkey -s ^f "$HOME/.local/bin/tmux-sessionizer.sh\n"
 
 source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 2>/dev/null
 source /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh 2>/dev/null
-#eval "$(starship init zsh)"
+source ~/powerlevel10k/powerlevel10k.zsh-theme 2> /dev/null
 eval "$(tmuxifier init -)"
-eval "$(starship init zsh)"
 ~/nitch/nitch
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
