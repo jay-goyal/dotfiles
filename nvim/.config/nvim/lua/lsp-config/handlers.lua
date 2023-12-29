@@ -93,7 +93,7 @@ M.on_attach = function(client, bufnr)
 	if client.name == "rust_analyzer" then
 		vim.keymap.set(
 			"n",
-			"<leader>grk",
+			"<leader>gk",
 			rt.hover_actions.hover_actions,
 			{ buffer = bufnr }
 		)
@@ -105,7 +105,7 @@ M.on_attach = function(client, bufnr)
 		)
 		vim.keymap.set(
 			"n",
-			"<leader>grp",
+			"<leader>gp",
 			rt.parent_module.parent_module,
 			{ buffer = bufnr }
 		)

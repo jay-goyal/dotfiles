@@ -20,13 +20,13 @@ local packages = {
 	},
 
 	-- LSP
-	"neovim/nvim-lspconfig", -- enable LSP
+	"neovim/nvim-lspconfig",                          -- enable LSP
 	{
-		"williamboman/mason.nvim", -- simple to use language server installer
+		"williamboman/mason.nvim",                    -- simple to use language server installer
 		dependencies = "williamboman/mason-lspconfig.nvim", -- simple to use language server installer
 	},
-	"williamboman/mason-lspconfig.nvim", -- simple to use language server installer
-	{ "nvimtools/none-ls.nvim", event = "VeryLazy" },
+	"williamboman/mason-lspconfig.nvim",              -- simple to use language server installer
+	{ "nvimtools/none-ls.nvim",    event = "VeryLazy" },
 	"jay-babu/mason-null-ls.nvim",
 
 	-- Rust
@@ -56,20 +56,20 @@ local packages = {
 
 	-- Coding
 	{ "shellRaining/hlchunk.nvim", event = { "UIEnter" } }, -- Scope Highlight
-	"windwp/nvim-autopairs", -- Autopairs, integrates with both cmp and treesitter
-	"numToStr/Comment.nvim", -- Easily comment stuff
+	{ "windwp/nvim-autopairs",     event = "InsertEnter" }, -- Autopairs, integrates with both cmp and treesitter
+	"numToStr/Comment.nvim",                             -- Easily comment stuff
 	"lewis6991/gitsigns.nvim",
 
 	-- Cmp Plugins
-	"hrsh7th/nvim-cmp", -- The completion plugin
-	"hrsh7th/cmp-path", -- path completions
-	"hrsh7th/cmp-cmdline", -- cmdline completions
+	"hrsh7th/nvim-cmp",      -- The completion plugin
+	"hrsh7th/cmp-path",      -- path completions
+	"hrsh7th/cmp-cmdline",   -- cmdline completions
 	"saadparwaiz1/cmp_luasnip", -- snippet completions
 	"hrsh7th/cmp-nvim-lsp",
-	{ "hrsh7th/cmp-nvim-lua", ft = "lua" },
+	{ "hrsh7th/cmp-nvim-lua",                     ft = "lua" },
 
 	-- Snippets
-	"L3MON4D3/LuaSnip", --snippet engine
+	"L3MON4D3/LuaSnip",          --snippet engine
 	"rafamadriz/friendly-snippets", -- a bunch of snippets to use
 
 	-- Telescope
