@@ -84,6 +84,7 @@ export TERM="xterm-256color"
 
 # Keybinds
 bindkey -s ^f "$HOME/.local/bin/tmux-sessionizer.sh\n"
+bindkey -s ^e "cd $HOME/dotfiles && nvim . && cd -\n"
 
 source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 2>/dev/null
 source /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh 2>/dev/null

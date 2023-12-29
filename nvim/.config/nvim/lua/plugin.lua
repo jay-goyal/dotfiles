@@ -29,17 +29,31 @@ local packages = {
 	{ "nvimtools/none-ls.nvim",    event = "VeryLazy" },
 	"jay-babu/mason-null-ls.nvim",
 
+	-- DAP
+	"mfussenegger/nvim-dap",
+	"rcarriga/nvim-dap-ui",
+	"theHamsta/nvim-dap-virtual-text",
+	"jay-babu/mason-nvim-dap.nvim",
+
 	-- Rust
 	{
 		"saecki/crates.nvim",
 		ft = { "toml", "rust" },
 	},
 	{
-		"simrat39/rust-tools.nvim",
-		ft = "rust",
-		dependencies = "neovim/nvim-lspconfig",
-		config = function()
-			require("rust-tools").setup()
+		"mrcjkb/rustaceanvim",
+		version = "^3", -- Recommended
+		ft = { "rust" },
+	},
+
+	-- Python
+	{
+		"mfussenegger/nvim-dap-python",
+		ft = "python",
+		config = function(_, opts)
+			local path =
+			"~/.local/share/nvim/mason/packages/debugpy/venv/bin/python"
+			require("dap-python").setup(path)
 		end,
 	},
 
@@ -102,6 +116,11 @@ local packages = {
 	},
 	"tpope/vim-sleuth",
 	"tpope/vim-surround",
+	{
+		"folke/trouble.nvim",
+		dependencies = { "nvim-tree/nvim-web-devicons" },
+		opts = {},
+	},
 }
 
 local lazy_opts = {

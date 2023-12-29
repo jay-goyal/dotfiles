@@ -46,3 +46,11 @@ keymap("n", "<leader>gg", ":Neogit<CR>", opts)
 -- Page Navigation
 keymap("n", "<C-d>", "<C-d>zz", opts)
 keymap("n", "<C-u>", "<C-u>zz", opts)
+
+-- Trouble
+keymap("n", "<leader>gta", function()
+    require("trouble").toggle()
+end, opts)
+keymap("n", "<leader>gtq", function()
+    require("trouble").toggle("quickfix")
+end, opts)

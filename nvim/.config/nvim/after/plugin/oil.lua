@@ -7,6 +7,8 @@ oil.setup({
 	skip_confirm_for_simple_edits = true,
 	keymaps = {
 		["H"] = "actions.parent",
-		["gh"] = "actions.toggle_hidden",
+	},
+	view_options = {
+		show_hidden = true,
 	},
 })
