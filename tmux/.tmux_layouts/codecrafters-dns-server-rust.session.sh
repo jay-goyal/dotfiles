@@ -4,7 +4,7 @@ session_root "~/projects/personal/codecrafters-dns-server-rust"
 
 # Create session with specified name if it does not already exist. If no
 # argument is given, session name will be based on layout file name.
-if initialize_session "codecrafters-dns-server-rust"; then
+if initialize_session "dns-server"; then
   load_window "neovim"
   new_window "test"
   new_window "git"

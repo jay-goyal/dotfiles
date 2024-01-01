@@ -110,3 +110,6 @@ fi
 unset __conda_setup
 # <<< conda initialize <<<
 
+if [ -f "/home/jay/miniconda3/etc/profile.d/mamba.sh" ]; then
+    . "/home/jay/miniconda3/etc/profile.d/mamba.sh"
+fi
