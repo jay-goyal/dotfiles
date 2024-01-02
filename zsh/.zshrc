@@ -54,11 +54,7 @@ alias lp='browser-sync start --server --files "./**/*"'
 # package manager
 alias pn='pnpm'
 alias pnx='pnpm dlx'
-alias in='sudo apt install'
-alias se='apt search'
-alias up='sudo apt update && sudo apt upgrade'
-alias rem='sudo apt remove'
-alias dcl='sudo apt autoremove'
+alias zyp='sudo zypper'
 
 # git aliases
 alias gs='git status'
@@ -83,8 +79,7 @@ export TMUXIFIER_LAYOUT_PATH="$HOME/.tmux_layouts"
 export TERM="xterm-256color"
 
 # Keybinds
-bindkey -s ^f "$HOME/.local/bin/tmux-sessionizer.sh\n"
-bindkey -s ^e "cd $HOME/dotfiles && nvim . && cd -\n"
+bindkey -s "^f" "$HOME/.local/bin/tmux-sessionizer.sh\n"
 
 source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 2>/dev/null
 source /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh 2>/dev/null
@@ -109,7 +104,3 @@ else
 fi
 unset __conda_setup
 # <<< conda initialize <<<
-
-if [ -f "/home/jay/miniconda3/etc/profile.d/mamba.sh" ]; then
-    . "/home/jay/miniconda3/etc/profile.d/mamba.sh"
-fi
