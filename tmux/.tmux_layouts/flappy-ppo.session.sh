@@ -1,5 +1,5 @@
 session_root "~/projects/personal/flappy-ppo"
-if initialize_session "flappy"; then
+if initialize_session "flappy-ppo"; then
   load_window "neovim"
   new_window "cargo"
   new_window "git"

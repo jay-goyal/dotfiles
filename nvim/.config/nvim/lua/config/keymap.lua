@@ -31,6 +31,10 @@ keymap("v", "<leader>d", "\"_d", opts)
 
 -- Buffer Navigation
 keymap("n", "<leader>q", ":bp<bar>sp<bar>bn<bar>bd<CR>", opts)
+keymap("n", "<C-e>", function()
+    local result = vim.treesitter.get_captures_at_cursor(0)
+    print(vim.inspect(result))
+end, opts)
 
 -- Misc
 keymap("n", "<leader>so", ":source %<CR>", opts)

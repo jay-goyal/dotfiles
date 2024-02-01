@@ -9,7 +9,7 @@ local packages = {
 		"folke/tokyonight.nvim",
 		lazy = false,
 		priority = 1000,
-		opts = {},
+		opts = { style = "night" },
 	},
 
 	-- File Explorer
@@ -71,7 +71,11 @@ local packages = {
 	-- Coding
 	{ "shellRaining/hlchunk.nvim", event = { "UIEnter" } }, -- Scope Highlight
 	{ "windwp/nvim-autopairs",     event = "InsertEnter" }, -- Autopairs, integrates with both cmp and treesitter
-	"numToStr/Comment.nvim",                             -- Easily comment stuff
+	{
+		"numToStr/Comment.nvim",                         -- Easily comment stuff
+		lazy = false,
+		opts = { mapping = { basic = true, extra = false } },
+	},
 	"lewis6991/gitsigns.nvim",
 
 	-- Cmp Plugins
@@ -110,15 +114,22 @@ local packages = {
 	"christoomey/vim-tmux-navigator",
 
 	-- Misc
-	{
-		"folke/todo-comments.nvim",
-		dependencies = { "nvim-lua/plenary.nvim" },
-	},
 	"tpope/vim-sleuth",
 	"tpope/vim-surround",
 	{
 		"folke/trouble.nvim",
 		dependencies = { "nvim-tree/nvim-web-devicons" },
+		opts = {},
+	},
+	{
+		"folke/todo-comments.nvim",
+		dependencies = { "nvim-lua/plenary.nvim" },
+	},
+
+	-- Hard time
+	{
+		"m4xshen/hardtime.nvim",
+		dependencies = { "MunifTanjim/nui.nvim", "nvim-lua/plenary.nvim" },
 		opts = {},
 	},
 }

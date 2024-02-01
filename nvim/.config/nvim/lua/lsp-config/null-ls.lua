@@ -37,7 +37,12 @@ null_ls.setup({
 		}),
 		formatting.rustfmt,
 		formatting.black.with({ extra_args = { "--fast" } }),
-		formatting.clang_format,
+		formatting.clang_format.with({
+			extra_args = {
+				"--style",
+				"\"{BasedOnStyle: Google, IndentWidth: 4}\"",
+			},
+		}),
 		diagnostics.ruff,
 	},
 })

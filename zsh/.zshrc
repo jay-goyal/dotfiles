@@ -69,20 +69,21 @@ alias gcl='git clone'
 alias nitch='~/nitch/nitch'
 
 # vpn
-alias vpnst="sudo systemctl start openvpn-oracle"
-alias vpnstp="sudo systemctl stop openvpn-oracle"
+alias vpnst="warp-cli connect"
+alias vpnstp="warp-cli disconnect"
 
 # pnpm
 export PNPM_HOME="/home/jay/.local/share/pnpm"
 export PATH="$HOME/.local/share/pnpm:$HOME/.config/tmux/plugins/tmuxifier/bin/:$PATH"
 export TMUXIFIER_LAYOUT_PATH="$HOME/.tmux_layouts"
 export TERM="xterm-256color"
+export SHELL="/usr/bin/zsh"
 
 # Keybinds
 bindkey -s "^f" "$HOME/.local/bin/tmux-sessionizer.sh\n"
 
-source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 2>/dev/null
-source /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh 2>/dev/null
+source $HOME/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 2>/dev/null
+source $HOME/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh 2>/dev/null
 source ~/powerlevel10k/powerlevel10k.zsh-theme 2> /dev/null
 eval "$(tmuxifier init -)"
 ~/nitch/nitch
