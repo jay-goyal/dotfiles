@@ -1,3 +1,7 @@
+" Plugins
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-commentary'
+
 " Basic Setup
 set scrolloff=10
 set showmode
@@ -8,7 +12,7 @@ set visualbell
 set ignorecase
 set smartcase
 set incsearch
-set hlsearch
+set nohlsearch
 let mapleader = " "
 imap jk <Esc>
 

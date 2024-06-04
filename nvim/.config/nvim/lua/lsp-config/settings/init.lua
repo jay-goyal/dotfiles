@@ -1,0 +1,1 @@
+require("lsp-config.settings.rust_analyzer")

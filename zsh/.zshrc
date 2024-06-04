@@ -4,6 +4,7 @@ HISTFILE=~/.cache/zshhistory
 setopt appendhistory
 
 # Basic auto/tab complete:
+source ~/.zsh/conda-zsh-completion/conda-zsh-completion.plugin.zsh
 autoload -U compinit
 zstyle ':completion:*' menu select
 zmodload zsh/complist
@@ -39,6 +40,13 @@ ex ()
 # C file running
 com() {gcc $1.c -o $1 && ./$1}
 
+# Cross Compilation
+export PREFIX="$HOME/opt/cross"
+export PATH="$PREFIX/bin:$PATH"
+
+# nitch
+alias nitch="~/nitch/nitch"
+
 # other commands
 alias c="clear"
 alias v="nvim"
@@ -66,15 +74,34 @@ alias gf='git pull'
 alias gd='git diff'
 alias gl='git log --oneline'
 alias gcl='git clone'
-alias nitch='~/nitch/nitch'
+alias gr='git remote'
 
 # vpn
 alias vpnst="warp-cli connect"
+alias vpnstt="warp-cli status"
 alias vpnstp="warp-cli disconnect"
+
+# ROS Init
+rosh() {
+  if source /opt/ros/humble/setup.zsh; then
+    source ./install/setup.zsh 2> /dev/null
+    eval "$(register-python-argcomplete3 colcon)"
+    eval "$(register-python-argcomplete3 ros2)"
+  fi
+}
+
+roshc() {
+  source ./install/setup.zsh 2> /dev/null
+}
 
 # pnpm
 export PNPM_HOME="/home/jay/.local/share/pnpm"
-export PATH="$HOME/.local/share/pnpm:$HOME/.config/tmux/plugins/tmuxifier/bin/:$PATH"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end
+export PATH="$PNPM_HOME:$HOME/.config/tmux/plugins/tmuxifier/bin/:$PATH"
 export TMUXIFIER_LAYOUT_PATH="$HOME/.tmux_layouts"
 export TERM="xterm-256color"
 export SHELL="/usr/bin/zsh"
@@ -86,7 +113,7 @@ source $HOME/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 2>/dev/nul
 source $HOME/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh 2>/dev/null
 source ~/powerlevel10k/powerlevel10k.zsh-theme 2> /dev/null
 eval "$(tmuxifier init -)"
-~/nitch/nitch
+$HOME/nitch/nitch
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh

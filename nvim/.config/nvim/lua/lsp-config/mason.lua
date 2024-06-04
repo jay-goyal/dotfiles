@@ -5,6 +5,7 @@ local servers = {
 	"pyright",
 	"clangd",
 	"dockerls",
+	"ruff_lsp",
 }
 
 local settings = {
@@ -28,7 +29,6 @@ require("mason-lspconfig").setup({
 
 require("mason-null-ls").setup({
 	ensure_installed = nil,
-	automatic_installation = { exclude = { "rustfmt" } },
 })
 
 local lspconfig_status_ok, lspconfig = pcall(require, "lspconfig")

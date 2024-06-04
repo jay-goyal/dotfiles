@@ -6,3 +6,4 @@ end
 require("lsp-config.handlers").setup()
 require("lsp-config.null-ls")
 require("lsp-config.mason")
+require("lsp-config.settings")

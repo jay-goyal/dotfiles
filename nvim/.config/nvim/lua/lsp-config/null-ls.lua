@@ -35,7 +35,6 @@ null_ls.setup({
 				"4",
 			},
 		}),
-		formatting.rustfmt,
 		formatting.black.with({ extra_args = { "--fast" } }),
 		formatting.clang_format.with({
 			extra_args = {
@@ -43,6 +42,5 @@ null_ls.setup({
 				"\"{BasedOnStyle: Google, IndentWidth: 4}\"",
 			},
 		}),
-		diagnostics.ruff,
 	},
 })

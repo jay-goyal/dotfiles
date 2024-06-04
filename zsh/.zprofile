@@ -1,5 +1,4 @@
 export XCURSOR_SIZE=32
-export QT_QPA_PLATFORMTHEME=qt5ct
 export KITTY_DISABLE_WAYLAND=1
 export GTK_THEME="Catppuccin-Mocha-Standard-Lavender-Dark"
 #export XDG_CURRENT_DESKTOP="Hyprland"

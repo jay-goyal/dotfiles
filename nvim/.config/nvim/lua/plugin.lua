@@ -15,7 +15,6 @@ local packages = {
 	-- File Explorer
 	{
 		"stevearc/oil.nvim",
-		-- Optional dependencies
 		dependencies = { "nvim-tree/nvim-web-devicons" },
 	},
 
@@ -42,7 +41,7 @@ local packages = {
 	},
 	{
 		"mrcjkb/rustaceanvim",
-		version = "^3", -- Recommended
+		version = "^4", -- Recommended
 		ft = { "rust" },
 	},
 
@@ -127,11 +126,11 @@ local packages = {
 	},
 
 	-- Hard time
-	{
-		"m4xshen/hardtime.nvim",
-		dependencies = { "MunifTanjim/nui.nvim", "nvim-lua/plenary.nvim" },
-		opts = {},
-	},
+	-- {
+	-- 	"m4xshen/hardtime.nvim",
+	-- 	dependencies = { "MunifTanjim/nui.nvim", "nvim-lua/plenary.nvim" },
+	-- 	opts = {},
+	-- },
 }
 
 local lazy_opts = {
