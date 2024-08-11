@@ -1,7 +1,6 @@
 local servers = {
 	"lua_ls",
 	"jsonls",
-	"rust_analyzer",
 	"pyright",
 	"clangd",
 	"dockerls",
@@ -27,8 +26,10 @@ require("mason-lspconfig").setup({
 	automatic_installation = true,
 })
 
+
 require("mason-null-ls").setup({
 	ensure_installed = nil,
+	automatic_installation = true,
 })
 
 local lspconfig_status_ok, lspconfig = pcall(require, "lspconfig")

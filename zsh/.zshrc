@@ -44,9 +44,6 @@ com() {gcc $1.c -o $1 && ./$1}
 export PREFIX="$HOME/opt/cross"
 export PATH="$PREFIX/bin:$PATH"
 
-# nitch
-alias nitch="~/nitch/nitch"
-
 # other commands
 alias c="clear"
 alias v="nvim"
@@ -113,7 +110,6 @@ source $HOME/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 2>/dev/nul
 source $HOME/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh 2>/dev/null
 source ~/powerlevel10k/powerlevel10k.zsh-theme 2> /dev/null
 eval "$(tmuxifier init -)"
-$HOME/nitch/nitch
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
@@ -132,3 +128,10 @@ else
 fi
 unset __conda_setup
 # <<< conda initialize <<<
+
+# fnm
+FNM_PATH="/home/jay/.local/share/fnm"
+if [ -d "$FNM_PATH" ]; then
+  export PATH="/home/jay/.local/share/fnm:$PATH"
+  eval "`fnm env`"
+fi

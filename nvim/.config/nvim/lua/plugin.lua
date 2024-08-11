@@ -18,43 +18,13 @@ local packages = {
 		dependencies = { "nvim-tree/nvim-web-devicons" },
 	},
 
-	-- LSP
-	"neovim/nvim-lspconfig",                          -- enable LSP
-	{
-		"williamboman/mason.nvim",                    -- simple to use language server installer
-		dependencies = "williamboman/mason-lspconfig.nvim", -- simple to use language server installer
-	},
-	"williamboman/mason-lspconfig.nvim",              -- simple to use language server installer
-	{ "nvimtools/none-ls.nvim",    event = "VeryLazy" },
-	"jay-babu/mason-null-ls.nvim",
-
-	-- DAP
-	"mfussenegger/nvim-dap",
-	"rcarriga/nvim-dap-ui",
-	"theHamsta/nvim-dap-virtual-text",
-	"jay-babu/mason-nvim-dap.nvim",
-
-	-- Rust
-	{
-		"saecki/crates.nvim",
-		ft = { "toml", "rust" },
-	},
-	{
-		"mrcjkb/rustaceanvim",
-		version = "^4", -- Recommended
-		ft = { "rust" },
-	},
-
-	-- Python
-	{
-		"mfussenegger/nvim-dap-python",
-		ft = "python",
-		config = function(_, opts)
-			local path =
-			"~/.local/share/nvim/mason/packages/debugpy/venv/bin/python"
-			require("dap-python").setup(path)
-		end,
-	},
+	-- Cmp Plugins
+	"hrsh7th/nvim-cmp",      -- The completion plugin
+	"hrsh7th/cmp-path",      -- path completions
+	"hrsh7th/cmp-cmdline",   -- cmdline completions
+	"saadparwaiz1/cmp_luasnip", -- snippet completions
+	"hrsh7th/cmp-nvim-lsp",
+	{ "hrsh7th/cmp-nvim-lua",      ft = "lua" },
 
 	-- Treesitter
 	{
@@ -76,14 +46,6 @@ local packages = {
 		opts = { mapping = { basic = true, extra = false } },
 	},
 	"lewis6991/gitsigns.nvim",
-
-	-- Cmp Plugins
-	"hrsh7th/nvim-cmp",      -- The completion plugin
-	"hrsh7th/cmp-path",      -- path completions
-	"hrsh7th/cmp-cmdline",   -- cmdline completions
-	"saadparwaiz1/cmp_luasnip", -- snippet completions
-	"hrsh7th/cmp-nvim-lsp",
-	{ "hrsh7th/cmp-nvim-lua",                     ft = "lua" },
 
 	-- Snippets
 	"L3MON4D3/LuaSnip",          --snippet engine
@@ -107,6 +69,50 @@ local packages = {
 			"SmiteshP/nvim-navic",
 			"nvim-tree/nvim-web-devicons", -- optional dependency
 		},
+	},
+
+	-- LSP
+	"neovim/nvim-lspconfig",                          -- enable LSP
+	{
+		"williamboman/mason.nvim",                    -- simple to use language server installer
+		dependencies = "williamboman/mason-lspconfig.nvim", -- simple to use language server installer
+	},
+	"williamboman/mason-lspconfig.nvim",              -- simple to use language server installer
+	{
+		"nvimtools/none-ls.nvim",
+		dependencies = {
+			"nvimtools/none-ls-extras.nvim",
+		},
+		event = "VeryLazy"
+	},
+	"jay-babu/mason-null-ls.nvim",
+
+	-- DAP
+	"mfussenegger/nvim-dap",
+	"rcarriga/nvim-dap-ui",
+	"theHamsta/nvim-dap-virtual-text",
+	"jay-babu/mason-nvim-dap.nvim",
+
+	-- Rust
+	{
+		"saecki/crates.nvim",
+		ft = { "toml", "rust" },
+	},
+	{
+		'mrcjkb/rustaceanvim',
+		version = '^5', -- Recommended
+		lazy = false, -- This plugin is already lazy
+	},
+
+	-- Python
+	{
+		"mfussenegger/nvim-dap-python",
+		ft = "python",
+		config = function(_, opts)
+			local path =
+			"~/.local/share/nvim/mason/packages/debugpy/venv/bin/python"
+			require("dap-python").setup(path)
+		end,
 	},
 
 	-- TMUX
