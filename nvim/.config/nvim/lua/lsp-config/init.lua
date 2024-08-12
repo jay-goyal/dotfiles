@@ -4,6 +4,6 @@ if not status_ok then
 end
 
 require("lsp-config.handlers").setup()
-require("lsp-config.null-ls")
 require("lsp-config.mason")
+require("lsp-config.null-ls")
 require("lsp-config.settings")

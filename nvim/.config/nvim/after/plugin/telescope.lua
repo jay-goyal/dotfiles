@@ -4,6 +4,7 @@ if not status_ok then
 end
 
 telescope.load_extension("fzf")
+telescope.load_extension("ui-select")
 
 local actions = require("telescope.actions")
 local builtin = require("telescope.builtin")
@@ -16,8 +17,8 @@ keymap("n", "<leader>fr", builtin.live_grep, opts)
 telescope.setup({
 	defaults = {
 		file_ignore_patterns = { "node_modules", ".git" },
-		prompt_prefix = "   ",
-		selection_caret = "  ",
+		prompt_prefix = "  ",
+		selection_caret = " ",
 		entry_prefix = "  ",
 		sorting_strategy = "ascending",
 		layout_strategy = "horizontal",
@@ -97,6 +98,7 @@ telescope.setup({
 			override_file_sorter = true,
 			case_mode = "smart_case",
 		},
+		["ui-select"] = {require("telescope.themes").get_dropdown({})}
 	},
 	pickers = {
 		find_files = {

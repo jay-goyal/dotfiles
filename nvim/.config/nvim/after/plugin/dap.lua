@@ -21,50 +21,25 @@ keymap("n", "<leader>bb", dap.toggle_breakpoint, opts)
 keymap("n", "<leader>bc", dap.continue, opts)
 keymap("n", "<leader>bn", dap.step_over, opts)
 keymap("n", "<leader>bN", dap.step_into, opts)
+keymap("n", "<leader>bo", dap.step_out, opts)
 keymap("n", "<leader>bt", dap_ui.toggle, opts)
-keymap("n", "<leader>br", function()
-	dap_ui.open({ reset = true })
-end, opts)
+keymap("n", "<leader>br", dap.restart, opts)
 keymap({ "n", "v" }, "<leader>bh", dap_wid.hover, opts)
 
 dap_vir.setup()
 
 mason_dap.setup({
-	ensure_installed = { "codelldb", "python" },
+	ensure_installed = { "codelldb" },
 	handlers = {}, -- sets up dap in the predefined manner
 })
-
-dap.adapters.codelldb = {
-	type = "server",
-	host = "127.0.0.1",
-	port = 13000,
-}
-
-dap.configurations.cpp = {
-	{
-		name = "Launch",
-		type = "codelldb",
-		request = "launch",
-		program = function()
-			return vim.fn.input(
-				"Path to executable: ",
-				vim.fn.getcwd() .. "/",
-				"file"
-			)
-		end,
-		command = "/usr/bin/lldb-vscode", -- adjust as needed
-		cwd = "${workspaceFolder}",
-		stopOnEntry = false,
-		args = {},
-	},
-}
-
-dap.configurations.c = dap.configurations.cpp
 
 -- DAP UI
 dap_ui.setup()
 
-dap.listeners.after.event_initialized["dapui_config"] = function()
+dap.listeners.before.attach["dapui_config"] = function()
+	dap_ui.open()
+end
+dap.listeners.before.launch["dapui_config"] = function()
 	dap_ui.open()
 end
 dap.listeners.before.event_terminated["dapui_config"] = function()

@@ -46,7 +46,7 @@ local function lsp_highlight_document(client)
         autocmd CursorHold <buffer> lua vim.lsp.buf.document_highlight()
         autocmd CursorMoved <buffer> lua vim.lsp.buf.clear_references()
       augroup END
-    ]],
+]],
 			false
 		)
 	end
@@ -56,26 +56,25 @@ vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
 	border = "rounded",
 })
 
-keymap("n", "<leader>gN", function()
-	vim.diagnostic.goto_prev({ border = "rounded" })
-end, opts)
-keymap("n", "<leader>gl", function()
-	vim.diagnostic.open_float({ border = "rounded" })
-end, opts)
-keymap("n", "<leader>gqn", function()
-	vim.diagnostic.goto_next({ border = "rounded" })
-end, opts)
-keymap("n", "<leader>gD", vim.lsp.buf.declaration, opts)
-keymap("n", "<leader>gd", vim.lsp.buf.definition, opts)
-keymap("n", "<leader>gk", vim.lsp.buf.hover, opts)
-keymap("n", "<leader>gR", vim.lsp.buf.rename, opts)
-keymap("n", "<leader>gca", vim.lsp.buf.code_action, opts)
-keymap("n", "<leader>gf", vim.lsp.buf.format, opts)
-
 vim.api.nvim_create_autocmd("LspAttach", {
 	group = vim.api.nvim_create_augroup("UserLspConfig", {}),
 	callback = function(ev)
 		vim.bo[ev.buf].omnifunc = "v:lua.vim.lsp.omnifunc"
+		keymap("n", "<leader>gN", function()
+			vim.diagnostic.goto_prev({ border = "rounded" })
+		end, opts)
+		keymap("n", "<leader>gl", function()
+			vim.diagnostic.open_float({ border = "rounded" })
+		end, opts)
+		keymap("n", "<leader>gqn", function()
+			vim.diagnostic.goto_next({ border = "rounded" })
+		end, opts)
+		keymap("n", "<leader>gD", vim.lsp.buf.declaration, opts)
+		keymap("n", "<leader>gd", vim.lsp.buf.definition, opts)
+		keymap("n", "<leader>gk", vim.lsp.buf.hover, opts)
+		keymap("n", "<leader>gR", vim.lsp.buf.rename, opts)
+		keymap("n", "<leader>gca", vim.lsp.buf.code_action, opts)
+		keymap("n", "<leader>gf", vim.lsp.buf.format, opts)
 	end,
 })
 

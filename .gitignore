@@ -4,3 +4,4 @@ nix/nixos/hardware-configuration.nix
 scripts/.local/share/*
 scripts/.local/share/*
 scripts/.local/bin/*vcs*
+*.back
