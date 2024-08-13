@@ -19,12 +19,12 @@ local packages = {
 	},
 
 	-- Cmp Plugins
-	"hrsh7th/nvim-cmp", -- The completion plugin
-	"hrsh7th/cmp-path", -- path completions
-	"hrsh7th/cmp-cmdline", -- cmdline completions
-	"saadparwaiz1/cmp_luasnip", -- snippet completions
+	"hrsh7th/nvim-cmp",
+	"hrsh7th/cmp-path",
+	"hrsh7th/cmp-cmdline",
+	"saadparwaiz1/cmp_luasnip",
 	"hrsh7th/cmp-nvim-lsp",
-	{ "hrsh7th/cmp-nvim-lua", ft = "lua" },
+	{ "hrsh7th/cmp-nvim-lua",      ft = "lua" },
 
 	-- Treesitter
 	{
@@ -39,11 +39,11 @@ local packages = {
 
 	-- Coding
 	{ "shellRaining/hlchunk.nvim", event = { "UIEnter" } }, -- Scope Highlight
-	{ "windwp/nvim-autopairs", event = "InsertEnter" }, -- Autopairs, integrates with both cmp and treesitter
+	{ "windwp/nvim-autopairs",     event = "InsertEnter" }, -- Autopairs, integrates with both cmp and treesitter
 	"lewis6991/gitsigns.nvim",
 
 	-- Snippets
-	"L3MON4D3/LuaSnip", --snippet engine
+	"L3MON4D3/LuaSnip",          --snippet engine
 	"rafamadriz/friendly-snippets", -- a bunch of snippets to use
 
 	-- Telescope

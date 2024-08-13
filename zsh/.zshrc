@@ -3,6 +3,9 @@ SAVEHIST=10000
 HISTFILE=~/.cache/zshhistory
 setopt appendhistory
 
+# Vi Mode
+bindkey -v
+
 # Basic auto/tab complete:
 source ~/.zsh/conda-zsh-completion/conda-zsh-completion.plugin.zsh
 autoload -U compinit
