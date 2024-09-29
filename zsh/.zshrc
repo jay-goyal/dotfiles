@@ -5,6 +5,7 @@ setopt appendhistory
 
 # Vi Mode
 bindkey -v
+bindkey jk vi-cmd-mode
 
 # Basic auto/tab complete:
 source ~/.zsh/conda-zsh-completion/conda-zsh-completion.plugin.zsh
@@ -135,3 +136,5 @@ if [ -d "$FNM_PATH" ]; then
   export PATH="/home/jay/.local/share/fnm:$PATH"
   eval "`fnm env`"
 fi
+
+[ -f "/home/jay/.ghcup/env" ] && . "/home/jay/.ghcup/env" # ghcup-env

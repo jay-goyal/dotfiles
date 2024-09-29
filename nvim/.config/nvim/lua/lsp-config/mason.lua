@@ -2,6 +2,13 @@ local servers = {
 	"lua_ls",
 	"jsonls",
 	"clangd",
+	"pylsp",
+	"ruff_lsp",
+	"asm_lsp",
+	"tailwindcss",
+	"ts_ls",
+	"eslint",
+	"rust_analyzer",
 }
 
 local settings = {

@@ -26,6 +26,7 @@ end
 null_ls.setup({
 	on_attach = on_attach,
 	sources = {
+		-- FORMATTING
 		formatting.stylua.with({
 			extra_args = {
 				"--call-parentheses",
@@ -42,10 +43,15 @@ null_ls.setup({
 		}),
 		formatting.clang_format.with({
 			extra_args = {
-				"--style",
-				"\"{BasedOnStyle: Google, IndentWidth: 4}\"",
+				"-style='{BasedOnStyle: Google, IndentWidth: 4}'",
 			},
 		}),
+		formatting.black,
+		formatting.prettierd,
+		formatting.leptosfmt,
+
+		-- DIAGNOSTICS
+		-- diagnostics.pylint,
 	},
 })
 

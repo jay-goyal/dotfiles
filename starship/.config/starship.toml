@@ -4,20 +4,19 @@ add_newline = false
 continuation_prompt = "[▸▹ ](dimmed white)"
 
 format = """($nix_shell$container$fill$git_metrics\n)$cmd_duration\
+$username\
 $hostname\
-$localip\
 $shlvl\
 $shell\
 $env_var\
 $jobs\
 $sudo\
-$username\
+$directory\
 $character"""
 
 right_format = """
 $singularity\
 $kubernetes\
-$directory\
 $vcsh\
 $fossil_branch\
 $git_branch\
@@ -90,7 +89,7 @@ $time"""
 symbol = ' '
 
 [character]
-format = "$symbol "
+format = " $symbol "
 success_symbol = "[◎](bold italic bright-yellow)"
 error_symbol = "[○](italic purple)"
 vimcmd_symbol = "[■](italic dimmed green)"
@@ -112,14 +111,20 @@ disabled = false
 [username]
 style_user = "bright-yellow"
 style_root = "purple bold"
-format = "[⭘ $user]($style) "
+format = "[⭘ $user]($style)"
 disabled = false
 show_always = true
 
+[hostname]
+disabled = false
+ssh_only = true
+format = "[@($ssh_symbol)$hostname]($style)"
+ssh_symbol = "󰣀"
+
 [directory]
-home_symbol = "⌂"
+home_symbol = " ⌂"
 truncation_length = 2
-truncation_symbol = "□ "
+truncation_symbol = " □ "
 read_only = " ◈"
 use_os_path_sep = true
 style = "italic blue"

@@ -19,12 +19,16 @@ local packages = {
 	},
 
 	-- Cmp Plugins
-	"hrsh7th/nvim-cmp",
-	"hrsh7th/cmp-path",
-	"hrsh7th/cmp-cmdline",
-	"saadparwaiz1/cmp_luasnip",
-	"hrsh7th/cmp-nvim-lsp",
-	{ "hrsh7th/cmp-nvim-lua",      ft = "lua" },
+	{
+		"hrsh7th/nvim-cmp",
+		dependencies = {
+			"hrsh7th/cmp-path",
+			"hrsh7th/cmp-cmdline",
+			"saadparwaiz1/cmp_luasnip",
+			"hrsh7th/cmp-nvim-lsp",
+			{ "hrsh7th/cmp-nvim-lua", ft = "lua" },
+		},
+	},
 
 	-- Treesitter
 	{
@@ -39,11 +43,11 @@ local packages = {
 
 	-- Coding
 	{ "shellRaining/hlchunk.nvim", event = { "UIEnter" } }, -- Scope Highlight
-	{ "windwp/nvim-autopairs",     event = "InsertEnter" }, -- Autopairs, integrates with both cmp and treesitter
+	{ "windwp/nvim-autopairs", event = "InsertEnter" }, -- Autopairs, integrates with both cmp and treesitter
 	"lewis6991/gitsigns.nvim",
 
 	-- Snippets
-	"L3MON4D3/LuaSnip",          --snippet engine
+	"L3MON4D3/LuaSnip", --snippet engine
 	"rafamadriz/friendly-snippets", -- a bunch of snippets to use
 
 	-- Telescope
@@ -73,13 +77,12 @@ local packages = {
 		"williamboman/mason.nvim",
 		dependencies = "williamboman/mason-lspconfig.nvim",
 	},
-	"williamboman/mason-lspconfig.nvim",
-	"nvimtools/none-ls.nvim",
 	{
 		"jay-babu/mason-null-ls.nvim",
 		event = { "BufReadPre", "BufNewFile" },
 		dependencies = {
 			"williamboman/mason.nvim",
+			"nvimtools/none-ls-extras.nvim",
 			"nvimtools/none-ls.nvim",
 		},
 	},
@@ -99,10 +102,18 @@ local packages = {
 		"saecki/crates.nvim",
 		ft = { "toml", "rust" },
 	},
+	-- {
+	-- 	"mrcjkb/rustaceanvim",
+	-- 	version = "^5", -- Recommended
+	-- 	lazy = false, -- This plugin is already lazy
+	-- },
+
+	-- Python
 	{
-		"mrcjkb/rustaceanvim",
-		version = "^5", -- Recommended
-		lazy = false, -- This plugin is already lazy
+		"mfussenegger/nvim-dap-python",
+		dependencies = {
+			"mfussenegger/nvim-dap",
+		},
 	},
 
 	-- TMUX
@@ -111,6 +122,7 @@ local packages = {
 	-- Misc
 	"tpope/vim-sleuth",
 	"tpope/vim-surround",
+	"windwp/nvim-ts-autotag",
 	{
 		"folke/trouble.nvim",
 		dependencies = { "nvim-tree/nvim-web-devicons" },
