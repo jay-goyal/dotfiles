@@ -1,6 +1,6 @@
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
-vim.fn.system({
+	vim.fn.system({
 		"git",
 		"clone",
 		"--filter=blob:none",
@@ -16,5 +16,5 @@ package.path = home_dir .. "/.config/nvim/after/plugin/?.lua;" .. package.path
 require("config.startup")
 require("config.keymap")
 require("plugin")
-require("lsp-config")
 vim.cmd.colorscheme(Color)
+require("lsp-config")

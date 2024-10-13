@@ -42,7 +42,11 @@ ex ()
 }
 
 # C file running
-com() {gcc $1.c -o $1 && ./$1}
+com() {
+  filename="${1%.c}"
+  shift
+  gcc $filename.c -o $filename $@ && ./$filename
+}
 
 # Cross Compilation
 export PREFIX="$HOME/opt/cross"
@@ -53,12 +57,15 @@ alias c="clear"
 alias v="nvim"
 alias vim="nvim"
 alias grep="rg"
+alias cat='bat'
+alias lp='browser-sync start --server --files "./**/*"'
+
+# ls aliases
 alias ls='eza --color=always --group-directories-first' # my preferred listing
 alias l='eza --color=always --group-directories-first' # my preferred listing
 alias la='eza --git -al --color=always --group-directories-first'  # all files and dirs
 alias ll='eza --git -l --color=always --group-directories-first'  # long format
 alias lt='eza -aT --color=always --group-directories-first' # tree listing
-alias lp='browser-sync start --server --files "./**/*"'
 
 # package manager
 alias pn='pnpm'
@@ -76,11 +83,6 @@ alias gd='git diff'
 alias gl='git log --oneline'
 alias gcl='git clone'
 alias gr='git remote'
-
-# vpn
-alias vpnst="warp-cli connect"
-alias vpnstt="warp-cli status"
-alias vpnstp="warp-cli disconnect"
 
 # ROS Init
 rosh() {
@@ -135,6 +137,5 @@ FNM_PATH="/home/jay/.local/share/fnm"
 if [ -d "$FNM_PATH" ]; then
   export PATH="/home/jay/.local/share/fnm:$PATH"
   eval "`fnm env`"
+  eval "$(fnm completions --shell zsh)"
 fi
-
-[ -f "/home/jay/.ghcup/env" ] && . "/home/jay/.ghcup/env" # ghcup-env

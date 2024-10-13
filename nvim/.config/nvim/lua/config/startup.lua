@@ -37,8 +37,17 @@ local options = {
 	updatetime = 50,
 }
 
+local globals = {
+	-- Man Pages
+	man_hardwrap = 1,
+}
+
 for k, v in pairs(options) do
 	opt[k] = v
+end
+
+for k, v in pairs(globals) do
+	g[k] = v
 end
 
 opt.isfname:append("@-@")

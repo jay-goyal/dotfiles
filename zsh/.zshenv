@@ -3,6 +3,7 @@ export VISUAL="nvim"
 export SUDO_EDITOR="nvim"
 # export MANPAGER='less'
 export MANPAGER="nvim -c 'Man!' -o -"
+export MANWIDTH=100
 
 # FZF Theme
 export FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS' 

@@ -45,6 +45,7 @@ local packages = {
 	{ "shellRaining/hlchunk.nvim", event = { "UIEnter" } }, -- Scope Highlight
 	{ "windwp/nvim-autopairs", event = "InsertEnter" }, -- Autopairs, integrates with both cmp and treesitter
 	"lewis6991/gitsigns.nvim",
+	{ "folke/neoconf.nvim" },
 
 	-- Snippets
 	"L3MON4D3/LuaSnip", --snippet engine
