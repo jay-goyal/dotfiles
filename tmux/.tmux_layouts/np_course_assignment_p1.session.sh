@@ -1,7 +1,6 @@
-session_root "~/projects/network_prog/np_assignment1"
+session_root "~/projects/network_prog/np_course_assignment_p1"
 
-if initialize_session "np_assignment1"; then
-
+if initialize_session "np_course_assignment_p1"; then
   load_window "neovim"
   new_window "exec"
 

@@ -9,7 +9,7 @@ if initialize_session "dns-server"; then
   new_window "test"
   new_window "git"
 
-  select_window 0
+  select_window 1
 fi
 
 # Finalize session creation and switch/attach to it.

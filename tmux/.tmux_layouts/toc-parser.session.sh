@@ -6,7 +6,7 @@ if initialize_session "toc-parser"; then
   run_cmd "trunk serve"
   new_window "misc"
 
-  select_window 0
+  select_window 1
 fi
 
 finalize_and_go_to_session

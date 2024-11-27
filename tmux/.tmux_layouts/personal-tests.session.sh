@@ -6,7 +6,7 @@ if initialize_session "personal-tests"; then
   load_window "neovim"
   new_window "exec"
   run_cmd "conda activate personal_test"
-  select_window 0
+  select_window 1
 fi
 
 # Finalize session creation and switch/attach to it.

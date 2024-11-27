@@ -11,6 +11,12 @@ local packages = {
 		priority = 1000,
 		opts = { style = "night" },
 	},
+	{
+		"j-hui/fidget.nvim",
+		opts = {
+			-- options
+		},
+	},
 
 	-- File Explorer
 	{
@@ -39,7 +45,6 @@ local packages = {
 			ts_update()
 		end,
 	},
-	"HiPhish/rainbow-delimiters.nvim",
 
 	-- Coding
 	{ "shellRaining/hlchunk.nvim", event = { "UIEnter" } }, -- Scope Highlight
@@ -64,13 +69,6 @@ local packages = {
 		"nvim-lualine/lualine.nvim",
 		dependencies = { "nvim-tree/nvim-web-devicons", lazy = true },
 	},
-	{
-		"utilyre/barbecue.nvim",
-		dependencies = {
-			"SmiteshP/nvim-navic",
-			"nvim-tree/nvim-web-devicons", -- optional dependency
-		},
-	},
 
 	-- LSP
 	"neovim/nvim-lspconfig", -- enable LSP
@@ -93,8 +91,10 @@ local packages = {
 		"mfussenegger/nvim-dap",
 		dependencies = {
 			"rcarriga/nvim-dap-ui",
-			"theHamsta/nvim-dap-virtual-text",
+			"nvim-neotest/nvim-nio",
+			"williamboman/mason.nvim",
 			"jay-babu/mason-nvim-dap.nvim",
+			"theHamsta/nvim-dap-virtual-text",
 		},
 	},
 
@@ -115,6 +115,20 @@ local packages = {
 		dependencies = {
 			"mfussenegger/nvim-dap",
 		},
+	},
+
+	--Markdown
+	{
+		"MeanderingProgrammer/render-markdown.nvim",
+		-- dependencies = { "nvim-treesitter/nvim-treesitter", "echasnovski/mini.nvim" }, -- if you use the mini.nvim suite
+		-- dependencies = { 'nvim-treesitter/nvim-treesitter', 'echasnovski/mini.icons' }, -- if you use standalone mini plugins
+		dependencies = {
+			"nvim-treesitter/nvim-treesitter",
+			"nvim-tree/nvim-web-devicons",
+		}, -- if you prefer nvim-web-devicons
+		---@module 'render-markdown'
+		---@type render.md.UserConfig
+		opts = {},
 	},
 
 	-- TMUX

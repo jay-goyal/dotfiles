@@ -12,7 +12,7 @@ if initialize_session "realsense-tests"; then
   run_cmd "distrobox enter ubuntu-realsense"
   run_cmd "conda activate realsense_meetha_sop"
 
-  select_window 0
+  select_window 1
 fi
 
 # Finalize session creation and switch/attach to it.

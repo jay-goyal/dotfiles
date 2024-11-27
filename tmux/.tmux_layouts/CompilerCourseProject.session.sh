@@ -11,7 +11,7 @@ if initialize_session "CompilerCourseProject"; then
   new_window "codelldb"
   run_cmd "while sleep 1; do ~/.local/share/nvim/mason/packages/codelldb/extension/adapter/codelldb --port 13000; done"
 
-  select_window 0
+  select_window 1
 fi
 
 finalize_and_go_to_session

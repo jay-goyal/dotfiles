@@ -6,7 +6,7 @@ if initialize_session "dns-server"; then
   split_h 50
   new_window "git"
 
-  select_window 0
+  select_window 1
 fi
 
 finalize_and_go_to_session

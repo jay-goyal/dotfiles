@@ -8,7 +8,7 @@ if initialize_session "network_prog_front"; then
   new_window "server"
   run_cmd "pnpm dev"
 
-  select_window 0
+  select_window 1
 fi
 
 # Finalize session creation and switch/attach to it.

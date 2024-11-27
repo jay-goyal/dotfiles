@@ -29,7 +29,7 @@ local options = {
 	-- Misc
 	hidden = true,
 	errorbells = false,
-	wrap = false,
+	wrap = true,
 	signcolumn = "yes",
 	cursorline = false,
 	termguicolors = true,

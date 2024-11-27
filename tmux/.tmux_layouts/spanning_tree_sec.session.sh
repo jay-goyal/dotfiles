@@ -13,7 +13,7 @@ if initialize_session "spanning_tree_sec"; then
   run_cmd 'eval "$(register-python-argcomplete3 ros2)"'
   run_cmd 'eval "$(register-python-argcomplete3 colcon)"'
 
-  select_window 0
+  select_window 1
 fi
 
 # Finalize session creation and switch/attach to it.

@@ -32,8 +32,8 @@ keymap("v", "<leader>d", "\"_d", opts)
 -- Buffer Navigation
 keymap("n", "<leader>q", ":bp<bar>sp<bar>bn<bar>bd<CR>", opts)
 keymap("n", "<C-e>", function()
-    local result = vim.treesitter.get_captures_at_cursor(0)
-    print(vim.inspect(result))
+	local result = vim.treesitter.get_captures_at_cursor(0)
+	print(vim.inspect(result))
 end, opts)
 
 -- Misc
@@ -44,17 +44,18 @@ keymap("n", "<leader>gs", ":Mason<CR>", opts)
 -- File
 keymap("n", "<leader>ft", ":Oil<CR>", opts)
 
--- Neogit
-keymap("n", "<leader>gg", ":Neogit<CR>", opts)
-
 -- Page Navigation
 keymap("n", "<C-d>", "<C-d>zz", opts)
 keymap("n", "<C-u>", "<C-u>zz", opts)
 
+-- Quickfix List
+keymap("n", "<C-n>", ":cn<CR>", opts)
+keymap("n", "<C-p>", ":cp<CR>", opts)
+
 -- Trouble
 keymap("n", "<leader>gta", function()
-    require("trouble").toggle()
+	require("trouble").toggle()
 end, opts)
 keymap("n", "<leader>gtq", function()
-    require("trouble").toggle("quickfix")
+	require("trouble").toggle("quickfix")
 end, opts)

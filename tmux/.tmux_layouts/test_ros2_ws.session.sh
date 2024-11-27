@@ -7,7 +7,7 @@ if initialize_session "test_ros2_ws"; then
   load_window "ros2-cmd"
   load_window "ros2-init"
 
-  select_window 0
+  select_window 1
 fi
 
 # Finalize session creation and switch/attach to it.

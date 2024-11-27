@@ -1,7 +1,6 @@
-session_root "~/projects/network_prog/np_assignment1"
+session_root "~/projects/personal/ferrOS"
 
-if initialize_session "np_assignment1"; then
-
+if initialize_session "ferrOS"; then
   load_window "neovim"
   new_window "exec"
 

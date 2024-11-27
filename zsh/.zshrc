@@ -49,8 +49,8 @@ com() {
 }
 
 # Cross Compilation
-export PREFIX="$HOME/opt/cross"
-export PATH="$PREFIX/bin:$PATH"
+export CROSS_PREFIX="$HOME/opt/cross"
+export PATH="$CROSS_PREFIX/bin:$PATH"
 
 # other commands
 alias c="clear"
@@ -104,7 +104,7 @@ case ":$PATH:" in
   *) export PATH="$PNPM_HOME:$PATH" ;;
 esac
 # pnpm end
-export PATH="$PNPM_HOME:$HOME/.config/tmux/plugins/tmuxifier/bin/:$PATH"
+export PATH="$HOME/.config/tmux/plugins/tmuxifier/bin/:$PATH"
 export TMUXIFIER_LAYOUT_PATH="$HOME/.tmux_layouts"
 export TERM="xterm-256color"
 export SHELL="/usr/bin/zsh"
@@ -139,3 +139,7 @@ if [ -d "$FNM_PATH" ]; then
   eval "`fnm env`"
   eval "$(fnm completions --shell zsh)"
 fi
+
+export ZVM_INSTALL="$HOME/.zvm/self"
+export PATH="$PATH:$HOME/.zvm/bin"
+export PATH="$PATH:$ZVM_INSTALL"
