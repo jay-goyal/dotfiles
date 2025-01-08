@@ -49,6 +49,7 @@ null_ls.setup({
 		formatting.black,
 		formatting.prettierd,
 		formatting.leptosfmt,
+		formatting.gofmt,
 
 		-- DIAGNOSTICS
 		-- diagnostics.pylint,

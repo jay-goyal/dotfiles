@@ -48,8 +48,14 @@ com() {
   gcc $filename.c -o $filename $@ && ./$filename
 }
 
+OPT="$HOME/opt"
+
+# Go Lang
+export GO_PREFIX="$OPT/go"
+export PATH="$GO_PREFIX/bin:$PATH"
+
 # Cross Compilation
-export CROSS_PREFIX="$HOME/opt/cross"
+export CROSS_PREFIX="$OPT/cross"
 export PATH="$CROSS_PREFIX/bin:$PATH"
 
 # other commands
@@ -71,6 +77,7 @@ alias lt='eza -aT --color=always --group-directories-first' # tree listing
 alias pn='pnpm'
 alias pnx='pnpm dlx'
 alias zyp='sudo zypper'
+alias up='sudo zypper ref && sudo zypper dup && flatpak update'
 
 # git aliases
 alias gs='git status'

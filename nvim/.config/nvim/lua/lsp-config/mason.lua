@@ -10,6 +10,7 @@ local servers = {
 	"eslint",
 	"rust_analyzer",
 	"zls",
+	"gopls",
 }
 
 local settings = {

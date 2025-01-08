@@ -103,11 +103,6 @@ local packages = {
 		"saecki/crates.nvim",
 		ft = { "toml", "rust" },
 	},
-	-- {
-	-- 	"mrcjkb/rustaceanvim",
-	-- 	version = "^5", -- Recommended
-	-- 	lazy = false, -- This plugin is already lazy
-	-- },
 
 	-- Python
 	{
@@ -115,6 +110,23 @@ local packages = {
 		dependencies = {
 			"mfussenegger/nvim-dap",
 		},
+	},
+
+	-- Go
+	{
+		"leoluz/nvim-dap-go",
+		config = function()
+			require("dap-go").setup()
+		end,
+	},
+
+	-- CPH
+	{
+		"xeluxee/competitest.nvim",
+		dependencies = "MunifTanjim/nui.nvim",
+		config = function()
+			require("competitest").setup()
+		end,
 	},
 
 	--Markdown

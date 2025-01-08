@@ -13,10 +13,11 @@ keymap("n", "<leader>ff", builtin.find_files, opts)
 keymap("n", "<leader>fg", builtin.git_files, opts)
 keymap("n", "<leader>fk", builtin.keymaps, opts)
 keymap("n", "<leader>fr", builtin.live_grep, opts)
+keymap("n", "<leader>fR", builtin.registers, opts)
 keymap(
 	"n",
 	"<leader>fm",
-	":lua require('telescope.builtin').man_pages({sections = {'ALL'}})<CR>",
+	":lua require(\"telescope.builtin\").man_pages({ sections = { \"ALL\" } })<CR>",
 	opts
 )
 
