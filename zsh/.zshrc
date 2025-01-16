@@ -63,8 +63,6 @@ alias c="clear"
 alias v="nvim"
 alias vim="nvim"
 alias grep="rg"
-alias cat='bat'
-alias lp='browser-sync start --server --files "./**/*"'
 
 # ls aliases
 alias ls='eza --color=always --group-directories-first' # my preferred listing
@@ -76,8 +74,7 @@ alias lt='eza -aT --color=always --group-directories-first' # tree listing
 # package manager
 alias pn='pnpm'
 alias pnx='pnpm dlx'
-alias zyp='sudo zypper'
-alias up='sudo zypper ref && sudo zypper dup && flatpak update'
+alias clpkg='sudo pacman -Rsn $(pacman -Qdtq)'
 
 # git aliases
 alias gs='git status'
@@ -147,6 +144,4 @@ if [ -d "$FNM_PATH" ]; then
   eval "$(fnm completions --shell zsh)"
 fi
 
-export ZVM_INSTALL="$HOME/.zvm/self"
-export PATH="$PATH:$HOME/.zvm/bin"
-export PATH="$PATH:$ZVM_INSTALL"
+catnap

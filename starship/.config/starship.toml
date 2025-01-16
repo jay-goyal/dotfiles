@@ -103,7 +103,7 @@ format = "[$env_value]($style)"
 style = 'green italic'
 
 [sudo]
-format = "[$symbol]($style)"
+format = " [$symbol]($style)"
 style = "bold italic bright-purple"
 symbol = "⋈┈"
 disabled = false

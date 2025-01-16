@@ -9,8 +9,6 @@ local servers = {
 	"ts_ls",
 	"eslint",
 	"rust_analyzer",
-	"zls",
-	"gopls",
 }
 
 local settings = {
