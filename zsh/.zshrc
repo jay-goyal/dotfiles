@@ -41,11 +41,29 @@ ex ()
   fi
 }
 
-# C file running
+# file running
 com() {
-  filename="${1%.c}"
+  if [[ ! -f "$1" ]]; then
+    echo "Error: File $1 not found."
+    return 1
+  fi
+
+  filename="${1%.*}"  # Remove the extension
+  extension="${1##*.}"  # Extract the file extension
   shift
-  gcc $filename.c -o $filename $@ && ./$filename
+
+  case "$extension" in
+    c)
+      gcc $filename.c -o $filename $@ && ./$filename
+      ;;
+    cpp)
+      g++ $filename.cpp -o $filename $@ && ./$filename
+      ;;
+    *)
+      echo "Error: Unsupported file extension. Please provide a .c or .cpp file."
+      return 1
+      ;;
+  esac
 }
 
 OPT="$HOME/opt"
