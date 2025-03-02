@@ -156,7 +156,7 @@ style = "italic dimmed white"
 disabled = true
 
 [git_branch]
-format = " [$branch(:$remote_branch)]($style)"
+format = " $symbol  [$branch(:$remote_branch)]($style)"
 symbol = "[△](bold italic bright-blue)"
 style = "italic bright-blue"
 truncation_symbol = "⋯"
@@ -203,7 +203,7 @@ detect_folders = ["node_modules"]
 detect_extensions = []
 
 [python]
-format = " [py](italic) [${symbol}${version}]($style)"
+format = " [py](italic) [${symbol}${version} ($virtualenv)]($style)"
 symbol = "[⌉](bold bright-blue)⌊ "
 version_format = "${raw}"
 style = "bold bright-yellow"

@@ -69,6 +69,10 @@ local packages = {
 		"nvim-lualine/lualine.nvim",
 		dependencies = { "nvim-tree/nvim-web-devicons", lazy = true },
 	},
+	{
+		"SmiteshP/nvim-navic",
+		dependencies = { "neovim/nvim-lspconfig" },
+	},
 
 	-- LSP
 	"neovim/nvim-lspconfig", -- enable LSP

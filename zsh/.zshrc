@@ -8,7 +8,9 @@ bindkey -v
 bindkey jk vi-cmd-mode
 
 # Basic auto/tab complete:
-source ~/.zsh/conda-zsh-completion/conda-zsh-completion.plugin.zsh
+source $HOME/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 2>/dev/null
+source $HOME/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh 2>/dev/null
+
 autoload -U compinit
 zstyle ':completion:*' menu select
 zmodload zsh/complist
@@ -97,7 +99,7 @@ alias clpkg='sudo pacman -Rsn $(pacman -Qdtq)'
 # git aliases
 alias gs='git status'
 alias ga='git add'
-alias gc='git commit -m'
+alias gc='git commit'
 alias gca='git commit --amend'
 alias gp='git push'
 alias gf='git pull'
@@ -105,19 +107,6 @@ alias gd='git diff'
 alias gl='git log --oneline'
 alias gcl='git clone'
 alias gr='git remote'
-
-# ROS Init
-rosh() {
-  if source /opt/ros/humble/setup.zsh; then
-    source ./install/setup.zsh 2> /dev/null
-    eval "$(register-python-argcomplete3 colcon)"
-    eval "$(register-python-argcomplete3 ros2)"
-  fi
-}
-
-roshc() {
-  source ./install/setup.zsh 2> /dev/null
-}
 
 # pnpm
 export PNPM_HOME="/home/jay/.local/share/pnpm"
@@ -133,26 +122,10 @@ export SHELL="/usr/bin/zsh"
 
 # Keybinds
 bindkey -s "^f" "$HOME/.local/bin/tmux-sessionizer.sh\n"
+bindkey "^e" autosuggest-accept
 
-source $HOME/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 2>/dev/null
-source $HOME/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh 2>/dev/null
 eval "$(starship init zsh)"
 eval "$(tmuxifier init -)"
-
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/home/jay/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "/home/jay/miniconda3/etc/profile.d/conda.sh" ]; then
-        . "/home/jay/miniconda3/etc/profile.d/conda.sh"
-    else
-        export PATH="/home/jay/miniconda3/bin:$PATH"
-    fi
-fi
-unset __conda_setup
-# <<< conda initialize <<<
 
 # fnm
 FNM_PATH="/home/jay/.local/share/fnm"
@@ -161,5 +134,11 @@ if [ -d "$FNM_PATH" ]; then
   eval "`fnm env`"
   eval "$(fnm completions --shell zsh)"
 fi
+
+# Pyenv
+export PYENV_VIRTUALENV_DISABLE_PROMPT=1
+export PYENV_ROOT="$HOME/.pyenv"
+[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init - zsh)"
 
 catnap

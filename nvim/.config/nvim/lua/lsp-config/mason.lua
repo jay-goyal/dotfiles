@@ -3,12 +3,9 @@ local servers = {
 	"jsonls",
 	"clangd",
 	"pylsp",
-	"ruff",
 	"asm_lsp",
-	"tailwindcss",
-	"ts_ls",
-	"eslint",
 	"rust_analyzer",
+	"ruff",
 }
 
 local settings = {

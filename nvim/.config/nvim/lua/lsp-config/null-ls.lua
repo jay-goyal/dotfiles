@@ -6,6 +6,8 @@ end
 
 local formatting = null_ls.builtins.formatting
 local diagnostics = null_ls.builtins.diagnostics
+-- local diagnostics_extra = require("none-ls.diagnostics")
+-- local formatting_extra = require("none-ls.formatting")
 
 local on_attach = function(client, bufnr)
 	if client.supports_method("textDocument/formatting") then
@@ -41,15 +43,18 @@ null_ls.setup({
 				"4",
 			},
 		}),
-		formatting.clang_format.with({
-			extra_args = {
-				"-style='{BasedOnStyle: Google, IndentWidth: 4}'",
-			},
+
+		formatting.prettierd.with({
+			filetypes = { "json", "yaml", "markdown", "js", "ts" },
 		}),
-		formatting.black,
-		formatting.prettierd,
+
+		require("none-ls.formatting.ruff").with({
+			extra_args = { "--extend-select", "I" },
+		}),
+
 		formatting.leptosfmt,
-		formatting.gofmt,
+		formatting.shfmt,
+		formatting.clang_format,
 
 		-- DIAGNOSTICS
 		-- diagnostics.pylint,

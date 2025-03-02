@@ -84,10 +84,12 @@ M.on_attach = function(client, bufnr)
 	if client.name == "tsserver" then
 		client.server_capabilities.documentFormattingProvider = false
 	end
+
 	if client.server_capabilities.inlayHintProvider then
 		vim.g.inlay_hints_visible = true
 		vim.lsp.inlay_hint.enable(true)
 	end
+
 	lsp_highlight_document(client)
 end
 
