@@ -108,13 +108,18 @@ alias gl='git log --oneline'
 alias gcl='git clone'
 alias gr='git remote'
 
+# tmux aliases
+alias tnew='tmux -u new-session -s'
+alias tat='tmux -u attach-session -t'
+
 # pnpm
-export PNPM_HOME="/home/jay/.local/share/pnpm"
+export PNPM_HOME="$HOME/.local/share/pnpm"
 case ":$PATH:" in
   *":$PNPM_HOME:"*) ;;
   *) export PATH="$PNPM_HOME:$PATH" ;;
 esac
 # pnpm end
+
 export PATH="$HOME/.config/tmux/plugins/tmuxifier/bin/:$PATH"
 export TMUXIFIER_LAYOUT_PATH="$HOME/.tmux_layouts"
 export TERM="xterm-256color"
@@ -128,9 +133,9 @@ eval "$(starship init zsh)"
 eval "$(tmuxifier init -)"
 
 # fnm
-FNM_PATH="/home/jay/.local/share/fnm"
+FNM_PATH="$HOME/.local/share/fnm"
 if [ -d "$FNM_PATH" ]; then
-  export PATH="/home/jay/.local/share/fnm:$PATH"
+  export PATH="$HOME/.local/share/fnm:$PATH"
   eval "`fnm env`"
   eval "$(fnm completions --shell zsh)"
 fi
