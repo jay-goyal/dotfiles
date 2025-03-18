@@ -70,9 +70,8 @@ com() {
 
 OPT="$HOME/opt"
 
-# Go Lang
-export GO_PREFIX="$OPT/go"
-export PATH="$GO_PREFIX/bin:$PATH"
+# FZF History Search
+source <(fzf --zsh)
 
 # Cross Compilation
 export CROSS_PREFIX="$OPT/cross"
