@@ -127,6 +127,9 @@ export SHELL="/usr/bin/zsh"
 # Keybinds
 bindkey -s "^f" "$HOME/.local/bin/tmux-sessionizer.sh\n"
 bindkey "^e" autosuggest-accept
+bindkey "^j" history-search-forward
+bindkey "^k" history-search-backward
+bindkey '^r' fzf-history-widget
 
 eval "$(starship init zsh)"
 eval "$(tmuxifier init -)"
