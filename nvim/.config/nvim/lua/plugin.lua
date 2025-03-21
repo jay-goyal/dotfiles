@@ -9,12 +9,23 @@ local packages = {
 		"folke/tokyonight.nvim",
 		lazy = false,
 		priority = 1000,
-		opts = { style = "night" },
+		opts = {
+			style = "night",
+			transparent = true,
+			styles = {
+				sidebars = "transparent",
+				floats = "transparent",
+			},
+		},
 	},
 	{
 		"j-hui/fidget.nvim",
 		opts = {
-			-- options
+			notification = {
+				window = {
+					winblend = 0,
+				},
+			},
 		},
 	},
 
@@ -47,10 +58,9 @@ local packages = {
 	},
 
 	-- Coding
-	{ "shellRaining/hlchunk.nvim", event = { "UIEnter" } }, -- Scope Highlight
 	{ "windwp/nvim-autopairs", event = "InsertEnter" }, -- Autopairs, integrates with both cmp and treesitter
+	"hiphish/rainbow-delimiters.nvim",
 	"lewis6991/gitsigns.nvim",
-	{ "folke/neoconf.nvim" },
 
 	-- Snippets
 	"L3MON4D3/LuaSnip", --snippet engine
@@ -89,6 +99,7 @@ local packages = {
 			"nvimtools/none-ls.nvim",
 		},
 	},
+	"folke/neoconf.nvim",
 
 	-- DAP
 	{
@@ -116,23 +127,6 @@ local packages = {
 		},
 	},
 
-	-- -- Go
-	-- {
-	-- 	"leoluz/nvim-dap-go",
-	-- 	config = function()
-	-- 		require("dap-go").setup()
-	-- 	end,
-	-- },
-
-	-- CPH
-	{
-		"xeluxee/competitest.nvim",
-		dependencies = "MunifTanjim/nui.nvim",
-		config = function()
-			require("competitest").setup()
-		end,
-	},
-
 	--Markdown
 	{
 		"MeanderingProgrammer/render-markdown.nvim",
@@ -149,6 +143,13 @@ local packages = {
 
 	-- TMUX
 	"christoomey/vim-tmux-navigator",
+
+	-- Indent Guides
+	{
+		"lukas-reineke/indent-blankline.nvim",
+		main = "ibl",
+		opts = {},
+	},
 
 	-- Misc
 	"tpope/vim-sleuth",
@@ -169,6 +170,7 @@ local lazy_opts = {
 	ui = {
 		border = "rounded",
 	},
+	install = { colorscheme = { "tokyonight" } },
 }
 
 lazy.setup(packages, lazy_opts)

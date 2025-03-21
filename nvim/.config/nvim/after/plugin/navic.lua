@@ -1,20 +1,24 @@
 local navic_ok, navic = pcall(require, "nvim-navic")
 
+if not navic_ok then
+	return
+end
+
 navic.setup({
 	icons = {
 		File = "󰈙 ",
-		Module = " ",
+		Module = " ",
 		Namespace = "󰌗 ",
 		Package = " ",
-		Class = "󰌗 ",
+		Class = "󰠱 ",
 		Method = "󰆧 ",
-		Property = " ",
+		Property = "󰜢 ",
 		Field = " ",
 		Constructor = " ",
-		Enum = "󰕘",
-		Interface = "󰕘",
+		Enum = " ",
+		Interface = " ",
 		Function = "󰊕 ",
-		Variable = "󰆧 ",
+		Variable = "󰀫 ",
 		Constant = "󰏿 ",
 		String = "󰀬 ",
 		Number = "󰎠 ",
@@ -24,16 +28,16 @@ navic.setup({
 		Key = "󰌋 ",
 		Null = "󰟢 ",
 		EnumMember = " ",
-		Struct = "󰌗 ",
+		Struct = " ",
 		Event = " ",
 		Operator = "󰆕 ",
-		TypeParameter = "󰊄 ",
+		TypeParameter = " ",
 	},
 	lsp = {
 		auto_attach = false,
 		preference = nil,
 	},
-	highlight = false,
+	highlight = true,
 	separator = "  ",
 	depth_limit = 0,
 	depth_limit_indicator = "..",

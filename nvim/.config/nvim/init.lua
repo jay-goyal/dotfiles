@@ -16,5 +16,8 @@ package.path = home_dir .. "/.config/nvim/after/plugin/?.lua;" .. package.path
 require("config.startup")
 require("config.keymap")
 require("plugin")
-vim.cmd.colorscheme(Color)
 require("lsp-config")
+
+-- Theming
+vim.cmd.colorscheme(Color)
+vim.cmd("highlight! clear WinBar")

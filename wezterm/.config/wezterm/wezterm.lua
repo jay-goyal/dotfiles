@@ -3,7 +3,7 @@ local wezterm = require("wezterm")
 local config = wezterm.config_builder()
 
 config.font = wezterm.font("FiraCode Nerd Font Mono")
-config.harfbuzz_features = { "clig=0", "liga=0" }
+config.harfbuzz_features = { "calt=0", "liga=0", "clig=0", "dlig=0" }
 
 config.font_size = 12
 config.enable_tab_bar = false

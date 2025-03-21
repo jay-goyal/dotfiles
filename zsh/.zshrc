@@ -18,8 +18,7 @@ compinit
 _comp_options+=(globdots)		# Include hidden files.
 
 # Archive Extraction
-ex ()
-{
+ex () {
   if [ -f $1 ] ; then
     case $1 in
       *.tar.bz2)   tar xjf $1   ;;
@@ -125,11 +124,11 @@ export TERM="xterm-256color"
 export SHELL="/usr/bin/zsh"
 
 # Keybinds
-bindkey -s "^f" "$HOME/.local/bin/tmux-sessionizer.sh\n"
-bindkey "^e" autosuggest-accept
-bindkey "^j" history-search-forward
-bindkey "^k" history-search-backward
-bindkey '^r' fzf-history-widget
+bindkey -s ^f "$HOME/.local/bin/tmux-sessionizer.sh\n"
+bindkey ^e autosuggest-accept
+bindkey ^d history-search-forward
+bindkey ^u history-search-backward
+bindkey ^r fzf-history-widget
 
 eval "$(starship init zsh)"
 eval "$(tmuxifier init -)"

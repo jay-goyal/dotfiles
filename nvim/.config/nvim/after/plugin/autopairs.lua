@@ -11,7 +11,6 @@ npairs.setup({
 		javascript = { "string", "template_string" },
 		java = false,
 	},
-	disable_filetype = { "TelescopePrompt" },
 	fast_wrap = {
 		map = "<M-e>",
 		chars = { "{", "[", "(", "\"", "'" },

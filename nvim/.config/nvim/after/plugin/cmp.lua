@@ -40,8 +40,8 @@ local kind_icons = {
 	Struct = "",
 	Event = "",
 	Operator = "󰆕",
-	TypeParameter = " ",
-	Misc = " ",
+	TypeParameter = "",
+	Misc = "",
 }
 
 cmp.setup({
@@ -107,7 +107,6 @@ cmp.setup({
 				path = "[Path]",
 				crates = "[Crates]",
 				nvim_lsp = "[LSP]",
-				nvim_lua = "[NVIM Lua]",
 			})[entry.source.name]
 			return vim_item
 		end,
@@ -115,7 +114,6 @@ cmp.setup({
 	sources = {
 		{ name = "nvim_lsp" },
 		{ name = "luasnip" },
-		{ name = "nvim_lua" },
 		{ name = "path" },
 		{ name = "crates" },
 	},

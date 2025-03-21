@@ -90,6 +90,13 @@ M.on_attach = function(client, bufnr)
 		vim.lsp.inlay_hint.enable(true)
 	end
 
+	if client.server_capabilities.documentSymbolProvider then
+		require("nvim-navic").attach(client, bufnr)
+		vim.o.winbar = "%{%v:lua.require'nvim-navic'.get_location()%}"
+	else
+		vim.o.winbar = ""
+	end
+
 	lsp_highlight_document(client)
 end
 
