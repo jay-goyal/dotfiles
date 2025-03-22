@@ -17,6 +17,10 @@ local packages = {
 				floats = "transparent",
 			},
 		},
+		on_highlights = function(hl, colors)
+			hl.WinBar = { bg = "NONE", fg = colors.fg }
+			hl.WinBarNC = { bg = "NONE", fg = colors.fg_dark }
+		end,
 	},
 	{
 		"j-hui/fidget.nvim",
@@ -66,13 +70,10 @@ local packages = {
 	"L3MON4D3/LuaSnip", --snippet engine
 	"rafamadriz/friendly-snippets", -- a bunch of snippets to use
 
-	-- Telescope
 	{
-		"nvim-telescope/telescope.nvim",
-		dependencies = { "nvim-lua/plenary.nvim" },
+		"ibhagwan/fzf-lua",
+		dependencies = { "nvim-tree/nvim-web-devicons" },
 	},
-	{ "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
-	"nvim-telescope/telescope-ui-select.nvim",
 
 	-- Status Line
 	{
@@ -130,14 +131,10 @@ local packages = {
 	--Markdown
 	{
 		"MeanderingProgrammer/render-markdown.nvim",
-		-- dependencies = { "nvim-treesitter/nvim-treesitter", "echasnovski/mini.nvim" }, -- if you use the mini.nvim suite
-		-- dependencies = { 'nvim-treesitter/nvim-treesitter', 'echasnovski/mini.icons' }, -- if you use standalone mini plugins
 		dependencies = {
 			"nvim-treesitter/nvim-treesitter",
 			"nvim-tree/nvim-web-devicons",
-		}, -- if you prefer nvim-web-devicons
-		---@module 'render-markdown'
-		---@type render.md.UserConfig
+		},
 		opts = {},
 	},
 
@@ -153,7 +150,10 @@ local packages = {
 
 	-- Misc
 	"tpope/vim-sleuth",
-	"tpope/vim-surround",
+	{
+		"tpope/vim-surround",
+		dependencies = { "tpope/vim-repeat" },
+	},
 	"windwp/nvim-ts-autotag",
 	{
 		"folke/trouble.nvim",

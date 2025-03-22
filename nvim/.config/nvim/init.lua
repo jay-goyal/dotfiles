@@ -21,3 +21,4 @@ require("lsp-config")
 -- Theming
 vim.cmd.colorscheme(Color)
 vim.cmd("highlight! clear WinBar")
+vim.cmd("highlight! clear WinBarNC")
