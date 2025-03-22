@@ -22,3 +22,9 @@ require("lsp-config")
 vim.cmd.colorscheme(Color)
 vim.cmd("highlight! clear WinBar")
 vim.cmd("highlight! clear WinBarNC")
+
+vim.api.nvim_create_autocmd("VimEnter", {
+	callback = function()
+		vim.opt.cmdheight = 1
+	end,
+})
