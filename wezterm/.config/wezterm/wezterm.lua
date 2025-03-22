@@ -8,6 +8,13 @@ config.harfbuzz_features = { "calt=0", "liga=0", "clig=0", "dlig=0" }
 config.font_size = 12
 config.enable_tab_bar = false
 
+config.window_padding = {
+	left = 0,
+	right = 0,
+	top = 2,
+	bottom = 2,
+}
+
 config.colors = {
 	foreground = "#c0caf5",
 	background = "#1a1b26",
