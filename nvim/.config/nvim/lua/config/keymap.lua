@@ -52,10 +52,10 @@ keymap("n", "<C-u>", "<C-u>zz", opts)
 keymap("n", "<C-n>", ":cn<CR>", opts)
 keymap("n", "<C-p>", ":cp<CR>", opts)
 
+-- Noice nvim
+keymap("n", "<leader>nd", ":NoiceDismiss<CR>", opts)
+
 -- Trouble
-keymap("n", "<leader>gta", function()
-	require("trouble").toggle()
-end, opts)
 keymap("n", "<leader>gtq", function()
 	require("trouble").toggle("quickfix")
 end, opts)

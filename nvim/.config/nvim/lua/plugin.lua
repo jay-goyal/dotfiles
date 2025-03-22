@@ -22,14 +22,22 @@ local packages = {
 			hl.WinBarNC = { bg = "NONE", fg = colors.fg_dark }
 		end,
 	},
+	-- {
+	-- 	"j-hui/fidget.nvim",
+	-- 	opts = {
+	-- 		notification = {
+	-- 			window = {
+	-- 				winblend = 0,
+	-- 			},
+	-- 		},
+	-- 	},
+	-- },
 	{
-		"j-hui/fidget.nvim",
-		opts = {
-			notification = {
-				window = {
-					winblend = 0,
-				},
-			},
+		"folke/noice.nvim",
+		event = "VeryLazy",
+		dependencies = {
+			"MunifTanjim/nui.nvim",
+			-- "rcarriga/nvim-notify",
 		},
 	},
 
@@ -128,7 +136,7 @@ local packages = {
 		},
 	},
 
-	--Markdown
+	-- Markdown
 	{
 		"MeanderingProgrammer/render-markdown.nvim",
 		dependencies = {

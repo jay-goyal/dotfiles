@@ -35,6 +35,9 @@ local options = {
 	termguicolors = true,
 	scrolloff = 15,
 	updatetime = 50,
+
+	-- Add space between lualine and tmux statusline
+	cmdheight = 2,
 }
 
 local globals = {
