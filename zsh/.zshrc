@@ -55,10 +55,10 @@ com() {
 
   case "$extension" in
     c)
-      gcc $filename.c -o $filename $@ && ./$filename
+      gcc $filename.c -o $filename.out $@ && ./$filename.out
       ;;
     cpp)
-      g++ $filename.cpp -o $filename $@ && ./$filename
+      g++ $filename.cpp -o $filename.out $@ && ./$filename.out
       ;;
     *)
       echo "Error: Unsupported file extension. Please provide a .c or .cpp file."
