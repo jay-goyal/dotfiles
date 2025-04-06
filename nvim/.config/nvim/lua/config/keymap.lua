@@ -59,3 +59,7 @@ keymap("n", "<leader>nd", ":NoiceDismiss<CR>", opts)
 keymap("n", "<leader>gtq", function()
 	require("trouble").toggle("quickfix")
 end, opts)
+
+-- Indents
+keymap("x", "<", "<gv")
+keymap("x", ">", ">gv")

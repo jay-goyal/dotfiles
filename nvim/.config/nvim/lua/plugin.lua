@@ -177,6 +177,12 @@ local packages = {
 		"folke/todo-comments.nvim",
 		dependencies = { "nvim-lua/plenary.nvim" },
 	},
+
+	-- Hard Time - Train me for navigation
+	{
+		"m4xshen/hardtime.nvim",
+		dependencies = { "MunifTanjim/nui.nvim" },
+	},
 }
 
 local lazy_opts = {
