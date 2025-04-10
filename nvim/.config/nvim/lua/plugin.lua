@@ -12,23 +12,11 @@ local packages = {
 		opts = {
 			style = "night",
 			transparent = true,
-			styles = {
-				sidebars = "transparent",
-				floats = "transparent",
-			},
 		},
 		on_highlights = function(hl, colors)
 			hl.WinBar = { bg = "NONE", fg = colors.fg }
 			hl.WinBarNC = { bg = "NONE", fg = colors.fg_dark }
 		end,
-	},
-	{
-		"folke/noice.nvim",
-		event = "VeryLazy",
-		dependencies = {
-			"MunifTanjim/nui.nvim",
-			-- "rcarriga/nvim-notify",
-		},
 	},
 
 	-- File Explorer

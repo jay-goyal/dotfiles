@@ -52,9 +52,6 @@ keymap("n", "<C-u>", "<C-u>zz", opts)
 keymap("n", "<C-n>", ":cn<CR>", opts)
 keymap("n", "<C-p>", ":cp<CR>", opts)
 
--- Noice nvim
-keymap("n", "<leader>nd", ":NoiceDismiss<CR>", opts)
-
 -- Trouble
 keymap("n", "<leader>gtq", function()
 	require("trouble").toggle("quickfix")
@@ -63,3 +60,16 @@ end, opts)
 -- Indents
 keymap("x", "<", "<gv")
 keymap("x", ">", ">gv")
+
+-- Diff View
+keymap("n", "<leader>wd", function()
+	if vim.wo.diff then
+		-- If currently in diff mode, exit diff mode
+		vim.cmd("diffoff")
+		print("Diff mode disabled")
+	else
+		-- If not in diff mode, enable diff mode for all windows in current tab
+		vim.cmd("windo diffthis")
+		print("Diff mode enabled")
+	end
+end, opts)
