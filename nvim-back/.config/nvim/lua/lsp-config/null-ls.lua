@@ -10,7 +10,7 @@ local diagnostics = null_ls.builtins.diagnostics
 -- local formatting_extra = require("none-ls.formatting")
 
 local on_attach = function(client, bufnr)
-	if client:supports_method("textDocument/formatting") then
+	if client.supports_method("textDocument/formatting") then
 		vim.api.nvim_clear_autocmds({
 			group = augroup,
 			buffer = bufnr,
