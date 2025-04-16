@@ -11,14 +11,14 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
-local home_dir = os.getenv("HOME")
-package.path = home_dir .. "/.config/nvim/after/plugin/?.lua;" .. package.path
+-- local home_dir = os.getenv("HOME")
+-- package.path = home_dir .. "/.config/nvim/after/plugin/?.lua;" .. package.path
 require("config.startup")
 require("config.keymap")
 require("plugin")
 require("lsp-config")
 
 -- Theming
-vim.cmd.colorscheme(Color)
+vim.cmd.colorscheme("tokyonight")
 vim.cmd("highlight! clear WinBar")
 vim.cmd("highlight! clear WinBarNC")

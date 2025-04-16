@@ -2,7 +2,7 @@ local servers = {
 	"lua_ls",
 	"jsonls",
 	"clangd",
-	"pylsp",
+	"jedi_language_server",
 	"asm_lsp",
 	"rust_analyzer",
 	"ruff",
@@ -13,7 +13,7 @@ local settings = {
 		border = "rounded",
 	},
 	log_level = vim.log.levels.INFO,
-	max_concurrent_installers = 4,
+	max_concurrent_installers = 6,
 }
 
 require("mason").setup(settings)
