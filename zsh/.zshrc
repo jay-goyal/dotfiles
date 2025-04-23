@@ -1,3 +1,10 @@
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
 HISTSIZE=10000
 SAVEHIST=10000
 HISTFILE=~/.cache/zshhistory
@@ -8,8 +15,9 @@ bindkey -v
 bindkey jk vi-cmd-mode
 
 # Basic auto/tab complete:
-source $HOME/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 2>/dev/null
-source $HOME/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh 2>/dev/null
+source $HOME/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 2> /dev/null
+source $HOME/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh 2> /dev/null
+source $HOME/.zsh/powerlevel10k/powerlevel10k.zsh-theme 2> /dev/null
 
 autoload -U compinit
 zstyle ':completion:*' menu select
@@ -130,7 +138,7 @@ bindkey ^d history-search-forward
 bindkey ^u history-search-backward
 bindkey ^r fzf-history-widget
 
-eval "$(starship init zsh)"
+# eval "$(starship init zsh)"
 eval "$(tmuxifier init -)"
 
 # fnm
@@ -147,4 +155,5 @@ export PYENV_ROOT="$HOME/.pyenv"
 [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init - zsh)"
 
-catnap
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh

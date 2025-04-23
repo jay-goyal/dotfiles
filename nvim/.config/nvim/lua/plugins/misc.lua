@@ -26,11 +26,5 @@ return {
 		dependencies = { "nvim-lua/plenary.nvim" },
 	},
 
-	-- Hard Time - Train me for navigation
-	{
-		"m4xshen/hardtime.nvim",
-		dependencies = { "MunifTanjim/nui.nvim" },
-		opts = { disable_mouse = false },
-	},
 	"hiphish/rainbow-delimiters.nvim",
 }
