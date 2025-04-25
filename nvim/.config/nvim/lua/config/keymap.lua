@@ -18,6 +18,8 @@ keymap("n", "<C-Left>", ":vertical resize -3<CR>", opts)
 keymap("n", "<C-Right>", ":vertical resize +3<CR>", opts)
 keymap("n", "<C-Up>", ":resize -3<CR>", opts)
 keymap("n", "<C-Down>", ":resize +3<CR>", opts)
+keymap("n", "<leader>zm", "<C-w>_<C-w>|", opts)
+keymap("n", "<leader>ze", "<C-w>=", opts)
 
 -- Copy and Pasting from system keyboards
 keymap("v", "<leader>p", "\"_dP", opts)
