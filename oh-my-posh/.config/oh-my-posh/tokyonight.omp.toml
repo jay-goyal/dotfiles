@@ -55,10 +55,10 @@ style = 'folder'
 
 [[blocks.segments]]
 template = '({{ .HEAD}}{{if or (gt .Ahead 0) (gt .Behind 0)}} {{ if gt .Ahead 0 }}{{ end }}{{ if gt .Behind 0 }}{{ end }}{{ end }})'
-foreground = 'p:light-sky-blue'
+foreground = 'p:pistachio-green'
 type = 'git'
 style = 'plain'
-foreground_templates = ['{{ if or (.Working.Changed) (.Staging.Changed) }}p:terminal-yellow{{ end }}']
+foreground_templates = ['{{ if or (.Working.Changed) (.Staging.Changed) }}p:terminal-yellow{{ end }}', '{{ if or (gt .Ahead 0) (gt .Behind 0) }}p:terminal-magenta{{ end }}']
 
   [blocks.segments.properties]
 branch_icon = ' '
