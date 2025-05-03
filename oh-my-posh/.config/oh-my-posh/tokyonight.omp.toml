@@ -50,7 +50,7 @@ foreground = 'p:light-sky-blue'
 type = 'path'
 style = 'plain'
 
-    [blocks.segments.properties]
+  [blocks.segments.properties]
 style = 'folder'
 
 [[blocks.segments]]
@@ -60,7 +60,7 @@ type = 'git'
 style = 'plain'
 foreground_templates = ['{{ if or (.Working.Changed) (.Staging.Changed) }}p:terminal-yellow{{ end }}']
 
-[blocks.segments.properties]
+  [blocks.segments.properties]
 branch_icon = ' '
 fetch_status = true
 
@@ -94,12 +94,13 @@ style = 'plain'
 foreground = 'p:terminal-red'
 
 [[blocks.segments]]
-template = ' {{ .FormattedMs }}'
-foreground = 'p:white-blue'
-style = 'round'
+template = '󰦖 took {{ .FormattedMs }}'
+foreground = 'p:terminal-yellow'
+style = 'plain'
 type = 'executiontime'
-[blocks.segments.properties]
+  [blocks.segments.properties]
 threshold = 500
+style = 'round'
 
 [[blocks]]
 type = 'prompt'
