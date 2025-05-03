@@ -46,7 +46,7 @@ alignment = 'left'
 
 [[blocks.segments]]
 template = ' <b>{{ .Path }} </b>'
-foreground = 'p:terminal-magenta'
+foreground = 'p:light-sky-blue'
 type = 'path'
 style = 'plain'
 
