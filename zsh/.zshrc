@@ -118,7 +118,7 @@ case ":$PATH:" in
 esac
 # pnpm end
 
-export PATH="$HOME/.config/tmux/plugins/tmuxifier/bin/:$PATH"
+export PATH="$HOME/.config/tmux/plugins/tmuxifier/bin/:$HOME/.local/bin:$PATH"
 export TMUXIFIER_LAYOUT_PATH="$HOME/.tmux_layouts"
 export TERM="xterm-256color"
 export SHELL="/usr/bin/zsh"
@@ -130,7 +130,7 @@ bindkey ^d history-search-forward
 bindkey ^u history-search-backward
 bindkey ^r fzf-history-widget
 
-eval "$(starship init zsh)"
+eval "$(oh-my-posh init zsh --config $HOME/.config/oh-my-posh/tokyonight.omp.toml)"
 eval "$(tmuxifier init -)"
 
 # fnm

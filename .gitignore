@@ -3,5 +3,7 @@ nix/nixos/result
 nix/nixos/hardware-configuration.nix
 scripts/.local/share/*
 scripts/.local/share/*
-scripts/.local/bin/*vcs*
-*.back
+*back
+scripts/.local/bin
+!/scripts/.local/bin/popup_tmux.sh
+!/scripts/.local/bin/tmux-sessionizer.sh

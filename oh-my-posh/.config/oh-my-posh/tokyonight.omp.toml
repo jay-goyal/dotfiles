@@ -1,0 +1,116 @@
+console_title_template = ' {{ .Folder }} :: {{if .Root}}Admin{{end}}'
+terminal_background = 'p:t-background'
+version = 3
+final_space = true
+
+[palette]
+blue-bell = '#9aa5ce'
+blue-black = '#565f89'
+celeste-blue = '#b4f9f8'
+light-sky-blue = '#7dcfff'
+main-bg = '#1a1b26'
+pastal-grey = '#cfc9c2'
+pistachio-green = '#9ece6a'
+t-background = 'p:main-bg'
+terminal-black = '#414868'
+terminal-blue = '#7aa2f7'
+terminal-green = '#73daca'
+terminal-magenta = '#bb9af7'
+terminal-red = '#f7768e'
+terminal-white = '#c0caf5'
+terminal-yellow = '#e0af68'
+white-blue = '#a9b1d6'
+
+[secondary_prompt]
+template = '➜ '
+foreground = 'p:terminal-blue'
+background = 'transparent'
+
+[transient_prompt]
+template = '➜ '
+foreground = "p:terminal-red"
+foreground_templates = [
+  '{{ if eq .Code 0 }}p:terminal-blue{{ end }}',
+]
+background = 'transparent'
+
+[upgrade]
+source = 'cdn'
+interval = '168h'
+auto = false
+notice = false
+
+[[blocks]]
+type = 'prompt'
+alignment = 'left'
+
+[[blocks.segments]]
+template = '<p:light-sky-blue> </><b>{{ .Path }} </b>'
+foreground = 'p:terminal-magenta'
+type = 'path'
+style = 'plain'
+
+    [blocks.segments.properties]
+style = 'folder'
+
+[[blocks.segments]]
+template = '({{ .HEAD}}{{if or (gt .Ahead 0) (gt .Behind 0)}} {{ if gt .Ahead 0 }}{{ end }}{{ if gt .Behind 0 }}{{ end }}{{ end }})'
+foreground = 'p:light-sky-blue'
+type = 'git'
+style = 'plain'
+foreground_templates = ['{{ if or (.Working.Changed) (.Staging.Changed) }}p:terminal-yellow{{ end }}']
+
+[blocks.segments.properties]
+branch_icon = ' '
+fetch_status = true
+
+[[blocks]]
+type = 'prompt'
+alignment = 'right'
+overflow = 'hide'
+
+[[blocks.segments]]
+template = ' {{ .Full }} '
+foreground = 'p:pistachio-green'
+type = 'node'
+style = 'plain'
+
+[[blocks.segments]]
+template = ' {{ .Full }}{{if .Venv}} ({{ .Venv }}){{end}}'
+foreground = 'p:terminal-yellow'
+type = 'python'
+style = 'plain'
+
+[[blocks.segments]]
+template = 'ﳑ {{ .Full }}'
+foreground = 'p:light-sky-blue'
+type = 'go'
+style = 'plain'
+
+[[blocks.segments]]
+template = ' {{ if .Error }}{{ .Error }}{{ else }}{{ .Full }}{{ end }}'
+type = 'rust'
+style = 'plain'
+foreground = 'p:terminal-red'
+
+[[blocks.segments]]
+template = ' {{ .FormattedMs }}'
+foreground = 'p:white-blue'
+style = 'round'
+type = 'executiontime'
+[blocks.segments.properties]
+threshold = 500
+
+[[blocks]]
+type = 'prompt'
+alignment = 'left'
+newline = true
+
+[[blocks.segments]]
+template = '➜ '
+foreground = "p:terminal-red"
+foreground_templates = [
+  '{{ if eq .Code 0 }}p:terminal-blue{{ end }}',
+]
+type = 'text'
+style = 'plain'
