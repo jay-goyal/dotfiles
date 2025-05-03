@@ -45,7 +45,7 @@ type = 'prompt'
 alignment = 'left'
 
 [[blocks.segments]]
-template = '<p:light-sky-blue> </><b>{{ .Path }} </b>'
+template = ' <b>{{ .Path }} </b>'
 foreground = 'p:terminal-magenta'
 type = 'path'
 style = 'plain'
