@@ -45,13 +45,14 @@ type = 'prompt'
 alignment = 'left'
 
 [[blocks.segments]]
-template = ' <b>{{ .Path }} </b>'
+template = '{{if not .Writable}}<p:terminal-red></>{{else}}{{end}} <b>{{ .Path }} </b>'
 foreground = 'p:light-sky-blue'
 type = 'path'
 style = 'plain'
 
   [blocks.segments.properties]
-style = 'folder'
+style = 'powerlevel'
+max_width = 25
 
 [[blocks.segments]]
 template = '({{ .HEAD}}{{if or (gt .Ahead 0) (gt .Behind 0)}} {{ if gt .Ahead 0 }}{{ end }}{{ if gt .Behind 0 }}{{ end }}{{ end }})'
@@ -108,7 +109,7 @@ alignment = 'left'
 newline = true
 
 [[blocks.segments]]
-template = '➜ '
+template = '➜'
 foreground = "p:terminal-red"
 foreground_templates = [
   '{{ if eq .Code 0 }}p:terminal-blue{{ end }}',
