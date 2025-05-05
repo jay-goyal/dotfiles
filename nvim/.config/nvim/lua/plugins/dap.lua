@@ -14,6 +14,11 @@ return {
 		local mason_dap = require("mason-nvim-dap")
 		local mason_registry = require("mason-registry")
 
+		local function terminate()
+			dap.terminate()
+			dap_ui.close()
+		end
+
 		keymap("n", "<leader>bb", dap.toggle_breakpoint, opts)
 		keymap("n", "<leader>bc", dap.continue, opts)
 		keymap("n", "<leader>bn", dap.step_over, opts)
@@ -21,6 +26,7 @@ return {
 		keymap("n", "<leader>bo", dap.step_out, opts)
 		keymap("n", "<leader>bt", dap_ui.toggle, opts)
 		keymap("n", "<leader>br", dap.restart, opts)
+		keymap("n", "<leader>bT", terminate)
 		keymap({ "n", "v" }, "<leader>bh", dap_wid.hover, opts)
 
 		mason_dap.setup({
@@ -48,7 +54,7 @@ return {
 
 		vim.fn.sign_define(
 			"DapStopped",
-			{ text = "", texthl = "DiagnosticWarn" }
+			{ text = "", texthl = "DiagnosticWarn" }
 		)
 		vim.fn.sign_define(
 			"DapBreakpoint",
@@ -73,11 +79,11 @@ return {
 		dap.listeners.before.launch["dapui_config"] = function()
 			dap_ui.open()
 		end
-		dap.listeners.before.event_terminated["dapui_config"] = function()
-			dap_ui.close()
-		end
-		dap.listeners.before.event_exited["dapui_config"] = function()
-			dap_ui.close()
-		end
+		-- dap.listeners.before.event_terminated["dapui_config"] = function()
+		-- 	dap_ui.close()
+		-- end
+		-- dap.listeners.before.event_exited["dapui_config"] = function()
+		-- 	dap_ui.close()
+		-- end
 	end,
 }
