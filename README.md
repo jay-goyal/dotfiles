@@ -2,7 +2,8 @@
 
 Programs:
 
-- Terminal: Kitty
-- WM: Hyprland
-- Run: rofi
-- Bar: Waybar
+- Terminal: WezTerm
+- DE: KDE
+- Editor: Neovim
+- Prompt: oh-my-posh
+- Shell: zsh
