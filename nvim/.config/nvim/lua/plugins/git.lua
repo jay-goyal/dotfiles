@@ -37,4 +37,7 @@ return {
 			col = 1,
 		},
 	},
+	keys = {
+		{ "<leader>vb", mode = { "n" }, "<cmd>Gitsigns blame_line<cr>" },
+	},
 }

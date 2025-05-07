@@ -16,7 +16,7 @@ M.setup = function()
 	end
 
 	local config = {
-		virtual_text = true,
+		virtual_text = false,
 		signs = {
 			active = signs,
 		},
@@ -74,6 +74,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
 		keymap("n", "<leader>gk", function()
 			vim.lsp.buf.hover({ border = "rounded" })
 		end, opts)
+		keymap("n", "<leader>gr", vim.lsp.buf.references, opts)
 		keymap("n", "<leader>gR", vim.lsp.buf.rename, opts)
 		keymap("n", "<leader>gca", vim.lsp.buf.code_action, opts)
 		keymap("n", "<leader>gf", vim.lsp.buf.format, opts)

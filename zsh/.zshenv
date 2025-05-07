@@ -12,4 +12,9 @@ export FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS'
 	--color=marker:#9ece6a,spinner:#9ece6a,header:#9ece6a
 	--color=gutter:-1'
 
+export FZF_DEFAULT_COMMAND='rg --files --hidden --follow 
+	--glob "\\!.git/*" --glob "\\!.pyenv/*" 
+	--glob "\\!.cargo/*" --glob "\\!.npm/*"
+	--glob "\\!.rustup/*" --glob "\\!.vscode/*" --max-depth 3'
+
 . "$HOME/.cargo/env"

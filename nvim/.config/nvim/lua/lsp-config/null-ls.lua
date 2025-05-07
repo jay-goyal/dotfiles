@@ -52,7 +52,6 @@ null_ls.setup({
 			extra_args = { "--extend-select", "I" },
 		}),
 
-		formatting.leptosfmt,
 		formatting.shfmt,
 		formatting.clang_format,
 

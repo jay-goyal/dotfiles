@@ -54,10 +54,8 @@ keymap("n", "<C-u>", "<C-u>zz", opts)
 keymap("n", "<C-n>", ":cn<CR>", opts)
 keymap("n", "<C-p>", ":cp<CR>", opts)
 
--- Trouble
-keymap("n", "<leader>gtq", function()
-	require("trouble").toggle("quickfix")
-end, opts)
+-- Diagnostics
+keymap("n", "<leader>gt", vim.diagnostic.setqflist, opts)
 
 -- Indents
 keymap("x", "<", "<gv")

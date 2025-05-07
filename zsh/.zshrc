@@ -125,10 +125,11 @@ export SHELL="/usr/bin/zsh"
 
 # Keybinds
 bindkey -s ^f "$HOME/.local/bin/tmux-sessionizer.sh\n"
-bindkey ^e autosuggest-accept
+bindkey ^n autosuggest-accept
 bindkey ^d history-search-forward
 bindkey ^u history-search-backward
 bindkey ^r fzf-history-widget
+bindkey ^e fzf-cd-widget
 
 eval "$(oh-my-posh init zsh --config $HOME/.config/oh-my-posh/tokyonight.omp.toml)"
 eval "$(tmuxifier init -)"
