@@ -2,12 +2,20 @@ local wezterm = require("wezterm")
 
 local config = wezterm.config_builder()
 
+-- Set default TERM variable
+config.term = "wezterm"
+
+-- Fonts
 config.font = wezterm.font("FiraCode Nerd Font Mono")
 config.harfbuzz_features = { "calt=0", "liga=0", "clig=0", "dlig=0" }
-
 config.font_size = 12
-config.enable_tab_bar = false
 
+-- Underline setting
+config.underline_thickness = 3
+config.underline_position = -3
+
+-- Window settings
+config.enable_tab_bar = false
 config.window_padding = {
 	left = 0,
 	right = 0,
@@ -15,6 +23,7 @@ config.window_padding = {
 	bottom = 2,
 }
 
+-- Color scheme
 config.colors = {
 	foreground = "#c0caf5",
 	background = "#1a1b26",
@@ -48,7 +57,11 @@ config.colors = {
 	},
 }
 
+-- Other options
+config.enable_kitty_graphics = true
 config.window_background_opacity = 0.9
 config.enable_wayland = true
+
+config.max_fps = 200
 
 return config

@@ -120,7 +120,6 @@ esac
 
 export PATH="$HOME/.config/tmux/plugins/tmuxifier/bin/:$HOME/.local/bin:$PATH"
 export TMUXIFIER_LAYOUT_PATH="$HOME/.tmux_layouts"
-export TERM="xterm-256color"
 export SHELL="/usr/bin/zsh"
 
 # Keybinds
