@@ -16,10 +16,5 @@ return {
 		dependencies = { "tpope/vim-repeat" },
 	},
 	"windwp/nvim-ts-autotag",
-	{
-		"folke/todo-comments.nvim",
-		dependencies = { "nvim-lua/plenary.nvim" },
-	},
-
 	"hiphish/rainbow-delimiters.nvim",
 }
