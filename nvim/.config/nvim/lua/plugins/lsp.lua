@@ -8,6 +8,7 @@ return {
 		"jay-babu/mason-null-ls.nvim",
 		event = { "BufReadPre", "BufNewFile" },
 		dependencies = {
+			"nvim-lua/plenary.nvim",
 			"williamboman/mason.nvim",
 			"nvimtools/none-ls-extras.nvim",
 			"nvimtools/none-ls.nvim",
