@@ -95,7 +95,7 @@ alias pnx='pnpm dlx'
 alias clpkg='sudo pacman -Rsn $(pacman -Qdtq)'
 
 # git aliases
-alias gs='git status'
+alias gs='git status --short'
 alias ga='git add'
 alias gc='git commit'
 alias gca='git commit --amend'
@@ -104,7 +104,7 @@ alias gf='git pull'
 alias gd='git diff'
 alias gl='git log --oneline'
 alias gcl='git clone'
-alias gr='git remote'
+alias gr='git restore'
 
 # tmux aliases
 alias tnew='tmux -u new-session -s'
