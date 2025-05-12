@@ -19,8 +19,8 @@ config.enable_tab_bar = false
 config.window_padding = {
 	left = 0,
 	right = 0,
-	top = 2,
-	bottom = 2,
+	top = 20,
+	bottom = 5,
 }
 
 -- Color scheme
