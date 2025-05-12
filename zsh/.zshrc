@@ -2,6 +2,7 @@ HISTSIZE=10000
 SAVEHIST=10000
 HISTFILE=~/.cache/zshhistory
 setopt appendhistory
+setopt autocd
 
 # Vi Mode
 bindkey -v
@@ -13,6 +14,7 @@ source $HOME/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh 2> /dev/null
 
 autoload -U compinit
 zstyle ':completion:*' menu select
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
 zmodload zsh/complist
 compinit
 _comp_options+=(globdots)		# Include hidden files.
