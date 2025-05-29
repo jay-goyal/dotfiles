@@ -120,7 +120,7 @@ case ":$PATH:" in
 esac
 # pnpm end
 
-export PATH="$HOME/.config/tmux/plugins/tmuxifier/bin/:$HOME/.local/bin:$PATH"
+export PATH="$HOME/.ghcup/bin/:$HOME/.config/tmux/plugins/tmuxifier/bin/:$HOME/.local/bin:$PATH"
 export TMUXIFIER_LAYOUT_PATH="$HOME/.tmux_layouts"
 export SHELL="/usr/bin/zsh"
 
