@@ -34,8 +34,8 @@ keymap("v", "<leader>d", "\"_d", opts)
 -- Buffer Navigation
 keymap("n", "<leader>q", ":bp<bar>sp<bar>bn<bar>bd<CR>", opts)
 keymap("n", "<C-e>", function()
-	local result = vim.treesitter.get_captures_at_cursor(0)
-	print(vim.inspect(result))
+  local result = vim.treesitter.get_captures_at_cursor(0)
+  print(vim.inspect(result))
 end, opts)
 
 -- Misc
@@ -63,13 +63,13 @@ keymap("x", ">", ">gv")
 
 -- Diff View
 keymap("n", "<leader>wd", function()
-	if vim.wo.diff then
-		-- If currently in diff mode, exit diff mode
-		vim.cmd("diffoff")
-		print("Diff mode disabled")
-	else
-		-- If not in diff mode, enable diff mode for all windows in current tab
-		vim.cmd("windo diffthis")
-		print("Diff mode enabled")
-	end
+  if vim.wo.diff then
+    -- If currently in diff mode, exit diff mode
+    vim.cmd("diffoff")
+    print("Diff mode disabled")
+  else
+    -- If not in diff mode, enable diff mode for all windows in current tab
+    vim.cmd("windo diffthis")
+    print("Diff mode enabled")
+  end
 end, opts)
