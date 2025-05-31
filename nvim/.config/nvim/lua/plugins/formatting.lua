@@ -1,5 +1,6 @@
 return {
   "zapling/mason-conform.nvim",
+  opts = {},
   dependencies = {
     "stevearc/conform.nvim",
     dependencies = { "mason-org/mason.nvim" },
@@ -7,8 +8,8 @@ return {
       local conform = require("conform")
       conform.setup({
         formatters_by_ft = {
-          c = { "clang_format" },
-          cpp = { "clang_format" },
+          c = { "clang-format" },
+          cpp = { "clang-format" },
           lua = { "stylua" },
         },
         format_on_save = {
