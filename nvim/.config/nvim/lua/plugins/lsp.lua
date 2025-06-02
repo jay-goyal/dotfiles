@@ -24,6 +24,7 @@ return {
     },
     {
       "neovim/nvim-lspconfig",
+      dependencies = { "SmiteshP/nvim-navic", "saghen/blink.cmp" },
       config = function()
         local signs = {
           { name = "DiagnosticSignError", text = "" },
@@ -63,13 +64,12 @@ return {
         vim.diagnostic.config(config)
 
         local capabilities = vim.lsp.protocol.make_client_capabilities()
-        capabilities =
-          require("cmp_nvim_lsp").default_capabilities(capabilities)
+        capabilities = require("blink.cmp").get_lsp_capabilities(capabilities)
         vim.lsp.config("*", { capabilities = capabilities })
 
         vim.api.nvim_create_autocmd("LspAttach", {
           group = vim.api.nvim_create_augroup("UserLspConfig", {}),
-          callback = function()
+          callback = function(args)
             keymap("n", "<leader>gl", function()
               vim.diagnostic.open_float({ border = "rounded" })
             end, opts)
@@ -81,6 +81,20 @@ return {
             keymap("n", "<leader>gr", vim.lsp.buf.references, opts)
             keymap("n", "<leader>gR", vim.lsp.buf.rename, opts)
             keymap("n", "<leader>gca", vim.lsp.buf.code_action, opts)
+
+            local navic = require("nvim-navic")
+            local bufnr = args.buf
+            local client = vim.lsp.get_client_by_id(args.data.client_id)
+
+            if not vim.b[bufnr].navic_attached then
+              if client.server_capabilities.documentSymbolProvider then
+                navic.attach(client, bufnr)
+                vim.o.winbar = "%{%v:lua.require'nvim-navic'.get_location()%}"
+                vim.b[bufnr].navic_attached = true
+              else
+                vim.o.winbar = ""
+              end
+            end
           end,
         })
       end,
