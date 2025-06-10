@@ -10,6 +10,7 @@ return {
             ["<C-b>"] = { "scroll_documentation_up", "fallback" },
             ["<C-f>"] = { "scroll_documentation_down", "fallback" },
             ["<CR>"] = { "accept", "fallback" },
+            ["<Tab>"] = { "select_and_accept", "fallback" },
         },
         appearance = {
             nerd_font_variant = "mono",
@@ -20,7 +21,7 @@ return {
                 window = { border = "single" },
             },
             menu = {
-                border = "rounded",
+                border = "single",
                 draw = {
                     columns = {
                         { "kind_icon" },
@@ -38,9 +39,9 @@ return {
         cmdline = {
             keymap = {
                 preset = "inherit",
-                ["<Tab>"] = { "show", "fallback" },
+                ["<CR>"] = {},
             },
-            completion = { menu = { auto_show = false } },
+            completion = { menu = { auto_show = true } },
         },
         opts_extend = { "sources.default" },
     },

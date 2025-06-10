@@ -12,6 +12,7 @@ return {
                     cpp = { "clang-format" },
                     lua = { "stylua" },
                     haskell = { "fourmolu", "stylish-haskell" },
+                    python = { "ruff_organize_imports", "ruff_format" },
                 },
                 format_on_save = {
                     lsp_fallback = true,

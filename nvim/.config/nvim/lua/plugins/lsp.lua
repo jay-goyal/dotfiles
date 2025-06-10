@@ -2,24 +2,12 @@ return {
     "mason-org/mason-lspconfig.nvim",
     opts = {
         ensure_installed = {
-            -- ASM
-            "asm_lsp",
-
-            -- C/C++
-            "clangd",
-
-            -- Haskell
-            "hls",
-
-            -- Lua
-            "lua_ls",
-
-            -- Python
-            "jedi_language_server",
-            "ruff",
-
-            --Rust
-            "rust_analyzer",
+            "asm_lsp", -- ASM
+            "clangd", -- C/C++
+            "hls", -- Haskell
+            "lua_ls", -- Lua
+            "jedi_language_server", -- Python
+            "rust_analyzer", -- Rust
         },
     },
     dependencies = {
@@ -27,7 +15,7 @@ return {
             "mason-org/mason.nvim",
             opts = {
                 ui = {
-                    border = "rounded",
+                    border = "single",
                 },
                 log_level = vim.log.levels.INFO,
                 max_concurrent_installers = 6,
@@ -65,7 +53,7 @@ return {
                     float = {
                         focusable = true,
                         style = "minimal",
-                        border = "rounded",
+                        border = "single",
                         source = "always",
                         header = "",
                         prefix = "",
@@ -83,12 +71,12 @@ return {
                     group = vim.api.nvim_create_augroup("UserLspConfig", {}),
                     callback = function(args)
                         keymap("n", "<leader>gl", function()
-                            vim.diagnostic.open_float({ border = "rounded" })
+                            vim.diagnostic.open_float({ border = "single" })
                         end, opts)
                         keymap("n", "<leader>gD", vim.lsp.buf.declaration, opts)
                         keymap("n", "<leader>gd", vim.lsp.buf.definition, opts)
                         keymap("n", "<leader>gk", function()
-                            vim.lsp.buf.hover({ border = "rounded" })
+                            vim.lsp.buf.hover({ border = "single" })
                         end, opts)
                         keymap("n", "<leader>gr", vim.lsp.buf.references, opts)
                         keymap("n", "<leader>gR", vim.lsp.buf.rename, opts)

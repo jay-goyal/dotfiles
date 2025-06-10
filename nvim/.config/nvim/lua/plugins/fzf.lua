@@ -15,9 +15,11 @@ return {
             width = 0.87,
             row = 0.3,
             col = 0.5,
+            border = "single",
             preview = {
                 vertical = "up:60%", -- Preview placement
                 layout = "horizontal",
+                border = "single",
                 flip_columns = 120,
             },
         },

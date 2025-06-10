@@ -39,15 +39,7 @@ return {
         },
     },
     opts = {
-        null_ls = {
-            enabled = true,
-            name = "crates.nvim",
-        },
-        cmp = {
-            enabled = true,
-        },
-        popup = {
-            autofocus = true,
-        },
+        lsp = { enabled = true },
+        popup = { autofocus = true, border = "single" },
     },
 }

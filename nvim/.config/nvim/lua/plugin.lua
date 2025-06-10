@@ -4,7 +4,7 @@ if not status_ok then
 end
 
 lazy.setup({
-    ui = { border = "rounded" },
+    ui = { border = "single" },
     install = { colorscheme = { "tokyonight" } },
     spec = { import = "plugins" },
 })

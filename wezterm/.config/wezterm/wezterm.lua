@@ -59,7 +59,7 @@ config.colors = {
 
 -- Other options
 config.enable_kitty_graphics = true
-config.window_background_opacity = 0.9
+config.window_background_opacity = 1
 config.enable_wayland = true
 
 config.max_fps = 200
