@@ -60,7 +60,8 @@ config.colors = {
 -- Other options
 config.enable_kitty_graphics = true
 config.window_background_opacity = 1
-config.enable_wayland = true
+config.enable_wayland = false
+config.audible_bell = "Disabled"
 
 config.max_fps = 200
 
