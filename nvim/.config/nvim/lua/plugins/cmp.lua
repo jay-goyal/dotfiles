@@ -30,18 +30,34 @@ return {
                     },
                 },
             },
-            sources = {
-                default = { "lsp", "path", "snippets", "buffer" },
-            },
             fuzzy = { implementation = "prefer_rust_with_warning" },
             list = { completion = { preset = true, auto_insert = false } },
+        },
+        sources = {
+            default = { "lsp", "path", "snippets", "buffer" },
+            providers = {
+                cmdline = {
+                    min_keyword_length = function(ctx)
+                        if
+                            ctx.mode == "cmdline"
+                            and string.find(ctx.line, " ") == nil
+                        then
+                            return 3
+                        end
+                        return 0
+                    end,
+                },
+            },
         },
         cmdline = {
             keymap = {
                 preset = "inherit",
                 ["<CR>"] = {},
             },
-            completion = { menu = { auto_show = true } },
+            completion = {
+                menu = { auto_show = true },
+                list = { selection = { auto_insert = true } },
+            },
         },
         opts_extend = { "sources.default" },
     },

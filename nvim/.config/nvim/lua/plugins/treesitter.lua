@@ -8,7 +8,23 @@ return {
     config = function()
         local configs = require("nvim-treesitter.configs")
         configs.setup({
-            ensure_installed = "all",
+            ensure_installed = {
+                "python",
+                "c",
+                "cpp",
+                "css",
+                "json",
+                "yaml",
+                "toml",
+                "rust",
+                "bash",
+                "cmake",
+                "make",
+                "ninja",
+                "markdown",
+                "hyprlang",
+            },
+            auto_install = true,
             sync_install = false,
             ignore_install = { "" }, -- List of parsers to ignore installing
             highlight = {
