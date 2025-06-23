@@ -1,0 +1,68 @@
+{
+    "margin-top": 5,
+    "margin-left": 5,
+    "margin-right": 5,
+    "spacing": 5,
+    "modules-left": [
+        "hyprland/workspaces",
+        "mpd",
+    ],
+    "modules-center": [],
+    "modules-right": [
+        "wireplumber",
+        "backlight",
+        "battery",
+        "clock",
+        "idle_inhibitor",
+        "tray",
+    ],
+    "hyprland/workspaces": {
+        "format": "[{icon}]",
+        "on-click": "activate",
+        "on-scroll-up": "hyprctl dispatch workspace e-1",
+        "on-scroll-down": "hyprctl dispatch workspace e+1",
+        "format-icons": {
+            "visible": " ",
+            "urgent": " "
+        }
+    },
+    "idle_inhibitor": {
+        "format": "{icon}",
+        "format-icons": {
+            "deactivated": "󰛊",
+            "activated": "󰅶"
+        }
+    },
+    "tray": {
+        "spacing": 10
+    },
+    "clock": {
+        "format": "{:%I:%M %p (%d %b, %a)}",
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+        "format-alt": "{:%Y-%m-%d}"
+    },
+    "backlight": {
+        "format": "󰃠  {percent}% {icon}",
+        "format-icons": ["█░░░░", "██░░░", "███░░", "████░░", "█████"]
+    },
+    "battery": {
+        "states": {
+            "warning": 40,
+            "critical": 15
+        },
+        "format": "󰁽 {capacity}% {icon}",
+        "format-full": "󰁽 {capacity}% {icon}",
+        "format-charging": " {capacity}% {icon}",
+        "format-plugged": " {capacity}% {icon}",
+        "format-icons": ["█░░░░", "██░░░", "███░░", "████░░", "█████"]
+    },
+    "wireplumber": {
+        "states": {
+            "critical": 50,
+            "normal": 1
+        },
+        "format": " {volume}% {icon}",
+        "format-muted": "  {volume}% {icon}",
+        "format-icons": ["█░░░░", "██░░░", "███░░", "████░░", "█████"]
+    }
+}

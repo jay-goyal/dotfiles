@@ -11,15 +11,15 @@ config.harfbuzz_features = { "calt=0", "liga=0", "clig=0", "dlig=0" }
 config.font_size = 12
 
 -- Underline setting
-config.underline_thickness = 3
+config.underline_thickness = 1
 config.underline_position = -3
 
 -- Window settings
 config.enable_tab_bar = false
 config.window_padding = {
-    left = 0,
-    right = 0,
-    top = 20,
+    left = 10,
+    right = 10,
+    top = 5,
     bottom = 5,
 }
 
@@ -60,9 +60,23 @@ config.colors = {
 -- Other options
 config.enable_kitty_graphics = true
 config.window_background_opacity = 1
-config.enable_wayland = false
+config.enable_wayland = true
 config.audible_bell = "Disabled"
 
 config.max_fps = 200
+
+config.keys = {
+    {
+        key = "v",
+        mods = "CTRL|SHIFT",
+        action = wezterm.action_callback(function(window, pane)
+            local success, stdout =
+                wezterm.run_child_process({ "wl-paste", "--no-newline" })
+            if success then
+                pane:paste(stdout)
+            end
+        end),
+    },
+}
 
 return config

@@ -1,0 +1,63 @@
+@import "theme.css";
+
+* {
+    font-family: 'FiraCodeMono Nerd Font Mono', sans-serif;
+    font-size: 14px;
+}
+
+window#waybar {
+    background-color: @bg-dark;
+    color: @fg;
+    border: 1px solid @blue;
+}
+
+label.module {
+    border: 1px solid @blue;
+    padding: 0px 10px;
+    margin: 4px;
+}
+
+@keyframes blink {
+    from {
+        color: @bg;
+    }
+    to {
+        color: @red;
+    }
+}
+
+#workspaces button.visible {
+    color: @orange;
+}
+
+#workspaces button.urgent {
+    color: @red;
+}
+
+#battery,
+#wireplumber.normal,
+#backlight {
+    color: @cyan;
+}
+
+#battery.warning:not(.charging) {
+    color: @orange;
+}
+
+#wireplumber.critical,
+#battery.critical:not(.charging) {
+    color: @red;
+    animation-name: blink;
+    animation-duration: 0.5s;
+    animation-timing-function: steps(12);
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+#wireplumber {
+    color: @red;
+}
+
+#tray {
+    margin-right: 9px;
+}
