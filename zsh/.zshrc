@@ -94,7 +94,8 @@ alias lt='eza -aT --color=always --group-directories-first' # tree listing
 # package manager
 alias pn='pnpm'
 alias pnx='pnpm dlx'
-alias clpkg='sudo pacman -Rsn $(pacman -Qdtq)'
+# alias clpkg='sudo pacman -Rsn $(pacman -Qdtq)'
+alias zyp='sudo zypper'
 
 # git aliases
 alias gs='git status --short'
@@ -122,15 +123,14 @@ esac
 
 export PATH="$HOME/.cabal/bin:$HOME/.ghcup/bin:$HOME/.config/tmux/plugins/tmuxifier/bin:$HOME/.local/bin:$PATH"
 export TMUXIFIER_LAYOUT_PATH="$HOME/.tmux_layouts"
-export SHELL="/usr/bin/zsh"
 
 # Keybinds
-bindkey -s ^f "$HOME/.local/bin/tmux-sessionizer.sh\n"
-bindkey ^n autosuggest-accept
-bindkey ^d history-search-forward
-bindkey ^u history-search-backward
-bindkey ^r fzf-history-widget
-bindkey ^e fzf-cd-widget
+bindkey -s '^f' "$HOME/.local/bin/tmux-sessionizer.sh\n"
+bindkey '^n' autosuggest-accept
+bindkey '^d' history-search-forward
+bindkey '^u' history-search-backward
+bindkey '^r' fzf-history-widget
+bindkey '^e' fzf-cd-widget
 
 eval "$(oh-my-posh init zsh --config $HOME/.config/oh-my-posh/tokyonight.omp.toml)"
 eval "$(tmuxifier init -)"

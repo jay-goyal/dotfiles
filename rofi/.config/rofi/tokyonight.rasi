@@ -3,7 +3,7 @@
     hv: #A9B1D6; 
     primary: #7AA2F7; 
     ug: #0B2447;
-    font: "FiraCodeMono Nerd Font Mono 14";
+    font: "FiraMono Nerd Font 14";
     background-color: @bg;
     border: 0px;
     kl: #A9B1D6;
@@ -14,10 +14,10 @@
 // defines different aspects of the window
 window {
     width: 700;
-    // height: 500;
+    height: 400;
     orientation: horizontal;
-    location: north;
-    anchor: north;
+    location: center;
+    anchor: center;
     border-color: @transparent;   
     border: 0px;
     border-radius: 0px;

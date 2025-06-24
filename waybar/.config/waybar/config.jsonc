@@ -9,11 +9,12 @@
     ],
     "modules-center": [],
     "modules-right": [
-        "wireplumber",
+        "pulseaudio",
         "backlight",
         "battery",
-        "clock",
+        "pulseaudio#input",
         "idle_inhibitor",
+        "clock",
         "tray",
     ],
     "hyprland/workspaces": {
@@ -22,15 +23,15 @@
         "on-scroll-up": "hyprctl dispatch workspace e-1",
         "on-scroll-down": "hyprctl dispatch workspace e+1",
         "format-icons": {
-            "visible": " ",
-            "urgent": " "
+            "visible": "",
+            "urgent": ""
         }
     },
     "idle_inhibitor": {
         "format": "{icon}",
         "format-icons": {
-            "deactivated": "󰛊",
-            "activated": "󰅶"
+            "deactivated": "[ 󰛊 ]",
+            "activated": "[ 󰅶 ]"
         }
     },
     "tray": {
@@ -42,8 +43,8 @@
         "format-alt": "{:%Y-%m-%d}"
     },
     "backlight": {
-        "format": "󰃠  {percent}% {icon}",
-        "format-icons": ["█░░░░", "██░░░", "███░░", "████░░", "█████"]
+        "format": "󰃠 {percent}% {icon}",
+        "format-icons": ["█░░░░░", "██░░░░", "███░░░", "████░░░", "█████░", "██████"]
     },
     "battery": {
         "states": {
@@ -54,16 +55,25 @@
         "format-full": "󰁽 {capacity}% {icon}",
         "format-charging": " {capacity}% {icon}",
         "format-plugged": " {capacity}% {icon}",
-        "format-icons": ["█░░░░", "██░░░", "███░░", "████░░", "█████"],
+        "format-icons": ["█░░░░░", "██░░░░", "███░░░", "████░░░", "█████░", "██████"],
         "interval": 10
     },
-    "wireplumber": {
+    "pulseaudio": {
         "states": {
             "critical": 50,
             "normal": 1
         },
-        "format": " {volume}% {icon}",
-        "format-muted": "  {volume}% {icon}",
-        "format-icons": ["█░░░░", "██░░░", "███░░", "████░░", "█████"]
+        "format": " {volume}% {icon}",
+        "format-muted": " {volume}% {icon}",
+        "format-icons": ["█░░░░░", "██░░░░", "███░░░", "████░░░", "█████░", "██████"]
+    },
+    "pulseaudio#input": {
+        "states": {
+            "critical": 50,
+            "normal": 1
+        },
+        "format": "{format_source}",
+        "format-source": "[  ]",
+        "format-source-muted": "[  ]",
     }
 }

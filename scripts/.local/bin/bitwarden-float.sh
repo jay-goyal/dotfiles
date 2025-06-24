@@ -19,8 +19,8 @@ atX=$(hyprctl clients -j | jq '.[] | select(.title | contains("Bitwarden")) | .a
 atY=$(hyprctl clients -j | jq '.[] | select(.title | contains("Bitwarden")) | .at[1]')
 
 # Calculate the desired size and position
-target_width=300
-target_height=500
+target_width=350
+target_height=600
 
 # you need to enter your display resolution to center the window (mine was 1980x1080)
 target_x=$((1920 / 2 - target_width / 2))
@@ -39,10 +39,3 @@ command="hyprctl dispatch resizewindowpixel -- \"$diff_width\" \"$diff_height\",
 eval "$command"
 command="hyprctl dispatch movewindowpixel -- \"$diff_x\" \"$diff_y\",address:\"$address\""
 eval "$command"
-
-#echo "address: $address"
-#echo "diff_x: $diff_x"
-#echo "diff_y: $diff_y"
-
-# Introduce a delay to avoid overwhelming the system
-#sleep 0.5

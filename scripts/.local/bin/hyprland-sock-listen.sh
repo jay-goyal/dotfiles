@@ -2,9 +2,8 @@
 
 function handle {
   if [[ ${1:0:10} == "openwindow" ]] then
-    sleep 0.1
+    sleep 0.5
     ~/.local/bin/bitwarden-float.sh
-    echo "hi there buddy"
   fi
 }
 
