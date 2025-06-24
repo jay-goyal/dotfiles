@@ -22,3 +22,4 @@ Required Programs for Setup:
 - NM Applet
 - Blueman Applet
 - Wireplumber
+- Udiskie
