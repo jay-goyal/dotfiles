@@ -54,6 +54,11 @@ label.module {
     animation-direction: alternate;
 }
 
+
+#wireplumber.critical {
+    animation-name: none;
+}
+
 #wireplumber {
     color: @red;
 }
