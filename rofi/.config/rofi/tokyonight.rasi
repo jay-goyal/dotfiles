@@ -1,16 +1,9 @@
-/*
- * Tokyonight colorscheme (big icons) for rofi
- * User: w8ste
- */
-
-
-// define colors etc.
 * {
-    bg: #24283b;
+    bg: #16161e;
     hv: #A9B1D6; 
     primary: #7AA2F7; 
     ug: #0B2447;
-    font: "FiraCodeMono Nerd Font Mono 13";
+    font: "FiraCodeMono Nerd Font Mono 14";
     background-color: @bg;
     border: 0px;
     kl: #A9B1D6;
@@ -22,20 +15,17 @@
 // defines different aspects of the window
 window {
     width: 700;
-    /*since line wont work with height, i comment it out 
-    if you rather control the size via height
-    just comment it out */
-    //height: 500;
-
+    // height: 500;
     orientation: horizontal;
-    location: center;
-    anchor: center;
-    transparency: "screenshot";
+    location: north;
+    anchor: north;
     border-color: @transparent;   
     border: 0px;
     border-radius: 0px;
     spacing: 0;
     children: [ mainbox ];
+    x-offset: 0;
+    y-offset: 0;
 }
 
 mainbox {
@@ -45,7 +35,7 @@ mainbox {
 
 inputbar {
     color: @kl;
-    padding: 11px;
+    padding: 10px;
     border: 1px;
     border-color: @primary;
     border-radius: 0px;

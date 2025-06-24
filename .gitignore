@@ -7,3 +7,4 @@ scripts/.local/bin/*
 !scripts/.local/bin/popup_tmux_common.sh
 !scripts/.local/bin/tmux-sessionizer.sh
 !scripts/.local/bin/waybar.sh
+!scripts/.local/bin/powermenu.sh

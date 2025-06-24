@@ -54,7 +54,8 @@
         "format-full": "󰁽 {capacity}% {icon}",
         "format-charging": " {capacity}% {icon}",
         "format-plugged": " {capacity}% {icon}",
-        "format-icons": ["█░░░░", "██░░░", "███░░", "████░░", "█████"]
+        "format-icons": ["█░░░░", "██░░░", "███░░", "████░░", "█████"],
+        "interval": 10
     },
     "wireplumber": {
         "states": {

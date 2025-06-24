@@ -2,9 +2,8 @@ configuration{
     modi: ["drun", "window", "run"];
     icon-theme: "Papirus-Dark";
     show-icons: true;
-    terminal: "wezterm";
+    terminal: "wezterm start";
     drun-display-format: "{icon} {name}";
-    location: 0;
     disable-history: false;
     sidebar-mode: false;
     display-drun: " ";
@@ -27,4 +26,4 @@ configuration{
     kb-mode-complete: "Control+o";
 }
 
-@theme ".config/rofi/tokyonight.rasi"
+@theme "/home/jay/.config/rofi/tokyonight.rasi"
