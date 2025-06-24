@@ -1,9 +1,24 @@
 # Dotfiles
 
-Programs:
+Main Programs:
 
 - Terminal: WezTerm
-- DE: KDE
+- WM: Hyprland
 - Editor: Neovim
 - Prompt: oh-my-posh
 - Shell: zsh
+
+Required Programs for Setup:
+- Hyprland
+- Neovim
+- ZSH
+- WezTerm
+- Rofi
+- Waybar
+- Hyprland Desktop Portal
+- Hypr Polkit Agent
+- Tokyonight GTK Theme
+- Cliphist
+- NM Applet
+- Blueman Applet
+- Wireplumber

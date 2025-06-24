@@ -8,3 +8,4 @@ scripts/.local/bin/*
 !scripts/.local/bin/tmux-sessionizer.sh
 !scripts/.local/bin/waybar.sh
 !scripts/.local/bin/powermenu.sh
+!scripts/.local/bin/cliphist-rofi-img.sh

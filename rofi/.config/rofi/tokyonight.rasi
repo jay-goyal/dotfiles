@@ -8,7 +8,6 @@
     border: 0px;
     kl: #A9B1D6;
     black: #000000;
-
     transparent: rgba(46,52,64,0);
 }
 
@@ -98,7 +97,7 @@ element normal active {
 element-icon {
     background-color: inherit;
     text-color: inherit;
-    size: 2.5em;
+    size: 1em;
 }
 
 element normal urgent {

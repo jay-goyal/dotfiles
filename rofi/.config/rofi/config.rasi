@@ -1,14 +1,15 @@
 configuration{
-    modi: ["drun", "window", "run"];
+    modi: ["drun", "window", "run", "clipboard:~/.local/bin/cliphist-rofi-img.sh"];
     icon-theme: "Papirus-Dark";
     show-icons: true;
     terminal: "wezterm start";
     drun-display-format: "{icon} {name}";
     disable-history: false;
     sidebar-mode: false;
-    display-drun: " ";
+    display-drun: "󱕕 ";
     display-run: " ";
     display-window: " ";
+    display-clipboard: " ";
     
     //adding vim keybindings
     kb-row-up: "Up,Control+k";

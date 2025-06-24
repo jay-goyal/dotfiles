@@ -1,16 +1,4 @@
-#!/bin/bash
-
-# Define commands for each action
-POWEROFF="systemctl poweroff"
-REBOOT="systemctl reboot"
-LOCK="hyprlock"
-LOGOUT="hyprctl dispatch exit"
-
-# Rofi command with -show-icons and existing theme
-ROFI_CMD="rofi -dmenu -i -p 'Power Menu' -show-icons"
-
-# Note: Assuming your theme is applied via ~/.config/rofi/config.rasi or -theme option
-# If you use a custom theme path, add: -theme ~/.config/rofi/your_theme.rasi to $ROFI_OPTS
+#!/bin/sh
 
 # Options with icon names (using standard icon names for -show-icons)
 OPTIONS=(
@@ -24,20 +12,20 @@ OPTIONS=(
 OPTIONS_STR=$(printf "%s\n" "${OPTIONS[@]}")
 
 # Show rofi menu and capture selection
-SELECTED=$(echo -e "$OPTIONS_STR" | $ROFI_CMD)
+SELECTED=$(echo -e "$OPTIONS_STR" | rofi -dmenu -i -p " " -show-icons)
 
 # Execute the selected action
 case "$SELECTED" in
-    "Power Off:poweroff")
-        $POWEROFF
+    "Power Off")
+        systemctl poweroff
         ;;
-    "Reboot:reboot")
-        $REBOOT
+    "Reboot")
+        systemctl reboot
         ;;
-    "Lock:lock")
-        $LOCK
+    "Lock")
+        hyprlock
         ;;
-    "Logout:logout")
-        $LOGOUT
+    "Logout")
+        hyprctl dispatch exit
         ;;
 esac
