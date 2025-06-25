@@ -98,6 +98,7 @@ alias pnx='pnpm dlx'
 alias zyp='sudo zypper'
 
 # git aliases
+alias g='git'
 alias gs='git status --short'
 alias ga='git add'
 alias gc='git commit'
@@ -107,7 +108,6 @@ alias gf='git pull'
 alias gd='git diff'
 alias gl='git log --oneline'
 alias gcl='git clone'
-alias gr='git restore'
 
 # tmux aliases
 alias tnew='tmux -u new-session -s'

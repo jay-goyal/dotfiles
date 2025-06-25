@@ -24,8 +24,9 @@
         "on-scroll-down": "hyprctl dispatch workspace e+1",
         "format-icons": {
             "visible": "",
+            "active": "",
             "urgent": ""
-        }
+        },
     },
     "idle_inhibitor": {
         "format": "{icon}",

@@ -3,7 +3,7 @@
     hv: #A9B1D6; 
     primary: #7AA2F7; 
     ug: #0B2447;
-    font: "FiraMono Nerd Font 14";
+    font: "FiraMono Nerd Font 13";
     background-color: @bg;
     border: 0px;
     kl: #A9B1D6;
