@@ -4,6 +4,7 @@
 OPTIONS=(
     "Power Off\0icon\x1fxfsm-shutdown"
     "Reboot\0icon\x1fxfsm-reboot"
+    "Hibernate\0icon\x1fsystem-suspend-hibernate"
     "Lock\0icon\x1fxfsm-lock"
     "Logout\0icon\x1fxfsm-logout"
 )
@@ -21,6 +22,9 @@ case "$SELECTED" in
         ;;
     "Reboot")
         systemctl reboot
+        ;;
+    "Hibernate")
+        $HOME/.local/bin/hibernate.sh
         ;;
     "Lock")
         hyprlock

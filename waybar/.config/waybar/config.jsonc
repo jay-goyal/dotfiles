@@ -69,10 +69,6 @@
         "format-icons": ["█░░░░░", "██░░░░", "███░░░", "████░░░", "█████░", "██████"]
     },
     "pulseaudio#input": {
-        "states": {
-            "critical": 50,
-            "normal": 1
-        },
         "format": "{format_source}",
         "format-source": "[  ]",
         "format-source-muted": "[  ]",

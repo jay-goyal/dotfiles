@@ -14,17 +14,16 @@
 // defines different aspects of the window
 window {
     width: 700;
-    height: 400;
     orientation: horizontal;
-    location: center;
-    anchor: center;
+    location: north;
+    anchor: north;
     border-color: @transparent;   
     border: 0px;
     border-radius: 0px;
     spacing: 0;
     children: [ mainbox ];
     x-offset: 0;
-    y-offset: 0;
+    y-offset: -35;
 }
 
 mainbox {
