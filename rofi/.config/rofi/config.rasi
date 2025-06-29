@@ -1,5 +1,6 @@
 configuration{
     modi: ["drun", "window", "run", "clipboard:~/.local/bin/cliphist-rofi-img.sh"];
+    matching: "fuzzy";
     icon-theme: "Papirus-Dark";
     show-icons: true;
     terminal: "wezterm start";

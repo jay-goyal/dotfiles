@@ -30,7 +30,19 @@ label.module {
     color: @fg;
 }
 
+#workspaces button.empty {
+    color: @comment;
+}
+
 #workspaces button.visible {
+    color: @yellow;
+}
+
+#workspaces button.visible {
+    color: @yellow;
+}
+
+#workspaces button.active {
     color: @orange;
 }
 
