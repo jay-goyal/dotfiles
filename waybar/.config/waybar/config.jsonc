@@ -26,8 +26,10 @@
             "visible": "",
             "active": "",
             "urgent": "",
+            "special": "S",
         },
         "all-outputs": true,
+        "show-special": true,
         "persistent-workspaces": {"*": 6}
     },
     "idle_inhibitor": {
@@ -47,7 +49,7 @@
     },
     "backlight": {
         "format": "󰃠 {percent}% {icon}",
-        "format-icons": ["█░░░░░", "██░░░░", "███░░░", "████░░░", "█████░", "██████"]
+        "format-icons": ["░░░░░░", "█░░░░░", "██░░░░", "███░░░", "████░░░", "█████░", "██████"],
     },
     "battery": {
         "states": {
@@ -58,7 +60,7 @@
         "format-full": "󰁽 {capacity}% {icon}",
         "format-charging": " {capacity}% {icon}",
         "format-plugged": " {capacity}% {icon}",
-        "format-icons": ["█░░░░░", "██░░░░", "███░░░", "████░░░", "█████░", "██████"],
+        "format-icons": ["░░░░░░", "█░░░░░", "██░░░░", "███░░░", "████░░░", "█████░", "██████"],
         "interval": 10
     },
     "pulseaudio": {
@@ -67,8 +69,8 @@
             "normal": 1
         },
         "format": " {volume}% {icon}",
-        "format-muted": " {volume}% {icon}",
-        "format-icons": ["█░░░░░", "██░░░░", "███░░░", "████░░░", "█████░", "██████"]
+        "format-muted": " {volume}% ░░░░░░",
+        "format-icons": ["░░░░░░", "█░░░░░", "██░░░░", "███░░░", "████░░░", "█████░", "██████"]
     },
     "pulseaudio#input": {
         "format": "{format_source}",

@@ -1,8 +1,9 @@
 @import "theme.css";
 
 * {
-    font-family: 'FiraMono Nerd Font Mono', sans-serif;
+    font-family: 'FiraMono Nerd Font Propo', sans-serif;
     font-size: 14px;
+    border-radius: 0;
 }
 
 window#waybar {
@@ -26,16 +27,16 @@ label.module {
     }
 }
 
+#workspaces button label {
+    font-family: 'FiraMono Nerd Font Mono', sans-serif;
+}
+
 #workspaces button {
     color: @fg;
 }
 
 #workspaces button.empty {
     color: @comment;
-}
-
-#workspaces button.visible {
-    color: @yellow;
 }
 
 #workspaces button.visible {
