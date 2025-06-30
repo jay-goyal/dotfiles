@@ -13,13 +13,15 @@ Required Programs for Setup:
 - Neovim
 - ZSH
 - WezTerm
-- Rofi
+- Rofi Wayland
 - Waybar
 - Hyprland Desktop Portal
-- Hypr Polkit Agent
+- LXSession
 - Tokyonight GTK Theme
 - Cliphist
 - NM Applet
 - Blueman Applet
 - Wireplumber
 - Udiskie
+- HyprIdle
+- HyprShot GUI

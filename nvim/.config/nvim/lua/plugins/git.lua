@@ -40,4 +40,5 @@ return {
     keys = {
         { "<leader>vb", mode = { "n" }, "<cmd>Gitsigns blame_line<cr>" },
     },
+    lazy = false,
 }
