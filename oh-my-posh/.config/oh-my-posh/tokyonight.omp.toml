@@ -27,7 +27,7 @@ foreground = 'p:terminal-blue'
 background = 'transparent'
 
 [transient_prompt]
-template = '➜ '
+template = '{{ if .Env.container }}(󰏖 {{ .Env.container | title }}) {{end}}➜ '
 foreground = "p:terminal-red"
 foreground_templates = [
   '{{ if eq .Code 0 }}p:terminal-blue{{ end }}',
@@ -83,7 +83,7 @@ type = 'python'
 style = 'plain'
 
 [[blocks.segments]]
-template = 'ﳑ {{ .Full }}'
+template = ' {{ .Full }}'
 foreground = 'p:light-sky-blue'
 type = 'go'
 style = 'plain'
@@ -107,6 +107,18 @@ style = 'round'
 type = 'prompt'
 alignment = 'left'
 newline = true
+
+[[blocks.segments]]
+type = 'text'
+style = 'plain'
+foreground = "p:terminal-red"
+foreground_templates = [
+  '{{ if eq .Code 0 }}p:terminal-blue{{ end }}',
+]
+template = '{{ if .Env.container }}(󰏖 {{ .Env.container | title }}) {{end}}'
+
+  [blocks.segments.properties]
+fetch_version = false
 
 [[blocks.segments]]
 template = '➜'
