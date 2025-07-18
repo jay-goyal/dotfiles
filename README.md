@@ -25,3 +25,6 @@ Required Programs for Setup:
 - Udiskie
 - HyprIdle
 - HyprShot GUI
+- HyprLock
+- Nautilus
+- Firefox
