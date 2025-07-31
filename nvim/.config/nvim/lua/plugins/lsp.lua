@@ -4,7 +4,7 @@ return {
         ensure_installed = {
             "asm_lsp", -- ASM
             "clangd", -- C/C++
-            "hls", -- Haskell
+            -- "hls", -- Haskell
             "lua_ls", -- Lua
             "jedi_language_server", -- Python
             "rust_analyzer", -- Rust

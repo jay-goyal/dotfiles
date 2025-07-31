@@ -79,7 +79,7 @@ export CROSS_PREFIX="$OPT/cross"
 export PATH="$CROSS_PREFIX/bin:$PATH"
 
 # other commands
-alias c="clear"
+alias clear='clear && tmux clear-history 2>/dev/null || true'
 alias v="nvim"
 alias vim="nvim"
 alias grep="rg"
