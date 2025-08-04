@@ -30,7 +30,6 @@
         },
         "all-outputs": true,
         "show-special": true,
-        "persistent-workspaces": {"*": 6}
     },
     "idle_inhibitor": {
         "format": "{icon}",
