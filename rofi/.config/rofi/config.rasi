@@ -28,4 +28,4 @@ configuration{
     kb-mode-complete: "Control+o";
 }
 
-@theme "/home/jay/.config/rofi/tokyonight.rasi"
+@theme "~/.config/rofi/tokyonight.rasi"

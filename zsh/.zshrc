@@ -80,9 +80,9 @@ export PATH="$CROSS_PREFIX/bin:$PATH"
 
 # other commands
 alias clear='clear && tmux clear-history 2>/dev/null || true'
+alias c='clear && tmux clear-history 2>/dev/null || true'
 alias v="nvim"
 alias vim="nvim"
-alias grep="rg"
 
 # ls aliases
 alias ls='eza --color=always --group-directories-first' # my preferred listing
@@ -115,11 +115,9 @@ export TMUXIFIER_LAYOUT_PATH="$HOME/.tmux_layouts"
 
 # Keybinds
 bindkey -s '^f' "$HOME/.local/bin/tmux-sessionizer.sh\n"
-bindkey '^n' autosuggest-accept
-bindkey '^d' history-search-forward
-bindkey '^u' history-search-backward
+bindkey '^e' autosuggest-accept
 bindkey '^r' fzf-history-widget
-bindkey '^e' fzf-cd-widget
+bindkey '^n' fzf-cd-widget
 
 eval "$(oh-my-posh init zsh --config $HOME/.config/oh-my-posh/tokyonight.omp.toml)"
 eval "$(tmuxifier init -)"
