@@ -40,7 +40,7 @@ label.module {
 }
 
 #workspaces button.visible {
-    color: @yellow;
+    color: @orange;
 }
 
 #workspaces button.active {

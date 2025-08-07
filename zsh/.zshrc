@@ -87,8 +87,8 @@ alias vim="nvim"
 # ls aliases
 alias ls='eza --color=always --group-directories-first' # my preferred listing
 alias l='eza --color=always --group-directories-first' # my preferred listing
-alias la='eza --git -al --color=always --group-directories-first'  # all files and dirs
-alias ll='eza --git -l --color=always --group-directories-first'  # long format
+alias la='eza --git -al --group --color=always --group-directories-first'  # all files and dirs
+alias ll='eza --git -l --group --color=always --group-directories-first'  # long format
 alias lt='eza -aT --color=always --group-directories-first' # tree listing
 
 # package manager
