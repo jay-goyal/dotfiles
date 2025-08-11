@@ -44,18 +44,6 @@ alias lt='eza -aT --color=always --group-directories-first' # tree listing
 # package manager
 alias zyp='sudo zypper'
 
-# git aliases
-alias g='git'
-alias gs='git status --short'
-alias ga='git add'
-alias gc='git commit'
-alias gca='git commit --amend'
-alias gp='git push'
-alias gf='git pull'
-alias gd='git diff'
-alias gl='git log --oneline'
-alias gcl='git clone'
-
 # tmux aliases
 alias tnew='tmux -u new-session -s'
 alias tat='tmux -u attach-session -t'

@@ -1,12 +1,5 @@
 [alias]
-	s = status --short
-	a = add
-	c = commit
-	ca = commit --amend
-	p = push
-	f = pull
-	d = diff
-	l = log --oneline
-	cl = clone
+	stat = status --short
 	res = restore
 	sm = submodule
+    slog = log --oneline
