@@ -23,7 +23,7 @@ return {
                 "ninja",
                 "markdown",
                 "hyprlang",
-                "haskell",
+                -- "haskell",
             },
             auto_install = true,
             sync_install = false,
