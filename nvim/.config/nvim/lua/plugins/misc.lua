@@ -1,7 +1,4 @@
 return {
-    -- TMUX Navigation
-    "christoomey/vim-tmux-navigator",
-
     -- Indent Guides
     {
         "lukas-reineke/indent-blankline.nvim",

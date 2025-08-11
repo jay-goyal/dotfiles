@@ -55,11 +55,10 @@ style = 'powerlevel'
 max_width = 25
 
 [[blocks.segments]]
-template = '({{ .HEAD}}{{if or (gt .Ahead 0) (gt .Behind 0)}} {{ if gt .Ahead 0 }}{{ end }}{{ if gt .Behind 0 }}{{ end }}{{ end }})'
-foreground = 'p:pistachio-green'
+template = '({{ .HEAD}})'
+foreground = 'p:terminal-yellow'
 type = 'git'
 style = 'plain'
-foreground_templates = ['{{ if or (.Working.Changed) (.Staging.Changed) }}p:terminal-yellow{{ end }}', '{{ if or (gt .Ahead 0) (gt .Behind 0) }}p:terminal-magenta{{ end }}']
 
   [blocks.segments.properties]
 branch_icon = ' '
