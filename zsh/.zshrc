@@ -24,6 +24,9 @@ OPT="$HOME/opt"
 # FZF History Search
 source <(fzf --zsh)
 
+# direnv
+eval "$(direnv hook zsh)"
+
 # Cross Compilation
 export CROSS_PREFIX="$OPT/cross"
 export PATH="$CROSS_PREFIX/bin:$PATH"
@@ -48,7 +51,7 @@ alias zyp='sudo zypper'
 alias tnew='tmux -u new-session -s'
 alias tat='tmux -u attach-session -t'
 
-export PATH="$HOME/.cabal/bin:$HOME/.ghcup/bin:$HOME/.config/tmux/plugins/tmuxifier/bin:$HOME/.local/bin:$PATH"
+export PATH="$HOME/.config/tmux/plugins/tmuxifier/bin:$HOME/.local/bin:$PATH"
 export TMUXIFIER_LAYOUT_PATH="$HOME/.tmux_layouts"
 
 # Keybinds

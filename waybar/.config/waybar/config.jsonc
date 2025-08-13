@@ -27,7 +27,7 @@
             "urgent": "",
             "special": "S",
         },
-        "all-outputs": true,
+        "all-outputs": false,
         "show-special": true,
     },
     "idle_inhibitor": {
