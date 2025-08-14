@@ -12,7 +12,7 @@ export FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS'
 	--color=marker:#9ece6a,spinner:#9ece6a,header:#9ece6a
 	--color=gutter:-1'
 
-FZF_FD_OPTS="--hidden --follow --exclude '.git' --exclude '.cache' --exclude '.rustup' --exclude '.pyenv' --exclude '.npm'"
+FZF_FD_OPTS="--hidden --follow --no-ignore --exclude '.git' --exclude '.cache' --exclude '.rustup' --exclude '.pyenv' --exclude '.npm'"
 export FZF_DEFAULT_COMMAND="fd ${FZF_FD_OPTS}"
 export FZF_CTRL_T_COMMAND="fd ${FZF_FD_OPTS}"
 export FZF_ALT_C_COMMAND="fd --type d ${FZF_FD_OPTS}"

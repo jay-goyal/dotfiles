@@ -41,6 +41,7 @@ return {
             hidden = true, -- Show hidden files
             ignore_current_buffer = true,
             follow = true, -- Follow symlinks
+            cmd = "fd --hidden --follow --no-ignore --exclude '.git' --exclude '.cache' --exclude '.rustup' --exclude '.pyenv' --exclude '.npm'",
         },
         grep = {
             hidden = true,
