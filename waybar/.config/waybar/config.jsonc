@@ -63,8 +63,7 @@
     },
     "pulseaudio": {
         "states": {
-            "critical": 50,
-            "normal": 1
+            "normal": 40
         },
         "format": " {volume}% {icon}",
         "format-muted": " {volume}% ░░░░░░",
