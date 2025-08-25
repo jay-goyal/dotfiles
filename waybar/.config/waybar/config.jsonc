@@ -65,6 +65,7 @@
         "states": {
             "normal": 40
         },
+        "on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
         "format": " {volume}% {icon}",
         "format-muted": " {volume}% ░░░░░░",
         "format-icons": ["░░░░░░", "█░░░░░", "██░░░░", "███░░░", "████░░░", "█████░", "██████"]
