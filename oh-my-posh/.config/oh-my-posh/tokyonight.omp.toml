@@ -62,7 +62,7 @@ style = 'plain'
 
   [blocks.segments.properties]
 branch_icon = ' '
-fetch_status = true
+fetch_status = false
 
 [[blocks]]
 type = 'prompt'
