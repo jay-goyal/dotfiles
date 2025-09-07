@@ -13,6 +13,7 @@ return {
                     lua = { "stylua" },
                     -- haskell = { "fourmolu", "stylish-haskell" },
                     python = { "ruff_organize_imports", "ruff_format" },
+                    go = { "gofmt" },
                 },
                 format_on_save = {
                     lsp_fallback = true,

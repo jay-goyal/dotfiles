@@ -30,7 +30,8 @@ return {
         keymap({ "n", "v" }, "<leader>bh", dap_wid.hover, opts)
 
         mason_dap.setup({
-            ensure_installed = { "codelldb", "python" },
+            automatic_installation = true,
+            ensure_installed = { "codelldb", "python", "delve" },
             handlers = {}, -- sets up dap in the predefined manner
         })
 

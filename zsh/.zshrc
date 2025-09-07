@@ -57,6 +57,8 @@ bindkey -s '^f' "$HOME/.local/bin/tmux-sessionizer.sh\n"
 bindkey '^e' autosuggest-accept
 bindkey '^r' fzf-history-widget
 bindkey '^n' fzf-cd-widget
+bindkey '^j' history-search-forward
+bindkey '^k' history-search-backward
 
 eval "$(oh-my-posh init zsh --config $HOME/.config/oh-my-posh/tokyonight.omp.toml)"
 eval "$(tmuxifier init -)"
