@@ -31,7 +31,7 @@ return {
 
         mason_dap.setup({
             automatic_installation = true,
-            ensure_installed = { "codelldb", "python", "delve" },
+            ensure_installed = { "codelldb", "python" },
             handlers = {}, -- sets up dap in the predefined manner
         })
 

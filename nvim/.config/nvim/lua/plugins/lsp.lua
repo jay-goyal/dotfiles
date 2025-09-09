@@ -7,7 +7,6 @@ return {
             -- "hls", -- Haskell
             "lua_ls", -- Lua
             "jedi_language_server", -- Python
-            "gopls", -- Go
             "bashls", -- Shell
         },
     },

@@ -76,19 +76,19 @@ type = 'node'
 style = 'plain'
 
 [[blocks.segments]]
-template = ' {{ .Full }}{{if .Venv}} ({{ .Venv }}){{end}}'
+template = ' {{ .Full }}{{if .Venv}} ({{ .Venv }}){{end}} '
 foreground = 'p:terminal-yellow'
 type = 'python'
 style = 'plain'
 
 [[blocks.segments]]
-template = ' {{ .Full }}'
+template = ' {{ .Full }} '
 foreground = 'p:light-sky-blue'
 type = 'go'
 style = 'plain'
 
 [[blocks.segments]]
-template = ' {{ if .Error }}{{ .Error }}{{ else }}{{ .Full }}{{ end }}'
+template = ' {{ if .Error }}{{ .Error }}{{ else }}{{ .Full }}{{ end }} '
 type = 'rust'
 style = 'plain'
 foreground = 'p:terminal-red'

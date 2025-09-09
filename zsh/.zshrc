@@ -52,8 +52,15 @@ alias tat='tmux -u attach-session -t'
 export PATH="$HOME/.config/tmux/plugins/tmuxifier/bin:$HOME/.local/bin:$PATH"
 export TMUXIFIER_LAYOUT_PATH="$HOME/.tmux_layouts"
 
+# register tmux sessionizer as a widget
+tmux-sessionizer-widget() {
+  $HOME/.local/bin/tmux-sessionizer.sh
+  zle reset-prompt
+}
+zle -N tmux-sessionizer-widget
+
 # Keybinds
-bindkey -s '^f' "$HOME/.local/bin/tmux-sessionizer.sh\n"
+bindkey '^f' tmux-sessionizer-widget
 bindkey '^e' autosuggest-accept
 bindkey '^r' fzf-history-widget
 bindkey '^n' fzf-cd-widget
