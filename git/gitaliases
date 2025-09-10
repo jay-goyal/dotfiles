@@ -1,5 +1,7 @@
 [alias]
-	stat = status --short
-	res = restore
-	sm = submodule
-    slog = log --oneline
+    stat = status --short
+    res = restore
+    sm = submodule
+    l = log --oneline
+    cg = log --graph
+    fwlp = push --force-with-lease

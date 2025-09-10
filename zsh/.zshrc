@@ -69,6 +69,7 @@ bindkey '^k' history-search-backward
 
 eval "$(oh-my-posh init zsh --config $HOME/.config/oh-my-posh/tokyonight.omp.toml)"
 eval "$(tmuxifier init -)"
+eval "$(zoxide init zsh)"
 
 # Global Python Environment
 if [ -d "$HOME/global" ]; then
