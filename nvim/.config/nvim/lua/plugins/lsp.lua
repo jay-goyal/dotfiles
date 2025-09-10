@@ -4,10 +4,10 @@ return {
         ensure_installed = {
             "asm_lsp", -- ASM
             "clangd", -- C/C++
-            -- "hls", -- Haskell
             "lua_ls", -- Lua
             "jedi_language_server", -- Python
             "bashls", -- Shell
+            "zls", -- Zig
         },
     },
     dependencies = {

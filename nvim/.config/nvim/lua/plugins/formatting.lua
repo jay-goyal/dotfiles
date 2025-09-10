@@ -11,8 +11,8 @@ return {
                     c = { "clang-format" },
                     cpp = { "clang-format" },
                     lua = { "stylua" },
-                    -- haskell = { "fourmolu", "stylish-haskell" },
                     python = { "ruff_organize_imports", "ruff_format" },
+                    zig = { "zigfmt" },
                 },
                 format_on_save = {
                     lsp_fallback = true,
