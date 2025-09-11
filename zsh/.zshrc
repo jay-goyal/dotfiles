@@ -7,6 +7,9 @@ setopt autocd
 # Vi Mode
 bindkey -v
 bindkey jk vi-cmd-mode
+autoload -z edit-command-line
+zle -N edit-command-line
+bindkey -M vicmd '^V' edit-command-line
 
 # Basic auto/tab complete:
 source $HOME/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 2> /dev/null

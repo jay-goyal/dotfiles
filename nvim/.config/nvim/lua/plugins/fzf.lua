@@ -7,7 +7,7 @@ return {
         { "<leader>fr", mode = { "n" }, "<cmd>FzfLua live_grep<CR>" },
         { "<leader>fb", mode = { "n" }, "<cmd>FzfLua buffers<CR>" },
         { "<leader>fR", mode = { "n" }, "<cmd>FzfLua registers<CR>" },
-        { "<leader>fm", mode = { "n" }, "<cmd>FzfLua man_pages<CR>" },
+        { "<leader>fm", mode = { "n" }, "<cmd>FzfLua marks<CR>" },
     },
     opts = {
         winopts = {
