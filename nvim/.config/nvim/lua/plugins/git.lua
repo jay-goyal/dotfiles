@@ -40,6 +40,11 @@ return {
         },
         keys = {
             { "<leader>vb", mode = { "n" }, "<cmd>Gitsigns blame_line<cr>" },
+            { "<leader>vhh", mode = { "n" }, "<cmd>Gitsigns preview_hunk<cr>" },
+            { "<leader>vhp", mode = { "n" }, "<cmd>Gitsigns next_hunk<cr>" },
+            { "<leader>vhn", mode = { "n" }, "<cmd>Gitsigns prev_hunk<cr>" },
+            { "<leader>vhs", mode = { "n" }, "<cmd>Gitsigns stage_hunk<cr>" },
+            { "<leader>vhr", mode = { "n" }, "<cmd>Gitsigns reset_hunk<cr>" },
         },
         lazy = false,
     },
