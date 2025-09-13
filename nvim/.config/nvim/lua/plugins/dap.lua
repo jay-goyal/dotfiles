@@ -19,15 +19,15 @@ return {
             dap_ui.close()
         end
 
-        keymap("n", "<leader>bb", dap.toggle_breakpoint, opts)
-        keymap("n", "<leader>bc", dap.continue, opts)
-        keymap("n", "<leader>bn", dap.step_over, opts)
-        keymap("n", "<leader>bN", dap.step_into, opts)
-        keymap("n", "<leader>bo", dap.step_out, opts)
-        keymap("n", "<leader>bt", dap_ui.toggle, opts)
-        keymap("n", "<leader>br", dap.restart, opts)
-        keymap("n", "<leader>bT", terminate)
-        keymap({ "n", "v" }, "<leader>bh", dap_wid.hover, opts)
+        keymap("n", "<leader>db", dap.toggle_breakpoint, opts)
+        keymap("n", "<leader>dc", dap.continue, opts)
+        keymap("n", "<leader>dn", dap.step_over, opts)
+        keymap("n", "<leader>dN", dap.step_into, opts)
+        keymap("n", "<leader>do", dap.step_out, opts)
+        keymap("n", "<leader>dt", dap_ui.toggle, opts)
+        keymap("n", "<leader>dr", dap.restart, opts)
+        keymap("n", "<leader>dT", terminate)
+        keymap({ "n", "v" }, "<leader>dh", dap_wid.hover, opts)
 
         mason_dap.setup({
             automatic_installation = true,

@@ -70,19 +70,19 @@ return {
                 vim.api.nvim_create_autocmd("LspAttach", {
                     group = vim.api.nvim_create_augroup("UserLspConfig", {}),
                     callback = function(args)
-                        keymap("n", "<leader>gl", function()
+                        keymap("n", "<leader>ll", function()
                             vim.diagnostic.open_float({ border = "single" })
                         end, opts)
-                        keymap("n", "<leader>gD", vim.lsp.buf.declaration, opts)
-                        keymap("n", "<leader>gd", vim.lsp.buf.definition, opts)
-                        keymap("n", "<leader>gk", function()
+                        keymap("n", "<leader>lD", vim.lsp.buf.declaration, opts)
+                        keymap("n", "<leader>ld", vim.lsp.buf.definition, opts)
+                        keymap("n", "<leader>lk", function()
                             vim.lsp.buf.hover({ border = "single" })
                         end, opts)
-                        keymap("n", "<leader>gr", vim.lsp.buf.references, opts)
-                        keymap("n", "<leader>gR", vim.lsp.buf.rename, opts)
+                        keymap("n", "<leader>lr", vim.lsp.buf.references, opts)
+                        keymap("n", "<leader>lR", vim.lsp.buf.rename, opts)
                         keymap(
                             "n",
-                            "<leader>gca",
+                            "<leader>lca",
                             vim.lsp.buf.code_action,
                             opts
                         )

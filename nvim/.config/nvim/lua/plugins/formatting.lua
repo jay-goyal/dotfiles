@@ -21,7 +21,7 @@ return {
                 },
             })
 
-            keymap({ "n", "v" }, "<leader>gf", function()
+            keymap({ "n", "v" }, "<leader>lf", function()
                 conform.format({
                     lsp_fallback = true,
                     async = false,

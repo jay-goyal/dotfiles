@@ -1,17 +1,21 @@
 return {
-    -- Indent Guides
+    -- Indentation
     {
-        "lukas-reineke/indent-blankline.nvim",
-        main = "ibl",
-        opts = {},
+        "shellRaining/hlchunk.nvim",
+        event = { "BufReadPre", "BufNewFile" },
+        opts = {
+            indent = {
+                enable = true,
+                chars = { "│", "¦", "┆", "┊" },
+            },
+            line_num = { enable = true, style = "#e0af68" },
+        },
     },
-
     -- Misc
     "tpope/vim-sleuth",
     {
         "tpope/vim-surround",
         dependencies = { "tpope/vim-repeat" },
     },
-    "windwp/nvim-ts-autotag",
     "hiphish/rainbow-delimiters.nvim",
 }

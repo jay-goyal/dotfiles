@@ -41,7 +41,7 @@ end, opts)
 -- Misc
 keymap("n", "<leader>so", ":source %<CR>", opts)
 keymap("n", "<leader>sp", ":Lazy<CR>", opts)
-keymap("n", "<leader>gs", ":Mason<CR>", opts)
+keymap("n", "<leader>ls", ":Mason<CR>", opts)
 
 -- File
 keymap("n", "<leader>ft", ":Oil<CR>", opts)
@@ -55,7 +55,7 @@ keymap("n", "<C-n>", ":cn<CR>", opts)
 keymap("n", "<C-p>", ":cp<CR>", opts)
 
 -- Diagnostics
-keymap("n", "<leader>gt", vim.diagnostic.setqflist, opts)
+keymap("n", "<leader>lt", vim.diagnostic.setqflist, opts)
 
 -- Indents
 keymap("x", "<", "<gv")
