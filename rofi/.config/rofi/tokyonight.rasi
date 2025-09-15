@@ -13,17 +13,17 @@
 
 // defines different aspects of the window
 window {
-    width: 700;
+    width: 500;
     height: calc(100% + 29px);
     orientation: horizontal;
-    location: northwest;
-    anchor: northwest;
+    location: northeast;
+    anchor: northeast;
     border-color: @transparent;   
     border: 0px;
     border-radius: 0px;
     spacing: 0;
     children: [ mainbox ];
-    x-offset: 5;
+    x-offset: -5;
     y-offset: -34px;
 }
 
