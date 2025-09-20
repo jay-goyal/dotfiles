@@ -1,5 +1,5 @@
 configuration{
-    modi: ["drun", "window", "run", "clipboard:~/.local/bin/cliphist-rofi-img.sh"];
+    modi: ["drun", "window", "run", "clipboard:~/.local/bin/cliphist-rofi-img.sh", "volume:~/.local/bin/change-audio-output.sh"];
     matching: "fuzzy";
     icon-theme: "Papirus-Dark";
     show-icons: true;
@@ -11,6 +11,7 @@ configuration{
     display-run: " ";
     display-window: " ";
     display-clipboard: " ";
+    display-volume: " ";
     
     //adding vim keybindings
     kb-row-up: "Up,Control+k";
