@@ -14,7 +14,6 @@ vim.opt.rtp:prepend(lazypath)
 require("config.startup")
 require("config.keymap")
 require("plugin")
--- require("lsp-config")
 
 -- Theming
 vim.cmd.colorscheme("tokyonight")
