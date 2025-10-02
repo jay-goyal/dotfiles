@@ -57,5 +57,6 @@ return {
             { "<leader>va", mode = { "n" }, "<cmd>Git add .<cr>" },
             { "<leader>vp", mode = { "n" }, "<cmd>Git push<cr>" },
         },
+        lazy = false,
     },
 }
