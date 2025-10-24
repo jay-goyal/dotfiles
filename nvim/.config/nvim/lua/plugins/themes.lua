@@ -1,16 +1,17 @@
 return {
-    "folke/tokyonight.nvim",
+    "neanias/everforest-nvim",
+    version = false,
     lazy = false,
     priority = 1000,
+    name = "everforest",
     opts = {
-        style = "night",
-        transparent = true,
-        on_colors = function(colors)
-            colors.border = "#7aa2f7"
+        background = "hard",
+        ui_contrast = "high",
+        float_style = "dim",
+
+        on_highlights = function(hl, colors)
+            hl.WinBar = { bg = colors.none, fg = colors.fg }
+            hl.WinBarNC = { bg = colors.none, fg = colors.fg }
         end,
     },
-    on_highlights = function(hl, colors)
-        hl.WinBar = { bg = "NONE", fg = colors.fg }
-        hl.WinBarNC = { bg = "NONE", fg = colors.fg_dark }
-    end,
 }

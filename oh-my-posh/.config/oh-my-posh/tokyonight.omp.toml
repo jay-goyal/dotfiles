@@ -4,22 +4,14 @@ version = 3
 final_space = true
 
 [palette]
-blue-bell = '#9aa5ce'
-blue-black = '#565f89'
-celeste-blue = '#b4f9f8'
-light-sky-blue = '#7dcfff'
-main-bg = '#1a1b26'
-pastal-grey = '#cfc9c2'
-pistachio-green = '#9ece6a'
+light-sky-blue = '#7FBBB3'
+main-bg = '#272E33'
+pistachio-green = '#A7C080'
 t-background = 'p:main-bg'
-terminal-black = '#414868'
-terminal-blue = '#7aa2f7'
-terminal-green = '#73daca'
-terminal-magenta = '#bb9af7'
-terminal-red = '#f7768e'
-terminal-white = '#c0caf5'
-terminal-yellow = '#e0af68'
-white-blue = '#a9b1d6'
+terminal-blue = '#83C092'
+terminal-magenta = '#D699B6'
+terminal-red = '#E67E80'
+terminal-yellow = '#DBBC7F'
 
 [secondary_prompt]
 template = '➜ '

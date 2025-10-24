@@ -16,6 +16,6 @@ require("config.keymap")
 require("plugin")
 
 -- Theming
-vim.cmd.colorscheme("tokyonight")
+vim.cmd.colorscheme("everforest")
 vim.cmd("highlight! clear WinBar")
 vim.cmd("highlight! clear WinBarNC")

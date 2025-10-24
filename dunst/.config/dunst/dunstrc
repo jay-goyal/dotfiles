@@ -8,17 +8,17 @@ padding=10
 timeout=3
 
 [urgency_critical]
-background="#16161e"
-foreground="#db4b4b"
-frame_color="#db4b4b"
+background="#1E2326"
+foreground="#E67E80"
+frame_color="#E67E80"
 timeout=5
 
 [urgency_low]
-background="#16161e"
-foreground="#7aa2f7"
-frame_color="#7aa2f7"
+background="#1E2326"
+foreground="#3A94C5"
+frame_color="#3A94C5"
 
 [urgency_normal]
-background="#1a1b26"
-foreground="#ff9e64"
-frame_color="#ff9e64"
+background="#1E2326"
+foreground="#E69875"
+frame_color="#E69875"

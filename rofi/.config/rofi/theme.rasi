@@ -1,12 +1,11 @@
 * {
-    bg: #16161e;
-    hv: #A9B1D6; 
-    primary: #7AA2F7; 
-    ug: #0B2447;
+    bg: #272E33;
+    hv: #7FBBB3; 
+    primary: #7FBBB3; 
     font: "FiraMono Nerd Font 13";
     background-color: @bg;
     border: 0px;
-    kl: #A9B1D6;
+    kl: #D3C6AA;
     black: #000000;
     transparent: rgba(46,52,64,0);
 }
