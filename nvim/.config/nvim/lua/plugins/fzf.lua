@@ -9,6 +9,7 @@ return {
         { "<leader>fR", mode = { "n" }, "<cmd>FzfLua registers<CR>" },
         { "<leader>fm", mode = { "n" }, "<cmd>FzfLua marks<CR>" },
         { "<leader>f/", mode = { "n" }, "<cmd>FzfLua grep_curbuf<CR>" },
+        { "<leader>fh", mode = { "n" }, "<cmd>FzfLua helptags<CR>" },
     },
     opts = {
         winopts = {
