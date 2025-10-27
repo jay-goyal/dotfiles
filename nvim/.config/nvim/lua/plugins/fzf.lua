@@ -8,6 +8,7 @@ return {
         { "<leader>fb", mode = { "n" }, "<cmd>FzfLua buffers<CR>" },
         { "<leader>fR", mode = { "n" }, "<cmd>FzfLua registers<CR>" },
         { "<leader>fm", mode = { "n" }, "<cmd>FzfLua marks<CR>" },
+        { "<leader>f/", mode = { "n" }, "<cmd>FzfLua grep_curbuf<CR>" },
     },
     opts = {
         winopts = {
