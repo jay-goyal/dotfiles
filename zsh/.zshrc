@@ -52,7 +52,7 @@ alias zyp='sudo zypper'
 alias tnew='tmux -u new-session -s'
 alias tat='tmux -u attach-session -t'
 
-export PATH="$HOME/zig/:$HOME/.config/tmux/plugins/tmuxifier/bin:$HOME/.local/bin:$PATH"
+export PATH="$HOME/zig:$HOME/.config/tmux/plugins/tmuxifier/bin:$HOME/.local/bin:$PATH"
 export TMUXIFIER_LAYOUT_PATH="$HOME/.tmux_layouts"
 
 # register tmux sessionizer as a widget
@@ -70,6 +70,6 @@ bindkey '^n' fzf-cd-widget
 bindkey '^j' history-search-forward
 bindkey '^k' history-search-backward
 
-eval "$(oh-my-posh init zsh --config $HOME/.config/oh-my-posh/tokyonight.omp.toml)"
+eval "$(oh-my-posh init zsh --config $HOME/.config/oh-my-posh/custom.omp.toml)"
 eval "$(tmuxifier init -)"
 eval "$(zoxide init zsh)"
