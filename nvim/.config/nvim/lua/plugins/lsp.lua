@@ -23,7 +23,7 @@ return {
         },
         {
             "neovim/nvim-lspconfig",
-            dependencies = { "SmiteshP/nvim-navic", "saghen/blink.cmp" },
+            dependencies = { "saghen/blink.cmp" },
             config = function()
                 local signs = {
                     { name = "DiagnosticSignError", text = "" },
@@ -86,24 +86,6 @@ return {
                             vim.lsp.buf.code_action,
                             opts
                         )
-
-                        local navic = require("nvim-navic")
-                        local bufnr = args.buf
-                        local client =
-                            vim.lsp.get_client_by_id(args.data.client_id)
-
-                        if not vim.b[bufnr].navic_attached then
-                            if
-                                client.server_capabilities.documentSymbolProvider
-                            then
-                                navic.attach(client, bufnr)
-                                vim.o.winbar =
-                                    "%{%v:lua.require'nvim-navic'.get_location()%}"
-                                vim.b[bufnr].navic_attached = true
-                            else
-                                vim.o.winbar = ""
-                            end
-                        end
                     end,
                 })
             end,
