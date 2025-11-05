@@ -9,5 +9,5 @@ else
 	popup_session="${current_session}-popup"
 
 	# Create the popup with the new session name
-	tmux popup -b rounded -E -w 80% -h 80% "tmux -u attach -t $popup_session || tmux -u new -s $popup_session"
+	tmux popup -E -w 80% -h 80% "tmux -u attach -t $popup_session || tmux -u new -s $popup_session"
 fi

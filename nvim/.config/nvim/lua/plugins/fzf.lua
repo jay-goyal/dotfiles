@@ -49,6 +49,7 @@ return {
             hidden = true,
             prompt = "Grep   ",
             exec_empty_query = true,
+            rg_glob = true,
         },
         git = {
             files = {

@@ -7,8 +7,9 @@ return {
             indent = {
                 enable = true,
                 chars = { "│", "¦", "┆", "┊" },
+                style = "#404749",
             },
-            line_num = { enable = true, style = "#e0af68" },
+            line_num = { enable = true, style = "#e5c76b" },
         },
     },
     -- Misc

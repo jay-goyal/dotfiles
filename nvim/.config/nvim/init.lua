@@ -16,6 +16,8 @@ require("config.keymap")
 require("plugin")
 
 -- Theming
-vim.cmd.colorscheme("everforest")
-vim.cmd("highlight! clear WinBar")
-vim.cmd("highlight! clear WinBarNC")
+vim.cmd.colorscheme("everblush")
+vim.api.nvim_set_hl(0, "NormalFloat", { bg = "#232a2d" })
+vim.api.nvim_set_hl(0, "LineNr", { fg = "#b3b9b8" })
+vim.api.nvim_set_hl(0, "CurrentLineNr", { fg = "#b3b9b8" })
+vim.api.nvim_set_hl(0, "Substitute", { fg = "#e57474" })

@@ -3,5 +3,5 @@
 if [[ "$(tmux display-message -p -F '#{session_name}')" == *popup ]]; then
 	tmux detach-client
 else
-	tmux popup -b rounded -E -w 80% -h 80% "tmux -u attach -t popup || tmux -u new -s popup"
+	tmux popup -E -w 80% -h 80% "tmux -u attach -t popup || tmux -u new -s popup"
 fi

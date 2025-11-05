@@ -73,3 +73,4 @@ bindkey '^k' history-search-backward
 eval "$(oh-my-posh init zsh --config $HOME/.config/oh-my-posh/custom.omp.toml)"
 eval "$(tmuxifier init -)"
 eval "$(zoxide init zsh)"
+eval "$(fnm env --use-on-cd --shell zsh)"
