@@ -6,9 +6,9 @@ export MANWIDTH=100
 
 # FZF Theme
 export FZF_DEFAULT_OPTS='
-  --color bg:#232a2d,fg:#b3b9b8
+  --color bg:#141b1e,fg:#b3b9b8
   --color bg+:#141b1e,fg+:#67b0e8
-  --color hl:#dadada,hl+:#e5c76b,gutter:#232a2d
+  --color hl:#dadada,hl+:#e57474,gutter:#232a2d
   --color pointer:#67b0e8,info:#606672'
 
 FZF_FD_OPTS="--hidden --follow --no-ignore --exclude '.git' --exclude '.cache' --exclude '.rustup' --exclude '.pyenv' --exclude '.npm'"

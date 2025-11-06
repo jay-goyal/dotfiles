@@ -12,7 +12,7 @@ return {
 			yellow   = '#e5c76b',
 			cyan     = '#6cbfbf',
 			green    = '#8ccf7e',
-			orange   = '#e58774',
+			orange   = '#ff9e66',
 			violet   = '#c47fd5',
 			magenta  = '#c47fd5',
 			blue     = '#67b0e8',
