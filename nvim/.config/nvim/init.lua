@@ -16,17 +16,4 @@ require("config.keymap")
 require("plugin")
 
 -- Theming
-vim.cmd.colorscheme("everblush")
-vim.api.nvim_set_hl(0, "NormalFloat", { bg = "#232a2d" })
-vim.api.nvim_set_hl(0, "Float", { bg = "#232a2d" })
-vim.api.nvim_set_hl(0, "FloatBorder", { bg = "#232a2d", fg = "#8ccf7e" })
-vim.api.nvim_set_hl(0, "LineNr", { fg = "#b3b9b8" })
-vim.api.nvim_set_hl(0, "CurrentLineNr", { fg = "#b3b9b8" })
-vim.api.nvim_set_hl(0, "Substitute", { fg = "#141b1e", bg = "#e57474" })
-vim.api.nvim_set_hl(0, "Search", { fg = "#141b1e", bg = "#e57474" })
-vim.api.nvim_set_hl(0, "IncSearch", { fg = "#141b1e", bg = "#e57474" })
-vim.api.nvim_set_hl(
-    0,
-    "SpellBad",
-    { fg = "#e57474", sp = "#e57474", undercurl = true }
-)
+vim.cmd.colorscheme("tokyonight")

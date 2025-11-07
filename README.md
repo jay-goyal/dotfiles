@@ -1,7 +1,6 @@
 # Dotfiles
 
 Main Programs:
-
 - Terminal: Ghostty
 - WM: Hyprland
 - Editor: Neovim
@@ -17,7 +16,6 @@ Required Programs for Setup:
 - Waybar
 - Hyprland Desktop Portal
 - LXSession
-- Everblush GTK Theme
 - Cliphist
 - NM Applet
 - Blueman Applet

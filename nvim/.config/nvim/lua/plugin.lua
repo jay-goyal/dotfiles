@@ -5,7 +5,7 @@ end
 
 lazy.setup({
     ui = { border = "single" },
-    install = { colorscheme = { "everblush" } },
+    install = { colorscheme = { "tokyonight" } },
     spec = { import = "plugins" },
     rocks = { hererocks = true },
 })

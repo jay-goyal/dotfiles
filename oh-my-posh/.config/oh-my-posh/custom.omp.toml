@@ -4,14 +4,14 @@ version = 3
 final_space = true
 
 [palette]
-light-sky-blue = '#6cbfbf'
-main-bg = '#232a2d'
-pistachio-green = '#8ccf7e'
+light-sky-blue = '#7dcfff'
+main-bg = '#1a1b26'
+pistachio-green = '#9ece6a'
 t-background = 'p:main-bg'
-terminal-blue = '#67b0e8'
-terminal-magenta = '#c47fd5'
-terminal-red = '#e57474'
-terminal-yellow = '#e5c76b'
+terminal-blue = '#7aa2f7'
+terminal-magenta = '#bb9af7'
+terminal-red = '#f7768e'
+terminal-yellow = '#e0af68'
 
 [secondary_prompt]
 template = '➜ '
