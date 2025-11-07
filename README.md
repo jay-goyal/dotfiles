@@ -2,7 +2,7 @@
 
 Main Programs:
 
-- Terminal: WezTerm
+- Terminal: Ghostty
 - WM: Hyprland
 - Editor: Neovim
 - Prompt: oh-my-posh
@@ -12,12 +12,12 @@ Required Programs for Setup:
 - Hyprland
 - Neovim
 - ZSH
-- WezTerm
+- Ghostty
 - Rofi Wayland
 - Waybar
 - Hyprland Desktop Portal
 - LXSession
-- Tokyonight GTK Theme
+- Everblush GTK Theme
 - Cliphist
 - NM Applet
 - Blueman Applet

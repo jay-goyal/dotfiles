@@ -25,3 +25,8 @@ vim.api.nvim_set_hl(0, "CurrentLineNr", { fg = "#b3b9b8" })
 vim.api.nvim_set_hl(0, "Substitute", { fg = "#141b1e", bg = "#e57474" })
 vim.api.nvim_set_hl(0, "Search", { fg = "#141b1e", bg = "#e57474" })
 vim.api.nvim_set_hl(0, "IncSearch", { fg = "#141b1e", bg = "#e57474" })
+vim.api.nvim_set_hl(
+    0,
+    "SpellBad",
+    { fg = "#e57474", sp = "#e57474", undercurl = true }
+)
