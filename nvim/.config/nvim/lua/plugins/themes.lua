@@ -8,6 +8,9 @@ return {
             hl.FloatBorder = { bg = colors.bg_dark, fg = colors.blue }
             hl.NormalFloatBorder = { bg = colors.bg_dark, fg = colors.blue }
             hl.FzfLuaBorder = { bg = colors.bg_dark, fg = colors.blue }
+            hl.TreesitterContext = { bg = colors.bg_dark }
+            hl.TreesitterContextSeparator =
+                { fg = colors.orange, bg = colors.bg_dark }
         end,
     },
 }

@@ -18,4 +18,5 @@ return {
         dependencies = { "tpope/vim-repeat" },
     },
     "hiphish/rainbow-delimiters.nvim",
+    "tpope/vim-repeat",
 }
