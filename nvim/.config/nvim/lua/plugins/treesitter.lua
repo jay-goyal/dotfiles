@@ -60,6 +60,20 @@ return {
                         },
                         include_surrounding_whitespace = true,
                     },
+                    move = {
+                        enable = true,
+                        set_jumps = true,
+                        goto_next_end = {
+                            ["<leader>tF"] = "@function.outer",
+                            ["<leader>tC"] = "@class.outer",
+                            ["<leader>tL"] = "@loop.outer",
+                        },
+                        goto_previous_start = {
+                            ["<leader>tf"] = "@function.outer",
+                            ["<leader>tc"] = "@class.outer",
+                            ["<leader>tl"] = "@loop.outer",
+                        },
+                    },
                 },
             })
         end,
