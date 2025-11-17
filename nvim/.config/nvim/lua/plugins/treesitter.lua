@@ -63,15 +63,17 @@ return {
                     move = {
                         enable = true,
                         set_jumps = true,
-                        goto_next_end = {
-                            ["<leader>tF"] = "@function.outer",
-                            ["<leader>tC"] = "@class.outer",
-                            ["<leader>tL"] = "@loop.outer",
-                        },
-                        goto_previous_start = {
+                        goto_next_start = {
                             ["<leader>tf"] = "@function.outer",
                             ["<leader>tc"] = "@class.outer",
                             ["<leader>tl"] = "@loop.outer",
+                            ["<leader>ti"] = "@conditional.outer",
+                        },
+                        goto_previous_start = {
+                            ["<leader>tF"] = "@function.outer",
+                            ["<leader>tC"] = "@class.outer",
+                            ["<leader>tL"] = "@loop.outer",
+                            ["<leader>tI"] = "@conditional.outer",
                         },
                     },
                 },

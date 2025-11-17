@@ -47,3 +47,5 @@ for k, v in pairs(globals) do
 end
 
 opt.isfname:append("@-@")
+opt.nrformats:append("octal")
+opt.nrformats:append("alpha")
