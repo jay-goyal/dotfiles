@@ -5,7 +5,7 @@ window-padding-balance = true
 theme = tokyonight_night
 
 font-family = "FiraCode Nerd Font Mono"
-font-size = 13
+font-size = 14
 font-feature = "-calt, -liga, -dlig"
 
 app-notifications = false

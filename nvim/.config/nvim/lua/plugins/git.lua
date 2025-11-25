@@ -50,13 +50,6 @@ return {
     },
     {
         "tpope/vim-fugitive",
-        keys = {
-            { "<leader>vs", mode = { "n" }, "<cmd>Git stat<cr>" },
-            { "<leader>vcc", mode = { "n" }, "<cmd>Git commit<cr>" },
-            { "<leader>vca", mode = { "n" }, "<cmd>Git commit --amend<cr>" },
-            { "<leader>va", mode = { "n" }, "<cmd>Git add .<cr>" },
-            { "<leader>vp", mode = { "n" }, "<cmd>Git push<cr>" },
-        },
         lazy = false,
     },
 }

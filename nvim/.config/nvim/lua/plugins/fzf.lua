@@ -26,13 +26,6 @@ return {
             },
         },
         keymap = {
-            builtin = {
-                ["<C-n>"] = "down",
-                ["<C-p>"] = "up",
-                ["<C-j>"] = "down",
-                ["<C-k>"] = "up",
-                ["<C-c>"] = "abort",
-            },
             fzf = {
                 ["ctrl-q"] = "select-all+accept",
             },

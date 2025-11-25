@@ -41,9 +41,11 @@ alias v="nvim"
 alias vim="nvim"
 
 # ls aliases
-alias ls='ls -h --color=always --group-directories-first' # my preferred listing
-alias la='ls -alh --color=always --group-directories-first'  # all files and dirs
-alias ll='ls -lh --color=always --group-directories-first'  # long format
+alias ls='eza --color=always --group-directories-first'
+alias l='eza --color=always --group-directories-first'
+alias la='eza --git -al --group --color=always --group-directories-first' 
+alias ll='eza --git -l --group --color=always --group-directories-first' 
+alias lt='eza -aT --color=always --group-directories-first'
 
 # package manager
 alias zyp='sudo zypper'

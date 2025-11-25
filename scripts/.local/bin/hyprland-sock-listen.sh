@@ -1,8 +1,8 @@
-#!/bin/sh
+#!/bin/bash
 
-function handle {
-  if [[ ${1:0:10} == "openwindow" ]] then
-    sleep 0.5
+handle() {
+  if [[ ${1:0:10} == "openwindow" ]]; then
+    sleep 0.1
     ~/.local/bin/bitwarden-float.sh
   fi
 }
