@@ -43,6 +43,7 @@ return {
             prompt = "Grep   ",
             exec_empty_query = true,
             rg_glob = true,
+            rg_opts = "--column --line-number --no-heading --color=always --smart-case --max-columns=4096 -g '!.git' -e",
         },
         git = {
             files = {
