@@ -16,7 +16,7 @@ return {
     {
         "jiaoshijie/undotree",
         opts = {
-            window = { border = "single" },
+            window = { border = "single", winblend = 0 },
         },
         keys = { -- load the plugin only when using it's keybinding:
             { "<leader>u", "<cmd>lua require('undotree').toggle()<cr>" },

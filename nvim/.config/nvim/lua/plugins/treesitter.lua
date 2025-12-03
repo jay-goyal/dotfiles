@@ -64,16 +64,16 @@ return {
                         enable = true,
                         set_jumps = true,
                         goto_next_start = {
+                            ["]f"] = "@function.outer",
+                            ["]c"] = "@class.outer",
+                            ["]l"] = "@loop.outer",
+                            ["]i"] = "@conditional.outer",
+                        },
+                        goto_previous_start = {
                             ["[f"] = "@function.outer",
                             ["[c"] = "@class.outer",
                             ["[l"] = "@loop.outer",
                             ["[i"] = "@conditional.outer",
-                        },
-                        goto_previous_start = {
-                            ["]F"] = "@function.outer",
-                            ["]C"] = "@class.outer",
-                            ["]L"] = "@loop.outer",
-                            ["]I"] = "@conditional.outer",
                         },
                     },
                 },
