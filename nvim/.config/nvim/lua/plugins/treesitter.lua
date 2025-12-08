@@ -23,6 +23,7 @@ return {
                     "ninja",
                     "markdown",
                     "hyprlang",
+                    "rust",
                 },
                 auto_install = true,
                 sync_install = false,

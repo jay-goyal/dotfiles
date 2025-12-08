@@ -54,7 +54,7 @@ alias zyp='sudo zypper'
 alias tnew='tmux -u new-session -s'
 alias tat='tmux -u attach-session -t'
 
-export PATH="$HOME/zig:$HOME/.config/tmux/plugins/tmuxifier/bin:$HOME/.local/bin:$PATH"
+export PATH="$HOME/.config/tmux/plugins/tmuxifier/bin:$HOME/.local/bin:$PATH"
 export TMUXIFIER_LAYOUT_PATH="$HOME/.tmux_layouts"
 
 # register tmux sessionizer as a widget

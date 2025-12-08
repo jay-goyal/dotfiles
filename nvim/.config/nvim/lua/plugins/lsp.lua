@@ -7,7 +7,7 @@ return {
             "lua_ls", -- Lua
             "jedi_language_server", -- Python
             "bashls", -- Shell
-            "zls", -- Zig
+            "rust_analyzer", -- Rust
         },
     },
     dependencies = {
