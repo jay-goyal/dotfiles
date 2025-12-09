@@ -31,4 +31,5 @@ EOF
 fi
 
 # Handle "run" phase from rofi
-run_hyprshot "$1"
+coproc ( run_hyprshot "$1" > /dev/null 2>&1 )
+exit 0
