@@ -1,17 +1,10 @@
 return {
     -- Indentation
     {
-        "shellRaining/hlchunk.nvim",
-        event = { "BufReadPre", "BufNewFile" },
-        opts = {
-            indent = {
-                enable = true,
-                chars = { "│", "¦", "┆", "┊" },
-            },
-            line_num = { enable = true, style = "#FF9E64" },
-        },
+        "lukas-reineke/indent-blankline.nvim",
+        main = "ibl",
+        opts = {},
     },
-
     -- Undotree
     {
         "jiaoshijie/undotree",
