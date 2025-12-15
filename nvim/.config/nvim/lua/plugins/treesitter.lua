@@ -1,6 +1,7 @@
 return {
     {
         "nvim-treesitter/nvim-treesitter",
+        branch = "master",
         build = function()
             local ts_update =
                 require("nvim-treesitter.install").update({ with_sync = false })
@@ -81,7 +82,7 @@ return {
             })
         end,
     },
-    "nvim-treesitter/nvim-treesitter-textobjects",
+    { "nvim-treesitter/nvim-treesitter-textobjects", branch = "master" },
     {
         "nvim-treesitter/nvim-treesitter-context",
         opts = {
