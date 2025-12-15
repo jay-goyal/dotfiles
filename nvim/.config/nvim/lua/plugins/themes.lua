@@ -11,6 +11,7 @@ return {
             hl.TreesitterContext = { bg = colors.bg_dark }
             hl.TreesitterContextSeparator =
                 { fg = colors.orange, bg = colors.bg_dark }
+            hl.WinSeparator = { fg = colors.blue }
         end,
     },
 }
