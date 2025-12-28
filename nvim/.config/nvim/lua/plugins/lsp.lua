@@ -8,6 +8,7 @@ return {
             "jedi_language_server", -- Python
             "bashls", -- Shell
             "rust_analyzer", -- Rust
+            "arduino_language_server", -- Arduino
         },
     },
     dependencies = {

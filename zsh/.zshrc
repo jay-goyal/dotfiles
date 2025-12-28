@@ -56,6 +56,7 @@ alias tat='tmux -u attach-session -t'
 
 export PATH="$HOME/.config/tmux/plugins/tmuxifier/bin:$HOME/.local/bin:$PATH"
 export TMUXIFIER_LAYOUT_PATH="$HOME/.tmux_layouts"
+export BOB_CONFIG="$HOME/.config/bob/config.toml"
 
 # register tmux sessionizer as a widget
 tmux-sessionizer-widget() {

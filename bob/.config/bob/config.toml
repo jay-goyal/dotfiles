@@ -1,0 +1,2 @@
+installation_location = "/home/jay/.local/bin"
+version_sync_file_location = "/home/jay/.config/bob/nvim_version"
