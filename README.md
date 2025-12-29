@@ -1,5 +1,7 @@
 # Dotfiles
 
+Repo has moved to: [Codeberg](https://codeberg.org/jay-goyal/dotfiles)
+
 Main Programs:
 - Terminal: Ghostty
 - WM: Hyprland
