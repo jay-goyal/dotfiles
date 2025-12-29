@@ -3,7 +3,7 @@ dynamic_padding = true
 
 [font]
 normal = { family = "FiraCode Nerd Font Mono", style = "Regular" }
-size = 12.5
+size = 13
 
 [colors.primary]
 background = '#1a1b26'
